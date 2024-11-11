@@ -35,7 +35,7 @@
 
 //Task 2. Array Transformations:a 
 // function double(number){
-//   return number.map();
+//   return number.map(n => n * 2);
 // }
 // console.log(double([1, 2, 3])); 
 
