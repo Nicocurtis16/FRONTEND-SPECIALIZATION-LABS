@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+}
+
+.clock-container {
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.time-display {
+    font-size: 7rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    margin: 20px 0;
+}
+
+.date-display {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+button, select {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.alarm-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255,255,255,0.1);
+}
+
+input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Theme Classes */
+.theme-green {
+    background: #1a2f1a;
+}
+.theme-green .clock-container {
+    background: #2d5a2d;
+    border: 2px solid #4CAF50;
+}
+.theme-green .time-display, .theme-green .date-display {
+    color: #4CAF50;
+}
+.theme-green button, .theme-green select, .theme-green input {
+    background: #4CAF50;
+    color: white;
+}
+
+.theme-blue {
+    background: #1a237e;
+}
+.theme-blue .clock-container {
+    background: #283593;
+    border: 2px solid #2196F3;
+}
+.theme-blue .time-display, .theme-blue .date-display {
+    color: #2196F3;
+}
+.theme-blue button, .theme-blue select, .theme-blue input {
+    background: #2196F3;
+    color: white;
+}
+
+.theme-purple {
+    background: #4a148c;
+}
+.theme-purple .clock-container {
+    background: #6a1b9a;
+    border: 2px solid #9C27B0;
+}
+.theme-purple .time-display, .theme-purple .date-display {
+    color: #9C27B0;
+}
+.theme-purple button, .theme-purple select, .theme-purple input {
+    background: #9C27B0;
+    color: white;
+}
+
+.theme-red {
+    background: #b71c1c;
+}
+.theme-red .clock-container {
+    background: #c62828;
+    border: 2px solid #f44336;
+}
+.theme-red .time-display, .theme-red .date-display {
+    color: #f44336;
+}
+.theme-red button, .theme-red select, .theme-red input {
+    background: #f44336;
+    color: white;
+}
