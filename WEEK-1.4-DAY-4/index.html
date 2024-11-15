@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Superhero Web App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Superhero Web App</h1>
+    <div class="hero-container">
+      <div class="hero-card">
+        <img src="/api/placeholder/300/400" alt="Superhero" class="hero-image">
+        <h2 class="hero-name">Captain America</h2>
+        <p class="hero-info">
+          Secret Identity: Steve Rogers<br>
+          Powers: Super Strength, Vibranium Shield, Enhanced Agility<br>
+          Weakness: Lack of understanding modern technology
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="superhero.usePower('Super Strength')">Use Power</button>
+          <button class="btn btn-secondary" onclick="superhero.revealIdentity()">Reveal Identity</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
