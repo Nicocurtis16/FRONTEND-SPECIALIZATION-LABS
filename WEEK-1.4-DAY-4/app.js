@@ -1,12 +1,10 @@
-// 1. Object Creation Basics
-const superhero = {
+    const superhero = {
     name: "Captain America",
     secretIdentity: "Steve Rogers",
     powers: ["Super Strength", "Vibranium Shield", "Enhanced Agility"],
     weakness: "Lack of understanding modern technology"
    };
    
-   // 2. Methods and Functionality
    superhero.usePower = function(powerName) {
     console.log(`${this.name} used their ${powerName} power!`);
    };
