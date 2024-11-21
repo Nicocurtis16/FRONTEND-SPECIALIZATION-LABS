@@ -1,0 +1,367 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    background-color: #18171F;
+    padding: 20px;
+    font-family: "JetBrains Mono", monospace;
+
+}
+
+.main-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 540px;
+    height: 632px;
+    background-color: #18171F;
+}
+
+.top-panel {
+    height: 80px;
+    width: 540px;
+    background-color: #24232C;
+}
+
+.down-panel {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 540px;
+    height: 528px;
+    background-color: #24232C;
+}
+
+.generateBtn {
+    
+    margin-bottom: 40px;
+    width: 476px;
+    height: 65px;
+    background-color: aliceblue;
+}
+
+#genBtn {
+    width: 476px;
+    height: 65px;
+    background-color: #A4FFAF;
+    color: #18171F;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 18px;
+
+    transition: background-color 0.3s ease;
+}
+
+#genBtn:hover {
+    background-color: #24232C;
+    color: #A4FFAF;
+    border: 2px solid #A4FFAF;
+}
+
+.copyBtn{
+    border: none;
+}
+#genBtn:hover .icon {
+    fill: #A4FFAF; /* Hover color */
+}
+
+/* Basic styling for labels */
+label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #E6E5EA;
+}
+
+/* Custom checkbox style */
+.checkBox {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #E6E5EA;
+  outline: none;
+  transition: background-color 0.3s;
+}
+
+.checkBox:checked {
+  background-color: #A4FFAF;
+  border: none;
+}
+
+.checkBox:checked {
+    background-color: #A4FFAF;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 448 512"><path fill="%2318171F" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>');
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+.checkBoxes{
+    width: 476px;
+    height: 152px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.checkBoxText{
+  padding-left: 15px;
+}
+
+/* Hover effect */
+label:hover .checkBox {
+  border-color: #007bff;
+}
+
+/* Range slider container */
+.toggle {
+    align-items: start;
+    width: 476px;
+    height: 43px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.toggle-label{
+    font-size: 18px;
+    font-family: "JetBrains Mono", monospace;
+
+    color: #E6E5EA;
+    font-weight: bold;
+    
+}
+.toggle-label-panel{
+ 
+    width: 100%;
+    height: 43px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center ;
+
+}
+
+/* Range slider styling */
+#length {
+    width: 476px;
+    height: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+   
+    background: linear-gradient(to right, #A4FFAF 0%, #673b3b 0%);
+    outline: none;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+/* Update range value text styling */
+#rangeValue {
+    font-size: 32px;
+    font-family: "JetBrains Mono", monospace;
+
+    color: #E6E5EA;
+    font-weight: bold;
+    min-width: 30px; /* Keeps the value text aligned even when it changes */
+}
+
+/* Slider thumb styling */
+#length::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #E6E5EA;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+}
+
+#length::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: #E6E5EA;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease;
+}
+/* Styling for the range slider thumb when hovered in Firefox */
+#length::-moz-range-thumb:hover {
+    background: #18171F; /* Dark background for hover */
+    border: solid 2px #A4FFAF; /* Green border */
+    transition: background 0.3s ease, border 0.3s ease; /* Smooth transition */
+}
+
+/* Equivalent styling for WebKit-based browsers (Chrome, Edge, Safari) */
+#length::-webkit-slider-thumb:hover {
+    background: #18171F; /* Dark background for hover */
+    border: solid 2px #A4FFAF; /* Green border */
+    transition: background 0.3s ease, border 0.3s ease; /* Smooth transition */
+}
+
+/* Styling for the password display */
+.passwordDisplay {
+    width: 80%;  
+    height: 100%;            /* Makes the input take up full width */
+    padding: 10px 25px;       /* Adds spacing inside the input box */
+    font-size: 1.5rem;        /* Adjust font size for better readability */
+    font-weight: bold;  
+    border: none;      /* Makes the password stand out */
+    color: #E6E5EA;  
+    background-color: #24232C;            /* Sets the text color */
+          /* Rounds the corners of the input box */
+    text-align: left;       /* Centers the text inside the box */
+    outline: none;            /* Removes the default blue outline on focus */
+    margin-bottom: 20px;
+    font-family: "JetBrains Mono", monospace;
+    /* Adds space below the input box */
+}
+
+/* Change border color on focus for better user interaction */
+.passwordDisplay:focus {
+    border: none;
+}
+
+/* Disable editing cursor since it's readonly */
+.passwordDisplay[readonly] {
+    cursor: default;
+}
+.StrengthPanel{
+    width: 476px;
+    height: 72px;
+    background-color: #18171F;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.strengthStrength{
+    width: 166.5px;
+    height: 31px;
+    background-color: #E6E5EA;
+}
+
+.strengthText {
+    font-size: 16px; /* Adjust text size */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Transform text to uppercase */
+    color: #817D92; /* Set the text color */
+    text-align: center; /* Center the text */
+    margin: 10px 0; /* Add margin around the text */
+    letter-spacing: 2px; /* Add spacing between letters */
+    font-family: "JetBrains Mono", monospace;
+  }
+  .strength-indicator {
+    background-color: #18171F;
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+
+.strength-display {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.strength-bars {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.strength-bar {
+    width: 10px;
+    height: 24px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.strength-text {
+    color: #E6E5EA;
+    margin-right: 1rem;
+}
+
+.strength-message {
+    color: #E6E5EA;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+
+
+
+/* For mobile devices */
+@media (max-width: 767px) {
+    /* Styles for mobile */
+   
+    .main-panel {
+      
+        width: 343px;
+        height: 540px;
+       
+    }
+    .top-panel{
+        width: 343px;
+        height: 64px;
+
+    }
+    .down-panel{
+        width: 343px;
+        height: 423px;
+    }
+    #genBtn{
+        width:311px ;
+        height: 56px;
+    }
+    .generateBtn{
+        width:311px ;
+        height: 56px;
+        margin-bottom: 20px;
+    }
+    .StrengthPanel{
+        width:311px ;
+        height: 56px;
+    }
+    .checkBoxes{
+        width:311px ;
+    }
+    .checkBoxText{
+        font-size: 16px;
+    }
+    .toggle{
+        width:311px ;
+    }
+    #rangeValue{
+        font-family: 24px;
+    }
+    #length{
+        width: 300px;
+    }
+}
+
+/* For tablet devices */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Styles for tablets */
+}
+
+/* Combined for both mobile and tablet */
+@media (max-width: 1024px) {
+    /* Styles for both mobile and tablet */
+}

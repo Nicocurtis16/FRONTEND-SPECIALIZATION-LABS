@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="/password-generator-app/starter-code/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+    <title>Frontend Mentor | Password Generator App</title>
+</head>
+<body>
+    <div class="main-panel">
+      <div class="top-panel">
+        <input type="text" value="PTx1f5DaFX" readonly class="passwordDisplay" id="passwordInput">
+        <span id="copyBtn">
+            <i class="fa-regular fa-copy" style="color: #A4FFAF; font-size: 24px;"></i>
+        </span>
+        <span id="copyMessage" style="display: none; font-family: 'JetBrains Mono', monospace; color: #A4FFAF;">COPIED</span>
+    </div>
+    
+        <div class="down-panel">
+           <div class="toggle">
+                <div class="toggle-label-panel">
+                    <span class="toggle-label">Character Length</span>
+                    <span id="rangeValue">10</span>
+                </div>
+                <label for="Length">
+                    <input type="range" id="length" class="checkBox" min="0" max="20" value="0" step="1">
+                </label>
+            </div> 
+            <div class="checkBoxes">
+                <label class="checkBoxLabel">
+                    <input type="checkbox" class="checkBox" id="Uppercase">
+                    <p class="checkBoxText">Include Uppercase Letters</p>
+                </label>
+                <label class="checkBoxLabel">
+                    <input type="checkbox" class="checkBox" id="Lowercase">
+                    <p class="checkBoxText">Include Lowercase Letters</p>
+                </label>
+                <label class="checkBoxLabelDown">
+                    <input type="checkbox" class="checkBox" id="Numbers">
+                    <p class="checkBoxText">Include Numbers</p>
+                </label>
+                <label class="checkBoxLabelDown">
+                    <input type="checkbox" class="checkBox" id="Symbols">
+                    <p class="checkBoxText">Include Symbols</p>
+                </label>
+            </div> 
+            <div class="StrengthPanel">
+                <p class="strengthText">STRENGTH</p>
+                <div class="strength-display">
+                    <span class="strength-text"></span>
+                    <div class="strength-bars">
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                        <div class="strength-bar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="generateBtn">
+                <button id="genBtn">
+                    GENERATE
+                    <i class="fa fa-arrow-right" id="arrow" style="color: #24232c; font-size: 21px;"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
