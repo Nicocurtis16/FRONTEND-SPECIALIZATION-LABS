@@ -7,24 +7,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   standalone: true,
   imports: [CommonModule, HttpClientModule],
   template: `
-<!--    <button class="dynamicButton">-->
-<!--      <img src="assets/images/headerTitleLogo.svg" class="dynamicButtonLogo">-->
-<!--      <span class="dynamicButtonText">Accessibility</span>-->
-
-<!--    </button>-->
     <div class="button-container">
-
-      <button class="dynamicButton"
+      <button
+        class="dynamicButton"
         *ngFor="let button of buttons"
         (click)="onButtonClick(button)">
-        <!-- Dynamically render icon if available -->
         <img
           *ngIf="button.icon"
           [src]="button.icon"
           [alt]="button.title + ' icon'"
           class="dynamicButtonLogo">
-        <!-- Dynamically render title or any other property -->
-        <span class="dynamicButtonText" >{{ button.title || button.name }}</span>
+        <span class="dynamicButtonText">{{ button.title || button.name }}</span>
       </button>
     </div>
   `,
