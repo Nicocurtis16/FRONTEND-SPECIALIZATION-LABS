@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Dictionary Web App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <!-- Left Section: Logo -->
+        <div class="header-left">
+            <img src="./assets/images/logo.svg" alt="Logo">
+        </div>
+
+        <!-- Right Section: Dropdown and Dark Mode Toggle -->
+        <div class="headerRight">
+            <!-- Font Selector Dropdown -->
+            <div class="header-dropDown">
+                <select id="fontsSelector">
+                    <option value="sans-serif">Sans Serif</option>
+                    <option value="serif">Serif</option>
+                    <option value="monospace">Mono</option>
+                </select>
+            </div>
+
+            <!-- Dark Mode Toggle -->
+            <div class="toggle-main">
+                <div class="header-toggle">
+                    <input type="checkbox" id="darkModeToggle" class="toggle-checkbox">
+                    <label for="darkModeToggle" class="toggle-label">
+                        <span class="toggle-inner"></span>
+                        <span class="toggle-switch"></span>
+                    </label>
+                </div>
+
+                <!-- Moon Icon -->
+                <div class="moon">
+                    <img src="./assets/images/icon-moon.svg" alt="Moon Icon" class="moon-icon">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Container -->
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search for any word..."
+            />
+            <button id="searchButton" class="search-button">
+                <img src="./assets/images/icon-search.svg" alt="Search" class="search-icon">
+            </button>
+            <!-- Error Message -->
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+    </div>
+
+
+
+    <!-- Result Container -->
+    <div id="resultContainer">
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
