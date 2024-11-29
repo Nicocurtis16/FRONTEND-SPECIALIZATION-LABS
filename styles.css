@@ -1,0 +1,185 @@
+/* styles.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.todoDisplay{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+   
+    width: 70%;
+}
+
+.input {
+    width: 90%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+.btn {
+    background-color: #007BFF; /* Blue color */
+    color: white;
+    padding: 5px 10px; /* Smaller buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ADD8E6; /* Light blue hover effect */
+}
+
+.add-btn {
+    width: 100px;
+    height: 50px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.sort-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sort-buttons .btn {
+    width: 38%;
+}
+
+.todo-list {
+    margin-top: 20px;
+}
+
+.todo-item {
+    padding: 15px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.todo-item:hover {
+    background-color: #eaf5e5;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.due-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+button {
+    background-color: transparent;
+    color: #007BFF; /* Blue color */
+    border: 1px solid #007BFF;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #888;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .input-fields {
+        margin-bottom: 10px;
+    }
+
+    .todo-item {
+        font-size: 0.9rem;
+    }
+
+    .sort-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .sort-buttons .btn {
+        width: 100%;
+    }
+}
