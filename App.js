@@ -1,7 +1,4 @@
-document.addEventListener('DOMContentLoaded',
-    dictionaryApp);
-
-function dictionaryApp() {
+document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
     const searchInput = document.getElementById('searchInput');
     const resultContainer = document.getElementById('resultContainer');
@@ -12,27 +9,31 @@ function dictionaryApp() {
     // Function to display error message when no definitions are found
     function displayErrorMessage() {
         resultContainer.innerHTML = `
-    <div class="errorContainer">
-        <div class="errorEmoji"><img src="./assets/images/emoji.png" alt=""></div>
-        <div class="definition">No Definitions Found</div>
-        <div class="sorry">Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</div>
-    </div>
-    `;
+        <div class="errorContainer">
+            <div class="errorEmoji"><img src="./assets/images/emoji.png" alt=""></div>
+            <div class="definition">No Definitions Found</div>
+            <div class="sorry">Sorry pal, we couldn't find definitions for the word you were looking for. You can try the search again at later time or head to the web instead.</div>
+        </div>
+        `;
     }
 
     // Font Selector
-    fontsSelector.addEventListener('change', changeFontStyle);
-
-    function changeFontStyle(e) {
+    fontsSelector.addEventListener('change', (e) => {
         document.body.style.fontFamily = e.target.value;
-    }
+    });
 
     // Dark Mode Toggle
-    darkModeToggle.addEventListener('change', changeMode);
+    darkModeToggle.addEventListener('change', (e) => {
+        const isDarkMode = e.target.checked;
+        document.body.classList.toggle('dark-mode', isDarkMode);
 
-    function changeMode(e) {
-        document.body.classList.toggle('dark-mode', e.target.checked);
-    }
+        // Toggle dark mode styles for search input
+        if (isDarkMode) {
+            searchInput.classList.add('dark-mode-input');
+        } else {
+            searchInput.classList.remove('dark-mode-input');
+        }
+    });
 
     searchButton.addEventListener('click', async () => {
         const word = searchInput.value.trim();
@@ -74,21 +75,21 @@ function dictionaryApp() {
             const headerSection = document.createElement('div');
             headerSection.className = 'header-section';
             headerSection.innerHTML = `
-            <div class="word-header">
-                <div class="wordHeaderLeft">
-                    <h2 class="word">${wordData[0].word}</h2>
-                    <p class="phonetic">
-                    ${wordData[0].phonetic || 'Not available'}
-                     </p>
+                <div class="word-header">
+                    <div class="wordHeaderLeft">
+                        <h2 class="word">${wordData[0].word}</h2>
+                        <p class="phonetic">
+                        ${wordData[0].phonetic || 'Not available'}
+                         </p>
+                    </div>
+                    ${audioSource ? `
+                        <button id="pronunciationBtn" class="pronunciation-btn">
+                           <img src="./assets/images/icon-play.svg" alt="">
+                        </button>
+                        <audio id="pronunciationAudio" src="${audioSource}"></audio>
+                    ` : ''}
                 </div>
-                ${audioSource ? `
-                    <button id="pronunciationBtn" class="pronunciation-btn">
-                       <img src="./assets/images/icon-play.svg" alt="">
-                    </button>
-                    <audio id="pronunciationAudio" src="${audioSource}"></audio>
-                ` : ''}
-            </div>
-        `;
+            `;
             displayContainer.appendChild(headerSection);
 
             // Definitions Section
@@ -101,33 +102,33 @@ function dictionaryApp() {
                 meaningBlock.className = 'meaning-block';
 
                 meaningBlock.innerHTML = `
-    <div class="partContainer">
-        <h3 class="part-of-speech">${meaning.partOfSpeech}</h3>
-        <div class="line"></div>
-    </div>
-    <p class="meaningTitle">Meaning</p>
-
-    <ul style="width: 714px;">
-        ${meaning.definitions.map(def => `
-            <li >
-                ${def.definition}
-                ${def.example ? `<p style="font-size: 18px;font-weight: normal; color: #757575">${def.example}</p>` : ''}
-            </li>
-        `).join('')}
-    </ul>
-
-    ${meaning.synonyms && meaning.synonyms.length > 0 ? `
-        <div class="synonyms-section">
-            <div class="synonyms-list" style="display: flex">
-                 <p class="synonymsTitle" style="padding-right: 20px;font-size: 20px;color: #757575">Synonyms</p>
-
-                ${meaning.synonyms.map(synonym => `
-                    <span class="synonym-tag" style="color: #A445ED;font-size: 20px;font-weight: 700">${synonym}</span>
-                `).join('')}
-            </div>
+        <div class="partContainer">
+            <h3 class="part-of-speech">${meaning.partOfSpeech}</h3>
+            <div class="line"></div>
         </div>
-    ` : ''}
-`;
+        <p class="meaningTitle">Meaning</p>
+
+        <ul style="width: 714px;">
+            ${meaning.definitions.map(def => `
+                <li >
+                    ${def.definition}
+                    ${def.example ? `<p style="font-size: 18px;font-weight: normal; color: #757575">${def.example}</p>` : ''}
+                </li>
+            `).join('')}
+        </ul>
+
+        ${meaning.synonyms && meaning.synonyms.length > 0 ? `
+            <div class="synonyms-section">
+                <div class="synonyms-list" style="display: flex">
+                     <p class="synonymsTitle" style="padding-right: 20px;font-size: 20px;color: #757575">Synonyms</p>
+
+                    ${meaning.synonyms.map(synonym => `
+                        <span class="synonym-tag" style="color: #A445ED;font-size: 20px;font-weight: 700">${synonym}</span>
+                    `).join('')}
+                </div>
+            </div>
+        ` : ''}
+    `;
 
                 definitionsSection.appendChild(meaningBlock);
             });
@@ -138,15 +139,15 @@ function dictionaryApp() {
                 const sourceSection = document.createElement('div');
                 sourceSection.className = 'source-section';
                 sourceSection.innerHTML = `
-                <div class="source-section" style="display: flex; height: 37px; border-top: 1px solid #979797;margin-top: 20px;align-items: end">
-                <span style="font-size: 14px;color: #757575;text-decoration: underline ">Source Links: </span>
-                ${wordData[0].sourceUrls.map(url => `
-                         <a style="color: #2D2D2D;text-decoration: underline; font-size: 14px" href="${url}" target="_blank" rel="noopener noreferrer">
-                            ${url} <img src="./assets/images/liinkLogo.svg" alt="">
-                        </a>
-                    `).join('')}
-                </div>
-            `;
+                    <div class="source-section" style="display: flex; height: 37px; border-top: 1px solid #979797;margin-top: 20px;align-items: end">
+                    <span style="font-size: 14px;color: #757575;text-decoration: underline ">Source Links: </span>
+                    ${wordData[0].sourceUrls.map(url => `
+                             <a style="color: #2D2D2D;text-decoration: underline; font-size: 14px" href="${url}" target="_blank" rel="noopener noreferrer">
+                                ${url} <img src="./assets/images/liinkLogo.svg" alt="">
+                            </a>
+                        `).join('')}
+                    </div>
+                `;
                 displayContainer.appendChild(sourceSection);
             }
 
@@ -167,4 +168,4 @@ function dictionaryApp() {
             displayErrorMessage();
         }
     });
-}
+});
