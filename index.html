@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Master Clock</title>
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body class="theme-blue">
+        <div class="clock-container">
+            <div class="time-display">00:00:00</div>
+            <div class="date-display">Monday, January 1</div>
+            
+            <div class="controls">
+                <button id="format-btn">12/24 Hour</button>
+                <select id="theme-select">
+                    <option value="green">Green</option>
+                    <option value="blue">Blue</option>
+                    <option value="purple">Purple</option>
+                    <option value="red">Red</option>
+                </select>
+                <select id="timezone-select" style="grid-column: span 2;">
+                    <option value="UTC">UTC</option>
+                    <option value="America/New_York">New York</option>
+                    <option value="Europe/London">London</option>
+                    <option value="Asia/Tokyo">Tokyo</option>
+                </select>
+            </div>
+    
+            <div class="alarm-section">
+                <input type="time" id="alarm-input">
+                <button id="alarm-btn">Set Alarm</button>
+            </div>
+        </div>
+    
+
+    <script src="app.js">
+        
+    </script>
+</body>
+</html>
