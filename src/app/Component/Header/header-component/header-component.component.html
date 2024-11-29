@@ -1,0 +1,28 @@
+<div class="headerContainer">
+  <div class="leftHeader">
+    <div class="headerLogo"><img src="assets/images/headerTitleLogo.svg"></div>
+    <p class="headerTitle">Accessibility</p>
+  </div>
+  <div class="rightHeader">
+    <div class="toggle-main">
+      <div class="light">
+        <img src="assets/images/night.svg">
+      </div>
+      <div class="header-toggle">
+        <input
+          type="checkbox"
+          (change)="toggleDarkMode()"
+          id="darkModeToggle"
+          class="toggle-checkbox"
+        />
+        <label for="darkModeToggle" class="toggle-label">
+          <span class="toggle-inner"></span>
+          <span class="toggle-switch"></span>
+        </label>
+      </div>
+      <div class="moon">
+        <img src="assets/images/lightIcon.svg">
+      </div>
+    </div>
+  </div>
+</div>

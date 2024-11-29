@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --Purple: #A729F5;
+  --DarkNavy:#313E51;
+  --Navy:#3B4D66;
+  --GrayNavy:#626C7F;
+  --LightBulish:#ABC1E1;
+  --LightGray:#F4F6FA;
+  --PureWhite:#FFFFFF;
+  --Green:#26D782;
+
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+
+  background-image: url("./assets/pattern-background-desktop-light.svg");
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps background fixed during scrolling */
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+  background-image: url("./assets/pattern-background-desktop-dark.svg");
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center center; /* Center the image */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps background fixed during scrolling */
+
+}
