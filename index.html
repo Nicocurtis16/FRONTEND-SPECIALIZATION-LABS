@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery-container">
+        <!-- Thumbnails Gallery -->
+        <div id="gallery" class="gallery">
+            <!-- Thumbnails will be dynamically added here -->
+        </div>
+    </div>
+
+    <!-- Lightbox Modal (Initially Hidden) -->
+    <div id="lightbox" class="lightbox">
+        <span id="close-btn" class="close-btn">X</span>
+        <img id="lightbox-image" class="lightbox-image" src="" alt="">
+        <div id="caption" class="caption"></div>
+        <button id="prev-btn" class="nav-btn">Previous</button>
+        <button id="next-btn" class="nav-btn">Next</button>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
