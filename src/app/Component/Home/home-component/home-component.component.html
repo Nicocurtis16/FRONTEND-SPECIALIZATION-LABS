@@ -1,6 +1,3 @@
-
-
-
 <div class="homeContainer" style="margin-top: 70px">
   <div class="homeLeft">
     <div class="homeLeftTop">
@@ -15,11 +12,12 @@
     <app-button-component
       [buttonType]="'HTML'"
       (buttonClicked)="handleButtonClick($event)">
-
     </app-button-component>
-
-
-
   </div>
 </div>
 
+<!-- Conditionally render the QuestionComponent -->
+<div *ngIf="showQuestionComponent" class="questionContainer">
+  <!-- Assuming you have a QuestionComponent -->
+  <app-question-component></app-question-component>
+</div>

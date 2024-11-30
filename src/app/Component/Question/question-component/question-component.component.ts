@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './question-component.component.html',
-  styleUrl: './question-component.component.css'
+  styleUrls: ['./question-component.component.css'] // Fixed property name
 })
 export class QuestionComponentComponent {
-
+  // Your component logic here
 }
