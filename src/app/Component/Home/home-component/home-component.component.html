@@ -1,4 +1,4 @@
-<div class="homeContainer" style="margin-top: 70px">
+<div *ngIf="!showQuestionComponent" class="homeContainer" style="margin-top: 70px">
   <div class="homeLeft">
     <div class="homeLeftTop">
       <div class="homeTextTop">Welcome to the</div>
@@ -16,8 +16,6 @@
   </div>
 </div>
 
-<!-- Conditionally render the QuestionComponent -->
-<div *ngIf="showQuestionComponent" class="questionContainer">
-  <!-- Assuming you have a QuestionComponent -->
+<div *ngIf="showQuestionComponent">
   <app-question-component></app-question-component>
 </div>
