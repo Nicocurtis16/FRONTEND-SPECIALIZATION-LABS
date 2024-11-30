@@ -15,6 +15,7 @@ import {ButtonComponentComponent} from "../../Button/button-component/button-com
 export class HomeComponentComponent {
   iconPath: string = '';
 
+
   ngOnInit() {
     // Simulating fetching data from a JSON file
     const jsonData = { icon: 'assets/images/icon-html.svg' };
