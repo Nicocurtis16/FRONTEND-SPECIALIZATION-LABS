@@ -7,12 +7,12 @@
   /*padding: 20px;*/
 }
 .leftHeader{
+
   align-items: center;
   display: flex;
   width: 230px;
   /*border: 1px solid black;*/
   height: 100%;
-  justify-content: space-between;
 
 }
 
@@ -27,8 +27,9 @@
 .headerTitle {
   font-family: "Rubik", sans-serif;
   font-size: 28px;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--DarkNavy);
+  margin-left: 32px;
 }
 
 /* Correct selector for dark mode */

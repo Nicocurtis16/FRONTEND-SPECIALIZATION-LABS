@@ -1,14 +1,12 @@
 .homeContainer{
   height: 456px;
   width: 1160px;
-  border: 1px solid black;
   display: flex;
   justify-content: space-between;
 }
 .homeLeft{
   width: 465px;
   height: 214px;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,7 +14,6 @@
 .homeRight{
   width: 564px;
   height: 456px;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

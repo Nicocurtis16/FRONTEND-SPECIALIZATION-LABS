@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SharedService } from '../../../shared.service'; // Import the shared service
 
 @Component({
   selector: 'app-button-component',
@@ -30,7 +31,7 @@ export class ButtonComponentComponent implements OnInit {
 
   buttons: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private sharedService: SharedService) {}
 
   ngOnInit() {
     this.fetchButtons();
@@ -60,6 +61,7 @@ export class ButtonComponentComponent implements OnInit {
 
   onButtonClick(button: any) {
     console.log('Button clicked:', button);
-    this.buttonClicked.emit(button); // Emit all button data
+    this.sharedService.setSelectedButton(button); // Update the selected button in the shared service
+    this.buttonClicked.emit(button); // Emit button data if needed
   }
 }
