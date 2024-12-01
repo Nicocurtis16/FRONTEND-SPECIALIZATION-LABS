@@ -1,9 +1,27 @@
 <div *ngFor="let option of options; let i = index" class="optionsButton">
-  <input type="radio" [id]="'option' + i" name="quizOption" [value]="option">
+  <input
+    type="radio"
+    [id]="'option' + i"
+    name="quizOption"
+    [value]="option"
+    [(ngModel)]="selectedOption"
+    (change)="selectOption(option)"
+    [disabled]="isSubmitted"
+  />
+
   <label [for]="'option' + i" style="display: flex; justify-content: start; align-items: center;">
     <div class="indexPanel">
       <span class="index">{{ getAlphabet(i) }}</span>
     </div>
-    <span class="options">{{ option }}</span>
+    <span class="options"
+          [ngClass]="{
+            'border-green-500': optionStyles[option] === 'border-green-500',
+            'border-red-500': optionStyles[option] === 'border-red-500'
+          }">
+      {{ option }}
+    </span>
   </label><br>
 </div>
+
+<button *ngIf="!isSubmitted" (click)="submitAnswer()">Submit</button>
+<button *ngIf="isSubmitted" (click)="moveToNextQuestion()">Next Question</button>

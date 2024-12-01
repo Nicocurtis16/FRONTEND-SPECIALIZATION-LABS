@@ -1,18 +1,23 @@
 <div class="questionPanel">
-    <div class="questionPanelLeft">
-        <div class="questionsDisplay">
-            <div class="question">
-                <div class="questionLeft">Question 6 of 10</div>
-                <div class="questionDetail">
-                    {{ questionData?.question }}
-                </div>
-            </div>
-            <div class="signal"></div>
+  <div class="questionPanelLeft">
+    <div class="questionsDisplay">
+      <div class="question">
+        <div class="questionLeft">Question {{ currentQuestionIndex + 1 }} of {{ questionData?.questions?.length }}</div>
+        <div class="questionDetail">
+          {{ questionData?.question }}
         </div>
+      </div>
+      <div class="signal"></div>
     </div>
-    <div class="questionPanelRight">
-        <app-options-component [options]="questionData?.options"></app-options-component>
-    </div>
+  </div>
 
+  <div class="questionPanelRight">
+    <app-options-component
+      [options]="questionData?.options"
+      [correctAnswer]="questionData?.correctAnswer"
+      (answerSubmitted)="handleAnswerSubmitted($event)"
+      (nextQuestionEvent)="moveToNextQuestion()">
+    </app-options-component>
 
+  </div>
 </div>
