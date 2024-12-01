@@ -1,0 +1,54 @@
+.optionsButton {
+  display: inline-block;
+  margin: 5px;
+}
+
+.optionsButton input[type="radio"] {
+  display: none;
+}
+
+.optionsButton label {
+  width: 564px;
+  height: 92px;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.optionsButton input[type="radio"]:checked + label {
+
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.optionsButton label:hover {
+  background-color: #e0e0e0;
+}
+.index{
+  font-family: Rubik, sans-serif;
+  font-size: 28px;
+
+  color: var(--GrayNavy);
+}
+.indexPanel{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--LightGray);
+
+}
+
+.options{
+  font-family: Rubik, sans-serif;
+  font-size: 28px;
+  width: 56px;
+  height: 56px;
+  color: var(--DarkNavy);
+}
+

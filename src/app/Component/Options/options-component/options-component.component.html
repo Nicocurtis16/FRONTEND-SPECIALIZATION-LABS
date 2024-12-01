@@ -1,0 +1,9 @@
+<div *ngFor="let option of options; let i = index" class="optionsButton">
+  <input type="radio" [id]="'option' + i" name="quizOption" [value]="option">
+  <label [for]="'option' + i" style="display: flex; justify-content: start; align-items: center;">
+    <div class="indexPanel">
+      <span class="index">{{ getAlphabet(i) }}</span>
+    </div>
+    <span class="options">{{ option }}</span>
+  </label><br>
+</div>
