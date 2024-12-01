@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Import CommonModule for directives like NgIf
-import { SharedService } from '../../../shared.service'; // Import SharedService
+import { CommonModule } from '@angular/common';
+import { SharedService } from '../../../shared.service';
 
 import { ButtonComponentComponent } from "../../Button/button-component/button-component.component";
 import { QuestionComponentComponent } from "../../Question/question-component/question-component.component"; // Import the QuestionComponent
@@ -19,7 +19,7 @@ import { QuestionComponentComponent } from "../../Question/question-component/qu
 export class HomeComponentComponent {
   iconPath: string = '';
   showQuestionComponent: boolean = false;
-  selectedQuestionData: any; // Data to pass to QuestionComponent
+  selectedQuizData: any; // Changed from selectedQuestionData
 
   constructor(private sharedService: SharedService) {} // Inject SharedService
 
@@ -38,8 +38,12 @@ export class HomeComponentComponent {
     });
 
     if (button.questions && button.questions.length > 0) {
-      // Select the first question for demonstration purposes
-      this.selectedQuestionData = button.questions[0]; // Modify logic to select a question dynamically if needed
+      // Select the entire quiz data for the QuestionComponent
+      this.selectedQuizData = {
+        title: button.title,
+        icon: button.icon,
+        questions: button.questions
+      };
       this.showQuestionComponent = true;
     } else {
       console.warn('No questions available for this button');

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OptionsComponentComponent } from "../../Options/options-component/options-component.component";
 
@@ -9,32 +9,33 @@ import { OptionsComponentComponent } from "../../Options/options-component/optio
   templateUrl: './question-component.component.html',
   styleUrls: ['./question-component.component.css']
 })
-export class QuestionComponentComponent {
+export class QuestionComponentComponent implements OnInit {
   @Input() questionData: any;
   currentQuestionIndex: number = 0;
-  showNextButton: boolean = false;
+  currentQuestion: any;
+  totalQuestions: number = 0;
+  quizCompleted: boolean = false;
 
   ngOnInit() {
-    console.log('Received data:', this.questionData);
+    if (this.questionData && this.questionData.questions) {
+      this.totalQuestions = this.questionData.questions.length;
+      this.currentQuestion = this.questionData.questions[this.currentQuestionIndex];
+    }
   }
 
   handleAnswerSubmitted(isCorrect: boolean) {
-    this.showNextButton = true;
-    // Optionally, you can add logic to track score or show a message
+    // Optional: Add score tracking or other logic
+    console.log('Answer submitted. Correct:', isCorrect);
   }
 
   moveToNextQuestion() {
-    this.showNextButton = false;
+    this.currentQuestionIndex += 1;
 
-    // Check if there are more questions
-    if (this.questionData && this.questionData.questions &&
-      this.currentQuestionIndex + 1 < this.questionData.questions.length) {
-      this.currentQuestionIndex += 1;
-      // Update the current question
-      this.questionData = this.questionData.questions[this.currentQuestionIndex];
+    if (this.currentQuestionIndex < this.totalQuestions) {
+      this.currentQuestion = this.questionData.questions[this.currentQuestionIndex];
     } else {
+      this.quizCompleted = true;
       console.log('Quiz completed');
-      // Optionally, implement quiz completion logic
     }
   }
 }

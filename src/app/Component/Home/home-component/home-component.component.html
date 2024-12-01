@@ -17,5 +17,7 @@
 </div>
 
 <div *ngIf="showQuestionComponent">
-  <app-question-component [questionData]="selectedQuestionData"></app-question-component>
-</div>
+  <app-question-component
+    *ngIf="showQuestionComponent"
+    [questionData]="selectedQuizData">
+  </app-question-component></div>
