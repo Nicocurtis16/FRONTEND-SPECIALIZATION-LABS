@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-question-component',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './question-component.component.html',
-  styleUrls: ['./question-component.component.css'] // Fixed property name
+  styleUrls: ['./question-component.component.css']
 })
 export class QuestionComponentComponent {
-  // Your component logic here
+  @Input() questionData: any; // Accept data from parent component
+
+  ngOnInit() {
+    console.log('Received data:', this.questionData); // Check the received data
+  }
 }

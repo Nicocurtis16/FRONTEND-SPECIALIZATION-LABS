@@ -45,6 +45,7 @@ export class ButtonComponentComponent implements OnInit {
           this.buttons = response.quizzes.map((quiz: any) => ({
             title: quiz.title,
             icon: quiz.icon,
+            questions: quiz.questions, // Include questions
             ...quiz // Spread other properties to make them accessible
           }));
         } else {
@@ -61,7 +62,6 @@ export class ButtonComponentComponent implements OnInit {
 
   onButtonClick(button: any) {
     console.log('Button clicked:', button);
-    this.sharedService.setSelectedButton(button); // Update the selected button in the shared service
-    this.buttonClicked.emit(button); // Emit button data if needed
+    this.buttonClicked.emit(button); // Emit button data to parent component
   }
 }

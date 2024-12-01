@@ -16,16 +16,22 @@ import { QuestionComponentComponent } from "../../Question/question-component/qu
 })
 export class HomeComponentComponent {
   iconPath: string = '';
-  showQuestionComponent: boolean = false; // State to control visibility of QuestionComponent
+  showQuestionComponent: boolean = false;
+  selectedQuestionData: any; // Data to pass to QuestionComponent
 
   ngOnInit() {
-    // Simulating fetching data from a JSON file
     const jsonData = { icon: 'assets/images/icon-html.svg' };
     this.iconPath = jsonData.icon;
   }
 
   handleButtonClick(button: any) {
     console.log('Clicked button data:', button);
-    this.showQuestionComponent = true; // Toggle to show QuestionComponent
+    if (button.questions && button.questions.length > 0) {
+      // Select the first question for demonstration purposes
+      this.selectedQuestionData = button.questions[0]; // Here we can modify logic to select a question dynamically
+      this.showQuestionComponent = true;
+    } else {
+      console.warn('No questions available for this button');
+    }
   }
 }
