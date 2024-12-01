@@ -11,31 +11,42 @@ import { OptionsComponentComponent } from "../../Options/options-component/optio
 })
 export class QuestionComponentComponent implements OnInit {
   @Input() questionData: any;
+
   currentQuestionIndex: number = 0;
-  currentQuestion: any;
   totalQuestions: number = 0;
+  currentQuestion: any;
   quizCompleted: boolean = false;
 
+  // New properties for tracking score
+  quizTitle: string = '';
+  quizIcon: string = '';
+  correctAnswersCount: number = 0;
+
   ngOnInit() {
+    console.log('Full Quiz Data:', this.questionData);
+
     if (this.questionData && this.questionData.questions) {
+      this.quizTitle = this.questionData.title;
+      this.quizIcon = this.questionData.icon;
+
       this.totalQuestions = this.questionData.questions.length;
       this.currentQuestion = this.questionData.questions[this.currentQuestionIndex];
     }
   }
 
   handleAnswerSubmitted(isCorrect: boolean) {
-    // Optional: Add score tracking or other logic
-    console.log('Answer submitted. Correct:', isCorrect);
+    if (isCorrect) {
+      this.correctAnswersCount++;
+    }
   }
 
   moveToNextQuestion() {
-    this.currentQuestionIndex += 1;
+    this.currentQuestionIndex++;
 
     if (this.currentQuestionIndex < this.totalQuestions) {
       this.currentQuestion = this.questionData.questions[this.currentQuestionIndex];
     } else {
       this.quizCompleted = true;
-      console.log('Quiz completed');
     }
   }
 }

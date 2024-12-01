@@ -1,27 +1,35 @@
-<div *ngIf="!quizCompleted && currentQuestion" class="questionPanel">
-  <div class="questionPanelLeft">
-    <div class="questionsDisplay">
-      <div class="question">
-        <div class="questionLeft">Question {{ currentQuestionIndex + 1 }} of {{ totalQuestions }}</div>
-        <div class="questionDetail">
-          {{ currentQuestion.question }}
+<div class="quiz-container">
+  <div class="quiz-header">
+    <img [src]="quizIcon" alt="{{ quizTitle }} icon" class="quiz-icon">
+    <h2>{{ quizTitle }} Quiz</h2>
+  </div>
+
+  <div *ngIf="!quizCompleted && currentQuestion" class="questionPanel">
+    <div class="questionPanelLeft">
+      <div class="questionsDisplay">
+        <div class="question">
+          <div class="questionLeft">Question {{ currentQuestionIndex + 1 }} of {{ totalQuestions }}</div>
+          <div class="questionDetail">
+            {{ currentQuestion.question }}
+          </div>
         </div>
+        <div class="signal"></div>
       </div>
-      <div class="signal"></div>
+    </div>
+
+    <div class="questionPanelRight">
+      <app-options-component
+        [options]="currentQuestion.options"
+        [correctAnswer]="currentQuestion.answer"
+        (answerSubmitted)="handleAnswerSubmitted($event)"
+        (nextQuestionEvent)="moveToNextQuestion()">
+      </app-options-component>
     </div>
   </div>
 
-  <div class="questionPanelRight">
-    <app-options-component
-      [options]="currentQuestion.options"
-      [correctAnswer]="currentQuestion.answer"
-      (answerSubmitted)="handleAnswerSubmitted($event)"
-      (nextQuestionEvent)="moveToNextQuestion()">
-    </app-options-component>
+  <div *ngIf="quizCompleted" class="quiz-completed">
+    <h3>Quiz Completed!</h3>
+    <p>You scored {{ correctAnswersCount }} out of {{ totalQuestions }}</p>
+    <p>Percentage: {{ (correctAnswersCount / totalQuestions * 100).toFixed(2) }}%</p>
   </div>
-</div>
-
-<div *ngIf="quizCompleted" class="quiz-completed">
-  Quiz Completed!
-  <!-- Add your quiz completion content here -->
 </div>
