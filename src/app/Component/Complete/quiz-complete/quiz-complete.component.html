@@ -2,17 +2,18 @@
   <div class="quizCompleteLeft">
     <div class="quizCompleteText">
       <span>Quiz completed</span>
-      <span>You scored...</span>
+      <span class="bold">You scored...</span>
     </div>
   </div>
   <div class="quizCompleteRight">
     <div class="scoreBoard">
       <div class="scoreBoardTitle">
         <img *ngIf="quizIcon" [src]="quizIcon" [alt]="quizTitle + ' icon'" class="quiz-icon">
-        <h2>{{ quizTitle }} Quiz</h2>
+        <h2>{{ quizTitle }}</h2>
       </div>
       <div class="scoreBoardScore">{{ correctAnswersCount }}</div>
       <div class="scoreBoardTotal">out of {{ totalQuestions }}</div>
     </div>
+    <button>Play Again</button>
   </div>
 </div>
