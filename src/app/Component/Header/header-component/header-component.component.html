@@ -1,14 +1,14 @@
 <div class="headerContainer">
   <div class="leftHeader" *ngIf="selectedButton">
     <div class="headerLogo">
-      <img *ngIf="selectedButton?.icon" [src]="selectedButton?.icon" alt="Selected Button Icon">
+      <img *ngIf="selectedButton.icon" [src]="selectedButton.icon" alt="Selected Button Icon">
     </div>
-    <p class="headerTitle" >{{ selectedButton?.title }}</p>
+    <p class="headerTitle">{{ selectedButton.title }}</p>
   </div>
   <div class="rightHeader">
     <div class="toggle-main">
       <div class="light">
-        <img src="assets/images/night.svg">
+        <img src="assets/images/night.svg" alt="Night Icon">
       </div>
       <div class="header-toggle">
         <input
@@ -23,7 +23,7 @@
         </label>
       </div>
       <div class="moon">
-        <img src="assets/images/lightIcon.svg">
+        <img src="assets/images/lightIcon.svg" alt="Light Icon">
       </div>
     </div>
   </div>
