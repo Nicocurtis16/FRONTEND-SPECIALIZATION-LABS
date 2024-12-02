@@ -1,23 +1,29 @@
 .questionPanel{
     display: flex;
-    height: 564px;
+    height: auto;
     width: 1160px;
     justify-content: space-between;
      border: 1px solid black;
+}
+.questionPanelLeft{
+  border: 1px solid red;
+  width: 465px;
+  height: 452px;
 }
 .questionsDisplay{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
     height: 452px;
     width: 465px;
 }
 .questionPanelRight{
+    width: 564px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid black;
+    border: 1px solid blue;
 }
 .question{
     display: flex;

@@ -1,7 +1,13 @@
 /* General button container styling */
+:host {
+  width: 100%;
+  display: block;
+}
+
 .optionsButton {
   display: inline-block;
   margin: 5px;
+  width: 100%;
 }
 
 /* Hide the input */
@@ -11,7 +17,7 @@
 
 /* Default label styles */
 .optionsButton label {
-  width: 564px;
+  width: 100%;
   height: 92px;
   padding: 10px 20px;
   background-color: var(--PureWhite);
@@ -87,7 +93,7 @@
   align-items: center;
   font-family: Rubik, sans-serif;
   font-size: 28px;
-  width: auto;
+  width: 100%;
   height: 56px;
   color: var(--DarkNavy);
   margin-left: 32px;
@@ -103,7 +109,7 @@
   font-size: 28px;
   cursor: pointer;
   /*transition: background-color 0.3s, transform 0.2s;*/
-  width: 610px;
+  width: 100%;
   height: 92px;
 }
 
