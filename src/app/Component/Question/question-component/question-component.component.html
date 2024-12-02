@@ -30,8 +30,9 @@
   </div>
 
   <div *ngIf="quizCompleted" class="quiz-completed">
-    <h3>Quiz Completed!</h3>
-    <p>You scored {{ correctAnswersCount }} out of {{ totalQuestions }}</p>
-    <p>Percentage: {{ (correctAnswersCount / totalQuestions * 100).toFixed(2) }}%</p>
+    <app-quiz-complete
+      [correctAnswersCount]="correctAnswersCount"
+      [totalQuestions]="totalQuestions">
+    </app-quiz-complete>
   </div>
 </div>
