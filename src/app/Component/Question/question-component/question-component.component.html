@@ -1,9 +1,4 @@
 <div class="quiz-container">
-  <div class="quiz-header">
-    <img [src]="quizIcon" alt="{{ quizTitle }} icon" class="quiz-icon">
-    <h2>{{ quizTitle }} Quiz</h2>
-  </div>
-
   <div *ngIf="!quizCompleted && currentQuestion" class="questionPanel">
     <div class="questionPanelLeft">
       <div class="questionsDisplay">
@@ -13,7 +8,14 @@
             {{ currentQuestion.question }}
           </div>
         </div>
-        <div class="signal"></div>
+        <div class="signal">
+          <div class="progress-bar">
+            <div
+              class="progress"
+              [style.width.%]="quizProgress"
+            ></div>
+          </div>
+        </div>
       </div>
     </div>
 

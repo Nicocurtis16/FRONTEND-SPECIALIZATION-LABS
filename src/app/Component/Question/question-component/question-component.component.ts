@@ -17,7 +17,10 @@ export class QuestionComponentComponent implements OnInit {
   currentQuestion: any;
   quizCompleted: boolean = false;
 
-  // New properties for tracking score
+  // New property for progress tracking
+  quizProgress: number = 0;
+
+  // Existing properties
   quizTitle: string = '';
   quizIcon: string = '';
   correctAnswersCount: number = 0;
@@ -31,6 +34,16 @@ export class QuestionComponentComponent implements OnInit {
 
       this.totalQuestions = this.questionData.questions.length;
       this.currentQuestion = this.questionData.questions[this.currentQuestionIndex];
+
+      // Calculate initial progress
+      this.calculateQuizProgress();
+    }
+  }
+
+  // Calculate quiz progress
+  calculateQuizProgress() {
+    if (this.totalQuestions > 0) {
+      this.quizProgress = ((this.currentQuestionIndex + 1) / this.totalQuestions) * 100;
     }
   }
 
@@ -45,6 +58,9 @@ export class QuestionComponentComponent implements OnInit {
 
     if (this.currentQuestionIndex < this.totalQuestions) {
       this.currentQuestion = this.questionData.questions[this.currentQuestionIndex];
+
+      // Recalculate progress
+      this.calculateQuizProgress();
     } else {
       this.quizCompleted = true;
     }
