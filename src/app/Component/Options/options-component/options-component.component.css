@@ -1,0 +1,222 @@
+/* General button container styling */
+:host {
+  width: 100%;
+  display: block;
+}
+
+.optionsButton {
+  display: inline-block;
+  margin: 5px;
+  width: 100%;
+}
+
+/* Hide the input */
+.optionsButton input[type="radio"] {
+  display: none;
+}
+
+/* Default label styles */
+.optionsButton label {
+  width: 100%;
+  height: 92px;
+  padding: 10px 20px;
+  background-color: var(--PureWhite);
+  cursor: pointer;
+  border-radius: 24px;
+  /*transition: background-color 0.3s, border 0.3s;*/
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+/* Style for when the radio input is checked (active) */
+.optionsButton input[type="radio"]:checked + label {
+  background-color: var(--PureWhite);
+  color: var(--DarkNavy);
+  border: 3px solid var(--Purple);
+}
+
+/* Style for hover */
+.optionsButton label:hover {
+  background-color: var(--PureWhite);
+}
+
+/* Default .indexPanel styles */
+.indexPanel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  background-color: var(--LightGray);
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Active state styling for indexPanel */
+.optionsButton input[type="radio"]:checked + label .indexPanel {
+  background-color: var(--Purple);
+  color: white;
+}
+
+/* Hover state styling for indexPanel */
+.optionsButton label:hover .indexPanel {
+  background-color: #F6E7FF; /* Light gray */
+}
+
+/* Combined hover and active states */
+.optionsButton input[type="radio"]:checked + label:hover .indexPanel {
+  background-color: var(--Purple);
+  transform: scale(1.1); /* Slight zoom */
+}
+
+/* Default .index styles */
+.index {
+  font-family: Rubik, sans-serif;
+  font-size: 28px;
+  color: var(--GrayNavy);
+}
+
+/* Active state for index text */
+.optionsButton input[type="radio"]:checked + label .index {
+  color: white;
+  font-weight: bold;
+  transform: scale(1.1); /* Slight zoom */
+}
+
+/* Hover state for index text */
+.optionsButton label:hover .index {
+  color: var(--Purple); /* Hover color for text */
+}
+.options{
+  display: flex;
+  align-items: center;
+  font-family: Rubik, sans-serif;
+  font-size: 28px;
+  width: 100%;
+  height: 56px;
+  color: var(--DarkNavy);
+  margin-left: 32px;
+}
+
+.quiz-button {
+  background-color: var(--Purple); /* Adjust to your desired primary color */
+  color: var(--PureWhite); /* Button text color */
+  border: none;
+  border-radius: 24px;
+  padding: 12px 24px;
+  font-family: Rubik, sans-serif;
+  font-size: 28px;
+  cursor: pointer;
+  /*transition: background-color 0.3s, transform 0.2s;*/
+  width: 100%;
+  height: 92px;
+}
+
+/* Hover effect */
+.quiz-button:hover {
+  background-color: var(--Purple); /* Slightly darker purple */
+  opacity: 0.8;
+}
+
+
+
+/* Disabled state */
+.quiz-button:disabled {
+  background-color: #cccccc; /* Gray for disabled */
+  cursor: not-allowed;
+}
+
+/* Correct answer style */
+.optionsButton label.border-green-500 {
+  border-color: var(--Green); /* Green for correct answer */
+}
+
+/* Incorrect answer style */
+.optionsButton label.border-red-500 {
+  border-color: var(--Green); /* Red for incorrect answer */
+}
+.border-green-500 {
+  border-color: var(--Green) !important;
+}
+
+.border-red-500 {
+  border-color: red !important;
+}
+/* New styles for correct and incorrect states */
+.indexPanel.correct-panel {
+  background-color: var(--Green) !important;
+}
+
+.indexPanel.incorrect-panel {
+  background-color: red !important;
+}
+
+.index.correct-index {
+  color: white !important;
+}
+
+.index.incorrect-index {
+  color: white !important;
+}
+
+.options-container {
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+}
+
+.option-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}
+/* Option Label Styles */
+.option-label {
+  width: 564px;
+  height: 92px;
+  padding: 10px 20px;
+  background-color: var(--PureWhite);
+  cursor: pointer;
+  border-radius: 24px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border: 3px solid transparent; /* Default transparent border */
+}
+
+/* Border styles for submitted states */
+.option-label.border-green-500 {
+  border-color: var(--Green) !important;
+}
+
+.option-label.border-red-500 {
+  border-color: red !important;
+}
+
+/* Index Panel Styles */
+.indexPanel.incorrect-panel {
+  background-color: red!important;
+}
+
+.indexPanel.correct-panel {
+  background-color: var(--Green) !important;
+}
+
+/* Index Text Styles */
+.index.incorrect-index,
+.index.correct-index {
+  color: white !important;
+}
+
+.options-container {
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+}
+
+.option-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}

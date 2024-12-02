@@ -1,0 +1,23 @@
+<div *ngIf="!showQuestionComponent" class="homeContainer" style="margin-top: 70px">
+  <div class="homeLeft">
+    <div class="homeLeftTop">
+      <div class="homeTextTop">Welcome to the</div>
+      <div class="homeTextDown">Frontend Quiz!</div>
+    </div>
+    <div class="homeLeftDown">
+      <div class="homeLeftDownText">Pick a subject to get started.</div>
+    </div>
+  </div>
+  <div class="homeRight">
+    <app-button-component
+      [buttonType]="'HTML'"
+      (buttonClicked)="handleButtonClick($event)">
+    </app-button-component>
+  </div>
+</div>
+
+<div *ngIf="showQuestionComponent">
+  <app-question-component
+    *ngIf="showQuestionComponent"
+    [questionData]="selectedQuizData">
+  </app-question-component></div>

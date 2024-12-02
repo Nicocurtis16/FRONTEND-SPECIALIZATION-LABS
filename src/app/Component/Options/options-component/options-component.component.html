@@ -1,0 +1,57 @@
+<div *ngFor="let option of options; let i = index" class="optionsButton">
+  <input
+    type="radio"
+    [id]="'option' + i"
+    name="quizOption"
+    [value]="option"
+    [(ngModel)]="selectedOption"
+    (change)="selectOption(option)"
+    [disabled]="isSubmitted"
+  />
+
+  <label
+    [for]="'option' + i"
+    [ngClass]="getLabelBorderClass(option)"
+    class="option-label"
+  >
+    <div
+      class="indexPanel"
+      [ngClass]="getIndexPanelClass(option)"
+    >
+      <span
+        class="index"
+        [ngClass]="getIndexTextClass(option)"
+      >
+        {{ getAlphabet(i) }}
+      </span>
+    </div>
+    <div class="options-container">
+      <span class="options">
+        {{ option }}
+      </span>
+      <img
+        *ngIf="getOptionIcon(option)"
+        [src]="getOptionIcon(option)"
+        class="option-icon"
+      />
+    </div>
+  </label><br />
+</div>
+
+<div>
+  <button
+    *ngIf="!isSubmitted"
+    (click)="submitAnswer()"
+    class="quiz-button"
+  >
+    Submit Answer
+  </button>
+
+  <button
+    *ngIf="isSubmitted"
+    (click)="moveToNextQuestion()"
+    class="quiz-button"
+  >
+    Next Question
+  </button>
+</div>

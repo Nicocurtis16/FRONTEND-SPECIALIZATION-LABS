@@ -1,0 +1,10 @@
+.quizCompletePanel{
+  display: flex;
+  justify-content: space-between;
+  width: 1157px;
+  height: 512px;
+}
+.quizCompleteLeft{
+  width: 450px;
+  height: 136px;
+}
