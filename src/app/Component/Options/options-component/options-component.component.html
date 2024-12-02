@@ -9,32 +9,49 @@
     [disabled]="isSubmitted"
   />
 
-  <label [for]="'option' + i" style="display: flex; justify-content: start; align-items: center;">
-    <div class="indexPanel">
-      <span class="index">{{ getAlphabet(i) }}</span>
+  <label
+    [for]="'option' + i"
+    [ngClass]="getLabelBorderClass(option)"
+    class="option-label"
+  >
+    <div
+      class="indexPanel"
+      [ngClass]="getIndexPanelClass(option)"
+    >
+      <span
+        class="index"
+        [ngClass]="getIndexTextClass(option)"
+      >
+        {{ getAlphabet(i) }}
+      </span>
     </div>
-    <span class="options"
-          [ngClass]="{
-            'border-green-500': optionStyles[option] === 'border-green-500',
-            'border-red-500': optionStyles[option] === 'border-red-500'
-          }">
-      {{ option }}
-    </span>
-  </label><br>
-
+    <div class="options-container">
+      <span class="options">
+        {{ option }}
+      </span>
+      <img
+        *ngIf="getOptionIcon(option)"
+        [src]="getOptionIcon(option)"
+        class="option-icon"
+      />
+    </div>
+  </label><br />
 </div>
+
 <div>
   <button
     *ngIf="!isSubmitted"
     (click)="submitAnswer()"
-    class="quiz-button">
+    class="quiz-button"
+  >
     Submit Answer
   </button>
 
   <button
     *ngIf="isSubmitted"
     (click)="moveToNextQuestion()"
-    class="quiz-button">
+    class="quiz-button"
+  >
     Next Question
   </button>
 </div>

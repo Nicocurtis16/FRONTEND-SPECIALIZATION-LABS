@@ -120,3 +120,97 @@
   background-color: #cccccc; /* Gray for disabled */
   cursor: not-allowed;
 }
+
+/* Correct answer style */
+.optionsButton label.border-green-500 {
+  border-color: var(--Green); /* Green for correct answer */
+}
+
+/* Incorrect answer style */
+.optionsButton label.border-red-500 {
+  border-color: var(--Green); /* Red for incorrect answer */
+}
+.border-green-500 {
+  border-color: var(--Green) !important;
+}
+
+.border-red-500 {
+  border-color: red !important;
+}
+/* New styles for correct and incorrect states */
+.indexPanel.correct-panel {
+  background-color: var(--Green) !important;
+}
+
+.indexPanel.incorrect-panel {
+  background-color: red !important;
+}
+
+.index.correct-index {
+  color: white !important;
+}
+
+.index.incorrect-index {
+  color: white !important;
+}
+
+.options-container {
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+}
+
+.option-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}
+/* Option Label Styles */
+.option-label {
+  width: 564px;
+  height: 92px;
+  padding: 10px 20px;
+  background-color: var(--PureWhite);
+  cursor: pointer;
+  border-radius: 24px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border: 3px solid transparent; /* Default transparent border */
+}
+
+/* Border styles for submitted states */
+.option-label.border-green-500 {
+  border-color: var(--Green) !important;
+}
+
+.option-label.border-red-500 {
+  border-color: red !important;
+}
+
+/* Index Panel Styles */
+.indexPanel.incorrect-panel {
+  background-color: red!important;
+}
+
+.indexPanel.correct-panel {
+  background-color: var(--Green) !important;
+}
+
+/* Index Text Styles */
+.index.incorrect-index,
+.index.correct-index {
+  color: white !important;
+}
+
+.options-container {
+  display: flex;
+  align-items: center;
+  margin-left: 32px;
+}
+
+.option-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}
