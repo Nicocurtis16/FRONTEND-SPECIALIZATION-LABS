@@ -31,8 +31,10 @@
 
   <div *ngIf="quizCompleted" class="quiz-completed">
     <app-quiz-complete
-      [correctAnswersCount]="correctAnswersCount"
-      [totalQuestions]="totalQuestions">
-    </app-quiz-complete>
+  [correctAnswersCount]="correctAnswersCount"
+  [totalQuestions]="totalQuestions"
+  [quizTitle]="quizTitle"
+  [quizIcon]="quizIcon">
+</app-quiz-complete>
   </div>
 </div>
