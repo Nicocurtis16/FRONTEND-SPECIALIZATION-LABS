@@ -3,13 +3,14 @@
     height: 564px;
     width: 1160px;
     justify-content: space-between;
-     border: 1px solid black;
+}
+.quiz-container{
+  margin-top: 50px;
 }
 .questionsDisplay{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid black;
     height: 452px;
     width: 465px;
 }
@@ -17,13 +18,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid black;
 }
 .question{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: 1px solid black;
     height: 272px;
     width: 100%;
 }
