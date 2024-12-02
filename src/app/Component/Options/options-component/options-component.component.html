@@ -21,7 +21,20 @@
       {{ option }}
     </span>
   </label><br>
-</div>
 
-<button *ngIf="!isSubmitted" (click)="submitAnswer()">Submit</button>
-<button *ngIf="isSubmitted" (click)="moveToNextQuestion()">Next Question</button>
+</div>
+<div>
+  <button
+    *ngIf="!isSubmitted"
+    (click)="submitAnswer()"
+    class="quiz-button">
+    Submit Answer
+  </button>
+
+  <button
+    *ngIf="isSubmitted"
+    (click)="moveToNextQuestion()"
+    class="quiz-button">
+    Next Question
+  </button>
+</div>

@@ -14,7 +14,7 @@ export class OptionsComponentComponent {
   @Input() correctAnswer: string = '';
   @Output() answerSubmitted = new EventEmitter<boolean>();
   @Output() nextQuestionEvent = new EventEmitter<void>();
-
+  hoveredIndex: number | null = null;
   selectedOption: string = '';
   isSubmitted: boolean = false;
   optionStyles: { [key: string]: string } = {};
