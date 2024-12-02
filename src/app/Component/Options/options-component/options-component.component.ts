@@ -105,8 +105,8 @@ export class OptionsComponentComponent {
     if (!this.isSubmitted) return '';
 
     switch(this.optionState[option]) {
-      case 'correct': return 'src/assets/images/correct.svg';
-      case 'incorrect': return 'src/assets/images/wrong.svg';
+      case 'correct': return 'fa-solid fa-circle-check'; // Green check
+      case 'incorrect': return 'fa-solid fa-circle-xmark'; // Red x
       default: return '';
     }
   }

@@ -29,11 +29,14 @@
       <span class="options">
         {{ option }}
       </span>
-      <img
+
+    </div>
+    <div class="answerStatus">
+      <i
         *ngIf="getOptionIcon(option)"
-        [src]="getOptionIcon(option)"
-        class="option-icon"
-      />
+        [class]="getOptionIcon(option)"
+        class="option-icon">
+      </i>
     </div>
   </label><br />
 </div>
