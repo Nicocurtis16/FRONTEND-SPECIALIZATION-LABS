@@ -1,10 +1,12 @@
 <div class="headerContainer">
-  <div class="leftHeader" *ngIf="selectedButton">
+  <div class="leftHeader">
     <div class="headerLogo">
       <img *ngIf="selectedButton?.icon" [src]="selectedButton?.icon" alt="Selected Button Icon">
     </div>
-    <p class="headerTitle" >{{ selectedButton?.title }}</p>
+    <p class="headerTitle" [class.hidden]="!isButtonClicked">{{ selectedButton?.title }}</p>
   </div>
+
+
   <div class="rightHeader">
     <div class="toggle-main">
       <div class="light">

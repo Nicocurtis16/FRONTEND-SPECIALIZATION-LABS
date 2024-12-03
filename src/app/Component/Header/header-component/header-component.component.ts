@@ -11,12 +11,14 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponentComponent implements OnInit {
   selectedButton: { icon: string; title: string } | null = null;
+  isButtonClicked: boolean = false;
 
   constructor(private sharedService: SharedService) {}
 
   ngOnInit() {
     this.sharedService.selectedButton$.subscribe((button) => {
-      this.selectedButton = button; // Update the selected button when it changes
+      this.selectedButton = button;
+      this.isButtonClicked = !!button; // Set to true when a button is selected
     });
   }
 
