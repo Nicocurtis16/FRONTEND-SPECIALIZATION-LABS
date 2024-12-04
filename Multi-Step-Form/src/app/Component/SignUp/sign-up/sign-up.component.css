@@ -1,2 +1,52 @@
 @media  screen and (min-width: 620px) {
+
+}
+@media screen and (min-width: 620px) {
+  .signUpPanel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh
+  ;
+    border: 1px solid red;
+    background-color: #EFF5FF;
+  }
+  .signUpPanelInner{
+    width: 940px;
+    /*height: 600px;*/
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  .signUpPanelLeft{
+    height: 568px;
+    width: 274px;
+    border-radius: 10px;
+    /*border: 1px solid red;*/
+  }
+  .signUpPanelRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 568px;
+    width: 100%;
+    border: 1px solid red;
+  }
+  .signUpPanelRightTop{
+    margin-top: 50px;
+    height: 348px;
+    width: 450px;
+    border: 1px solid red;
+  }
+  .signUpPanelRightDown{
+    width: 450px;
+    height: 48px;
+    border: 1px solid red;
+  }
 }
