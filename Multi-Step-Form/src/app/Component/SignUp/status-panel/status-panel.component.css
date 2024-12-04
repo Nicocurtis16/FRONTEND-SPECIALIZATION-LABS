@@ -1,0 +1,60 @@
+@media  screen and (max-width: 480px) {
+  .statusPanel{
+    display: flex;
+    justify-content: center;
+    height: 172px;
+    width: 100%;
+    background-image: url("../../../../assets/images/bg-sidebar-mobile.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+  }
+  .statusSteps{
+    margin-top: 15%;
+  }
+  .statusName{
+    visibility: hidden;
+  }
+
+  .statusStepsPanel{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border: 1px solid red;
+  }
+  .statusNumbers{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    border: 1px solid white;
+    color: white;
+  }
+}
+@media screen and (min-width: 620px) {
+  .statusPanel{
+    height: 568px;
+    width: 274px ;
+    background-image: url("../../../../assets/images/bg-sidebar-desktop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .statusStepsPanel{
+    margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 228px;
+    width: 153px;
+    border: 1px solid red;
+  }
+  .statusSteps{
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: space-between;
+    border: 1px solid red;
+  }
+}
