@@ -96,3 +96,6 @@
   width: 24px;
   height: 24px;
 }
+.dark-mode .headerTitle {
+  color: white; /* Color for dark mode */
+}

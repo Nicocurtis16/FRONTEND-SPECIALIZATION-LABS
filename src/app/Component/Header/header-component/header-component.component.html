@@ -6,12 +6,12 @@
     <p class="headerTitle" [class.hidden]="!isButtonClicked">{{ selectedButton?.title }}</p>
   </div>
 
-
   <div class="rightHeader">
     <div class="toggle-main">
       <div class="light">
-        <img src="assets/images/night.svg">
+        <img [src]="isDarkMode ? 'assets/images/night-dark.svg' : 'assets/images/night.svg'" alt="Night Icon">
       </div>
+
       <div class="header-toggle">
         <input
           type="checkbox"
@@ -25,7 +25,7 @@
         </label>
       </div>
       <div class="moon">
-        <img src="assets/images/lightIcon.svg">
+        <img [src]="isDarkMode ? 'assets/images/lightIcon-dark.svg' : 'assets/images/lightIcon.svg'" alt="Moon Icon">
       </div>
     </div>
   </div>

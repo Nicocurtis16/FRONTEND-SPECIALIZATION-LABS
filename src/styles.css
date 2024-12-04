@@ -37,3 +37,6 @@ body.dark-mode {
   background-attachment: fixed; /* Keeps background fixed during scrolling */
 
 }
+.dark-mode .headerTitle {
+  color: white; /* Color for dark mode */
+}
