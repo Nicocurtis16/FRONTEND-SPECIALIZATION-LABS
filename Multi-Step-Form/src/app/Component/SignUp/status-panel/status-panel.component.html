@@ -1,9 +1,8 @@
 <div class="statusPanel">
   <div class="statusStepsPanel">
-    <div class="statusSteps" *ngFor="let detail of detailsOfStatus">
+    <div class="statusSteps" *ngFor="let detail of detailsOfStatus" [ngClass]="{'active': detail.statusNumber === activeStep}">
       <div class="statusNumbers">{{detail.statusNumber}}</div>
-      <div class="statusName"> {{detail.statusName}}</div>
+      <div class="statusName">{{detail.statusName}}</div>
     </div>
   </div>
-
 </div>

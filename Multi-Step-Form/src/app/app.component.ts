@@ -10,5 +10,5 @@ import { SignUpComponent } from '../app/Component/SignUp/sign-up/sign-up.compone
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'your-project-name';
+  title = 'MainSignUp';
 }

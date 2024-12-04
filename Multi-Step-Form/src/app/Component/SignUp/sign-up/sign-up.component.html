@@ -1,13 +1,16 @@
-<!--<app-status-panel></app-status-panel>-->
 <div class="signUpPanel">
   <div class="signUpPanelInner">
     <div class="signUpPanelLeft">
-      <app-status-panel></app-status-panel>
+      <app-status-panel [activeStep]="activeStep"></app-status-panel>
     </div>
     <div class="signUpPanelRight">
-      <div class="signUpPanelRightTop"></div>
-      <div class="signUpPanelRightDown"></div>
+      <div class="signUpPanelRightTop">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="signUpPanelRightDown">
+        <button (click)="prevStep()" [disabled]="activeStep === 1">Previous</button>
+        <button (click)="nextStep()" [disabled]="activeStep === 4">Next</button>
+      </div>
     </div>
   </div>
-
 </div>

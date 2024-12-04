@@ -11,3 +11,6 @@
   font-family: Ubuntu-Medium;
   src: url(assets/fonts/Ubuntu-Medium.ttf);
 }
+body{
+  margin: 0;
+}
