@@ -2,7 +2,10 @@
   <div class="statusStepsPanel">
     <div class="statusSteps" *ngFor="let detail of detailsOfStatus" [ngClass]="{'active': detail.statusNumber === activeStep}">
       <div class="statusNumbers">{{detail.statusNumber}}</div>
-      <div class="statusName">{{detail.statusName}}</div>
+      <div class="statusStepsRight">
+        <div class="statusName">{{detail.statusName}}</div>
+        <div class="statusInfo">{{detail.statusInfo}}</div>
+      </div>
     </div>
   </div>
 </div>

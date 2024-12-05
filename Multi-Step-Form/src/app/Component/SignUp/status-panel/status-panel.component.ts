@@ -12,10 +12,10 @@ export class StatusPanelComponent {
   @Input() activeStep: number = 1;
 
   detailsOfStatus = [
-    { statusNumber: 1, statusName: 'Step 1' },
-    { statusNumber: 2, statusName: 'Step 2' },
-    { statusNumber: 3, statusName: 'Step 3' },
-    { statusNumber: 4, statusName: 'Step 4' }
+    { statusNumber: 1, statusName: 'STEP 1' ,statusInfo: 'YOUR INFO' },
+    { statusNumber: 2, statusName: 'STEP 2',statusInfo: 'SELECT PLAN' },
+    { statusNumber: 3, statusName: 'STEP 3',statusInfo: 'ADD-ONS' },
+    { statusNumber: 4, statusName: 'STEP 4',statusInfo: 'SUMMARY' }
   ];
 
 
