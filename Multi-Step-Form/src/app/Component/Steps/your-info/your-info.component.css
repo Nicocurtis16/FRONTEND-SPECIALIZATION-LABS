@@ -33,4 +33,7 @@
 .yourInfoFormOne{
   width: 100%;
   height: 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
