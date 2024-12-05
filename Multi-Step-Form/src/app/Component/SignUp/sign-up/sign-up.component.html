@@ -8,8 +8,8 @@
         <router-outlet></router-outlet>
       </div>
       <div class="signUpPanelRightDown">
-        <button (click)="prevStep()" [disabled]="activeStep === 1">Previous</button>
-        <button (click)="nextStep()" [disabled]="activeStep === 4">Next</button>
+        <button (click)="prevStep()" [disabled]="activeStep === 1" class="goBack">Go Back</button>
+        <button (click)="nextStep()" [disabled]="activeStep === 4" class="next">Next Step</button>
       </div>
     </div>
   </div>
