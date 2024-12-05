@@ -31,8 +31,8 @@
   .signUpPanelRightTop{
     position: absolute;
     width: 90%;
-    height: 30%;
-    background-color: red;
+    height: auto;
+    background-color: white;
     top: -10%;
     border-radius: 10px;
 
@@ -121,9 +121,9 @@
   }
   .signUpPanelRightTop{
     margin-top: 50px;
-    height: 348px;
+    height: auto;
     width: 450px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
   }
   .signUpPanelRightDown{
     display: flex;
