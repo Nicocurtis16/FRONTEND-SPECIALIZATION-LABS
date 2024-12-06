@@ -1,1 +1,50 @@
-<p>select-plan works!</p>
+<div class="planPanel">
+  <div class="planDetail">
+    <div class="planTitle">Select your plan</div>
+    <div class="planInfoInfo">You have the option of monthly or yearly billing.</div>
+  </div>
+  <div class="paymentPlanPanel">
+    <div class="paymentCard">
+      <div class="paymentCardLogo"></div>
+      <div class="paymentCardDetails">
+        <div class="paymentCardTitle">Arcada</div>
+        <div class="paymentCardAmount">$9/mo</div>
+
+
+      </div>
+
+    </div>
+  </div>
+  <div class="switchDuration">
+    <div class="togglePanel">
+      <span class="monthly">Monthly</span>
+      <label class="switch">
+        <input type="checkbox" (change)="togglePlan()" [checked]="isMonthly">
+        <span class="slider round"></span>
+      </label>
+      <span class="yearly">Yearly</span>
+    </div>
+
+
+  </div>
+</div>
+
+<!--<div class="planToggle">-->
+
+<!--</div>-->
+
+<!--<div class="plans">-->
+<!--  <div *ngIf="isMonthly">-->
+<!--    <h2>Monthly Plans</h2>-->
+<!--    <div *ngFor="let plan of monthlyPlans">-->
+<!--      <p>{{ plan.name }}: {{ plan.price }}</p>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div *ngIf="!isMonthly">-->
+<!--    <h2>Yearly Plans</h2>-->
+<!--    <div *ngFor="let plan of yearlyPlans">-->
+<!--      <p>{{ plan.name }}: {{ plan.price }}</p>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
