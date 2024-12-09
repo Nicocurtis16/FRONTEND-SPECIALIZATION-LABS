@@ -26,7 +26,7 @@ export class SelectPlanComponent {
    { name: 'Pro', price: '$150/mo', imgUrl: 'assets/images/icon-pro.svg',free:'2 months free' }
  ];
 
-  isMonthly = false;
+  isMonthly : boolean = false;
 
   togglePlan() {
     this.isMonthly = !this.isMonthly;

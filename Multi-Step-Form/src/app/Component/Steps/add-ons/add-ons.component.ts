@@ -1,12 +1,35 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-ons',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './add-ons.component.html',
-  styleUrl: './add-ons.component.css'
+  styleUrls: ['./add-ons.component.css']
 })
 export class AddOnsComponent {
+  options = [
+    { optionTitle: 'Online service', optionInfo: 'Access to multiplayer games', price: '+$10/yr' },
+    { optionTitle: 'Larger storage', optionInfo: 'Extra 1TB of cloud save', price: '+$20/yr' },
+    { optionTitle: 'Customizable profile', optionInfo: 'Custom theme on your profile', price: '+$20/yr' }
+  ];
+  selectedOptions: string[] = [];
 
+  onCheckboxChange(event: any, option: any) {
+    const optionTitle = event.target.value;
+    if (event.target.checked) {
+      this.selectedOptions.push(optionTitle);
+    } else {
+      const index = this.selectedOptions.indexOf(optionTitle);
+      if (index > -1) {
+        this.selectedOptions.splice(index, 1);
+      }
+    }
+    console.log('Selected options:', this.selectedOptions);
+  }
+
+  isChecked(option: any): boolean {
+    return this.selectedOptions.includes(option.optionTitle);
+  }
 }
