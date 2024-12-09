@@ -11,11 +11,13 @@
       <div class="paymentCardDetails">
         <div class="paymentCardTitle">{{plan.name}}</div>
         <div class="paymentCardAmount">{{plan.price}}</div>
+        <div class="paymentInfo">{{plan.free}}</div>
+
       </div>
     </div>
   </div>
   <div class="paymentPlanPanel" *ngIf="!isMonthly">
-    <div class="paymentCard" *ngFor="let plan of yearlyPlans">
+    <div class="paymentCard" *ngFor="let plan of yearlyPlans" (click)="selectPlan(plan)">
       <div class="paymentCardLogo">
         <img [src]="plan.imgUrl" alt="">
       </div>
