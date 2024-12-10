@@ -1,3 +1,4 @@
+<!-- sign-up.component.html -->
 <div class="signUpPanel">
   <div class="signUpPanelInner">
     <div class="signUpPanelLeft">
@@ -9,7 +10,7 @@
       </div>
       <div class="signUpPanelRightDown">
         <button (click)="prevStep()" [disabled]="activeStep === 1" class="goBack">Go Back</button>
-        <button (click)="nextStep()" [disabled]="activeStep === 4" class="next">Next Step</button>
+        <button (click)="nextStep()" class="next">{{ nextButtonText }}</button>
       </div>
     </div>
   </div>

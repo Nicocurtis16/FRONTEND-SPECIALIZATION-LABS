@@ -23,4 +23,8 @@ export class YourInfoComponent {
   get name() { return this.yourInfoForm.get('name') as any; }
   get email() { return this.yourInfoForm.get('email') as any; }
   get phone() { return this.yourInfoForm.get('phone') as any; }
+
+  saveData() {
+
+  }
 }
