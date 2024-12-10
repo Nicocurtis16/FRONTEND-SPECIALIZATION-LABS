@@ -7,6 +7,7 @@
     <div class="signUpPanelRight">
       <div class="signUpPanelRightTop">
         <router-outlet></router-outlet>
+        <app-summary *ngIf="activeStep === 4" [formData]="formData"></app-summary>
       </div>
       <div class="signUpPanelRightDown">
         <button (click)="prevStep()" [disabled]="activeStep === 1" class="goBack">Go Back</button>

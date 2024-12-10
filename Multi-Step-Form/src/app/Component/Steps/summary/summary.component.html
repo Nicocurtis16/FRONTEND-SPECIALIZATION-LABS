@@ -1,4 +1,4 @@
-
+<!-- summary.component.html -->
 <div class="addOnsPanel">
   <div class="planDetail">
     <div class="planTitle">Finishing up</div>
@@ -6,30 +6,21 @@
   </div>
   <div class="summaryDetail">
     <div class="summaryDetailTop">
-      <div class="planSelected">
+      <div class="planSelected" *ngIf="formData?.selectPlan">
         <div class="planSelectedLeft">
-          <div class="planSelectedTitle">Arcade (Monthly)</div>
+          <div class="planSelectedTitle">{{ formData.selectPlan?.name }} ({{ formData.selectPlan?.price }})</div>
           <div class="planSelectedChange">Change</div>
-
         </div>
-        <div class="planSelectedRight">$9/mo</div>
-
+        <div class="planSelectedRight">{{ formData.selectPlan?.price }}</div>
       </div>
-      <div class="selectedAddOns">
-          <div class="selectedAddOnsTitle">Online service</div>
-          <div class="selectedAddOnsAmount">+$1/mo</div>
+      <div class="selectedAddOns" *ngFor="let addOn of formData?.addOns">
+        <div class="selectedAddOnsTitle">{{ addOn?.optionTitle }}</div>
+        <div class="selectedAddOnsAmount">{{ addOn?.price }}</div>
       </div>
-        <div class="selectedAddOns">
-            <div class="selectedAddOnsTitle">Online service</div>
-            <div class="selectedAddOnsAmount">+$1/mo</div>
-        </div>
-
     </div>
     <div class="summaryDetailDown">
-        <div class="summaryDetailTitle">Total (per month)</div>
-        <div class="summaryDetailPrice">+$12/mo</div>
-
+      <div class="summaryDetailTitle">Total (per month)</div>
+      <div class="summaryDetailPrice">+{{ calculateTotal() }}/mo</div>
     </div>
-
   </div>
 </div>

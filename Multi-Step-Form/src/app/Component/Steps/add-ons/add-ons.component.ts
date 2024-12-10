@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormDataService } from '../../../shared/form-data.service';
 
 @Component({
   selector: 'app-add-ons',
@@ -8,13 +9,22 @@ import { CommonModule } from '@angular/common';
   templateUrl: './add-ons.component.html',
   styleUrls: ['./add-ons.component.css']
 })
-export class AddOnsComponent {
+export class AddOnsComponent implements OnInit {
   options = [
     { optionTitle: 'Online service', optionInfo: 'Access to multiplayer games', price: '+$10/yr' },
     { optionTitle: 'Larger storage', optionInfo: 'Extra 1TB of cloud save', price: '+$20/yr' },
     { optionTitle: 'Customizable profile', optionInfo: 'Custom theme on your profile', price: '+$20/yr' }
   ];
   selectedOptions: string[] = [];
+
+  constructor(private formDataService: FormDataService) {}
+
+  ngOnInit() {
+    const savedData = this.formDataService.getFormData('addOns');
+    if (savedData) {
+      this.selectedOptions = savedData;
+    }
+  }
 
   onCheckboxChange(event: any, option: any) {
     const optionTitle = event.target.value;
@@ -26,6 +36,7 @@ export class AddOnsComponent {
         this.selectedOptions.splice(index, 1);
       }
     }
+    this.formDataService.setFormData('addOns', this.selectedOptions);
     console.log('Selected options:', this.selectedOptions);
   }
 

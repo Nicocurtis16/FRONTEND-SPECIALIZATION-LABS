@@ -1,51 +1,58 @@
-import { Component, ViewChild, AfterViewInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
+import { FormDataService } from '../../../shared/form-data.service';
 import { StatusPanelComponent } from '../status-panel/status-panel.component';
-import { YourInfoComponent } from '../../Steps/your-info/your-info.component';
-import { CommonModule } from '@angular/common';
+import { SummaryComponent } from '../../Steps/summary/summary.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-sign-up',
+  templateUrl: './sign-up.component.html',
   standalone: true,
   imports: [
     StatusPanelComponent,
     RouterOutlet,
-    CommonModule
+    SummaryComponent,
+    NgIf
   ],
-  templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements AfterViewInit {
   activeStep = 1;
-  @ViewChild(YourInfoComponent) yourInfoComponent!: YourInfoComponent;
+  formData: any = {};
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private formDataService: FormDataService) {}
 
   ngAfterViewInit() {
-    // Ensure yourInfoComponent is initialized
-    if (!this.yourInfoComponent) {
-      console.error('YourInfoComponent is not initialized');
+    this.loadStepData();
+    console.log('Initial formData passed to SummaryComponent:', this.formData);
+  }
+
+
+  loadStepData() {
+    const savedData = this.formDataService.getAllFormData();
+    console.log('Loaded form data:', savedData); // Debug log
+    if (savedData) {
+      this.formData = savedData;
     }
   }
 
   nextStep() {
     if (this.activeStep < 4) {
-      if (this.activeStep === 1) {
-        // if (this.yourInfoComponent) {
-        //   const isValid = this.yourInfoComponent.saveData();
-        //
-        //   if (!isValid) {
-        //     console.log('Form is invalid');
-        //     return;
-        //   }
-        // } else {
-        //   console.error('YourInfoComponent is not initialized');
-        //   return;
-        // }
+      const formData = this.saveStepData();
+      if (!formData.isValid) {
+        console.log('Form is invalid:', formData.errors); // Debug log
+        return;
       }
+      this.formDataService.setFormData(`step${this.activeStep}`, formData.data);
+      console.log(`Form data saved for step ${this.activeStep}:`, formData.data); // Debug log
+      this.formData = { ...this.formData, ...formData.data };
 
+      console.log('Current form data:', this.formDataService.getAllFormData()); // Debug log
       this.activeStep++;
-      this.router.navigate(['/signup/step' + this.activeStep]).then(() => {});
+      this.router.navigate(['/signup/step' + this.activeStep]).then(() => {
+        this.loadStepData();
+      });
     } else if (this.activeStep === 4) {
       this.confirm();
     }
@@ -54,12 +61,27 @@ export class SignUpComponent implements AfterViewInit {
   prevStep() {
     if (this.activeStep > 1) {
       this.activeStep--;
-      this.router.navigate(['/signup/step' + this.activeStep]).then(() => {});
+      this.router.navigate(['/signup/step' + this.activeStep]).then(() => {
+        this.loadStepData();
+      });
     }
   }
 
   confirm() {
+    const allData = this.formDataService.getAllFormData();
+    console.log('Final submitted data:', allData);
     alert('Form submitted successfully!');
+    this.formDataService.clearFormData(); // Optional: clear data after submission
+  }
+
+  saveStepData() {
+    // Implement the logic to save data for the current step
+    // Return an object with isValid and data properties
+    return {
+      isValid: true,
+      data: this.formDataService.getFormData(`step${this.activeStep}`) || {},
+      errors: undefined
+    };
   }
 
   get nextButtonText(): string {

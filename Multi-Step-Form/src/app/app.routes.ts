@@ -14,9 +14,8 @@ export const routes: Routes = [
       { path: 'step2', component: SelectPlanComponent },
       { path: 'step3', component: AddOnsComponent },
       { path: 'step4', component: SummaryComponent },
-      { path: '', redirectTo: 'step1', pathMatch: 'full' }  // Default to step1 within signup
-    ]
-  },
+      { path: '', redirectTo: 'step1', pathMatch: 'full' }
+    ]},
   { path: '**', redirectTo: '', pathMatch: 'full' }  // Redirect unknown paths to home
 ];
 
