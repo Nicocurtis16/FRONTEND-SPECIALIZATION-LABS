@@ -15,7 +15,7 @@ export class AddOnsComponent implements OnInit {
     { optionTitle: 'Larger storage', optionInfo: 'Extra 1TB of cloud save', price: '+$20/yr' },
     { optionTitle: 'Customizable profile', optionInfo: 'Custom theme on your profile', price: '+$20/yr' }
   ];
-  selectedOptions: string[] = [];
+  selectedOptions: any[] = [];
 
   constructor(private formDataService: FormDataService) {}
 
@@ -27,11 +27,10 @@ export class AddOnsComponent implements OnInit {
   }
 
   onCheckboxChange(event: any, option: any) {
-    const optionTitle = event.target.value;
     if (event.target.checked) {
-      this.selectedOptions.push(optionTitle);
+      this.selectedOptions.push(option);
     } else {
-      const index = this.selectedOptions.indexOf(optionTitle);
+      const index = this.selectedOptions.findIndex(o => o.optionTitle === option.optionTitle);
       if (index > -1) {
         this.selectedOptions.splice(index, 1);
       }
@@ -41,6 +40,6 @@ export class AddOnsComponent implements OnInit {
   }
 
   isChecked(option: any): boolean {
-    return this.selectedOptions.includes(option.optionTitle);
+    return this.selectedOptions.some(o => o.optionTitle === option.optionTitle);
   }
 }

@@ -25,9 +25,7 @@ export class SignUpComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.loadStepData();
-    console.log('Initial formData passed to SummaryComponent:', this.formData);
   }
-
 
   loadStepData() {
     const savedData = this.formDataService.getAllFormData();

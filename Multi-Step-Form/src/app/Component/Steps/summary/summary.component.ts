@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+import { NgForOf, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-summary',
@@ -9,13 +9,12 @@ import {NgForOf, NgIf} from "@angular/common";
     NgIf
   ],
   templateUrl: './summary.component.html',
-  styleUrl: './summary.component.css'
+  styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent {
   @Input() formData: any;
 
   constructor() {}
-
 
   calculateTotal() {
     let total = 0;
@@ -34,5 +33,4 @@ export class SummaryComponent {
 
     return total;
   }
-
 }
