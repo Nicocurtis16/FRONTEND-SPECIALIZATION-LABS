@@ -13,6 +13,7 @@
     margin-top: 12%;
     height: 33px;
     width: 50px;
+    cursor: pointer;
   }
   .statusName{
     visibility: hidden;
