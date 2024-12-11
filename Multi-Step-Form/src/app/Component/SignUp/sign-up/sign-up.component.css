@@ -95,7 +95,8 @@
     background-color: #EFF5FF;
   }
   .signUpPanelInner{
-    width: 940px;
+    width: 58.75rem;
+    height: 37.5rem;
     background-color: white;
     border-radius: 15px;
     padding: 25px;
@@ -106,7 +107,7 @@
   }
   .signUpPanelLeft{
     height: 568px;
-    width: 274px;
+    width: 17.15rem;
     border-radius: 10px;
     /*border: 1px solid red;*/
   }
@@ -122,7 +123,7 @@
   .signUpPanelRightTop{
     margin-top: 50px;
     height: auto;
-    width: 450px;
+    width: 28.125rem;
     /*border: 1px solid red;*/
   }
   .signUpPanelRightDown{
