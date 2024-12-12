@@ -3,7 +3,7 @@ import { Router, RouterOutlet } from '@angular/router';
 import { FormDataService } from '../../../shared/form-data.service';
 import { StatusPanelComponent } from '../status-panel/status-panel.component';
 import { SummaryComponent } from '../../Steps/summary/summary.component';
-import { NgIf } from '@angular/common';
+import {NgIf, NgStyle} from '@angular/common';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,7 +13,8 @@ import { NgIf } from '@angular/common';
     StatusPanelComponent,
     RouterOutlet,
     SummaryComponent,
-    NgIf
+    NgIf,
+    NgStyle
   ],
   styleUrls: ['./sign-up.component.css']
 })

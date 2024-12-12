@@ -10,8 +10,13 @@
         <app-summary *ngIf="activeStep === 4" [formData]="formData"></app-summary>
       </div>
       <div class="signUpPanelRightDown">
-        <button (click)="prevStep()" [disabled]="activeStep === 1" class="goBack">Go Back</button>
-        <button (click)="nextStep()" class="next">{{ nextButtonText }}</button>
+        <button
+          (click)="prevStep()"
+          [disabled]="activeStep === 1"
+          [ngStyle]="{'visibility': activeStep === 1 ? 'hidden' : 'visible'}"
+          class="goBack">
+          Go Back
+        </button>        <button (click)="nextStep()" class="next">{{ nextButtonText }}</button>
       </div>
     </div>
   </div>
