@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="paymentPlanPanel" *ngIf="!isMonthly">
-    <div class="paymentCard" *ngFor="let plan of yearlyPlans" (click)="selectPlan(plan)">
+    <div (click)="selectPlan(plan)" *ngFor="let plan of yearlyPlans" class="paymentCard">
       <div class="paymentCardLogo">
         <img [src]="plan.imgUrl" alt="">
       </div>
