@@ -40,4 +40,5 @@ export class StatusPanelComponent {
         this.router.navigate(['/signup/step1']);
     }
   }
+
 }

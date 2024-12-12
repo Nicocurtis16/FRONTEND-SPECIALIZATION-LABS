@@ -9,8 +9,7 @@
       <div class="planSelected" *ngIf="formData?.selectPlan">
         <div class="planSelectedLeft">
           <div class="planSelectedTitle">{{ formData.selectPlan?.name }} ({{ formData.selectPlan?.price }})</div>
-          <div class="planSelectedChange">Change</div>
-        </div>
+          <div class="planSelectedChange" (click)="changePlan()">Change</div>        </div>
         <div class="planSelectedRight">{{ formData.selectPlan?.price }}</div>
       </div>
       <div class="selectedAddOns" *ngFor="let addOn of formData?.addOns">

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { NgForOf, NgIf } from '@angular/common';
+import { Router } from '@angular/router'; // Import Router
 
 @Component({
   selector: 'app-summary',
@@ -13,8 +14,10 @@ import { NgForOf, NgIf } from '@angular/common';
 })
 export class SummaryComponent {
   @Input() formData: any;
+  // If you want to communicate back to parent component
+  @Output() changePlanEvent = new EventEmitter<void>();
 
-  constructor() {}
+  constructor(private router: Router) {} // Inject Router
 
   calculateTotal() {
     let total = 0;
@@ -32,5 +35,13 @@ export class SummaryComponent {
     }
 
     return total;
+  }
+
+  changePlan() {
+    // Option 1: Navigate directly
+    this.router.navigate(['/step3']);
+
+    // Option 2: Emit event for parent component to handle
+    this.changePlanEvent.emit();
   }
 }
