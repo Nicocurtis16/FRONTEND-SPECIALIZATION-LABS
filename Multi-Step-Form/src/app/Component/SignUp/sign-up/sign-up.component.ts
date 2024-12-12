@@ -21,6 +21,7 @@ import {NgIf, NgStyle} from '@angular/common';
 export class SignUpComponent implements AfterViewInit {
   activeStep = 1;
   formData: any = {};
+  showConfirmation: boolean = false;
 
   constructor(private router: Router, private formDataService: FormDataService) {}
 
@@ -69,7 +70,7 @@ export class SignUpComponent implements AfterViewInit {
   confirm() {
     const allData = this.formDataService.getAllFormData();
     console.log('Final submitted data:', allData);
-    alert('Form submitted successfully!');
+    this.showConfirmation = true;
     this.formDataService.clearFormData(); // Optional: clear data after submission
   }
 

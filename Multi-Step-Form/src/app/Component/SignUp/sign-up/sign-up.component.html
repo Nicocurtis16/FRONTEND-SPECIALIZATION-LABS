@@ -6,10 +6,21 @@
     </div>
     <div class="signUpPanelRight">
       <div class="signUpPanelRightTop">
-        <router-outlet *ngIf="activeStep !== 4"></router-outlet>
-        <app-summary *ngIf="activeStep === 4" [formData]="formData"></app-summary>
+        <router-outlet *ngIf="activeStep !== 4 && !showConfirmation"></router-outlet>
+        <app-summary *ngIf="activeStep === 4 && !showConfirmation" [formData]="formData"></app-summary>
+
+        <!-- Confirmation section -->
+        <div *ngIf="showConfirmation" class="confirmation-section">
+          <div class="confirmationTop">
+            <img src="assets/images/icon-thank-you.svg" alt="Thank you icon">
+          </div>
+          <div class="confirmationMiddle">Thank you!</div>
+          <div class="confirmationDown">
+            Thanks for confirming your subscription! We hope you have fun using our platform. If you ever need support, please feel free to email us at support&#64;loremgaming.com.
+          </div>
+        </div>
       </div>
-      <div class="signUpPanelRightDown">
+      <div class="signUpPanelRightDown" *ngIf="!showConfirmation">
         <button
           (click)="prevStep()"
           [disabled]="activeStep === 1"
