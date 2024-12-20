@@ -1,1 +1,3 @@
-<p>theme-toggle works!</p>
+<button (click)="toggleTheme()">
+  <img [src]="currentTheme === 'light' ? 'assets/images/light-mode-icon.svg' : 'assets/images/dark-mode-icon.svg'" alt="Toggle Theme">
+</button>
