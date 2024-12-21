@@ -148,11 +148,14 @@
     }
 
     &.save-as-draft {
-      background-color: #9E9E9E;
-      color: white;
+      height: 48px ;
+      width: 133px;
+      background-color: #373B53;
+      color: #888EB0;
 
       &:hover {
-        background-color: #9E9E9E;
+        background-color: #0C0E16;
+        color: #888EB0;
       }
     }
 
