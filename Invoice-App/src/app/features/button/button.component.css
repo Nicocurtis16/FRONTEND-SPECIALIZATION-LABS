@@ -127,11 +127,13 @@
     }
 
     &.edit {
-      background-color: #2196F3;
-      color: white;
+      height: 48px;
+      width: 73px;
+      background-color: #F9FAFE;
+      color: var(--tertiary);
 
       &:hover {
-        background-color: #2196F3;
+        background-color: #DFE3FA;
       }
     }
 
