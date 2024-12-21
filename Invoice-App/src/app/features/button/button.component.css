@@ -116,11 +116,13 @@
     }
 
     &.delete {
-      background-color: #f44336;
-      color: white;
+      background-color: var(--error-color);
+      color: var(--light-BG);
+      height: 48px;
+      width: 89px;
 
       &:hover {
-        background-color:#f44336;
+        background-color:#FF9797;
       }
     }
 
