@@ -138,12 +138,13 @@
     }
 
     &.marked-as-paid {
-      background-color: #FFC107;
+      width: 131px;
+      height: 48px;
+      background-color: var(--primary-color);
       color: white;
 
       &:hover {
-        background-color: #FFC107;
-        transform: scale(1.05);
+        background-color: var(--primary-color-light);
       }
     }
 
@@ -160,11 +161,14 @@
     }
 
     &.add-new-item {
-      background-color: #3F51B5;
-      color: white;
+      width: 350px;
+      height: 48px;
+      background-color: #F9FAFE;
+      color: #7E88C3;
 
       &:hover {
-        background-color: #3F51B5;
+        background-color: #DFE3FA;
+        color: #7E88C3;
       }
     }
   }}
