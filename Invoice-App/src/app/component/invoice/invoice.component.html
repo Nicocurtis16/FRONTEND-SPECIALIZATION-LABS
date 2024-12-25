@@ -1,9 +1,9 @@
 <div class="invoicePanel">
-  <div class="invoiceCard">
+  <button *ngFor="let invoice of invoices" class="invoiceCard">
     <div class="invoiceId">
       <app-head-line
         [variant]="'h3'"
-        [text]="'#RT3080'"
+        [text]="'#' + invoice.id"
         [color]="'--base-black'"
         [highlightColor]="'--tertiary'"
       ></app-head-line>
@@ -12,14 +12,14 @@
     <div class="invoicePaymentDue">
       <app-text
         [variant]="'body1'"
-        [text]="'Due 19 Aug 2021'"
+        [text]="'Due ' + invoice.paymentDue"
         [color]="'--grey-color-dark'"
       ></app-text>
     </div>
     <div class="invoiceClientName">
       <app-text
         [variant]="'body1'"
-        [text]="'Jensen Huang'"
+        [text]="invoice.clientName"
         [color]="'--tertiary'"
       ></app-text>
     </div>
@@ -27,9 +27,18 @@
     <div class="invoicePrice">
       <app-head-line
         [variant]="'h3'"
-        [text]="'£ 1,800.90'"
+        [text]="'£ ' + invoice.total"
         [color]="'--secondary-color'"
       ></app-head-line>
     </div>
-  </div>
+    <div class="invoiceStatus">
+      <app-badge [status]="invoice.status"></app-badge>
+      <div class="invoiceStatusIcon">
+        <img src="assets/images/icon-arrow-right.svg">
+      </div>
+
+    </div>
+
+
+  </button>
 </div>

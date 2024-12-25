@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { DataService } from '../../service/data.service';
-import {Invoice} from "../../service/invoice";
+import { Invoice } from '../../service/invoice';
 import { NgFor, NgIf, DatePipe, NgClass } from '@angular/common';
-import {BadgeComponent} from "../../features/badge/badge.component";
-import {HeadLineComponent} from "../../features/head-line/head-line.component";
-import {TextComponent} from "../../features/text/text.component";
-
+import { BadgeComponent } from '../../features/badge/badge.component';
+import { HeadLineComponent } from '../../features/head-line/head-line.component';
+import { TextComponent } from '../../features/text/text.component';
 
 @Component({
   selector: 'app-invoice',

@@ -8,19 +8,55 @@
 
 @media (min-width: 960px)  {
   .invoicePanel{
-    width: 672px;
+
+    width: auto;
     height: auto;
+    display: flex;
+    flex-direction: column;
   }
   .invoiceCard{
-    width: 100%;
+    width: 730px;
     height: 72px;
     display: flex;
-    /*background-color: blueviolet;*/
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+    cursor: pointer;
+    border: none;
+
   }
-  .invoicePrice .headline {
-     color: #ff0000; /* Replace with your desired color */
-   }
+  .invoiceCard:hover {
+    border: 1px solid var(--primary-color-light); /* Adds a border only on hover */
+  }
+  .invoiceId{
+    width: 70px;
+    margin-left: 20px;
+  }
+  .invoicePaymentDue{
+    width: 100px;
+
+  }
+  .invoiceClientName{
+    width: 100px;
+
+  }
+  .invoicePrice{
+    width: 120px;
+    display: flex;
+    justify-content: end;
+
+  }
+  .invoiceStatus{
+    width: 140px;
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+  }
+  .invoiceStatusIcon{
+    margin-left: 15px;
+  }
 
 }

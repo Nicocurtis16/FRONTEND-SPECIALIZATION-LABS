@@ -42,7 +42,7 @@
     height: 100vh;
     width: 100%;
     display: flex;
-    /*background-color:var(--light-BG) ;*/
+    background-color:var(--light-BG) ;
   }
   .layoutLeftPanel {
     height: 100%;
@@ -52,8 +52,8 @@
 
   }
   .layoutContent{
-    height: 700px;
-    width: 790px;
+    height: auto;
+    width: auto;
     margin-left: 20%;
     border: solid 1px var(--grey-color-dark);
   }
