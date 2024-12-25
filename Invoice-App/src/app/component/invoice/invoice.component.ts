@@ -6,10 +6,11 @@ import { NgFor, NgIf, DatePipe, NgClass } from '@angular/common';
 import { BadgeComponent } from '../../features/badge/badge.component';
 import { HeadLineComponent } from '../../features/head-line/head-line.component';
 import { TextComponent } from '../../features/text/text.component';
+import {InvoiceHeaderComponent} from "../invoice-header/invoice-header.component";
 
 @Component({
   selector: 'app-invoice',
-  imports: [HttpClientModule, NgFor, NgIf, DatePipe, NgClass, BadgeComponent, HeadLineComponent, TextComponent],
+  imports: [HttpClientModule, NgFor, NgIf, DatePipe, NgClass, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent],
   standalone: true,
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
