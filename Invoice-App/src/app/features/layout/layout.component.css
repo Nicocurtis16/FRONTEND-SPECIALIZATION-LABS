@@ -57,4 +57,9 @@
     width: auto;
     margin-left: 20%;
   }
+  .invoiceHeader{
+    width: 730px;
+    height: 59px;
+    margin-bottom: 30px;
+  }
 }
