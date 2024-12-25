@@ -1,12 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
+import { DataService } from '../../service/data.service';
+import {Invoice} from "../../service/invoice";
+import { NgFor, NgIf, DatePipe, NgClass } from '@angular/common';
+import {BadgeComponent} from "../../features/badge/badge.component";
+
 
 @Component({
   selector: 'app-invoice',
+  imports: [HttpClientModule, NgFor, NgIf, DatePipe, NgClass, BadgeComponent],
   standalone: true,
-  imports: [],
   templateUrl: './invoice.component.html',
-  styleUrl: './invoice.component.css'
+  styleUrls: ['./invoice.component.css']
 })
-export class InvoiceComponent {
+export class InvoiceComponent implements OnInit {
+  invoices: Invoice[] = [];
 
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    const storedData = this.dataService.getDataFromLocalStorage();
+    if (storedData) {
+      this.invoices = storedData;
+    } else {
+      this.dataService.fetchData().subscribe({
+        next: (data) => {
+          this.invoices = data;
+        },
+        error: (error) => {
+          console.error('Error fetching invoices:', error);
+        }
+      });
+    }
+  }
+
+  refreshData() {
+    this.invoices = this.dataService.getDataFromLocalStorage() ?? [];
+  }
+
+  clearData() {
+    this.dataService.clearDataFromLocalStorage();
+    this.invoices = [];
+  }
 }
