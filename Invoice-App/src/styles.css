@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
 body{
   margin: 0;
   padding: 0;
@@ -28,4 +29,12 @@ body{
 .layoutPanel {
   background-color: var(--background-color);
   color: var(--text-color);
+}
+@font-face {
+  font-family: 'League Spartan', sans-serif;
+  src: url('/assets/fonts/LeagueSpartan-Bold.ttf');
+}
+@font-face {
+  font-family: 'League Spartan', sans-serif;
+  src: url('/assets/fonts/LeagueSpartan-Medium.ttf');
 }

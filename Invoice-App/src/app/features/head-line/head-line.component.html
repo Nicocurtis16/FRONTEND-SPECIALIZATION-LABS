@@ -1,1 +1,8 @@
-<h1 [ngClass]="variant">{{ text }}</h1>
+<h1 [class]="variant">
+  <span [style.color]="'var(' + highlightColor + ')'">
+    {{ text[0] }}
+  </span>
+  <span [style.color]="'var(' + color + ')'">
+    {{ text.substring(1) }}
+  </span>
+</h1>

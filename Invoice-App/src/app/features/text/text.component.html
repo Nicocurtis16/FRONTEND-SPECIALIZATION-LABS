@@ -1,1 +1,6 @@
-<p [ngClass]="variant">{{ text }}</p>
+<p
+  [class]="variant"
+  [style.color]="'var(' + color + ')'"
+>
+  {{ text }}
+</p>

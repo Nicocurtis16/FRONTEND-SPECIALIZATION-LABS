@@ -1,12 +1,35 @@
 <div class="invoicePanel">
   <div class="invoiceCard">
-    <div class="invoiceId"><app-head-line [variant]="'h3'" [text]="'#RT3080'"></app-head-line></div>
-    <div class="invoicePaymentDue"> <app-text [variant]="'body1'" [text]="'Due  19 Aug 2021'"></app-text></div>
-    <div class="invoiceClientName"> <app-text [variant]="'body1'" [text]="'Jensen Huang'"></app-text></div>
-    <div class="invoicePrice"><app-head-line [variant]="'h3'" [text]="'£ 1,800.90'"></app-head-line></div>
-<!--    <app-badge [status]="invoice.status"></app-badge>-->
+    <div class="invoiceId">
+      <app-head-line
+        [variant]="'h3'"
+        [text]="'#RT3080'"
+        [color]="'--base-black'"
+        [highlightColor]="'--tertiary'"
+      ></app-head-line>
+    </div>
 
+    <div class="invoicePaymentDue">
+      <app-text
+        [variant]="'body1'"
+        [text]="'Due 19 Aug 2021'"
+        [color]="'--grey-color-dark'"
+      ></app-text>
+    </div>
+    <div class="invoiceClientName">
+      <app-text
+        [variant]="'body1'"
+        [text]="'Jensen Huang'"
+        [color]="'--tertiary'"
+      ></app-text>
+    </div>
 
+    <div class="invoicePrice">
+      <app-head-line
+        [variant]="'h3'"
+        [text]="'£ 1,800.90'"
+        [color]="'--secondary-color'"
+      ></app-head-line>
+    </div>
   </div>
 </div>
-
