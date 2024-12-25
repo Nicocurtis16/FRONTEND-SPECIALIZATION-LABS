@@ -1,0 +1,17 @@
+<div class="filter-dropdown">
+  <div class="dropdown-header">
+    <span>Filter by Status</span>
+  </div>
+
+  <div class="dropdown-options">
+    <label *ngFor="let option of options" class="checkbox-container">
+      <input
+        type="checkbox"
+        [value]="option.value"
+        [checked]="selectedValues.includes(option.value)"
+        (change)="toggleSelection(option.value)"
+      />
+      <span class="checkbox-label">{{ option.label }}</span>
+    </label>
+  </div>
+</div>

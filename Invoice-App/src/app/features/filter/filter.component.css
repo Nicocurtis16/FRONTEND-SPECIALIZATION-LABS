@@ -1,0 +1,32 @@
+.filter-dropdown {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  width: 200px;
+
+  .dropdown-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-options {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .checkbox-label {
+      font-size: 14px;
+    }
+  }
+}

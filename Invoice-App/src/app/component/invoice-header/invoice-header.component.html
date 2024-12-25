@@ -4,12 +4,15 @@
       <app-head-line [variant]="'h1'" [text]="'Invoices'"></app-head-line>
     </div>
     <div class="invoiceCount">
-<!--      <app-text [variant]="'body1'" [text]="'There are 7 total invoices'">-->
-<!--    </app-text>-->
+
     </div>
   </div>
   <div class="invoiceHeaderRight">
-    <div class="invoiceFilter"></div>
+    <div class="invoiceFilter"><app-filter
+      [options]="filterOptions"
+      [selectedValues]="selectedStatuses"
+      (selectionChange)="onSelectionChange($event)">
+    </app-filter></div>
     <div class="newInvoice">
           <app-button variant="new-invoice">New Invoice</app-button>
     </div>
