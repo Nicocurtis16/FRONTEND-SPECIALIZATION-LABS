@@ -23,16 +23,19 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--light-BG);
   }
   .layoutLeftPanel {
     height: 80px;
     width: 100%;
     background-color: var(--grey);
   }
-  .layoutRightPanel {
-    height: 100%;
-    width: 100%;
-    background-color: var(--grey-color-dark);
+  .layoutContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
   }
 }
 
@@ -47,16 +50,11 @@
   .layoutLeftPanel {
     height: 100%;
     width: 103px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-
+    background-color: var(--grey);
   }
   .layoutContent{
     height: auto;
     width: auto;
     margin-left: 20%;
-    border: solid 1px var(--grey-color-dark);
   }
-
-
 }
