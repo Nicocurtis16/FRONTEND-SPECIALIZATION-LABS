@@ -14,5 +14,13 @@
   .invoiceCard{
     width: 100%;
     height: 72px;
+    display: flex;
+    /*background-color: blueviolet;*/
+    align-items: center;
+    justify-content: space-between;
   }
+  .invoicePrice .headline {
+     color: #ff0000; /* Replace with your desired color */
+   }
+
 }

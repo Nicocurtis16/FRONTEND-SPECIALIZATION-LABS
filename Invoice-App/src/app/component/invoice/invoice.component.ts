@@ -4,11 +4,13 @@ import { DataService } from '../../service/data.service';
 import {Invoice} from "../../service/invoice";
 import { NgFor, NgIf, DatePipe, NgClass } from '@angular/common';
 import {BadgeComponent} from "../../features/badge/badge.component";
+import {HeadLineComponent} from "../../features/head-line/head-line.component";
+import {TextComponent} from "../../features/text/text.component";
 
 
 @Component({
   selector: 'app-invoice',
-  imports: [HttpClientModule, NgFor, NgIf, DatePipe, NgClass, BadgeComponent],
+  imports: [HttpClientModule, NgFor, NgIf, DatePipe, NgClass, BadgeComponent, HeadLineComponent, TextComponent],
   standalone: true,
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
