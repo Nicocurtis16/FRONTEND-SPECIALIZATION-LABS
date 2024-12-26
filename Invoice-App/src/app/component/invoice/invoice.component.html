@@ -1,7 +1,7 @@
 <!-- invoice.component.html -->
 <div class="invoicePanel">
   <div class="invoiceHeader">
-    <app-invoice-header (statusFilter)="onFilterChange($event)"></app-invoice-header>
+    <app-invoice-header [invoiceCount]="invoiceCount" (statusFilter)="onFilterChange($event)"></app-invoice-header>
   </div>
 
   <!-- Display either all invoices or filtered ones -->

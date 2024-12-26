@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from '../../service/data.service';
 import { Invoice } from '../../service/invoice';
-import { NgFor, NgIf, DatePipe, NgClass } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { BadgeComponent } from '../../features/badge/badge.component';
 import { HeadLineComponent } from '../../features/head-line/head-line.component';
 import { TextComponent } from '../../features/text/text.component';
-import {InvoiceHeaderComponent} from "../invoice-header/invoice-header.component";
+import { InvoiceHeaderComponent } from "../invoice-header/invoice-header.component";
+import { DataLengthComponent } from '../../features/data-length/data-length.component';
 
 @Component({
   selector: 'app-invoice',
@@ -15,10 +16,10 @@ import {InvoiceHeaderComponent} from "../invoice-header/invoice-header.component
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
 })
-// invoice.component.ts
 export class InvoiceComponent implements OnInit {
   invoices: Invoice[] = [];
   displayedInvoices: Invoice[] = [];
+  invoiceCount: number = 0;
 
   constructor(private dataService: DataService) {}
 
@@ -30,12 +31,12 @@ export class InvoiceComponent implements OnInit {
     const storedData = this.dataService.getDataFromLocalStorage();
     if (storedData) {
       this.invoices = storedData;
-      this.displayedInvoices = storedData;
+      this.updateDisplayedInvoices(storedData);
     } else {
       this.dataService.fetchData().subscribe({
         next: (data) => {
           this.invoices = data;
-          this.displayedInvoices = data;
+          this.updateDisplayedInvoices(data);
         },
         error: (error) => {
           console.error('Error fetching invoices:', error);
@@ -45,14 +46,18 @@ export class InvoiceComponent implements OnInit {
   }
 
   onFilterChange(selectedStatuses: string[]) {
-    console.log('Received selected statuses:', selectedStatuses);
     if (!selectedStatuses || selectedStatuses.length === 0) {
-      this.displayedInvoices = this.invoices;
+      this.updateDisplayedInvoices(this.invoices);
     } else {
-      this.displayedInvoices = this.invoices.filter(invoice =>
+      const filteredInvoices = this.invoices.filter(invoice =>
         selectedStatuses.includes(invoice.status)
       );
+      this.updateDisplayedInvoices(filteredInvoices);
     }
-    console.log('Filtered invoices:', this.displayedInvoices);
+  }
+
+  updateDisplayedInvoices(data: Invoice[]) {
+    this.displayedInvoices = data;
+    this.invoiceCount = data.length; // Update the count dynamically
   }
 }
