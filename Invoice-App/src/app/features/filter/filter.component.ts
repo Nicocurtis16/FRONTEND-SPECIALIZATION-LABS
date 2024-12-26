@@ -11,8 +11,8 @@ import {HeadLineComponent} from "../head-line/head-line.component";
   styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-  @Output() filterChange = new EventEmitter<string[]>();
-  isOpen = false;
+  @Output() filterChange = new EventEmitter<string[]>();  // Add type
+   isOpen = false;
 
   statuses = [
     { label: 'paid', value: 'paid', checked: false },

@@ -10,24 +10,32 @@ import {InvoiceHeaderComponent} from "../invoice-header/invoice-header.component
 
 @Component({
   selector: 'app-invoice',
-  imports: [HttpClientModule, NgFor, NgIf, DatePipe, NgClass, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent],
+  imports: [HttpClientModule, NgFor, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent, NgIf],
   standalone: true,
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
 })
+// invoice.component.ts
 export class InvoiceComponent implements OnInit {
   invoices: Invoice[] = [];
+  displayedInvoices: Invoice[] = [];
 
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    this.loadInvoices();
+  }
+
+  loadInvoices() {
     const storedData = this.dataService.getDataFromLocalStorage();
     if (storedData) {
       this.invoices = storedData;
+      this.displayedInvoices = storedData;
     } else {
       this.dataService.fetchData().subscribe({
         next: (data) => {
           this.invoices = data;
+          this.displayedInvoices = data;
         },
         error: (error) => {
           console.error('Error fetching invoices:', error);
@@ -36,12 +44,15 @@ export class InvoiceComponent implements OnInit {
     }
   }
 
-  refreshData() {
-    this.invoices = this.dataService.getDataFromLocalStorage() ?? [];
-  }
-
-  clearData() {
-    this.dataService.clearDataFromLocalStorage();
-    this.invoices = [];
+  onFilterChange(selectedStatuses: string[]) {
+    console.log('Received selected statuses:', selectedStatuses);
+    if (!selectedStatuses || selectedStatuses.length === 0) {
+      this.displayedInvoices = this.invoices;
+    } else {
+      this.displayedInvoices = this.invoices.filter(invoice =>
+        selectedStatuses.includes(invoice.status)
+      );
+    }
+    console.log('Filtered invoices:', this.displayedInvoices);
   }
 }

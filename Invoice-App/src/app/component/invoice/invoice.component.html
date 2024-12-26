@@ -1,6 +1,11 @@
+<!-- invoice.component.html -->
 <div class="invoicePanel">
-  <div class="invoiceHeader"><app-invoice-header></app-invoice-header></div>
-  <button *ngFor="let invoice of invoices" class="invoiceCard">
+  <div class="invoiceHeader">
+    <app-invoice-header (statusFilter)="onFilterChange($event)"></app-invoice-header>
+  </div>
+
+  <!-- Display either all invoices or filtered ones -->
+  <button *ngFor="let invoice of displayedInvoices" class="invoiceCard">
     <div class="invoiceId">
       <app-head-line
         [variant]="'h3'"
@@ -16,6 +21,7 @@
         [color]="'--grey-color-dark'"
       ></app-text>
     </div>
+
     <div class="invoiceClientName">
       <app-text
         [variant]="'body1'"
@@ -31,14 +37,17 @@
         [color]="'--secondary-color'"
       ></app-head-line>
     </div>
+
     <div class="invoiceStatus">
       <app-badge [status]="invoice.status"></app-badge>
       <div class="invoiceStatusIcon">
         <img src="assets/images/icon-arrow-right.svg">
       </div>
-
     </div>
-
-
   </button>
+
+  <!-- Show message if no invoices match filter -->
+  <div *ngIf="displayedInvoices.length === 0" class="no-invoices">
+    <p>No invoices found matching the selected filters</p>
+  </div>
 </div>
