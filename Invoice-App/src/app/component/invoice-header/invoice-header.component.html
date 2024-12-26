@@ -8,11 +8,9 @@
     </div>
   </div>
   <div class="invoiceHeaderRight">
-    <div class="invoiceFilter"><app-filter
-      [options]="filterOptions"
-      [selectedValues]="selectedStatuses"
-      (selectionChange)="onSelectionChange($event)">
-    </app-filter></div>
+    <div class="invoiceFilter">
+      <app-filter (filterChange)="handleFilterChange($event)"></app-filter>
+    </div>
     <div class="newInvoice">
           <app-button variant="new-invoice">New Invoice</app-button>
     </div>

@@ -1,26 +1,38 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {NgForOf} from "@angular/common";
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { NgForOf, NgIf } from '@angular/common';
+import {HeadLineComponent} from "../head-line/head-line.component";
 
 @Component({
   selector: 'app-filter',
   standalone: true,
-  imports: [
-    NgForOf
-  ],
+  imports: [FormsModule, NgForOf, NgIf, HeadLineComponent],
   templateUrl: './filter.component.html',
-  styleUrl: './filter.component.css'
+  styleUrls: ['./filter.component.css']
 })
 export class FilterComponent {
-  @Input() options: { label: string; value: string }[] = []; // Options for filtering
-  @Input() selectedValues: string[] = []; // Pre-selected values
-  @Output() selectionChange = new EventEmitter<string[]>(); // Emit selected values
+  @Output() filterChange = new EventEmitter<string[]>();
+  isOpen = false;
 
-  toggleSelection(value: string): void {
-    if (this.selectedValues.includes(value)) {
-      this.selectedValues = this.selectedValues.filter(val => val !== value); // Remove
-    } else {
-      this.selectedValues.push(value); // Add
-    }
-    this.selectionChange.emit(this.selectedValues); // Emit updated selection
+  statuses = [
+    { label: 'paid', value: 'paid', checked: false },
+    { label: 'pending', value: 'pending', checked: false },
+    { label: 'draft', value: 'draft', checked: false }
+  ];
+  isDropdownOpen: boolean = false;
+  isChecked: any;
+
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+    this.isDropdownOpen = !this.isDropdownOpen;
+    console.log('Dropdown is now:', this.isOpen);
+  }
+
+  onStatusChange(status: any) {
+    status.checked = !status.checked;
+    const selectedStatuses = this.statuses
+      .filter(s => s.checked)
+      .map(s => s.value);
+    this.filterChange.emit(selectedStatuses);
   }
 }

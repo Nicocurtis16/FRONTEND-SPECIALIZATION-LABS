@@ -16,17 +16,7 @@ import {FilterComponent} from "../../features/filter/filter.component";
   styleUrl: './invoice-header.component.css'
 })
 export class InvoiceHeaderComponent {
-  filterOptions = [
-    { label: 'Draft', value: 'draft' },
-    { label: 'Pending', value: 'pending' },
-    { label: 'Paid', value: 'paid' }
-  ];
-
-  selectedStatuses: string[] = [];
-
-  onSelectionChange(selectedValues: string[]): void {
-    this.selectedStatuses = selectedValues;
-    console.log('Filtered statuses:', this.selectedStatuses);
-    // Perform filtering logic here
+  handleFilterChange(selectedStatuses: string[]) {
+    // Filter your invoices based on selected statuses
   }
 }

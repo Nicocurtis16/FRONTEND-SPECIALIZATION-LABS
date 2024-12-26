@@ -1,17 +1,31 @@
-<div class="filter-dropdown">
-  <div class="dropdown-header">
-    <span>Filter by Status</span>
-  </div>
+<div class="dropdown-container relative">
+  <button
+    (click)="toggleDropdown()"
+    class="dropdown-button p-2 border rounded flex items-center gap-2">
+    <app-head-line [variant]="'h3'" [text]="'Filter by status'" [color]="'--secondary-color'"></app-head-line>
+    <div>
+      <img
+        [src]="isDropdownOpen ? 'assets/images/icon-arrow-up.svg' : 'assets/images/icon-arrow-down.svg'"
+        [style.backgroundImage]="isDropdownOpen ? 'url(assets/images/icon-arrow-up.svg)' : 'url(assets/images/icon-arrow-down.svg)'"/>
+    </div>
+  </button>
 
-  <div class="dropdown-options">
-    <label *ngFor="let option of options" class="checkbox-container">
-      <input
-        type="checkbox"
-        [value]="option.value"
-        [checked]="selectedValues.includes(option.value)"
-        (change)="toggleSelection(option.value)"
-      />
-      <span class="checkbox-label">{{ option.label }}</span>
-    </label>
+  <div *ngIf="isOpen" class="dropdown-content absolute mt-1 border rounded bg-white p-2 w-full">
+    <div *ngFor="let status of statuses" class="py-1">
+      <label >
+        <input
+          type="checkbox"
+          [checked]="status.checked"
+          [style.backgroundImage]="isChecked ? 'url(assets/images/icon-check.svg)' : ''"
+
+          (change)="onStatusChange(status)"
+          class="h-4 w-4">
+        <app-head-line
+          [variant]="'h3'"
+          [color]="'--base-black'"
+          [text]="status.label">
+        </app-head-line>
+      </label>
+    </div>
   </div>
 </div>

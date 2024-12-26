@@ -16,12 +16,14 @@
   }
   .invoiceHeaderRight{
     height: 100%;
-    width: auto;
+    width: 300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   .invoiceFilter{
+    align-items: center;
+    display: flex;
     width: 118px;
     height: 59px;
   }
