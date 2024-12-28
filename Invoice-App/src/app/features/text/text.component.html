@@ -1,13 +1,18 @@
-<p
-  [class]="variant"
-  [style.color]="'var(' + color + ')'"
-  *ngIf="text"
->
-  {{ text }}
-</p>
-<div *ngIf="lines">
-  <ng-container *ngFor="let line of lines">
+<ng-container>
+  <!-- Single text -->
+  <p
+    [class]="variant"
+    [style.color]="'var(' + color + ')'"
+    [style.text-align]="alignment"
+    *ngIf="text"
+  >
+    {{ text }}
+  </p>
+
+  <!-- Multi-line text -->
+  <ng-container *ngIf="lines">
     <div
+      *ngFor="let line of lines"
       [class]="variant"
       [style.color]="'var(' + color + ')'"
       [style.text-align]="alignment"
@@ -15,5 +20,5 @@
       {{ line }}
     </div>
   </ng-container>
-</div>
+</ng-container>
 

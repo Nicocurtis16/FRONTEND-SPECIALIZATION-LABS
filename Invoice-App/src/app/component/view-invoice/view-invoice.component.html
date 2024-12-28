@@ -44,6 +44,138 @@
       </div>
 
     </div>
+    <div class="midInfo">
+      <div class="firstInfo">
+        <div class="invoiceDate">
+          <app-text [variant]="'body1'" [text]="'Invoice Date'"></app-text>
+
+          <app-head-line [variant]="'h3'" [text]="'21 Aug 2021'" [color]="'--base-black'"></app-head-line>
+
+        </div>
+        <div class="paymentDue">
+          <app-text [variant]="'body1'" [text]="'Payment Due'"></app-text>
+
+          <app-head-line [variant]="'h3'" [text]="'21 Aug 2021'" [color]="'--base-black'"></app-head-line>
+
+        </div>
+
+      </div>
+      <div class="secInfo">
+        <div class="billTo">
+          <app-text [variant]="'body1'" [text]="'Bill To'"></app-text>
+
+          <app-head-line [variant]="'h3'" [text]="'Alex Grim'" [color]="'--base-black'"></app-head-line>
+          <app-text
+            [variant]="'body2'"
+            [color]="'  --tertiary'"
+            [lines]="['84 Church Way', 'London', 'E1 3EZ', 'United Kingdom']"
+          ></app-text>
+
+        </div>
+      </div>
+      <div class="thirdInfo">
+        <div class="sentTo">
+          <app-text
+            [variant]="'body1'"
+            [color]="'--tertiary'"
+            [text]="'Sent to'"
+            [alignment]="'left'"
+          ></app-text>
+
+          <app-head-line [variant]="'h3'" [text]="'alexgrim@mail.com'" [color]="'--base-black'"></app-head-line>
+
+        </div>
+      </div>
+
+
+    </div>
+    <div class="accountDetails">
+      <div class="accountDetailsLeft">
+        <div class="accountInfo">
+
+          <app-text
+            [variant]="'body2'"
+            [color]="'--tertiary'"
+            [text]="'Item Name'"
+            [alignment]="'left'"
+          ></app-text>
+
+          <app-text
+            [variant]="'body2'"
+            [color]="'--tertiary'"
+            [text]="'QTY.'"
+            [alignment]="'left'"
+          ></app-text>
+
+        </div>
+        <div class="accountInfo">
+
+          <app-head-line
+            [variant]="'h4'"
+            [text]="'Banner Design'"
+            [color]="'--base-black'">
+
+          </app-head-line>
+
+
+          <app-text
+            [variant]="'body1'"
+            [color]="'--tertiary'"
+            [text]="'12'"
+            [alignment]="'left'"
+          ></app-text>
+
+        </div>
+      </div>
+      <div class="accountDetailsRight">
+        <div class="accountDetailsTitle">
+          <app-text
+            [variant]="'body1'"
+            [color]="'--tertiary'"
+            [text]="'Price'"
+            [alignment]="'right'"
+            class="accountPaymentDue"
+          ></app-text>
+          <app-text
+            [variant]="'body1'"
+            [color]="'--tertiary'"
+            [text]="'Total'"
+            [alignment]="'right'"
+            class="accountPaymentDue"
+          ></app-text>
+        </div>
+        <div class="accountDetailsTitle">
+          <app-head-line
+            class="title"
+            [variant]="'h4'"
+            [text]="'£ 156.00'"
+            [color]="'--tertiary'">
+
+          </app-head-line>
+          <app-head-line
+            [variant]="'h4'"
+            [text]="'£ 156.00'"
+            [color]="'--base-black'">
+
+          </app-head-line>
+        </div>
+      </div>
+
+    </div>
+    <div class="accountDetailsDown">
+      <app-text
+        [variant]="'body1'"
+        [color]="'--white'"
+        [text]="'Amount Due'"
+        [alignment]="'left'"
+        class="accountPaymentDue"
+      ></app-text>
+      <app-head-line [variant]="'h1'" [text]="'£ 556.00'" [color]="'--white'" class="accountTotal"></app-head-line>
+
+    </div>
+
+
+
   </div>
 
 </div>
