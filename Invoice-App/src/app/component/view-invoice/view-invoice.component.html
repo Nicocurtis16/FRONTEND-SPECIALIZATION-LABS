@@ -1,0 +1,49 @@
+<div class="viewInvoicePanel">
+  <div class="viewInvoiceTop">
+    <div class="viewInvoiceBtn">
+      <button>
+        <img src="assets/images/icon-arrow-left.svg">
+        <app-head-line [variant]="'h4'" [text]="'Go back'" [color]="'--base-black'"></app-head-line>
+
+      </button>
+    </div>
+
+    <div class="ViewInvoiceControl">
+      <div class="viewInvoiceControlLeft">
+        <app-text [variant]="'body1'" [color]="'--grey'" [text]="'status'"></app-text>
+        <app-badge></app-badge>
+      </div>
+      <div class="viewInvoiceControlRight">
+        <app-button [variant]="'edit'"></app-button>
+        <app-button [variant]="'delete'"></app-button>
+        <app-button [variant]="'marked-as-paid'"></app-button>
+
+
+      </div>
+
+
+    </div>
+  </div>
+  <div class="viewInvoiceDown">
+    <div class="idLocation">
+      <div class="id">
+        <app-head-line [variant]="'h3'" [text]="'#XM9141'" [color]="'--base-black'">
+        </app-head-line>
+        <app-text [variant]="'body1'" [text]="'Graphic Design'"></app-text>
+      </div>
+      <div class="location">
+        <app-text
+          [variant]="'body2'"
+          [alignment]="'right'"
+
+          [color]="'  --tertiary'"
+          [lines]="['19 Union Terrace', 'London', 'E1 3EZ', 'United Kingdom']"
+        ></app-text>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
