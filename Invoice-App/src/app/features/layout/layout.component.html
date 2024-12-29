@@ -2,8 +2,15 @@
   <div class="layoutLeftPanel"><app-sidebar></app-sidebar></div>
 
   <div class="layoutContent">
-<!--    <app-invoice></app-invoice>-->
-    <app-view-invoice></app-view-invoice>
+    <app-invoice
+      *ngIf="showInvoiceList"
+      (viewInvoice)="displayViewInvoice($event)">
+    </app-invoice>
 
+    <app-view-invoice
+      *ngIf="!showInvoiceList"
+      [invoice]="selectedInvoice"
+      (back)="goBackToInvoiceList()">
+    </app-view-invoice>
   </div>
 </div>
