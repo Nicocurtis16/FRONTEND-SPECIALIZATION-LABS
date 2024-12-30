@@ -1,7 +1,10 @@
-<button [ngClass]="variant" class="button">
+<button [ngClass]="variant" class="button" (click)="handleClick()">
+  <!-- Conditionally display content for 'new-invoice' variant -->
   <ng-container *ngIf="variant === 'new-invoice'">
-    <div class="buttonIconPanel">    <img src="assets/images/icon-plus.svg" alt="New Invoice Icon" class="button-icon">
+    <div class="buttonIconPanel">
+      <img src="assets/images/icon-plus.svg" alt="New Invoice Icon" class="button-icon">
     </div>
   </ng-container>
+  <!-- Allow dynamic content via ng-content -->
   <ng-content></ng-content>
 </button>

@@ -1,181 +1,85 @@
-<div class="viewInvoicePanel">
+<div class="viewInvoicePanel" *ngIf="invoice">
   <div class="viewInvoiceTop">
     <div class="viewInvoiceBtn">
-      <button>
-        <img src="assets/images/icon-arrow-left.svg">
+      <button (click)="goBack()">
+        <img src="assets/images/icon-arrow-left.svg" alt="Back">
         <app-head-line [variant]="'h4'" [text]="'Go back'" [color]="'--base-black'"></app-head-line>
-
       </button>
     </div>
 
     <div class="ViewInvoiceControl">
-      <div class="viewInvoiceControlLeft">
-        <app-text [variant]="'body1'" [color]="'--grey'" [text]="'status'"></app-text>
-        <app-badge></app-badge>
-      </div>
+<!--      <div class="viewInvoiceControlLeft">-->
+<!--        <app-text [variant]="'body1'" [color]="'&#45;&#45;grey'" [text]="'Status'"></app-text>-->
+<!--        <app-badge [status]="invoice?.status"></app-badge>-->
+<!--      </div>-->
       <div class="viewInvoiceControlRight">
-        <app-button [variant]="'edit'"></app-button>
-        <app-button [variant]="'delete'"></app-button>
-        <app-button [variant]="'marked-as-paid'"></app-button>
-
-
+        <app-button [variant]="'edit'" [onClick]="handleEdit">
+          Edit
+        </app-button>
+        <app-edit-invoice *ngIf="showEditInvoice"></app-edit-invoice><app-button [variant]="'delete'" [onClick]="handleDelete">
+          Delete
+        </app-button>
+        <app-button [variant]="'marked-as-paid'" [onClick]="handleMarkedAsPaid" >
+          Mark as Paid
+        </app-button>
       </div>
-
-
     </div>
   </div>
-  <div class="viewInvoiceDown">
-    <div class="idLocation">
-      <div class="id">
-        <app-head-line [variant]="'h3'" [text]="'#XM9141'" [color]="'--base-black'">
-        </app-head-line>
-        <app-text [variant]="'body1'" [text]="'Graphic Design'"></app-text>
-      </div>
-      <div class="location">
-        <app-text
-          [variant]="'body2'"
-          [alignment]="'right'"
 
-          [color]="'  --tertiary'"
-          [lines]="['19 Union Terrace', 'London', 'E1 3EZ', 'United Kingdom']"
-        ></app-text>
+<!--  <div class="viewInvoiceDown">-->
+<!--    <div class="idLocation">-->
+<!--      <div class="id">-->
+<!--        <app-head-line [variant]="'h3'" [text]="'#' + invoice?.id" [color]="'&#45;&#45;base-black'"></app-head-line>-->
+<!--        <app-text [variant]="'body1'" [text]="invoice?.description"></app-text>-->
+<!--      </div>-->
+<!--      <div class="location">-->
+<!--        &lt;!&ndash; Future implementation for location &ndash;&gt;-->
+<!--      </div>-->
+<!--    </div>-->
 
+<!--    <div class="midInfo">-->
+<!--      <div class="firstInfo">-->
+<!--        <div class="invoiceDate">-->
+<!--          <app-text [variant]="'body1'" [text]="'Invoice Date'"></app-text>-->
+<!--&lt;!&ndash;          <app-head-line [variant]="'h3'" [text]="invoice?.createdAt" [color]="'&#45;&#45;base-black'"></app-head-line>&ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="paymentDue">-->
+<!--          <app-text [variant]="'body1'" [text]="'Payment Due'"></app-text>-->
+<!--&lt;!&ndash;          <app-head-line [variant]="'h3'" [text]="invoice?.paymentDue" [color]="'&#45;&#45;base-black'"></app-head-line>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="secInfo">-->
+<!--        <div class="billTo">-->
+<!--          <app-text [variant]="'body1'" [text]="'Bill To'"></app-text>-->
+<!--&lt;!&ndash;          <app-head-line [variant]="'h3'" [text]="invoice?.clientName" [color]="'&#45;&#45;base-black'"></app-head-line>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="thirdInfo">-->
+<!--        <div class="sentTo">-->
+<!--          <app-text [variant]="'body1'" [text]="'Sent To'" [color]="'&#45;&#45;tertiary'" [alignment]="'left'"></app-text>-->
+<!--&lt;!&ndash;          <app-head-line [variant]="'h3'" [text]="invoice?.clientEmail" [color]="'&#45;&#45;base-black'"></app-head-line>&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
-      </div>
+<!--    <div class="accountDetails">-->
+<!--      <div class="accountDetailsLeft" *ngIf="invoice?.items?.length > 0">-->
+<!--        <div *ngFor="let item of invoice.items" class="accountInfo">-->
+<!--          <app-text [variant]="'body2'" [text]="item.name" [color]="'&#45;&#45;tertiary'"></app-text>-->
+<!--          <app-text [variant]="'body2'" [text]="item.quantity" [color]="'&#45;&#45;tertiary'"></app-text>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="accountDetailsRight">-->
+<!--        <div *ngFor="let item of invoice.items" class="accountDetailsTitle">-->
+<!--          <app-head-line [variant]="'h4'" [text]="'£' + item.price" [color]="'&#45;&#45;tertiary'"></app-head-line>-->
+<!--          <app-head-line [variant]="'h4'" [text]="'£' + item.total" [color]="'&#45;&#45;base-black'"></app-head-line>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
 
-    </div>
-    <div class="midInfo">
-      <div class="firstInfo">
-        <div class="invoiceDate">
-          <app-text [variant]="'body1'" [text]="'Invoice Date'"></app-text>
-
-          <app-head-line [variant]="'h3'" [text]="'21 Aug 2021'" [color]="'--base-black'"></app-head-line>
-
-        </div>
-        <div class="paymentDue">
-          <app-text [variant]="'body1'" [text]="'Payment Due'"></app-text>
-
-          <app-head-line [variant]="'h3'" [text]="'21 Aug 2021'" [color]="'--base-black'"></app-head-line>
-
-        </div>
-
-      </div>
-      <div class="secInfo">
-        <div class="billTo">
-          <app-text [variant]="'body1'" [text]="'Bill To'"></app-text>
-
-          <app-head-line [variant]="'h3'" [text]="'Alex Grim'" [color]="'--base-black'"></app-head-line>
-          <app-text
-            [variant]="'body2'"
-            [color]="'  --tertiary'"
-            [lines]="['84 Church Way', 'London', 'E1 3EZ', 'United Kingdom']"
-          ></app-text>
-
-        </div>
-      </div>
-      <div class="thirdInfo">
-        <div class="sentTo">
-          <app-text
-            [variant]="'body1'"
-            [color]="'--tertiary'"
-            [text]="'Sent to'"
-            [alignment]="'left'"
-          ></app-text>
-
-          <app-head-line [variant]="'h3'" [text]="'alexgrim@mail.com'" [color]="'--base-black'"></app-head-line>
-
-        </div>
-      </div>
-
-
-    </div>
-    <div class="accountDetails">
-      <div class="accountDetailsLeft">
-        <div class="accountInfo">
-
-          <app-text
-            [variant]="'body2'"
-            [color]="'--tertiary'"
-            [text]="'Item Name'"
-            [alignment]="'left'"
-          ></app-text>
-
-          <app-text
-            [variant]="'body2'"
-            [color]="'--tertiary'"
-            [text]="'QTY.'"
-            [alignment]="'left'"
-          ></app-text>
-
-        </div>
-        <div class="accountInfo">
-
-          <app-head-line
-            [variant]="'h4'"
-            [text]="'Banner Design'"
-            [color]="'--base-black'">
-
-          </app-head-line>
-
-
-          <app-text
-            [variant]="'body1'"
-            [color]="'--tertiary'"
-            [text]="'12'"
-            [alignment]="'left'"
-          ></app-text>
-
-        </div>
-      </div>
-      <div class="accountDetailsRight">
-        <div class="accountDetailsTitle">
-          <app-text
-            [variant]="'body1'"
-            [color]="'--tertiary'"
-            [text]="'Price'"
-            [alignment]="'right'"
-            class="accountPaymentDue"
-          ></app-text>
-          <app-text
-            [variant]="'body1'"
-            [color]="'--tertiary'"
-            [text]="'Total'"
-            [alignment]="'right'"
-            class="accountPaymentDue"
-          ></app-text>
-        </div>
-        <div class="accountDetailsTitle">
-          <app-head-line
-            class="title"
-            [variant]="'h4'"
-            [text]="'£ 156.00'"
-            [color]="'--tertiary'">
-
-          </app-head-line>
-          <app-head-line
-            [variant]="'h4'"
-            [text]="'£ 156.00'"
-            [color]="'--base-black'">
-
-          </app-head-line>
-        </div>
-      </div>
-
-    </div>
-    <div class="accountDetailsDown">
-      <app-text
-        [variant]="'body1'"
-        [color]="'--white'"
-        [text]="'Amount Due'"
-        [alignment]="'left'"
-        class="accountPaymentDue"
-      ></app-text>
-      <app-head-line [variant]="'h1'" [text]="'£ 556.00'" [color]="'--white'" class="accountTotal"></app-head-line>
-
-    </div>
-
-
-
-  </div>
-
+<!--    <div class="accountDetailsDown">-->
+<!--      <app-text [variant]="'body1'" [color]="'&#45;&#45;white'" [text]="'Amount Due'" [alignment]="'left'"></app-text>-->
+<!--      <app-head-line [variant]="'h1'" [text]="'£' + (invoice?.total ?? '0.00')" [color]="'&#45;&#45;white'"></app-head-line>-->
+<!--    </div>-->
+<!--  </div>-->
 </div>

@@ -1,18 +1,23 @@
-import { Component } from '@angular/core';
-import {NgClass, NgIf} from "@angular/common";
-import {Input} from "@angular/core";
+import {Component, EventEmitter, Input,Output} from '@angular/core';
+import { NgClass, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-button',
   standalone: true,
-  imports: [
-    NgClass,
-    NgIf
-  ],
+  imports: [NgClass, NgIf],
   templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+  styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-  @Input() variant: string = '';
+  @Input() variant: string = ''; // Class for styling or logic-specific behavior
+  @Input() onClick: () => void = () => {}; // Optional click handler
+  @Output() buttonClick = new EventEmitter<void>();
 
+  handleClick() {
+    this.buttonClick.emit();
+
+    if (this.onClick) {
+      this.onClick();
+    }
+  }
 }

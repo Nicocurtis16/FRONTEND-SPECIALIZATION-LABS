@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { DataService } from '../../service/data.service';
 import { Invoice } from '../../service/invoice';
@@ -20,6 +20,13 @@ export class InvoiceComponent implements OnInit {
   invoices: Invoice[] = [];
   displayedInvoices: Invoice[] = [];
   invoiceCount: number = 0;
+  @Output() viewInvoice = new EventEmitter<Invoice>();
+
+
+  selectInvoice(invoice: Invoice) {
+    console.log('Selected Invoice:', invoice); // Debug log
+    this.viewInvoice.emit(invoice); // Emit selected invoice
+  }
 
   constructor(private dataService: DataService) {}
 

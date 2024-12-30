@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import {SidebarComponent} from "../../component/sidebar/sidebar.component";
-import {ButtonComponent} from "../button/button.component";
 import {InvoiceComponent} from "../../component/invoice/invoice.component";
 import {ViewInvoiceComponent} from "../../component/view-invoice/view-invoice.component";
 import {Invoice} from "../../service/invoice";
@@ -19,16 +18,17 @@ import {NgIf} from "@angular/common";
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
-  showInvoiceList = true; // Control which component to show
+  showInvoiceList = true;
   selectedInvoice: Invoice | null = null;
 
-  displayViewInvoice(invoice:   Invoice) {
+  displayViewInvoice(invoice: Invoice) {
+    console.log('Invoice clicked:', invoice);
     this.selectedInvoice = invoice;
-    this.showInvoiceList = false;
+    this.showInvoiceList = false; // Hide the invoice list
   }
 
   goBackToInvoiceList() {
+    this.showInvoiceList = true; // Show the invoice list again
     this.selectedInvoice = null;
-    this.showInvoiceList = true;
   }
 }
