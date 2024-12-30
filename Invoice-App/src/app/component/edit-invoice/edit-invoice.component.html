@@ -5,99 +5,156 @@
     <div class="editPanelRight">
       <div class="editId">
         <app-head-line
-        [variant]="'h1'" [text]="'Edit #XM9141'" [color]="'--base-black'">
+          [variant]="'h1'" [text]="'Edit #XM9141'" [color]="'--base-black'">
         </app-head-line>
       </div>
-      <div class="editBillForm">
-        <app-head-line [variant]="'h4'" [text]="'Bill From'" [color]="'--primary-color'"></app-head-line>
-        <div class="editAddress">
-          <div class="streetAddress">
-            <app-text [variant]="'body1'" [text]="'Street Address'" [color]="'--tertiary'"></app-text>
-            <input
-            type="text"
-            class="streetAddressInput"/>
-          </div>
-          <div class="locationAddress">
-            <div class="city">
-              <app-text [variant]="'body1'" [text]="'City'" [color]="'--tertiary'"></app-text>
-              <input
-                type="text"
-                class="cityInput"/>
-            </div>
-            <div class="city">
-              <app-text [variant]="'body1'" [text]="'Post Code'" [color]="'--tertiary'"></app-text>
-              <input
-                type="text"
-                class="postCodeInput"/>
-            </div>
-            <div class="city">
-              <app-text [variant]="'body1'" [text]="'Country'" [color]="'--tertiary'"></app-text>
-              <input
-                type="text"
-                class="Country"/>
-            </div>
-          </div>
+      <div class="editPanelContent">
 
-        </div>
-      </div>
-      <div class="editBillTo">
-        <app-head-line [variant]="'h4'" [text]="'Bill To'" [color]="'--primary-color'"></app-head-line>
-        <div class="editAddress">
-          <div class="clientName">
-            <app-text [variant]="'body1'" [text]="'Client’s Name'" [color]="'--tertiary'"></app-text>
-            <input
-              type="text"
-              class="streetAddressInput"/>
-          </div>
-          <div class="clientEmail">
-            <app-text [variant]="'body1'" [text]="'Client’s Email'" [color]="'--tertiary'"></app-text>
-            <input
-              type="text"
-              class="streetAddressInput"/>
-          </div>
-          <div class="clientStreetAddress">
-            <app-text [variant]="'body1'" [text]="'Street Address'" [color]="'--tertiary'"></app-text>
-            <input
-              type="text"
-              class="streetAddressInput"/>
-          </div>
-          <div class="locationAddress">
-            <div class="city">
-              <app-text [variant]="'body1'" [text]="'City'" [color]="'--tertiary'"></app-text>
+        <div class="editBillForm">
+          <app-head-line [variant]="'h4'" [text]="'Bill From'" [color]="'--primary-color'"></app-head-line>
+          <div class="editAddress">
+            <div class="streetAddress">
+              <app-text [variant]="'body1'" [text]="'Street Address'" [color]="'--tertiary'"></app-text>
               <input
                 type="text"
-                class="cityInput"/>
+                class="streetAddressInput"/>
             </div>
-            <div class="city">
-              <app-text [variant]="'body1'" [text]="'Post Code'" [color]="'--tertiary'"></app-text>
-              <input
-                type="text"
-                class="postCodeInput"/>
+            <div class="locationAddress">
+              <div class="city">
+                <app-text [variant]="'body1'" [text]="'City'" [color]="'--tertiary'"></app-text>
+                <input
+                  type="text"
+                  class="cityInput"/>
+              </div>
+              <div class="city">
+                <app-text [variant]="'body1'" [text]="'Post Code'" [color]="'--tertiary'"></app-text>
+                <input
+                  type="text"
+                  class="postCodeInput"/>
+              </div>
+              <div class="city">
+                <app-text [variant]="'body1'" [text]="'Country'" [color]="'--tertiary'"></app-text>
+                <input
+                  type="text"
+                  class="Country"/>
+              </div>
             </div>
-            <div class="city">
-              <app-text [variant]="'body1'" [text]="'Country'" [color]="'--tertiary'"></app-text>
-              <input
-                type="text"
-                class="Country"/>
-            </div>
-          </div>
 
+          </div>
         </div>
-      </div>
-      <div class="dateTermsDescription">
-        <div class="dateTerms">
-          <app-payment-terms></app-payment-terms>
+        <div class="editBillTo">
+          <app-head-line [variant]="'h4'" [text]="'Bill To'" [color]="'--primary-color'"></app-head-line>
+          <div class="editAddress">
+            <div class="clientName">
+              <app-text [variant]="'body1'" [text]="'Client’s Name'" [color]="'--tertiary'"></app-text>
+              <input
+                type="text"
+                class="streetAddressInput"/>
+            </div>
+            <div class="clientEmail">
+              <app-text [variant]="'body1'" [text]="'Client’s Email'" [color]="'--tertiary'"></app-text>
+              <input
+                type="text"
+                class="streetAddressInput"/>
+            </div>
+            <div class="clientStreetAddress">
+              <app-text [variant]="'body1'" [text]="'Street Address'" [color]="'--tertiary'"></app-text>
+              <input
+                type="text"
+                class="streetAddressInput"/>
+            </div>
+            <div class="locationAddress">
+              <div class="city">
+                <app-text [variant]="'body1'" [text]="'City'" [color]="'--tertiary'"></app-text>
+                <input
+                  type="text"
+                  class="cityInput"/>
+              </div>
+              <div class="city">
+                <app-text [variant]="'body1'" [text]="'Post Code'" [color]="'--tertiary'"></app-text>
+                <input
+                  type="text"
+                  class="postCodeInput"/>
+              </div>
+              <div class="city">
+                <app-text [variant]="'body1'" [text]="'Country'" [color]="'--tertiary'"></app-text>
+                <input
+                  type="text"
+                  class="Country"/>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <div class="description">
-          <div class="streetAddress">
+        <div class="dateTermsDescription">
+          <div class="dateTerms">
+            <div class="payment">
+              <app-text [variant]="'body1'" [text]="'Invoice Date'" [color]="'--tertiary'"></app-text>
+
+              <app-date-picker (dateChange)="onDateSelected($event)"></app-date-picker>
+
+            </div>
+            <div class="date">
+              <app-text [variant]="'body1'" [text]="'Payment Terms'" [color]="'--tertiary'"></app-text>
+
+              <app-payment-terms></app-payment-terms>
+
+            </div>
+
+          </div>
+          <div class="description">
+
             <app-text [variant]="'body1'" [text]="'Project Description'" [color]="'--tertiary'"></app-text>
             <input
               type="text"
-              class="streetAddressInput"/>
-          </div>
-        </div>
+              class="streetAddressIn"
+            />
 
+          </div>
+
+        </div>
+        <div class="itemList">
+          <app-head-line [variant]="'h2'" [text]="'Item List'" [color]="'--primary-color'"></app-head-line>
+        <div class="itemDivision">
+          <div class="itemName">
+            <app-text [variant]="'body1'" [text]="'Item Name'" [color]="'--tertiary'"></app-text>
+            <input
+              type="text"
+              id="itemName"/>
+
+          </div>
+          <div class="itemQuantity">
+            <app-text [variant]="'body1'" [text]="'Qty.'" [color]="'--tertiary'"></app-text>
+            <input
+              type="text"
+              id="itemQuantity"/>
+          </div>
+          <div class="itemPrice">
+            <app-text [variant]="'body1'" [text]="'Price'" [color]="'--tertiary'"></app-text>
+            <input
+              type="text"
+              id="itemPrice"/>
+          </div>
+          <div class="itemTotal">
+            <app-text [variant]="'body1'" [text]="'Total'" [color]="'--tertiary'"></app-text>
+            <div class="delete">
+              <app-head-line [text]="'156.00'" [variant]="'h4'"></app-head-line>
+              <img src="assets/images/icon-delete.svg">
+
+            </div>
+          </div>
+
+
+
+        </div>
+          <app-button [variant]="'edit'"></app-button>
+
+        </div>
       </div>
+<!--      <div class="editButtons">-->
+<!--        <button (click)="handleButtonClick('delete')">Delete</button>-->
+
+<!--      </div>-->
 
     </div>
 

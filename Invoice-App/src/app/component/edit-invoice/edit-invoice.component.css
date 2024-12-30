@@ -15,25 +15,39 @@
 height: 100%;
 }
 .editPanelRight{
-  width: 616px;
-display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.editId{
-  width: 504px;
-}
-
-.billForm{
-  width: 504px;
-  height: 209px;
+   width: 616px;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
+  align-items: center;
+  /*justify-content: space-between;*/
 }
+.editPanelContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /*flex-grow: 1;*/
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scroll */
+  scrollbar-width: thin;
+  scrollbar-color: var(--grey); /* For Firefox: Scrollbar and track colors */
+}
+
+
+.editId{
+  margin-top: 20px;
+  width: 504px;
+}
+.editBillForm{
+  width: 504px;
+  height: 209px;
+  margin-bottom: 20px;
+}
+
+
 .editBillTo{
+  margin-bottom: 20px;
   width: 504px;
   height: 409px;
 }
@@ -48,7 +62,7 @@ display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.streetAddressInput{
+.streetAddressInput, .streetAddressIn{
   width: 504px;
   height: 48px;
   border-radius: 4px;
@@ -67,6 +81,7 @@ display: flex;
   border: 1px solid var(--grey);
 }
 .dateTermsDescription{
+  margin-bottom: 20px;
   width: 504px;
 height: 170px;
 display: flex;
@@ -78,8 +93,82 @@ width: 100%;
 height: 73px;
 }
 .dateTerms{
+  width: 100%;
+  height: 73px;
   display: flex;
   justify-content: space-between;
-width: 504px;
-height: 73px
+
+}
+.payment, .date{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.editButtons{
+  width: 616px;
+  height: 110px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: red;
+}
+.itemList{
+  width: 504px;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #4CAF50;
+
+}
+.itemDivision{
+  width: 504px;
+  height: 211px;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+}
+.itemName{
+  width: 214px;
+  height: auto;
+
+}
+.itemQuantity{
+  width: 48px;
+  height: auto;
+}
+.itemPrice{
+width: 100px;
+  height: auto;
+}
+.itemTotal{
+  width: 90px;
+  height: auto;
+}
+#itemName{
+  width: 214px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid var(--grey);
+}
+#itemQuantity{
+  width: 46px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid var(--grey);
+}
+#itemPrice{
+  width: 100px;
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid var(--grey);
+}
+.delete{
+  display: flex;
+  width: 100%;
+  height: 48px;
+  align-items: center;
+  justify-content: space-between;
 }
