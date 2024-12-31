@@ -2,7 +2,9 @@
   <button
     (click)="toggleDropdown()"
     class="dropdown-button p-2 border rounded flex items-center gap-2">
-    <app-head-line [variant]="'h3'" [text]="'Filter by status'" [color]="'--secondary-color'"></app-head-line>
+    <app-head-line [variant]="'h3'" [text]="'Filter by status'" [color]="'--secondary-color'" class="desktop"></app-head-line>
+    <app-head-line [variant]="'h3'" [text]="'Filter'" [color]="'--secondary-color'" class="mob"></app-head-line>
+
     <div>
       <img
         [src]="isDropdownOpen ? 'assets/images/icon-arrow-up.svg' : 'assets/images/icon-arrow-down.svg'"
