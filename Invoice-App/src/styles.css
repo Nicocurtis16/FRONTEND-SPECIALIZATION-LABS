@@ -2,6 +2,7 @@
 body{
   margin: 0;
   padding: 0;
+  background-color: var(--light-BG);
 
 }
 :root {
@@ -22,15 +23,27 @@ body{
 }
 /* Define your dark theme styles */
 .dark-theme {
-  --background-color: #333333; /* Dark mode background color */
-  --text-color: #ffffff; /* Dark mode text color */
+  --light-BG:#141625;
+  --white: #FFFFFF;
+  --base-black:#0C0E16;
+  --primary-color: #7C5DFA;
+  --primary-color-light: #9277FF;
+  --secondary-color: #1E2139 ;
+  --secondary-color-light: #252945 ;
+  --grey: #DFE3FA;
+  --grey-color-dark: #888EB0;
+  --tertiary:#7E88C3;
+  --error-color: #EC5757 ;
+  --error-color-light: #9277FF;
+
+
 }
 
 /* Apply the variables to your components */
-.layoutPanel {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
+/*.layoutPanel {*/
+/*  background-color: var(--background-color);*/
+/*  color: var(--text-color);*/
+/*}*/
 @font-face {
   font-family: 'League Spartan', sans-serif;
   src: url('/assets/fonts/LeagueSpartan-Bold.ttf');

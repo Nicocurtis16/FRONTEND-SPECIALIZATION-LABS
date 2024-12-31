@@ -4,16 +4,15 @@
   </div>
 
   <div class="layoutContent">
-    <app-delete-invoice></app-delete-invoice>
-<!--    <app-invoice-->
-<!--      *ngIf="showInvoiceList"-->
-<!--      (viewInvoice)="displayViewInvoice($event)">-->
-<!--    </app-invoice>-->
+    <app-invoice
+      *ngIf="showInvoiceList"
+      (viewInvoice)="displayViewInvoice($event)">
+    </app-invoice>
 
-<!--    <app-view-invoice-->
-<!--      *ngIf="!showInvoiceList"-->
-<!--      [invoice]="selectedInvoice"-->
-<!--      (back)="goBackToInvoiceList()">-->
-<!--    </app-view-invoice>-->
-<!--  </div>-->
+    <app-view-invoice
+      *ngIf="!showInvoiceList"
+      [invoice]="selectedInvoice"
+      (back)="goBackToInvoiceList()">
+    </app-view-invoice>
+  </div>
 </div>

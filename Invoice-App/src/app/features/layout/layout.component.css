@@ -50,7 +50,7 @@
   .layoutLeftPanel {
     height: 100%;
     width: 103px;
-    background-color: var(--grey);
+    /*background-color: var(--grey)*/
   }
   .layoutContent{
     height: auto;
