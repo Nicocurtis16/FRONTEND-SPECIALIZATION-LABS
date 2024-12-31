@@ -5,46 +5,88 @@
   </div>
 
   <!-- Display either all invoices or filtered ones -->
-<!--  <button *ngFor="let invoice of displayedInvoices" class="invoiceCard" (click)="selectInvoice(invoice)">-->
-<!--    <div class="invoiceId">-->
-<!--      <app-head-line-->
-<!--        [variant]="'h3'"-->
-<!--        [text]="'#' + invoice.id"-->
-<!--        [color]="'&#45;&#45;base-black'"-->
-<!--      ></app-head-line>-->
-<!--    </div>-->
+  <button *ngFor="let invoice of displayedInvoices" class="invoiceCard" (click)="selectInvoice(invoice)">
+    <div class="invoiceId">
+      <app-head-line
+        [variant]="'h3'"
+        [text]="'#' + invoice.id"
+        [color]="'--base-black'"
+      ></app-head-line>
+    </div>
 
-<!--    <div class="invoicePaymentDue">-->
-<!--      <app-text-->
-<!--        [variant]="'body1'"-->
-<!--        [text]="'Due ' + invoice.paymentDue"-->
-<!--        [color]="'&#45;&#45;grey-color-dark'"-->
-<!--      ></app-text>-->
-<!--    </div>-->
+    <div class="invoicePaymentDue">
+      <app-text
+        [variant]="'body1'"
+        [text]="'Due ' + invoice.paymentDue"
+        [color]="'--grey-color-dark'"
+      ></app-text>
+    </div>
 
-<!--    <div class="invoiceClientName">-->
-<!--      <app-text-->
-<!--        [variant]="'body1'"-->
-<!--        [text]="invoice.clientName"-->
-<!--        [color]="'&#45;&#45;tertiary'"-->
-<!--      ></app-text>-->
-<!--    </div>-->
+    <div class="invoiceClientName">
+      <app-text
+        [variant]="'body1'"
+        [text]="invoice.clientName"
+        [color]="'--tertiary'"
+      ></app-text>
+    </div>
 
-<!--    <div class="invoicePrice">-->
-<!--      <app-head-line-->
-<!--        [variant]="'h3'"-->
-<!--        [text]="'£ ' + invoice.total"-->
-<!--        [color]="'&#45;&#45;secondary-color'"-->
-<!--      ></app-head-line>-->
-<!--    </div>-->
+    <div class="invoicePrice">
+      <app-head-line
+        [variant]="'h3'"
+        [text]="'£ ' + invoice.total"
+        [color]="'--secondary-color'"
+      ></app-head-line>
+    </div>
 
-<!--    <div class="invoiceStatus">-->
-<!--      <app-badge [status]="invoice.status"></app-badge>-->
-<!--      <div class="invoiceStatusIcon">-->
-<!--        <img src="assets/images/icon-arrow-right.svg">-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </button>-->
+    <div class="invoiceStatus">
+      <app-badge [status]="invoice.status"></app-badge>
+      <div class="invoiceStatusIcon">
+        <img src="assets/images/icon-arrow-right.svg">
+      </div>
+    </div>
+  </button>
+  <button *ngFor="let invoice of displayedInvoices" class="invoiceCardMobile" (click)="selectInvoice(invoice)">
+    <div class="cardTop">
+      <div class="invoiceId">
+        <app-head-line
+          [variant]="'h3'"
+          [text]="'#' + invoice.id"
+          [color]="'--base-black'"
+        ></app-head-line>
+      </div>
+      <div class="invoiceClientName">
+        <app-text
+          [variant]="'body1'"
+          [text]="invoice.clientName"
+          [color]="'--tertiary'"
+        ></app-text>
+      </div>
+    </div>
+    <div class="cardDown">
+      <div class="cardLeft">
+        <div class="invoicePaymentDue">
+          <app-text
+            [variant]="'body1'"
+            [text]="'Due ' + invoice.paymentDue"
+            [color]="'--grey-color-dark'"
+          ></app-text>
+
+        </div>
+        <div class="invoicePrice">
+          <app-head-line
+            [variant]="'h3'"
+            [text]="'£ ' + invoice.total"
+            [color]="'--secondary-color'"
+          ></app-head-line>
+
+        </div>
+      </div>
+      <div class="invoiceStatus">
+        <app-badge [status]="invoice.status"></app-badge>
+      </div>
+    </div>
+
+  </button>
 
   <!-- Show message if no invoices match filter -->
   <div *ngIf="displayedInvoices.length === 0" class="no-invoices">

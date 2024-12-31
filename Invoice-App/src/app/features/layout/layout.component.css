@@ -9,11 +9,15 @@
   .layoutLeftPanel {
     height: 72px;
     width: 100%;
+    margin-bottom: 10px;
   }
-  .layoutRightPanel {
-    height: 100%;
+
+  .layoutContent{
     width: 100%;
-    background-color: var(--grey-color-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
