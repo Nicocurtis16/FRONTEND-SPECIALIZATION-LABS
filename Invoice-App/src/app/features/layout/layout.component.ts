@@ -4,6 +4,7 @@ import {InvoiceComponent} from "../../component/invoice/invoice.component";
 import {ViewInvoiceComponent} from "../../component/view-invoice/view-invoice.component";
 import {Invoice} from "../../service/invoice";
 import {NgIf} from "@angular/common";
+import {DeleteInvoiceComponent} from "../../component/delete-invoice/delete-invoice.component";
 
 @Component({
   selector: 'app-layout',
@@ -12,7 +13,8 @@ import {NgIf} from "@angular/common";
     SidebarComponent,
     ViewInvoiceComponent,
     InvoiceComponent,
-    NgIf
+    NgIf,
+    DeleteInvoiceComponent
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'

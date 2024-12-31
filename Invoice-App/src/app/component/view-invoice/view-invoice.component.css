@@ -69,6 +69,7 @@
 
     display: flex;
     justify-content: space-between;
+    margin-bottom: 15px;
 
   }
   .id{
@@ -99,6 +100,7 @@
   }
   .accountDetails{
     width: 634px;
+    padding-bottom: 10px;
     height: auto;
     background-color: #F9FAFE;
     margin-left: 40px;
@@ -112,10 +114,10 @@
   }
   .accountDetailsLeft{
     display: flex;
-    flex-direction: column;
     width: 300px;
     height: 70%;
     margin-left: 30px;
+    margin-top: 15px;
   }
   .accountDetailsRight{
     display: flex;
@@ -123,6 +125,7 @@
     width: 200px;
     height: 70%;
     margin-right: 30px;
+    margin-top: 15px;
   }
   .accountDetailsDown{
     display: flex;
@@ -136,6 +139,8 @@
     margin-bottom: 40px;
 
   }
+
+
   .accountPaymentDue{
     margin-left: 40px;
   }
@@ -154,5 +159,11 @@
   }
   .title{
     margin-left: 20px;
+  }
+  .amount{
+    margin-right: 30px;
+  }
+  .amountTitle{
+    margin-left: 30px;
   }
 }

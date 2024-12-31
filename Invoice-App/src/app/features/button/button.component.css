@@ -35,6 +35,7 @@
       background-color: #3F51B5;
       color: white;
     }
+
   }
 }
 @media (min-width: 600px) and (max-width: 960px) {
@@ -162,6 +163,17 @@
 
     &.add-new-item {
       width: 350px;
+      height: 48px;
+      background-color: #F9FAFE;
+      color: #7E88C3;
+
+      &:hover {
+        background-color: #DFE3FA;
+        color: #7E88C3;
+      }
+    }
+    &.cancel {
+      width: 91px;
       height: 48px;
       background-color: #F9FAFE;
       color: #7E88C3;

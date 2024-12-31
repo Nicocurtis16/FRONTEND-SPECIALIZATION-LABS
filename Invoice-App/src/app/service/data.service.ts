@@ -31,4 +31,14 @@ export class DataService {
   clearDataFromLocalStorage(): void {
     localStorage.removeItem(this.storageKey);
   }
+
+  deleteInvoice(id: string): Observable<boolean> {
+    const invoices = this.getDataFromLocalStorage();
+    if (invoices) {
+      const updatedInvoices = invoices.filter(invoice => invoice.id !== id);
+      this.saveDataToLocalStorage(updatedInvoices);
+      return of(true);
+    }
+    return of(false);
+  }
 }
