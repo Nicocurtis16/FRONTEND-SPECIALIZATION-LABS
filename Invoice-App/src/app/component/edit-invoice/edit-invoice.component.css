@@ -1,26 +1,30 @@
-.editScreen{
+.editScreen {
   height: 100vh;
   width: 100vw;
   background-color: #EC5757;
 }
-.editPanel{
+
+.editPanel {
   border-radius: 0 20px 20px 0;
   height: 100%;
   width: 719px;
   background-color: white;
   display: flex;
 }
-.editPanelLeft{
-  width:103px;
-height: 100%;
+
+.editPanelLeft {
+  width: 103px;
+  height: 100%;
 }
-.editPanelRight{
-   width: 616px;
+
+.editPanelRight {
+  width: 616px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .editPanelContent {
   height: 100%;
   display: flex;
@@ -32,78 +36,97 @@ height: 100%;
 }
 
 
-.editId{
+.editId {
   margin-top: 20px;
   width: 504px;
 }
-.editBillForm{
+
+.editBillForm {
   width: 504px;
   height: 209px;
   margin-bottom: 20px;
 }
 
 
-.editBillTo{
+.editBillTo {
   margin-bottom: 20px;
   width: 504px;
-  height: 409px;
+  /* height: 409px; */
+  display: flex;
+  flex-direction: column;
+  /* background: purple; */
+  /* justify-content: space-between; */
 }
-.editAddress{
+
+.editAddress {
   width: 504px;
   height: 170px;
 }
-.streetAddress{
+
+.streetAddress {
   width: 100%;
   height: 73px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.streetAddressInput, .streetAddressIn{
+
+.streetAddressInput,
+.streetAddressIn {
   width: 504px;
   height: 48px;
   border-radius: 4px;
   border: 1px solid var(--grey);
 }
-.locationAddress{
+
+.locationAddress {
   width: 504px;
   display: flex;
   justify-content: space-between;
 }
+
 .cityInput,
-.Country, .postCodeInput{
+.Country,
+.postCodeInput {
   width: 152px;
   height: 48px;
   border-radius: 4px;
   border: 1px solid var(--grey);
 }
-.dateTermsDescription{
+
+.dateTermsDescription {
+  margin-top: 20px;
   margin-bottom: 20px;
   width: 504px;
-height: 170px;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.description{
-width: 100%;
-height: 73px;
+
+.description {
+  width: 100%;
+  height: 73px;
 }
-.dateTerms{
+
+.dateTerms {
   width: 100%;
   height: 73px;
   display: flex;
   justify-content: space-between;
 
 }
-.payment, .date{
+
+.payment,
+.date {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.editButtons{
+
+.editButtons {
   width: 504px;
   height: 110px;
   display: flex;
@@ -111,58 +134,69 @@ height: 73px;
   align-items: center;
   background-color: red;
 }
-.itemList{
+
+.itemList {
+  margin-top: 30px;
   width: 504px;
   height: 240px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #4CAF50;
+  /* background-color: #4CAF50; */
 
 }
-.itemDivision{
+
+.itemDivision {
   width: 504px;
   height: 211px;
   display: flex;
   background-color: white;
   justify-content: space-between;
 }
-.itemName{
+
+.itemName {
   width: 214px;
   height: auto;
 
 }
-.itemQuantity{
+
+.itemQuantity {
   width: 48px;
   height: auto;
 }
-.itemPrice{
-width: 100px;
+
+.itemPrice {
+  width: 100px;
   height: auto;
 }
-.itemTotal{
+
+.itemTotal {
   width: 90px;
   height: auto;
 }
-#itemName{
+
+#itemName {
   width: 214px;
   height: 48px;
   border-radius: 4px;
   border: 1px solid var(--grey);
 }
-#itemQuantity{
+
+#itemQuantity {
   width: 46px;
   height: 48px;
   border-radius: 4px;
   border: 1px solid var(--grey);
 }
-#itemPrice{
+
+#itemPrice {
   width: 100px;
   height: 48px;
   border-radius: 4px;
   border: 1px solid var(--grey);
 }
-.delete{
+
+.delete {
   display: flex;
   width: 100%;
   height: 48px;
