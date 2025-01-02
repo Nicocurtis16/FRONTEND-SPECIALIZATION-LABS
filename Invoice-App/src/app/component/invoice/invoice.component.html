@@ -89,7 +89,7 @@
   </button>
 
   <!-- Show message if no invoices match filter -->
-  <div *ngIf="displayedInvoices.length === 0" class="no-invoices">
-    <p>No invoices found matching the selected filters</p>
+  <div *ngIf="invoices().length === 0" class="no-invoices">
+    <app-no-invoice></app-no-invoice>
   </div>
 </div>

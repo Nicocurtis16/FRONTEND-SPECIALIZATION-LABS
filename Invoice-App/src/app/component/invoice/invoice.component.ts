@@ -11,10 +11,12 @@ import {Router} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {selectAllInvoices, selectIsLoadingState} from "../../state/selectors/invoice.selector";
 import {invoiceAction} from "../../state/actions/invoice.action";
+import {DeleteInvoiceComponent} from "../delete-invoice/delete-invoice.component";
+import {NoInvoiceComponent} from "../../features/no-invoice/no-invoice.component";
 
 @Component({
   selector: 'app-invoice',
-  imports: [HttpClientModule, NgFor, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent, NgIf],
+  imports: [HttpClientModule, NgFor, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent, NgIf, DeleteInvoiceComponent, NoInvoiceComponent],
   standalone: true,
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
