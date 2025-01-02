@@ -27,6 +27,11 @@ export class DataService {
   saveDataToLocalStorage(data: Invoice[]): void {
     localStorage.setItem(this.storageKey, JSON.stringify(data));
   }
+  getInvoiceById(id: string): Observable<Invoice | null> {
+    const invoices = this.getDataFromLocalStorage();
+    const invoice = invoices?.find(inv => inv.id === id) || null;
+    return of(invoice);
+  }
 
   clearDataFromLocalStorage(): void {
     localStorage.removeItem(this.storageKey);

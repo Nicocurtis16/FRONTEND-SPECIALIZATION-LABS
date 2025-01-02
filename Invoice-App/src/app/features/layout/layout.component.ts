@@ -5,16 +5,15 @@ import {ViewInvoiceComponent} from "../../component/view-invoice/view-invoice.co
 import {Invoice} from "../../service/invoice";
 import {NgIf} from "@angular/common";
 import {DeleteInvoiceComponent} from "../../component/delete-invoice/delete-invoice.component";
+import {Router, RouterOutlet} from "@angular/router";
 
 @Component({
   selector: 'app-layout',
   standalone: true,
   imports: [
     SidebarComponent,
-    ViewInvoiceComponent,
-    InvoiceComponent,
-    NgIf,
-    DeleteInvoiceComponent
+
+    RouterOutlet
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
@@ -23,10 +22,10 @@ export class LayoutComponent {
   showInvoiceList = true;
   selectedInvoice: Invoice | null = null;
 
+  constructor(private router: Router) {}
+
   displayViewInvoice(invoice: Invoice) {
-    console.log('Invoice clicked:', invoice);
-    this.selectedInvoice = invoice;
-    this.showInvoiceList = false; // Hide the invoice list
+    this.router.navigate(['invoice', invoice.id]);
   }
 
   goBackToInvoiceList() {

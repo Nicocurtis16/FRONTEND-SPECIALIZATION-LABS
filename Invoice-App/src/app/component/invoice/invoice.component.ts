@@ -7,7 +7,7 @@ import { BadgeComponent } from '../../features/badge/badge.component';
 import { HeadLineComponent } from '../../features/head-line/head-line.component';
 import { TextComponent } from '../../features/text/text.component';
 import { InvoiceHeaderComponent } from "../invoice-header/invoice-header.component";
-import { DataLengthComponent } from '../../features/data-length/data-length.component';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-invoice',
@@ -23,13 +23,14 @@ export class InvoiceComponent implements OnInit {
   @Output() viewInvoice = new EventEmitter<Invoice>();
 
 
+  constructor(
+    private dataService: DataService,
+    private router: Router
+  ) {}
+
   selectInvoice(invoice: Invoice) {
-    console.log('Selected Invoice:', invoice); // Debug log
-    this.viewInvoice.emit(invoice); // Emit selected invoice
+    this.router.navigate(['/invoice', invoice.id]);
   }
-
-  constructor(private dataService: DataService) {}
-
   ngOnInit() {
     this.loadInvoices();
   }

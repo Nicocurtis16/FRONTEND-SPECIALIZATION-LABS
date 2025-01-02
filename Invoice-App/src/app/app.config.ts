@@ -4,9 +4,12 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {provideState, provideStore} from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import {invoiceReducer} from "./state/reducers/invoice.reducer";
+import {routes} from "./app.routes";
+import {provideRouter} from "@angular/router";
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideHttpClient(),
+  providers: [provideRouter(routes),
+    provideHttpClient(),
     provideStoreDevtools
     ({ maxAge: 25, logOnly: !isDevMode() })
     , provideStore(
