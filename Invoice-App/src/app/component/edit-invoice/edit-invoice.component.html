@@ -147,7 +147,7 @@
               <app-head-line
                 [variant]="'h2'"
                 [text]="'Item List'"
-                [color]="'--primary-color'"
+                [color]="'--grey-color-dark'"
               ></app-head-line>
               <div class="itemDivision">
                 <div class="itemName">
@@ -184,11 +184,13 @@
                     <app-head-line
                       [text]="'156.00'"
                       [variant]="'h4'"
+                      [color]="'--tertiary'"
                     ></app-head-line>
                     <img src="assets/images/icon-delete.svg" />
                   </div>
                 </div>
               </div>
+              <app-button [variant]="'add-new-item'">+ Add New Item </app-button>
             </div>
           </div>
         </div>

@@ -85,7 +85,7 @@
     }
 
     &.add-new-item {
-      width: 350px;
+      width: 504px;
       height: 48px;
       background-color: #F9FAFE;
       color: #7E88C3;
@@ -232,8 +232,9 @@
     }
 
     &.add-new-item {
-      width: 350px;
+      width: 504px;
       height: 48px;
+      border-radius: 24px;
       background-color: #F9FAFE;
       color: #7E88C3;
 
