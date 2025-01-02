@@ -1,2 +1,2 @@
-<app-text [variant]="'body1'" [text]="'There are ' + dataLength + ' total invoices'" [color]="'--grey-color-dark'" class="desktop"></app-text>
-<app-text [variant]="'body1'" [text]="dataLength + ' invoices'" [color]="'--grey-color-dark'" class="mobile"></app-text>
+<app-text [variant]="'body1'" [text]="'There are ' + invoices().length + ' total invoices'" [color]="'--grey-color-dark'" class="desktop"></app-text>
+<app-text [variant]="'body1'" [text]="invoices().length + ' invoices'" [color]="'--grey-color-dark'" class="mobile"></app-text>

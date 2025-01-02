@@ -6,18 +6,18 @@ import { provideEffects } from '@ngrx/effects';
 import {invoiceReducer} from "./state/reducers/invoice.reducer";
 import {routes} from "./app.routes";
 import {provideRouter} from "@angular/router";
+import {InvoiceEffect} from "./state/effects/invoice.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
     provideHttpClient(),
-    provideStoreDevtools
-    ({ maxAge: 25, logOnly: !isDevMode() })
-    , provideStore(
-    ),
-    provideEffects(),
+    provideStore(),
+    provideEffects([InvoiceEffect]),
     provideState({
       name: "invoices",
       reducer: invoiceReducer,
-    })
+    }),
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
+
   ]
 };

@@ -49,8 +49,9 @@ export class ViewInvoiceComponent implements OnInit {
     });
   }
   goBack() {
-    this.back.emit();
+    this.router.navigate(['/']);
   }
+
 
   handleDelete() {
     this.showDeleteConfirmation = true;

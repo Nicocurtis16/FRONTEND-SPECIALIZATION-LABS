@@ -5,7 +5,7 @@
   </div>
 
   <!-- Display either all invoices or filtered ones -->
-  <button *ngFor="let invoice of displayedInvoices" class="invoiceCard" (click)="selectInvoice(invoice)">
+  <button *ngFor="let invoice of invoices()" class="invoiceCard" (click)="selectInvoice(invoice)">
     <div class="invoiceId">
       <app-head-line
         [variant]="'h3'"

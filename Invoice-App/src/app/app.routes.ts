@@ -5,12 +5,8 @@ import {InvoiceComponent} from "./component/invoice/invoice.component";
 import {ViewInvoiceComponent} from "./component/view-invoice/view-invoice.component";
 
 export const routes: Routes = [
-  {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      { path: '', component: InvoiceComponent },
-      { path: 'invoice/:id', component: ViewInvoiceComponent }
-    ]
-  }
+  { path: '', component: InvoiceComponent }, // No LayoutComponent here
+  { path: 'invoice/:id', component: ViewInvoiceComponent },
 ];
+
+

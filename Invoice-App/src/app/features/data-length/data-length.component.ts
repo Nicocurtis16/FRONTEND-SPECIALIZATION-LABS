@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {TextComponent} from "../text/text.component";
+import {selectAllInvoices} from "../../state/selectors/invoice.selector";
+import {Store} from "@ngrx/store";
 
 @Component({
   selector: 'app-data-length',
@@ -11,7 +13,11 @@ import {TextComponent} from "../text/text.component";
   styleUrl: './data-length.component.css'
 })
 export class DataLengthComponent {
-  @Input() dataLength: number = 0; // Accepts the length from parent
+  invoices = this.store.selectSignal(selectAllInvoices);
+  constructor(
+    private store: Store,
+  ) {
 
+  }
 
 }
