@@ -22,15 +22,13 @@ height: 100%;
   align-items: center;
 }
 .editPanelContent {
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  /*flex-grow: 1;*/
-  overflow-y: auto; /* Enable vertical scrolling */
-  overflow-x: hidden; /* Hide horizontal scroll */
-  scrollbar-width: thin;
-  scrollbar-color: var(--grey); /* For Firefox: Scrollbar and track colors */
+  width: 550px;
+  overflow: scroll;
+
 }
 
 
@@ -106,7 +104,7 @@ height: 73px;
   justify-content: space-between;
 }
 .editButtons{
-  width: 616px;
+  width: 504px;
   height: 110px;
   display: flex;
   justify-content: end;
