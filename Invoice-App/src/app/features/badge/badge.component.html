@@ -1,0 +1,13 @@
+<div class="status-badge">
+  <span class="badge-container"
+        [class.paid]="status === 'paid'"
+        [class.pending]="status === 'pending'"
+        [class.draft]="status === 'draft'">
+    <span class="status-dot"
+          [class.paid-dot]="status === 'paid'"
+          [class.pending-dot]="status === 'pending'"
+          [class.draft-dot]="status === 'draft'">
+    </span>
+    {{ status }}
+  </span>
+</div>
