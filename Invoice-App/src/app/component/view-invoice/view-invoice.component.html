@@ -15,16 +15,16 @@
         <app-badge [status]="invoice.status"></app-badge>
       </div>
       <div class="viewInvoiceControlRight">
-        <app-button [variant]="'edit'" [onClick]="handleEdit">Edit</app-button>
-        <app-button [variant]="'delete'" [onClick]="handleDelete">Delete</app-button>
-        <app-delete-invoice *ngIf="showDeleteConfirmation"
-                            (confirmDelete)="confirmDelete()"
-                            (cancelDelete)="cancelDelete()">
-        </app-delete-invoice>
-        <app-button [variant]="'marked-as-paid'" [onClick]="handleMarkedAsPaid">Mark as Paid</app-button>
+        <!-- Using the ButtonComponent with onClick event binding -->
+        <app-button [variant]="'edit'" (onClick)="handleEdit()">Edit</app-button>
+        <app-button [variant]="'delete'" (onClick)="handleDelete()">Delete</app-button>
+        <app-button [variant]="'marked-as-paid'" (onClick)="handleMarkedAsPaid()">Mark as Paid</app-button>
       </div>
+
     </div>
   </div>
+
+  <router-outlet></router-outlet>
 
   <div class="viewInvoiceDown">
     <div class="idLocation">

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import {HeadLineComponent} from "../../features/head-line/head-line.component";
-import {TextComponent} from "../../features/text/text.component";
-import {ButtonComponent} from "../../features/button/button.component";
+import { HeadLineComponent } from "../../features/head-line/head-line.component";
+import { TextComponent } from "../../features/text/text.component";
+import { ButtonComponent } from "../../features/button/button.component";
 
 @Component({
   selector: 'app-delete-invoice',
@@ -12,22 +12,17 @@ import {ButtonComponent} from "../../features/button/button.component";
     ButtonComponent
   ],
   templateUrl: './delete-invoice.component.html',
-  styleUrls: ['./delete-invoice.component.css'] // Corrected property name
+  styleUrls: ['./delete-invoice.component.css']
 })
 export class DeleteInvoiceComponent {
   @Output() confirmDelete = new EventEmitter<void>();
   @Output() cancelDelete = new EventEmitter<void>();
 
   onConfirm() {
-    this.confirmDelete.emit();
+    this.confirmDelete.emit(); // Emit event for confirm delete
   }
 
   handleCancel() {
-    this.cancelDelete.emit();
-  }
-
-  handleDelete() {
-    return function () {
-    };
+    this.cancelDelete.emit(); // Emit event for cancel delete
   }
 }

@@ -9,15 +9,10 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
-  @Input() variant: string = ''; // Class for styling or logic-specific behavior
-  @Input() onClick: () => void = () => {}; // Optional click handler
-  @Output() buttonClick = new EventEmitter<void>();
+  @Input() variant: string = '';  // Input for variant (e.g., 'edit', 'delete', 'marked-as-paid')
+  @Output() onClick = new EventEmitter<void>();  // Output event for the click action
 
   handleClick() {
-    this.buttonClick.emit();
-
-    if (this.onClick) {
-      this.onClick();
-    }
+    this.onClick.emit();  // Emit the click event when the button is clicked
   }
 }

@@ -5,7 +5,7 @@ import { Invoice } from '../../service/invoice';
 import {DataService} from "../../service/data.service";
 import { CommonModule, NgIf } from '@angular/common';
 import { DeleteInvoiceComponent } from '../delete-invoice/delete-invoice.component'
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Router, RouterOutlet} from '@angular/router';
 import {TextComponent} from "../../features/text/text.component";
 import {BadgeComponent} from "../../features/badge/badge.component";
 
@@ -19,7 +19,8 @@ import {BadgeComponent} from "../../features/badge/badge.component";
     NgIf,
     DeleteInvoiceComponent,
     TextComponent,
-    BadgeComponent
+    BadgeComponent,
+    RouterOutlet
   ],
   templateUrl: './view-invoice.component.html',
   styleUrls: ['./view-invoice.component.css']
@@ -43,7 +44,7 @@ export class ViewInvoiceComponent implements OnInit {
         this.invoice = invoice;
         if (!this.invoice) {
           console.error('Invoice not found');
-          this.router.navigate(['/invoices']); // Redirect if no invoice
+          this.router.navigate(['/']);
         }
       });
     });
@@ -52,32 +53,16 @@ export class ViewInvoiceComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  handleEdit() {
+    this.router.navigate(['edit'], { relativeTo: this.route });
+  }
 
   handleDelete() {
-    this.showDeleteConfirmation = true;
-  }
-  handleEdit() {
-    this.showEditInvoice = true;
-    console.log('Edit button clicked');
-    // Add your logic here
-  }
-  confirmDelete() {
-    if (this.invoice?.id) {
-      this.dataService.deleteInvoice(this.invoice.id).subscribe(success => {
-        if (success) {
-          this.showDeleteConfirmation = false;
-          this.router.navigate(['/invoices']);
-        }
-      });
-    }
-  }
-  handleMarkedAsPaid(){
-    console.log('Edit button clicked');
+    this.router.navigate(['delete'], { relativeTo: this.route });
 
   }
 
-
-  cancelDelete() {
-    this.showDeleteConfirmation = false;
+  handleMarkedAsPaid() {
+    this.router.navigate(['mark-paid'], { relativeTo: this.route });
   }
 }

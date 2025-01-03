@@ -5,9 +5,9 @@
 
     <div class="buttonLayout">
       <div class="button">
-        <app-button [variant]="'cancel'" [onClick]="handleCancel">Cancel</app-button>
-        <app-button [variant]="'delete'" [onClick]="handleDelete()">Delete</app-button>
-      </div>
+        <app-button [variant]="'delete'" (onClick)="onConfirm()">Confirm</app-button>
+        <app-button [variant]="'cancel'" (onClick)="handleCancel()">Cancel</app-button>
+        </div>
     </div>
 
   </div>
