@@ -45,7 +45,7 @@
       </div>
     </div>
   </button>
-  <button *ngFor="let invoice of displayedInvoices" class="invoiceCardMobile" (click)="selectInvoice(invoice)">
+  <button *ngFor="let invoice of invoices()" class="invoiceCardMobile" (click)="selectInvoice(invoice)">
     <div class="cardTop">
       <div class="invoiceId">
         <app-head-line

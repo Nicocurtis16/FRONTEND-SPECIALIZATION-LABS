@@ -8,6 +8,11 @@
           [class.pending-dot]="status === 'pending'"
           [class.draft-dot]="status === 'draft'">
     </span>
-    {{ status }}
+    <!-- Pass dynamic color to app-head-line -->
+    <app-head-line
+      [variant]="'h3'"
+      [text]="status"
+      [color]="getStatusTextColor(status)">
+    </app-head-line>
   </span>
 </div>
