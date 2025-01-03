@@ -12,7 +12,7 @@
     <div class="ViewInvoiceControl">
       <div class="viewInvoiceControlLeft">
         <app-text [variant]="'body1'" [color]="'--grey'" [text]="'Status'"></app-text>
-        <app-badge [status]="invoice.status"></app-badge>
+        <app-badge [status]="invoice().status"></app-badge>
       </div>
       <div class="viewInvoiceControlRight">
         <!-- Using the ButtonComponent with onClick event binding -->
@@ -29,15 +29,15 @@
   <div class="viewInvoiceDown">
     <div class="idLocation">
       <div class="id">
-        <app-head-line [variant]="'h3'" [text]="'#' + invoice.id" [color]="'--base-black'"></app-head-line>
-        <app-text [variant]="'body1'" [text]="invoice.description"></app-text>
+        <app-head-line [variant]="'h3'" [text]="'#' + invoice().id" [color]="'--base-black'"></app-head-line>
+        <app-text [variant]="'body1'" [text]="invoice().description"></app-text>
       </div>
       <div class="location">
         <app-text
           [variant]="'body2'"
           [alignment]="'right'"
           [color]="'  --tertiary'"
-          [lines]="['invoice.street', 'invoice.street', 'invoice.postCode', 'invoice.country']"
+          [lines]="[invoice().senderAddress.street, invoice().senderAddress.postCode, invoice().senderAddress.city,invoice().senderAddress.country]"
         ></app-text>      </div>
     </div>
 
@@ -45,35 +45,35 @@
       <div class="firstInfo">
         <div class="invoiceDate">
           <app-text [variant]="'body1'" [text]="'Invoice Date'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice.createdAt" [color]="'--base-black'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().createdAt" [color]="'--base-black'"></app-head-line>
         </div>
         <div class="paymentDue">
           <app-text [variant]="'body1'" [text]="'Payment Due'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice.paymentDue" [color]="'--base-black'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().paymentDue" [color]="'--base-black'"></app-head-line>
         </div>
       </div>
       <div class="secInfo">
         <div class="billTo">
           <app-text [variant]="'body1'" [text]="'Bill To'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice.clientName" [color]="'--base-black'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().clientName" [color]="'--base-black'"></app-head-line>
         </div>
       </div>
       <div class="thirdInfo">
         <div class="sentTo">
           <app-text [variant]="'body1'" [text]="'Sent To'" [color]="'--tertiary'" [alignment]="'left'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice.clientEmail" [color]="'--base-black'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().clientEmail" [color]="'--base-black'"></app-head-line>
         </div>
       </div>
     </div>
 
     <div class="accountDetails">
-      <div class="accountDetailsLeft" *ngIf="invoice.items.length > 0">
-        <div *ngFor="let item of invoice.items" class="accountInfo">
-          <div class="itemsName" *ngFor="let item of invoice.items" >
+      <div class="accountDetailsLeft" *ngIf="invoice().items.length > 0">
+        <div *ngFor="let item of invoice().items" class="accountInfo">
+          <div class="itemsName" *ngFor="let item of invoice().items" >
             <app-text [variant]="'body2'" [text]="'Item Name'" [color]="'--tertiary'"></app-text>
             <app-head-line [variant]="'h4'" [text]="item.name" [color]="'--base-black'"></app-head-line>
           </div>
-          <div *ngFor="let item of invoice.items" class="itemsQuant">
+          <div *ngFor="let item of invoice().items" class="itemsQuant">
             <app-text [variant]="'body2'" [text]="'QTY.'" [color]="'--tertiary'"></app-text>
             <app-head-line [variant]="'h4'" [text]="item.quantity.toString()" [color]="'--tertiary'"></app-head-line>
 
@@ -82,7 +82,7 @@
 
       </div>
       <div class="accountDetailsRight">
-        <div *ngFor="let item of invoice.items" class="accountDetailsTitle">
+        <div *ngFor="let item of invoice().items" class="accountDetailsTitle">
           <div>
             <app-text [variant]="'body2'" [text]="'Price'"  [color]="'--tertiary'"           [alignment]="'right'"
             ></app-text>
@@ -101,7 +101,7 @@
 
     <div class="accountDetailsDown">
       <app-text [variant]="'body1'" [color]="'--white'" [text]="'Amount Due'" [alignment]="'left'" class="amountTitle"></app-text>
-      <app-head-line [variant]="'h1'" [text]="'£' + invoice.total" [color]="'--white'" class="amount"></app-head-line>
+      <app-head-line [variant]="'h1'" [text]="'£' + invoice().total" [color]="'--white'" class="amount"></app-head-line>
     </div>
   </div>
 </div>

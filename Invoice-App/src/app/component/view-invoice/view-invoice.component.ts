@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {Component, Input, Output, EventEmitter, OnInit, Signal, computed, signal} from '@angular/core';
 import { ButtonComponent } from '../../features/button/button.component';
 import { HeadLineComponent } from '../../features/head-line/head-line.component';
 import { Invoice } from '../../service/invoice';
@@ -8,6 +8,9 @@ import { DeleteInvoiceComponent } from '../delete-invoice/delete-invoice.compone
 import {ActivatedRoute, Router, RouterOutlet} from '@angular/router';
 import {TextComponent} from "../../features/text/text.component";
 import {BadgeComponent} from "../../features/badge/badge.component";
+import {Store} from "@ngrx/store";
+import {selectAllInvoices, selectedInvoiceSuccess} from "../../state/selectors/invoice.selector";
+import {invoiceAction} from "../../state/actions/invoice.action";
 
 @Component({
   selector: 'app-view-invoice',
@@ -17,7 +20,6 @@ import {BadgeComponent} from "../../features/badge/badge.component";
     ButtonComponent,
     HeadLineComponent,
     NgIf,
-    DeleteInvoiceComponent,
     TextComponent,
     BadgeComponent,
     RouterOutlet
@@ -27,42 +29,38 @@ import {BadgeComponent} from "../../features/badge/badge.component";
 })
 
 export class ViewInvoiceComponent implements OnInit {
-  @Input() invoice: Invoice | null = null;
   @Output() back = new EventEmitter<void>();
   showEditInvoice = false;
   showDeleteConfirmation = false;
-
+  invoices = this.store.selectSignal(selectAllInvoices)
+  idSignal = signal<string | null>(null)
+  invoice = computed(()=> this.invoices().find(invoice=>invoice.id === this.idSignal()))  as Signal<Invoice>;
   constructor(
+    private store: Store,
     private dataService: DataService,
     private router: Router,
-    private route: ActivatedRoute
+    private activatedRoute: ActivatedRoute
   ) {}
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.dataService.getInvoiceById(id).subscribe(invoice => {
-        this.invoice = invoice;
-        if (!this.invoice) {
-          console.error('Invoice not found');
-          this.router.navigate(['/']);
-        }
-      });
-    });
+const { id} = this.activatedRoute.snapshot.params;
+    this.idSignal.set(id);
+    this.store.dispatch(invoiceAction.setActiveInvoice({id}))
+
   }
   goBack() {
     this.router.navigate(['/']);
   }
 
   handleEdit() {
-    this.router.navigate(['edit'], { relativeTo: this.route });
+    this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
   }
 
   handleDelete() {
-    this.router.navigate(['delete'], { relativeTo: this.route });
+    this.router.navigate(['delete'], { relativeTo: this.activatedRoute });
 
   }
 
   handleMarkedAsPaid() {
-    this.router.navigate(['mark-paid'], { relativeTo: this.route });
+    this.router.navigate(['mark-paid'], { relativeTo: this.activatedRoute });
   }
 }

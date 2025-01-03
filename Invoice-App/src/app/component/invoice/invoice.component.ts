@@ -16,7 +16,7 @@ import {NoInvoiceComponent} from "../../features/no-invoice/no-invoice.component
 
 @Component({
   selector: 'app-invoice',
-  imports: [HttpClientModule, NgFor, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent, NgIf, DeleteInvoiceComponent, NoInvoiceComponent],
+  imports: [HttpClientModule, NgFor, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent, NgIf, NoInvoiceComponent],
   standalone: true,
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css']
@@ -26,7 +26,6 @@ export class InvoiceComponent implements OnInit {
   invoices = this.store.selectSignal(selectAllInvoices);
   displayedInvoices: Invoice[] = [];
   invoiceCount: number = 0;
-  @Output() viewInvoice = new EventEmitter<Invoice>();
 
 
   constructor(
@@ -77,5 +76,8 @@ export class InvoiceComponent implements OnInit {
   updateDisplayedInvoices(data: Invoice[]) {
     this.displayedInvoices = data;
     this.invoiceCount = data.length; // Update the count dynamically
+  }
+  onDeleteInvoice(id: number) {
+    this.store.dispatch(invoiceAction.deleteInvoice({ id: this.invoices.toString() }));
   }
 }

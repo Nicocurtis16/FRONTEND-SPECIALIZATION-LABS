@@ -2,6 +2,9 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { HeadLineComponent } from "../../features/head-line/head-line.component";
 import { TextComponent } from "../../features/text/text.component";
 import { ButtonComponent } from "../../features/button/button.component";
+import {Store} from "@ngrx/store";
+import {selectedInvoiceSuccess} from "../../state/selectors/invoice.selector";
+import {invoiceAction} from "../../state/actions/invoice.action";
 
 @Component({
   selector: 'app-delete-invoice',
@@ -17,8 +20,14 @@ import { ButtonComponent } from "../../features/button/button.component";
 export class DeleteInvoiceComponent {
   @Output() confirmDelete = new EventEmitter<void>();
   @Output() cancelDelete = new EventEmitter<void>();
+  invoice = this.store.selectSignal(selectedInvoiceSuccess)
+  constructor(
+    private store: Store,
+  ) {
+  }
 
   onConfirm() {
+    this.store.dispatch(invoiceAction.deleteInvoice({id: this.invoice()?.id as string}));
     this.confirmDelete.emit(); // Emit event for confirm delete
   }
 

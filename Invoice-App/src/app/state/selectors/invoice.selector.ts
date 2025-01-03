@@ -10,3 +10,7 @@ export const selectIsLoadingState = createSelector(
   selectInvoiceState,
   (state:InvoiceState) => state.isLoading
 )
+export const selectedInvoiceSuccess = createSelector(
+  selectInvoiceState,
+  (state:InvoiceState) => state.activeInvoice
+)
