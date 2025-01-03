@@ -4,7 +4,6 @@ import { HeadLineComponent } from '../../features/head-line/head-line.component'
 import { Invoice } from '../../service/invoice';
 import {DataService} from "../../service/data.service";
 import { CommonModule, NgIf } from '@angular/common';
-import { DeleteInvoiceComponent } from '../delete-invoice/delete-invoice.component'
 import {ActivatedRoute, Router, RouterOutlet} from '@angular/router';
 import {TextComponent} from "../../features/text/text.component";
 import {BadgeComponent} from "../../features/badge/badge.component";
@@ -29,7 +28,6 @@ import {invoiceAction} from "../../state/actions/invoice.action";
 })
 
 export class ViewInvoiceComponent implements OnInit {
-  @Output() back = new EventEmitter<void>();
   showEditInvoice = false;
   showDeleteConfirmation = false;
   invoices = this.store.selectSignal(selectAllInvoices)
@@ -42,9 +40,10 @@ export class ViewInvoiceComponent implements OnInit {
     private activatedRoute: ActivatedRoute
   ) {}
   ngOnInit() {
-const { id} = this.activatedRoute.snapshot.params;
+    const { id} = this.activatedRoute.snapshot.params;
     this.idSignal.set(id);
     this.store.dispatch(invoiceAction.setActiveInvoice({id}))
+    console.log(this.invoice())
 
   }
   goBack() {
