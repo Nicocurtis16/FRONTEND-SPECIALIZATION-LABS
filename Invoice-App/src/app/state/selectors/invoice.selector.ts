@@ -14,3 +14,16 @@ export const selectedInvoiceSuccess = createSelector(
   selectInvoiceState,
   (state:InvoiceState) => state.activeInvoice
 )
+export const selectFilters = createSelector(
+  selectInvoiceState,
+  (state: InvoiceState) => state.filters
+);
+
+export const selectFilteredInvoices = createSelector(
+  selectAllInvoices,
+  selectFilters,
+  (invoices, filters) => {
+    if (!filters.length) return invoices; // Return all if no filters
+    return invoices.filter(invoice => filters.includes(invoice.status));
+  }
+);

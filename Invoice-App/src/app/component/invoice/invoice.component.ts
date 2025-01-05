@@ -1,32 +1,55 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, computed, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
 import { DataService } from '../../service/data.service';
 import { Invoice } from '../../service/invoice';
-import { NgFor, NgIf } from '@angular/common';
+import { selectAllInvoices, selectIsLoadingState } from '../../state/selectors/invoice.selector';
+import { invoiceAction } from '../../state/actions/invoice.action';
+
 import { BadgeComponent } from '../../features/badge/badge.component';
 import { HeadLineComponent } from '../../features/head-line/head-line.component';
 import { TextComponent } from '../../features/text/text.component';
-import { InvoiceHeaderComponent } from "../invoice-header/invoice-header.component";
-import {Router} from "@angular/router";
-import {Store} from "@ngrx/store";
-import {selectAllInvoices, selectIsLoadingState} from "../../state/selectors/invoice.selector";
-import {invoiceAction} from "../../state/actions/invoice.action";
-import {DeleteInvoiceComponent} from "../delete-invoice/delete-invoice.component";
-import {NoInvoiceComponent} from "../../features/no-invoice/no-invoice.component";
+import { InvoiceHeaderComponent } from '../invoice-header/invoice-header.component';
+import { NoInvoiceComponent } from '../../features/no-invoice/no-invoice.component';
 
 @Component({
   selector: 'app-invoice',
-  imports: [HttpClientModule, NgFor, BadgeComponent, HeadLineComponent, TextComponent, InvoiceHeaderComponent, NgIf, NoInvoiceComponent],
+  imports: [
+    HttpClientModule,
+    NgFor,
+    BadgeComponent,
+    HeadLineComponent,
+    TextComponent,
+    InvoiceHeaderComponent,
+    NgIf,
+    NoInvoiceComponent,
+  ],
   standalone: true,
   templateUrl: './invoice.component.html',
-  styleUrls: ['./invoice.component.css']
+  styleUrls: ['./invoice.component.css'],
 })
 export class InvoiceComponent implements OnInit {
-  isLoading=this.store.selectSignal(selectIsLoadingState);
-  invoices = this.store.selectSignal(selectAllInvoices);
-  displayedInvoices: Invoice[] = [];
-  invoiceCount: number = 0;
+  isLoading = this.store.selectSignal(selectIsLoadingState);
+  invoices = this.store.selectSignal(selectAllInvoices); // All invoices from state
+  selectedStatuses: string[] = []; // Filter criteria
 
+  // Computed signals for filtered data and count
+  displayedInvoices = computed(() => {
+    console.log('Recalculating displayed invoices:', this.selectedStatuses, this.invoices());
+    if (!this.selectedStatuses.length) {
+      return this.invoices(); // Show all invoices if no filter
+    }
+    return this.invoices().filter(invoice =>
+      this.selectedStatuses.includes(invoice.status)
+    );
+  });
+
+
+
+  invoiceCount = computed(() => this.displayedInvoices().length);
 
   constructor(
     private store: Store,
@@ -34,50 +57,22 @@ export class InvoiceComponent implements OnInit {
     private router: Router
   ) {}
 
-  selectInvoice(invoice: Invoice) {
-    this.router.navigate(['/invoice', invoice.id]);
-  }
   ngOnInit() {
-    // this.loadInvoices();
-  if(!this.isLoading()){
-    this.store.dispatch(invoiceAction.loadInvoices())
-  }
-  }
-
-  // loadInvoices() {
-  //   const storedData = this.dataService.getDataFromLocalStorage();
-  //   if (storedData) {
-  //     this.invoices() = storedData;
-  //     this.updateDisplayedInvoices(storedData);
-  //   } else {
-  //     this.dataService.fetchData().subscribe({
-  //       next: (data) => {
-  //         this.invoices = data;
-  //         this.updateDisplayedInvoices(data);
-  //       },
-  //       error: (error) => {
-  //         console.error('Error fetching invoices:', error);
-  //       }
-  //     });
-  //   }
-  // }
-
-  onFilterChange(selectedStatuses: string[]) {
-    if (!selectedStatuses || selectedStatuses.length === 0) {
-      this.updateDisplayedInvoices(this.invoices());
-    } else {
-      const filteredInvoices = this.invoices().filter(invoice =>
-        selectedStatuses.includes(invoice.status)
-      );
-      this.updateDisplayedInvoices(filteredInvoices);
+    if (!this.isLoading()) {
+      this.store.dispatch(invoiceAction.loadInvoices());
     }
   }
 
-  updateDisplayedInvoices(data: Invoice[]) {
-    this.displayedInvoices = data;
-    this.invoiceCount = data.length; // Update the count dynamically
+  selectInvoice(invoice: Invoice) {
+    this.router.navigate(['/invoice', invoice.id]);
   }
-  onDeleteInvoice(id: number) {
-    this.store.dispatch(invoiceAction.deleteInvoice({ id: this.invoices.toString() }));
+
+  onFilterChange(selectedStatuses: string[]) {
+    console.log('Selected Statuses:', selectedStatuses);
+    this.selectedStatuses = selectedStatuses; // Update filter criteria
+  }
+
+  onDeleteInvoice(id: string) {
+    this.store.dispatch(invoiceAction.deleteInvoice({ id }));
   }
 }

@@ -2,19 +2,24 @@ import { createReducer, on } from '@ngrx/store';
 import { invoiceAction } from '../actions/invoice.action';
 import { Invoice } from '../../service/invoice';
 
+
 export interface InvoiceState {
   invoices: Invoice[];
   isLoading: boolean;
   error: string | null;
-  activeInvoice:Invoice | null;
+  activeInvoice: Invoice | null;
+  filters: string[]; // Update from Invoice[] to string[]
 }
+
 
 const initialInvoiceState: InvoiceState = {
   activeInvoice: null,
   invoices: [],
   isLoading: false,
   error: null,
+  filters: [], // Initialize with an empty array
 };
+
 
 const {
   setActiveInvoice,
@@ -24,6 +29,7 @@ const {
   deleteInvoice,
   deleteInvoiceSuccess,
   deleteInvoiceFail,
+  updateFilter
 } = invoiceAction;
 
 export const invoiceReducer = createReducer(
@@ -37,31 +43,32 @@ export const invoiceReducer = createReducer(
     ...state,
     isLoading: false,
     invoices: [...state.invoices.filter(inv => invoices.every(newInv => newInv.id !== inv.id)), ...invoices],
-    error: null, // Clear any previous errors after successful load
+    error: null,
   })),
   on(loadInvoicesFail, (state, { error }) => ({
     ...state,
     isLoading: false,
     error,
   })),
-  on(deleteInvoice, (state,{id}) => ({
+  on(deleteInvoice, (state, { id }) => ({
     ...state,
     invoices: state.invoices.filter(invoice => invoice.id !== id),
   })),
   on(deleteInvoiceSuccess, (state, { id }) => ({
     ...state,
-    isLoading: false,
-    invoices: state.invoices.filter(invoice => invoice.id !== id),  // Remove the invoice with the specified id
-    error: null, // Clear any previous errors after successful deletion
+    invoices: state.invoices.filter(invoice => invoice.id !== id),
+    error: null,
   })),
   on(deleteInvoiceFail, (state, { error }) => ({
     ...state,
-    isLoading: false,
     error,
   })),
-  on(setActiveInvoice, (state,{id}) => ({
+  on(updateFilter, (state, { filters }) => ({
     ...state,
-    activeInvoice: state.invoices.find(invoice => invoice.id === id) as Invoice,
+    filters, // Update the filter state
+  })),
+  on(setActiveInvoice, (state, { id }) => ({
+    ...state,
+    activeInvoice: state.invoices.find(invoice => invoice.id === id) || null,
   }))
-
 );

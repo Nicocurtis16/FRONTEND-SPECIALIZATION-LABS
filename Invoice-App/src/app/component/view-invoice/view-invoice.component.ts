@@ -51,7 +51,11 @@ export class ViewInvoiceComponent implements OnInit {
   }
 
   handleEdit() {
-    this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
+    this.router.navigate(['edit'], { relativeTo: this.activatedRoute }).then(success => {
+      if (!success) {
+        console.error("Navigation to edit failed.");
+      }
+    });
   }
 
   handleDelete() {
