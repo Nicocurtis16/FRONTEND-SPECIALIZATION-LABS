@@ -78,27 +78,35 @@
       </div>
     </div>
 
-    <div class="accountDetails">
-      <div *ngFor="let item of invoiceItems" class="accountInfo">
-        <div class="accountDetailsLeft">
-          <div class="itemsName">
-            <app-head-line [variant]="'h4'" [text]="item.name" [color]="'--base-black'"></app-head-line>
+    <div class="accountDetails" >
+      <div class="accountDetailsLeft">
+        <div  class="accountInfo">
+          <div class="itemsName"  >
+            <app-text [variant]="'body2'" [text]="'Item Name'" [color]="'--tertiary'"></app-text>
+
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.name" [color]="'--base-black'"></app-head-line>
           </div>
           <div class="itemsQuant">
             <app-text [variant]="'body2'" [text]="'QTY.'" [color]="'--tertiary'"></app-text>
-            <app-head-line [variant]="'h4'" [text]="item.quantity.toString()" [color]="'--tertiary'"></app-head-line>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.quantity.toString()" [color]="'--tertiary'"></app-head-line>
+
           </div>
         </div>
-        <div class="accountDetailsRight">
-          <div class="accountDetailsTitle">
-            <div>
-              <app-text [variant]="'body2'" [text]="'Price'" [color]="'--tertiary'" [alignment]="'right'"></app-text>
-              <app-head-line [variant]="'h4'" [text]="'£' + item.price" [color]="'--tertiary'"></app-head-line>
-            </div>
-            <div>
-              <app-text [variant]="'body2'" [text]="'Total'" [color]="'--tertiary'" [alignment]="'right'"></app-text>
-              <app-head-line [variant]="'h4'" [text]="'£' + item.total" [color]="'--base-black'"></app-head-line>
-            </div>
+
+      </div>
+      <div class="accountDetailsRight">
+        <div  class="accountDetailsTitle">
+          <div>
+            <app-text [variant]="'body2'" [text]="'Price'"  [color]="'--tertiary'"           [alignment]="'right'"
+            ></app-text>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.price" [color]="'--tertiary'"></app-head-line>
+
+          </div>
+          <div>
+            <app-text [variant]="'body2'" [text]="'Total'" [color]="'--tertiary'"           [alignment]="'right'"
+            ></app-text>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.total" [color]="'--base-black'" ></app-head-line>
+
           </div>
         </div>
       </div>

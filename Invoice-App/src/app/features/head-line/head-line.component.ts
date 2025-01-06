@@ -9,6 +9,8 @@ import { Component, Input } from '@angular/core';
 export class HeadLineComponent {
   @Input() variant: 'h1' | 'h2' | 'h3' | 'h4' = 'h1';
   @Input() text: string = '';
+  @Input() alignment: string = 'left';
+
   @Input() color: string = '--primary-color'; // Color for the whole text
 
 
