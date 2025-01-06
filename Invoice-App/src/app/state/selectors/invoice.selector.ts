@@ -27,3 +27,7 @@ export const selectFilteredInvoices = createSelector(
     return invoices.filter(invoice => filters.includes(invoice.status));
   }
 );
+export const selectInvoicesByStatus = (status: 'paid' | 'pending' | 'draft') =>
+  createSelector(selectAllInvoices, (invoices) =>
+    invoices.filter(invoice => invoice.status === status)
+  );

@@ -40,4 +40,17 @@ export class InvoiceEffect {
       })
     )
   );
+  updateStatus$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(invoiceAction.updateStatus),
+      switchMap(({ id, status }) =>
+        this.DataService.updateInvoiceStatus(id, status).pipe( // Assuming updateInvoiceStatus is defined in DataService
+          map(() => invoiceAction.updateStatusSuccess({ id, status })),
+          catchError((error) =>
+            of(invoiceAction.updateStatusFail({ error }))
+          )
+        )
+      )
+    )
+  );
 }

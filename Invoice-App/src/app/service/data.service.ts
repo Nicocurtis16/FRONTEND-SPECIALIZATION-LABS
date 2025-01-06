@@ -32,6 +32,10 @@ export class DataService {
     const invoice = invoices?.find(inv => inv.id === id) || null;
     return of(invoice);
   }
+  updateInvoiceStatus(id: string, status: 'paid' | 'pending' | 'draft') {
+    return this.http.patch(`/api/invoices/${id}`, { status });
+  }
+
 
   clearDataFromLocalStorage(): void {
     localStorage.removeItem(this.storageKey);

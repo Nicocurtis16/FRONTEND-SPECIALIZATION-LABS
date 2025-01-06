@@ -70,5 +70,23 @@ export const invoiceReducer = createReducer(
   on(setActiveInvoice, (state, { id }) => ({
     ...state,
     activeInvoice: state.invoices.find(invoice => invoice.id === id) || null,
-  })) // This will handle setting the activeInvoice correctly
+  })) ,// This will handle setting the activeInvoice correctly
+on(invoiceAction.updateStatus, (state, { id, status }) => ({
+  ...state,
+  invoices: state.invoices.map(invoice =>
+    invoice.id === id ? { ...invoice, status } : invoice
+  ),
+})),
+  on(invoiceAction.updateStatusSuccess, (state, { id, status }) => ({
+    ...state,
+    invoices: state.invoices.map(invoice =>
+      invoice.id === id ? { ...invoice, status } : invoice
+    ),
+    error: null,
+  })),
+  on(invoiceAction.updateStatusFail, (state, { error }) => ({
+    ...state,
+    error,
+  }))
+
 );

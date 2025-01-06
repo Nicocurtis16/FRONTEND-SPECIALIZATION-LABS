@@ -33,6 +33,8 @@ export class ViewInvoiceComponent implements OnInit {
   invoices = this.store.selectSignal(selectAllInvoices)
   idSignal = signal<string | null>(null)
   invoice = computed(()=> this.invoices().find(invoice=>invoice.id === this.idSignal()))  as Signal<Invoice>;
+
+  invoiceItems: any[] = [];
   constructor(
     private store: Store,
     private dataService: DataService,
@@ -76,6 +78,13 @@ export class ViewInvoiceComponent implements OnInit {
   }
 
   handleMarkedAsPaid() {
-    this.router.navigate(['mark-paid'], { relativeTo: this.activatedRoute });
+    const currentInvoice = this.invoice();
+    if (currentInvoice) {
+      this.store.dispatch(
+        invoiceAction.updateStatus({ id: currentInvoice.id, status: 'paid' })
+      );
+    }
   }
+
+
 }
