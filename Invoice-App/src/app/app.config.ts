@@ -7,6 +7,7 @@ import { invoiceReducer } from './state/reducers/invoice.reducer';
 import { routes } from './app.routes';
 import { provideRouter } from '@angular/router';
 import { InvoiceEffect } from './state/effects/invoice.effects';
+import {metaReducers, reducers} from "./state/reducers/localStorage.reducer";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,7 +18,7 @@ export const appConfig: ApplicationConfig = {
       name: 'invoices',
       reducer: invoiceReducer,
     }),
-    provideStore(), // Add this line
+    provideStore(reducers,{metaReducers}), // Add this line
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ]
 };
