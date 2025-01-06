@@ -8,7 +8,7 @@ import {ActivatedRoute, Router, RouterOutlet} from '@angular/router';
 import {TextComponent} from "../../features/text/text.component";
 import {BadgeComponent} from "../../features/badge/badge.component";
 import {Store} from "@ngrx/store";
-import {selectAllInvoices, selectedInvoiceSuccess} from "../../state/selectors/invoice.selector";
+import {selectAllInvoices, selectedInvoiceSuccess, selectIsLoadingState} from "../../state/selectors/invoice.selector";
 import {invoiceAction} from "../../state/actions/invoice.action";
 
 @Component({
@@ -39,13 +39,25 @@ export class ViewInvoiceComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
-  ngOnInit() {
-    const { id} = this.activatedRoute.snapshot.params;
-    this.idSignal.set(id);
-    this.store.dispatch(invoiceAction.setActiveInvoice({id}))
-    console.log(this.invoice())
+  isLoading = this.store.select(selectIsLoadingState);
 
+  ngOnInit() {
+    const { id } = this.activatedRoute.snapshot.params;
+    this.idSignal.set(id);
+    this.store.dispatch(invoiceAction.setActiveInvoice({ id }));
+
+    this.store.select(selectIsLoadingState).subscribe((loading) => {
+      if (!loading) {
+        const invoice = this.invoices().find((inv) => inv.id === id);
+        if (invoice) {
+          console.log('Invoice loaded:', invoice);
+        }
+      }
+    });
   }
+
+
+
   goBack() {
     this.router.navigate(['/']);
   }

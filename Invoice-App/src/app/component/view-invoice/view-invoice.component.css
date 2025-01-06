@@ -112,6 +112,14 @@
 
 
   }
+  .idTitle{
+    display: flex;
+  }
+  .secInfo{
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+  }
   .accountDetailsLeft{
     display: flex;
     width: 300px;

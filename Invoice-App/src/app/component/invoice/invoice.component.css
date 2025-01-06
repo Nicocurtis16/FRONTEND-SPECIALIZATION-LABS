@@ -141,6 +141,7 @@
     border: 1px solid var(--primary-color-light); /* Adds a border only on hover */
   }
   .invoiceId{
+    display: flex;
     width: 70px;
     margin-left: 20px;
   }

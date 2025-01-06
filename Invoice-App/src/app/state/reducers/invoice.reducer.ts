@@ -2,15 +2,13 @@ import { createReducer, on } from '@ngrx/store';
 import { invoiceAction } from '../actions/invoice.action';
 import { Invoice } from '../../service/invoice';
 
-
 export interface InvoiceState {
   invoices: Invoice[];
   isLoading: boolean;
   error: string | null;
-  activeInvoice: Invoice | null;
+  activeInvoice: Invoice | null; // Keep activeInvoice as an Invoice, not activeInvoiceId
   filters: string[]; // Update from Invoice[] to string[]
 }
-
 
 const initialInvoiceState: InvoiceState = {
   activeInvoice: null,
@@ -19,7 +17,6 @@ const initialInvoiceState: InvoiceState = {
   error: null,
   filters: [], // Initialize with an empty array
 };
-
 
 const {
   setActiveInvoice,
@@ -42,7 +39,10 @@ export const invoiceReducer = createReducer(
   on(loadInvoicesSuccess, (state, { invoices }) => ({
     ...state,
     isLoading: false,
-    invoices: [...state.invoices.filter(inv => invoices.every(newInv => newInv.id !== inv.id)), ...invoices],
+    invoices: [
+      ...state.invoices.filter(inv => invoices.every(newInv => newInv.id !== inv.id)),
+      ...invoices
+    ],
     error: null,
   })),
   on(loadInvoicesFail, (state, { error }) => ({
@@ -70,5 +70,5 @@ export const invoiceReducer = createReducer(
   on(setActiveInvoice, (state, { id }) => ({
     ...state,
     activeInvoice: state.invoices.find(invoice => invoice.id === id) || null,
-  }))
+  })) // This will handle setting the activeInvoice correctly
 );

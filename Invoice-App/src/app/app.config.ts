@@ -1,23 +1,23 @@
 import { ApplicationConfig, isDevMode } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import {provideState, provideStore} from '@ngrx/store';
+import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
-import {invoiceReducer} from "./state/reducers/invoice.reducer";
-import {routes} from "./app.routes";
-import {provideRouter} from "@angular/router";
-import {InvoiceEffect} from "./state/effects/invoice.effects";
+import { invoiceReducer } from './state/reducers/invoice.reducer';
+import { routes } from './app.routes';
+import { provideRouter } from '@angular/router';
+import { InvoiceEffect } from './state/effects/invoice.effects';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),
+  providers: [
+    provideRouter(routes),
     provideHttpClient(),
-    provideStore(),
     provideEffects([InvoiceEffect]),
     provideState({
-      name: "invoices",
+      name: 'invoices',
       reducer: invoiceReducer,
     }),
+    provideStore(), // Add this line
     provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
-
   ]
 };
