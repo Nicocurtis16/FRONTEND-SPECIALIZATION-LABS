@@ -5,6 +5,7 @@ import {TextComponent} from "../../features/text/text.component";
 import {PaymentTermsComponent} from "../../features/payment-terms/payment-terms.component";
 import {DatePickerComponent} from "../../features/date-picker/date-picker.component";
 import {ButtonComponent} from "../../features/button/button.component";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-invoice',
@@ -15,12 +16,34 @@ import {ButtonComponent} from "../../features/button/button.component";
     TextComponent,
     PaymentTermsComponent,
     DatePickerComponent,
-    ButtonComponent
+    ButtonComponent,
+    ReactiveFormsModule
   ],
   templateUrl: './edit-invoice.component.html',
   styleUrl: './edit-invoice.component.css'
 })
 export class EditInvoiceComponent {
+  editForm: FormGroup;
+  constructor( private fb: FormBuilder ) {
+    this.editForm = this.fb.group({
+      streetAddress: ['', Validators.required],
+      city: ['', Validators.required],
+      postCode: ['', Validators.required],
+      country: ['', Validators.required],
+      clientName: ['', Validators.required],
+      clientEmail: ['', [Validators.required, Validators.email]],
+      clientStreetAddress: ['', Validators.required],
+      clientCity: ['', Validators.required],
+      clientPostCode: ['', Validators.required],
+      clientCountry: ['', Validators.required],
+      invoiceDate: ['', Validators.required],
+      projectDescription: ['', Validators.required],
+      itemName: ['', Validators.required],
+      itemQuantity: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      itemPrice: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+    });
+  }
+
   selectedDate: any;
 
   onDateSelected(date: string) {
@@ -34,5 +57,14 @@ export class EditInvoiceComponent {
 
   getFieldError(date: string) {
     return "";
+  }
+
+  protected readonly onsubmit = onsubmit;
+
+  onSubmit() {
+
+  }
+  get f() {
+    return this.editForm.controls;
   }
 }

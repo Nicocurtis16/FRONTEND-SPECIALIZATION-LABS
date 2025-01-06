@@ -1,6 +1,8 @@
 <div class="editScreen">
   <div class="editPanel">
-    <div class="editPanelLeft"><app-sidebar></app-sidebar></div>
+    <div class="editPanelLeft">
+      <app-sidebar></app-sidebar>
+    </div>
     <div class="editPanelRight">
       <div class="editId">
         <app-head-line
@@ -10,7 +12,7 @@
         >
         </app-head-line>
       </div>
-      <div class="editPanelContent">
+      <div class="editPanelContent"><form [formGroup]="editForm" (ngSubmit)="onSubmit()">
         <div class="editBillForm">
           <app-head-line
             [variant]="'h4'"
@@ -24,7 +26,10 @@
                 [text]="'Street Address'"
                 [color]="'--tertiary'"
               ></app-text>
-              <input type="text" class="streetAddressInput" />
+              <input type="text" formControlName="streetAddress" class="streetAddressInput" />
+              <div *ngIf="f.streetAddress?.invalid && f.streetAddress?.touched" class="error-message">
+                <!-- Error Message -->
+              </div>
             </div>
             <div class="locationAddress">
               <div class="city">
@@ -33,7 +38,10 @@
                   [text]="'City'"
                   [color]="'--tertiary'"
                 ></app-text>
-                <input type="text" class="cityInput" />
+                <input type="text" formControlName="city" class="cityInput" />
+                <div *ngIf="f.city?.invalid && f.city?.touched" class="error-message">
+                  <!-- Error Message -->
+                </div>
               </div>
               <div class="city">
                 <app-text
@@ -41,7 +49,7 @@
                   [text]="'Post Code'"
                   [color]="'--tertiary'"
                 ></app-text>
-                <input type="text" class="postCodeInput" />
+                <input type="text" formControlName="postCode" class="postCodeInput" />
               </div>
               <div class="city">
                 <app-text
@@ -49,11 +57,12 @@
                   [text]="'Country'"
                   [color]="'--tertiary'"
                 ></app-text>
-                <input type="text" class="Country" />
+                <input type="text" formControlName="country" class="Country" />
               </div>
             </div>
           </div>
         </div>
+
         <div class="editBillTo">
           <app-head-line
             [variant]="'h4'"
@@ -67,7 +76,7 @@
                 [text]="'Client’s Name'"
                 [color]="'--tertiary'"
               ></app-text>
-              <input type="text" class="streetAddressInput" />
+              <input type="text" formControlName="clientName" class="streetAddressInput" />
             </div>
             <div class="clientEmail">
               <app-text
@@ -75,7 +84,7 @@
                 [text]="'Client’s Email'"
                 [color]="'--tertiary'"
               ></app-text>
-              <input type="text" class="streetAddressInput" />
+              <input type="email" formControlName="clientEmail" class="streetAddressInput" />
             </div>
             <div class="clientStreetAddress">
               <app-text
@@ -83,7 +92,7 @@
                 [text]="'Street Address'"
                 [color]="'--tertiary'"
               ></app-text>
-              <input type="text" class="streetAddressInput" />
+              <input type="text" formControlName="clientStreetAddress" class="streetAddressInput" />
             </div>
             <div class="locationAddress">
               <div class="city">
@@ -92,7 +101,7 @@
                   [text]="'City'"
                   [color]="'--tertiary'"
                 ></app-text>
-                <input type="text" class="cityInput" />
+                <input type="text" formControlName="clientCity" class="cityInput" />
               </div>
               <div class="city">
                 <app-text
@@ -100,7 +109,7 @@
                   [text]="'Post Code'"
                   [color]="'--tertiary'"
                 ></app-text>
-                <input type="text" class="postCodeInput" />
+                <input type="text" formControlName="clientPostCode" class="postCodeInput" />
               </div>
               <div class="city">
                 <app-text
@@ -108,96 +117,98 @@
                   [text]="'Country'"
                   [color]="'--tertiary'"
                 ></app-text>
-                <input type="text" class="Country" />
+                <input type="text" formControlName="clientCountry" class="Country" />
               </div>
-            </div>
-            <div class="dateTermsDescription">
-              <div class="dateTerms">
-                <div class="payment">
-                  <app-text
-                    [variant]="'body1'"
-                    [text]="'Invoice Date'"
-                    [color]="'--tertiary'"
-                  ></app-text>
-
-                  <app-date-picker id="invoice-date" label="Invoice Date"
-                                   [errorMessage]="getFieldError('invoiceDetails.date')"
-                  ></app-date-picker>
-                </div>
-                <div class="date">
-                  <app-text
-                    [variant]="'body1'"
-                    [text]="'Payment Terms'"
-                    [color]="'--tertiary'"
-                  ></app-text>
-
-                  <app-payment-terms></app-payment-terms>
-                </div>
-              </div>
-              <div class="description">
-                <app-text
-                  [variant]="'body1'"
-                  [text]="'Project Description'"
-                  [color]="'--tertiary'"
-                ></app-text>
-                <input type="text" class="streetAddressIn" />
-              </div>
-            </div>
-            <div class="itemList">
-              <app-head-line
-                [variant]="'h2'"
-                [text]="'Item List'"
-                [color]="'--grey-color-dark'"
-              ></app-head-line>
-              <div class="itemDivision">
-                <div class="itemName">
-                  <app-text
-                    [variant]="'body1'"
-                    [text]="'Item Name'"
-                    [color]="'--tertiary'"
-                  ></app-text>
-                  <input type="text" id="itemName" />
-                </div>
-                <div class="itemQuantity">
-                  <app-text
-                    [variant]="'body1'"
-                    [text]="'Qty.'"
-                    [color]="'--tertiary'"
-                  ></app-text>
-                  <input type="text" id="itemQuantity" />
-                </div>
-                <div class="itemPrice">
-                  <app-text
-                    [variant]="'body1'"
-                    [text]="'Price'"
-                    [color]="'--tertiary'"
-                  ></app-text>
-                  <input type="text" id="itemPrice" />
-                </div>
-                <div class="itemTotal">
-                  <app-text
-                    [variant]="'body1'"
-                    [text]="'Total'"
-                    [color]="'--tertiary'"
-                  ></app-text>
-                  <div class="delete">
-                    <app-head-line
-                      [text]="'156.00'"
-                      [variant]="'h4'"
-                      [color]="'--tertiary'"
-                    ></app-head-line>
-                    <img src="assets/images/icon-delete.svg" />
-                  </div>
-                </div>
-              </div>
-              <app-button [variant]="'add-new-item'">+ Add New Item </app-button>
             </div>
           </div>
         </div>
 
+        <div class="dateTermsDescription">
+          <div class="dateTerms">
+            <div class="payment">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Invoice Date'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <app-date-picker id="invoice-date" label="Invoice Date" [errorMessage]="getFieldError('invoiceDetails.date')">
+              </app-date-picker>
+            </div>
+            <div class="date">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Payment Terms'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <app-payment-terms formControlName="paymentTerms"></app-payment-terms>
+            </div>
+          </div>
+          <div class="description">
+            <app-text
+              [variant]="'body1'"
+              [text]="'Project Description'"
+              [color]="'--tertiary'"
+            ></app-text>
+            <input type="text" formControlName="projectDescription" class="streetAddressIn" />
+          </div>
+        </div>
+
+        <div class="itemList">
+          <app-head-line
+            [variant]="'h2'"
+            [text]="'Item List'"
+            [color]="'--grey-color-dark'"
+          ></app-head-line>
+          <div class="itemDivision">
+            <div class="itemName">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Item Name'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <input type="text" formControlName="itemName" id="itemName" />
+            </div>
+            <div class="itemQuantity">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Qty.'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <input type="number" formControlName="itemQuantity" id="itemQuantity" />
+            </div>
+            <div class="itemPrice">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Price'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <input type="number" formControlName="itemPrice" id="itemPrice" />
+            </div>
+            <div class="itemTotal">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Total'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <div class="delete">
+                <app-head-line
+                  [text]="'156.00'"
+                  [variant]="'h4'"
+                  [color]="'--tertiary'"
+                ></app-head-line>
+                <img src="assets/images/icon-delete.svg" />
+              </div>
+            </div>
+          </div>
+          <app-button [variant]="'add-new-item'">+ Add New Item</app-button>
+        </div>
+      </form>
+
+
       </div>
       <div class="editButtons">
-        <button (click)="handleButtonClick('delete')">Delete</button>
+        <button type="submit" class="saveBtn">Save</button>
+        <button type="button" (click)="handleButtonClick('delete')" class="deleteBtn">Delete</button>
       </div>
     </div>
   </div>
