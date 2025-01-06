@@ -9,7 +9,12 @@
     <div class="invoiceId">
       <app-head-line
         [variant]="'h3'"
-        [text]="'#' + invoice.id"
+        [text]="'#'"
+        [color]="'--tertiary'"
+      ></app-head-line>
+      <app-head-line
+        [variant]="'h3'"
+        [text]="invoice.id"
         [color]="'--base-black'"
       ></app-head-line>
     </div>
