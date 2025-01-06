@@ -120,8 +120,8 @@
                     [color]="'--tertiary'"
                   ></app-text>
 
-                  <app-date-picker
-                    (dateChange)="onDateSelected($event)"
+                  <app-date-picker id="invoice-date" label="Invoice Date"
+                                   [errorMessage]="getFieldError('invoiceDetails.date')"
                   ></app-date-picker>
                 </div>
                 <div class="date">

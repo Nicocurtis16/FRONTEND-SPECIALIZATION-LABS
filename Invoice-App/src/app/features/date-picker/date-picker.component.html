@@ -1,8 +1,70 @@
-<div class="date-picker-container">
-  <input
-    type="date"
-    [value]="selectedDate"
-    (change)="onDateChange($event)"
-    class="date-input"
-  />
+<div class="date-picker"
+     [class.active]="isOpen"
+     [class.disabled]="control.disabled"
+     [class.error]="isInvalid"
+>
+
+
+
+  <div class="date-picker__input-wrapper"
+       (click)="toggleCalendar()"
+       (keydown)="handleKeydown($event)">
+    <input
+      #inputElement
+      [id]="id"
+      [formControl]="control"
+      [value]="formattedDate"
+      [attr.placeholder]="placeholder"
+      [attr.aria-label]="ariaLabel"
+      readonly
+      [required]="required"
+      (blur)="onTouched()">
+<!--    <app-icon-->
+<!--      name="calendar"-->
+<!--      size="sm"-->
+<!--      [class.active]="isOpen"-->
+<!--      class="calendar-icon">-->
+<!--    </app-icon>-->
+  </div>
+
+  @if (isOpen) {
+    <div class="calendar-dropdown">
+      <div class="calendar-header">
+        <button type="button" class="nav-button" (click)="previousMonth()">
+<!--          <app-icon name="arrow-left" size="xs"></app-icon>-->
+        </button>
+        <span class="current-month">{{ currentMonthYear }}</span>
+        <button type="button" class="nav-button" (click)="nextMonth()">
+<!--          <app-icon name="arrow-right" size="xs"></app-icon>-->
+        </button>
+      </div>
+
+      <div class="calendar-grid">
+        <div class="weekday-header">
+          @for (day of weekDays; track $index) {
+            <span>{{ day }}</span>
+          }
+        </div>
+
+        <div class="days-grid">
+          @for (day of calendarDays; track day.id) {
+            <button
+              type="button"
+              class="day-button"
+              [class.other-month]="!day.isCurrentMonth"
+              [class.today]="day.isToday"
+              [class.selected]="day.isSelected"
+              (click)="selectDate(day)"
+              [disabled]="!day.isCurrentMonth">
+              {{ day.date }}
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (isInvalid) {
+    <span class="error-message">{{ errorMessage }}</span>
+  }
 </div>

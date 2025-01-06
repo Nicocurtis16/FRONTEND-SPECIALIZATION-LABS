@@ -1,22 +1,208 @@
-.date-picker-container {
+:root {
+  --calendar-bg: #fff;
+  --selected-bg: #7C5DFA;
+  --today-color: #7C5DFA;
+  --hover-bg: #F9FAFE;
+  --disabled-color: #888EA0;
+  --border-radius: 4px;
+}
+
+.date-picker {
   position: relative;
-  width: 240px;
-  /*height: 48px;*/
-  /*display: flex;*/
-  /*justify-content: space-around;*/
-}
-
-.date-input {
   width: 100%;
-  height: 48px;
-  /*padding: 8px;*/
-  border-radius: 4px;
-  border: 1px solid var(--grey);
-  font-size: 14px;
-  background-color: white;
-  transition: border-color 0.3s ease;
 }
 
-.date-input:focus {
-  border-color: #007bff;
+.date-picker__label {
+  display: block;
+  color: black;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.date-picker__label .required {
+  color: var(--error);
+  margin-left: 4px;
+}
+
+.date-picker__input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.date-picker__input-wrapper input {
+  width: 240px;
+  height:  48px;
+  /*padding: 8px 12px;*/
+  border: 1px solid black;
+  border-radius: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.date-picker__input-wrapper input::placeholder {
+  color: var(--disabled-color);
+}
+
+.date-picker__input-wrapper input:hover:not(:disabled) {
+  border-color: black;
+}
+
+.date-picker__input-wrapper input:focus {
+  outline: none;
+  border-color: var(--selected-bg);
+}
+
+.date-picker__input-wrapper input:disabled {
+  background-color: black;
+  cursor: not-allowed;
+}
+
+.date-picker__input-wrapper .calendar-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--selected-bg);
+}
+
+.date-picker__input-wrapper .calendar-icon.active {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.date-picker .calendar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 4px;
+  padding: 12px;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.date-picker .calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.date-picker .calendar-header .current-month {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.date-picker .calendar-header .nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--selected-bg);
+  padding: 0;
+}
+
+.date-picker .calendar-header .nav-button:hover {
+  opacity: 0.8;
+}
+
+.date-picker .weekday-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 8px;
+}
+
+.date-picker .weekday-header span {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.date-picker .days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.date-picker .days-grid .day-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1;
+  border: none;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.date-picker .days-grid .day-button:hover:not(:disabled) {
+  background-color: var(--hover-bg);
+}
+
+.date-picker .days-grid .day-button.other-month {
+  color: var(--disabled-color);
+}
+
+.date-picker .days-grid .day-button.today {
+  color: var(--today-color);
+  font-weight: 700;
+}
+
+.date-picker .days-grid .day-button.selected {
+  background-color: var(--selected-bg);
+  color: white;
+}
+
+.date-picker .days-grid .day-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.date-picker.error input {
+  border-color: var(--error);
+}
+
+.date-picker .error-message {
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  color: var(--error);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.date-picker.disabled {
+  opacity: 0.7;
+  pointer-events: none;
 }

@@ -31,4 +31,8 @@ export class EditInvoiceComponent {
   handleButtonClick(delete1: string) {
 
   }
+
+  getFieldError(date: string) {
+    return "";
+  }
 }
