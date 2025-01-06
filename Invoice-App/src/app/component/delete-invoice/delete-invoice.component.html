@@ -1,0 +1,19 @@
+<div class="confirmation-dialog">
+  <div class="innerText">
+    <app-head-line [variant]="'h1'" [text]="'Confirm Deletion'" [color]="'--base-black'"></app-head-line>
+    <app-text
+      [variant]="'body1'"
+      [text]="'Are you sure you want to delete invoice #' + invoice()?.id + ' ? This action cannot be undone.'"
+      [color]="'--grey-color-dark'"
+    ></app-text>
+
+    <div class="buttonLayout">
+      <div class="button">
+        <app-button [variant]="'delete'" (onClick)="onConfirm()">Confirm</app-button>
+        <app-button [variant]="'cancel'" (onClick)="handleCancel()">Cancel</app-button>
+        </div>
+    </div>
+
+  </div>
+
+</div>

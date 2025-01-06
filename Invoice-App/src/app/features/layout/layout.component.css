@@ -1,0 +1,69 @@
+@media (max-width: 600px) {
+  /* Small devices */
+  .layoutPanel {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .layoutLeftPanel {
+    height: 72px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .layoutContent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 960px) {
+  .layoutPanel {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-BG);
+  }
+  .layoutLeftPanel {
+    height: 80px;
+    width: 100%;
+    background-color: var(--grey);
+  }
+  .layoutContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+  }
+}
+
+@media (min-width: 960px) {
+  .layoutPanel {
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-color:var(--light-BG) ;
+  }
+  .layoutLeftPanel {
+    height: 100%;
+    width: 103px;
+    /*background-color: var(--grey)*/
+  }
+  .layoutContent{
+    height: auto;
+    width: auto;
+    margin-left: 20%;
+  }
+  .invoiceHeader{
+    width: 730px;
+    height: 59px;
+    margin-bottom: 30px;
+  }
+}

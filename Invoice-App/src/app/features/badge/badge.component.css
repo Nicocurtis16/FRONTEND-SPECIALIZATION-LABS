@@ -1,0 +1,60 @@
+/* Status Badge Styles */
+.status-badge {
+  display: inline-block;
+}
+
+/* Badge Container */
+.badge-container {
+  width: 104px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  display: flex;
+  gap: 0.5rem;
+  text-transform: capitalize;
+}
+
+/* Status Dot */
+.status-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+/* Status Specific Styles */
+.paid {
+  background-color: rgba(51, 214, 159, 0.0571)
+;
+  color: #33D69F;
+}
+
+.pending {
+  background-color: rgba(255, 143, 0, 0.0571)
+;
+  color: #FF8F00;
+}
+
+.draft {
+  background-color: rgba(55, 59, 83, 0.0571)
+;
+  color: #373B53;
+}
+
+.paid-dot {
+  background-color: #33D69F;
+}
+
+.pending-dot {
+  background-color: #FF8F00;
+}
+
+.draft-dot {
+  background-color:#373B53;
+}
+
+/* app-head-line specific adjustments */
+.badge-container .badge-text {
+  color: inherit; /* Ensure it uses the parent's color */
+  text-transform: inherit; /* Match the text transformation */
+}
