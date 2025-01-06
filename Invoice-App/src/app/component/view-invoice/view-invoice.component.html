@@ -11,7 +11,7 @@
 
     <div class="ViewInvoiceControl">
       <div class="viewInvoiceControlLeft">
-        <app-text [variant]="'body1'" [color]="'--grey'" [text]="'Status'"></app-text>
+        <app-text [variant]="'body1'" [color]="'--tertiary'" [text]="'Status'"></app-text>
         <app-badge [status]="invoice().status"></app-badge>
       </div>
       <div class="viewInvoiceControlRight">
@@ -29,34 +29,46 @@
   <div class="viewInvoiceDown">
     <div class="idLocation">
       <div class="id">
-        <app-head-line [variant]="'h3'" [text]="'#' + invoice().id" [color]="'--base-black'"></app-head-line>
-        <app-text [variant]="'body1'" [text]="invoice().description"></app-text>
+        <div class="idTitle">
+          <app-head-line [variant]="'h3'" [text]="'#'"[color]="'--tertiary'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().id" [color]="'--base-black'"></app-head-line>
+
+        </div>
+
+        <app-text [variant]="'body1'" [text]="invoice().description" [color]="'--tertiary'"></app-text>
       </div>
       <div class="location">
         <app-text
           [variant]="'body2'"
           [alignment]="'right'"
           [color]="'  --tertiary'"
-          [lines]="[invoice().senderAddress.street, invoice().senderAddress.postCode, invoice().senderAddress.city,invoice().senderAddress.country]"
+          [lines]="[invoice().senderAddress.street, invoice().senderAddress.city, invoice().senderAddress.postCode,invoice().senderAddress.country]"
         ></app-text>      </div>
     </div>
 
     <div class="midInfo">
       <div class="firstInfo">
         <div class="invoiceDate">
-          <app-text [variant]="'body1'" [text]="'Invoice Date'"></app-text>
+          <app-text [variant]="'body1'" [text]="'Invoice Date'" [color]="'--tertiary'"></app-text>
           <app-head-line [variant]="'h3'" [text]="invoice().createdAt" [color]="'--base-black'"></app-head-line>
         </div>
         <div class="paymentDue">
-          <app-text [variant]="'body1'" [text]="'Payment Due'"></app-text>
+          <app-text [variant]="'body1'" [text]="'Payment Due'" [color]="'--tertiary'"></app-text>
           <app-head-line [variant]="'h3'" [text]="invoice().paymentDue" [color]="'--base-black'"></app-head-line>
         </div>
       </div>
       <div class="secInfo">
         <div class="billTo">
-          <app-text [variant]="'body1'" [text]="'Bill To'"></app-text>
+          <app-text [variant]="'body1'" [text]="'Bill To'" [color]="'--tertiary'"></app-text>
           <app-head-line [variant]="'h3'" [text]="invoice().clientName" [color]="'--base-black'"></app-head-line>
         </div>
+        <div class="Reciverlocation">
+          <app-text
+            [variant]="'body2'"
+            [alignment]="'left'"
+            [color]="'  --tertiary'"
+            [lines]="[invoice().clientAddress.street, invoice().clientAddress.city, invoice().clientAddress.postCode,invoice().senderAddress.country]"
+          ></app-text>      </div>
       </div>
       <div class="thirdInfo">
         <div class="sentTo">
