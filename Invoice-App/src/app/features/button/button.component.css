@@ -218,6 +218,16 @@
         background-color: var(--primary-color-light);
       }
     }
+    &.save-changes {
+      width: 138px;
+      height: 48px;
+      background-color: var(--primary-color);
+      color: white;
+
+      &:hover {
+        background-color: var(--primary-color-light);
+      }
+    }
 
     &.save-as-draft {
       height: 48px ;

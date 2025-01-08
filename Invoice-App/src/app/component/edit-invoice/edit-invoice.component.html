@@ -27,9 +27,10 @@
                 [color]="'--tertiary'"
               ></app-text>
               <input type="text" formControlName="streetAddress" class="streetAddressInput" />
-              <div *ngIf="f.streetAddress?.invalid && f.streetAddress?.touched" class="error-message">
-                <!-- Error Message -->
+              <div *ngIf="f['streetAddress'].invalid && f['streetAddress'].touched" class="error-message">
+                Street Address is required.
               </div>
+
             </div>
             <div class="locationAddress">
               <div class="city">
@@ -39,7 +40,7 @@
                   [color]="'--tertiary'"
                 ></app-text>
                 <input type="text" formControlName="city" class="cityInput" />
-                <div *ngIf="f.city?.invalid && f.city?.touched" class="error-message">
+                <div *ngIf="f['city'].invalid && f['city'].touched" class="error-message">
                   <!-- Error Message -->
                 </div>
               </div>
@@ -131,7 +132,7 @@
                 [text]="'Invoice Date'"
                 [color]="'--tertiary'"
               ></app-text>
-              <app-date-picker id="invoice-date" label="Invoice Date" [errorMessage]="getFieldError('invoiceDetails.date')">
+              <app-date-picker >
               </app-date-picker>
             </div>
             <div class="date">
@@ -207,8 +208,8 @@
 
       </div>
       <div class="editButtons">
-        <button type="submit" class="saveBtn">Save</button>
-        <button type="button" (click)="handleButtonClick('delete')" class="deleteBtn">Delete</button>
+        <app-button [variant]="'cancel'" (onClick)="handleEdit()">Cancel</app-button>
+        <app-button [variant]="'save-changes'" (onClick)="onSubmit()">Save Changes</app-button>
       </div>
     </div>
   </div>

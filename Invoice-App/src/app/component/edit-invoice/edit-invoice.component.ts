@@ -6,6 +6,7 @@ import {PaymentTermsComponent} from "../../features/payment-terms/payment-terms.
 import {DatePickerComponent} from "../../features/date-picker/date-picker.component";
 import {ButtonComponent} from "../../features/button/button.component";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-edit-invoice',
@@ -17,7 +18,8 @@ import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/
     PaymentTermsComponent,
     DatePickerComponent,
     ButtonComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './edit-invoice.component.html',
   styleUrl: './edit-invoice.component.css'
@@ -61,10 +63,20 @@ export class EditInvoiceComponent {
 
   protected readonly onsubmit = onsubmit;
 
-  onSubmit() {
 
-  }
   get f() {
-    return this.editForm.controls;
+    return this.editForm.controls; // Explicit typing ensures static type access
+  }
+
+  onSubmit() {
+    if (this.editForm.valid) {
+      console.log(this.editForm.value);
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+
+  handleEdit() {
+
   }
 }

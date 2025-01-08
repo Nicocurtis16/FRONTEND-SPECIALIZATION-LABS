@@ -32,7 +32,7 @@
   flex-direction: column;
   align-items: center;
   width: 550px;
-  overflow: scroll;
+  overflow-y: scroll;
 
 }
 form{
@@ -69,7 +69,6 @@ form{
 
 .streetAddress {
   width: 100%;
-  /*height: 73px;*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -146,7 +145,7 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* background-color: #4CAF50; */
+
 
 }
 
@@ -206,4 +205,38 @@ form{
   height: 48px;
   align-items: center;
   justify-content: space-between;
+}
+input {
+  color: var(--base-black);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+  border: 1px solid var(--tertiary); /* Default border color */
+  padding: 0 0  0 16px ;
+}
+
+/* Hover state */
+input:hover {
+  border-color: var(--primary-color); /* Change border color on hover */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Focus (active) state */
+input:focus {
+  color: var(--base-black);
+  font-family: 'League Spartan', sans-serif;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: 700;
+
+  border-color: var(--primary-color); /* Change border color on focus */
+  outline: none; /* Remove default browser outline */
+}
+
+/* Error message styles (for invalid input) */
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
 }
