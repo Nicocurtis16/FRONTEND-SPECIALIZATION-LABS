@@ -1,3 +1,6 @@
 <button (click)="toggleTheme()">
-  <img [src]="currentTheme === 'light' ? 'assets/images/dark-mode-icon.svg' : 'assets/images/light-mode-icon.svg'" alt="Toggle Theme">
+  <app-icon
+    [name]="currentTheme === 'light' ? 'dark-mode-icon' : 'light-mode-icon'"
+    alt="Toggle Theme">
+  </app-icon>
 </button>

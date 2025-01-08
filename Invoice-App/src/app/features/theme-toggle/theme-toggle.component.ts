@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {ThemeService} from "../../service/theme.service";
+import {IconComponent} from "../icon/icon.component";
 
 @Component({
   selector: 'app-theme-toggle',
   standalone: true,
-  imports: [],
+  imports: [
+    IconComponent
+  ],
   templateUrl: './theme-toggle.component.html',
   styleUrl: './theme-toggle.component.css'
 })
