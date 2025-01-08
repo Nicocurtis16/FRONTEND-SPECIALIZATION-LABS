@@ -1,12 +1,13 @@
 import { Component, computed, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { NgFor, NgIf } from '@angular/common';
+import {CurrencyPipe, NgFor, NgIf} from '@angular/common';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
+
 import { DataService } from '../../service/data.service';
 import { Invoice } from '../../service/invoice';
-import { selectAllInvoices, selectIsLoadingState } from '../../state/selectors/invoice.selector';
+import {selectAllInvoices, selectFilteredInvoices, selectIsLoadingState} from '../../state/selectors/invoice.selector';
 import { invoiceAction } from '../../state/actions/invoice.action';
 
 import { BadgeComponent } from '../../features/badge/badge.component';
@@ -14,6 +15,7 @@ import { HeadLineComponent } from '../../features/head-line/head-line.component'
 import { TextComponent } from '../../features/text/text.component';
 import { InvoiceHeaderComponent } from '../invoice-header/invoice-header.component';
 import { NoInvoiceComponent } from '../../features/no-invoice/no-invoice.component';
+import {IconComponent} from "../../features/icon/icon.component";
 
 @Component({
   selector: 'app-invoice',
@@ -26,6 +28,8 @@ import { NoInvoiceComponent } from '../../features/no-invoice/no-invoice.compone
     InvoiceHeaderComponent,
     NgIf,
     NoInvoiceComponent,
+    IconComponent,
+    CurrencyPipe
   ],
   standalone: true,
   templateUrl: './invoice.component.html',
@@ -33,7 +37,7 @@ import { NoInvoiceComponent } from '../../features/no-invoice/no-invoice.compone
 })
 export class InvoiceComponent implements OnInit {
   isLoading = this.store.selectSignal(selectIsLoadingState);
-  invoices = this.store.selectSignal(selectAllInvoices); // All invoices from state
+  invoices = this.store.selectSignal(selectFilteredInvoices); // All invoices from state
   selectedStatuses: string[] = []; // Filter criteria
 
   // Computed signals for filtered data and count

@@ -65,7 +65,7 @@ export const invoiceReducer = createReducer(
   })),
   on(updateFilter, (state, { filters }) => ({
     ...state,
-    filters, // Update the filter state
+    filters,
   })),
   on(setActiveInvoice, (state, { id }) => ({
     ...state,

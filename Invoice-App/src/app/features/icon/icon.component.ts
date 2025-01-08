@@ -9,6 +9,7 @@ import { Component ,Input} from '@angular/core';
   styleUrl: './icon.component.css'
 })
 export class IconComponent {
+  @Input() style: string = '';
   @Input() name!: string; // Icon name without path
   @Input() alt: string = ''; // Optional alt text
 

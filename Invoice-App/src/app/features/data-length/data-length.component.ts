@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {TextComponent} from "../text/text.component";
-import {selectAllInvoices} from "../../state/selectors/invoice.selector";
+import {selectAllInvoices, selectFilteredInvoices} from "../../state/selectors/invoice.selector";
 import {Store} from "@ngrx/store";
 
 @Component({
@@ -13,7 +13,7 @@ import {Store} from "@ngrx/store";
   styleUrl: './data-length.component.css'
 })
 export class DataLengthComponent {
-  invoices = this.store.selectSignal(selectAllInvoices);
+  invoices = this.store.selectSignal(selectFilteredInvoices);
   constructor(
     private store: Store,
   ) {

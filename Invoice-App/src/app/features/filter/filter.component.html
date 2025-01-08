@@ -6,20 +6,16 @@
     <app-head-line [variant]="'h3'" [text]="'Filter'" [color]="'--secondary-color'" class="mob"></app-head-line>
 
     <div>
-      <img
-        [src]="isDropdownOpen ? 'assets/images/icon-arrow-up.svg' : 'assets/images/icon-arrow-down.svg'"
-        [style.backgroundImage]="isDropdownOpen ? 'url(assets/images/icon-arrow-up.svg)' : 'url(assets/images/icon-arrow-down.svg)'"/>
+      <app-icon [name]="isDropdownOpen ? 'icon-arrow-up' : 'icon-arrow-down'"></app-icon>
     </div>
   </button>
 
-  <div *ngIf="isOpen" class="dropdown-content absolute mt-1 border rounded bg-white p-2 w-full">
+  <div *ngIf="isDropdownOpen" class="dropdown-content absolute mt-1 border rounded bg-white p-2 w-full">
     <div *ngFor="let status of statuses" class="py-1">
-      <label >
+      <label>
         <input
           type="checkbox"
           [checked]="status.checked"
-          [style.backgroundImage]="isChecked ? 'url(assets/images/icon-check.svg)' : ''"
-
           (change)="onStatusChange(status)"
           class="h-4 w-4">
         <app-head-line

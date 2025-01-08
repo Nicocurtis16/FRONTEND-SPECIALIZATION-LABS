@@ -46,7 +46,7 @@
     <div class="invoiceStatus">
       <app-badge [status]="invoice.status"></app-badge>
       <div class="invoiceStatusIcon">
-        <img src="assets/images/icon-arrow-right.svg">
+        <app-icon name="icon-arrow-right" alt="Arrow pointing right"></app-icon>
       </div>
     </div>
   </button>
@@ -80,9 +80,10 @@
         <div class="invoicePrice">
           <app-head-line
             [variant]="'h3'"
-            [text]="'£ ' + invoice.total"
             [color]="'--secondary-color'"
-          ></app-head-line>
+          >
+<!--            {{invoice.total | currency : 'USD'}}-->
+          </app-head-line>
 
         </div>
       </div>
