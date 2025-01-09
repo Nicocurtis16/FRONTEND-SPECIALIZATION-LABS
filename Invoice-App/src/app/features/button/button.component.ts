@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input,Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
 
 @Component({
@@ -9,10 +9,13 @@ import { NgClass, NgIf } from '@angular/common';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent {
+  @Input() disabled: boolean = false;
   @Input() variant: string = '';  // Input for variant (e.g., 'edit', 'delete', 'marked-as-paid')
   @Output() onClick = new EventEmitter<void>();  // Output event for the click action
 
   handleClick() {
-    this.onClick.emit();  // Emit the click event when the button is clicked
+    if (!this.disabled) {  // Ensure that click doesn't happen if button is disabled
+      this.onClick.emit();  // Emit the click event when the button is clicked
+    }
   }
 }

@@ -6,6 +6,7 @@ body{
 
 }
 :root {
+
   --primary-color: #7C5DFA;
   --primary-color-light: #9277FF;
   --secondary-color: #1E2139 ;
@@ -44,11 +45,22 @@ body{
   --bg-sidebar-dark: #1E2139;
 
   /* Text Colors */
+  --shape-plus:  #ffffff;
+
+
+  --card-client-color: #858BB2;
+  --card-amount-color: #0C0E16;
+
+
+  --card-title-color: #FFFFFF;
   --text-primary: #0C0E16;
+  --text-filter:  #0C0E16;
+
   --text-secondary: #888EB0;
   --text-tertiary: #7E88C3;
   --text-gray-light: #F9FAFE;
   --text-gray: #DFE3FA;
+  --text-invoice:#0C0E16;
 
   /* Status Colors */
   --paid: #33D69F;
@@ -128,6 +140,7 @@ body{
 
 /* Define your dark theme styles */
 .dark-theme {
+  --card-title-color: #FFFFFF;
   --light-BG:#141625;
   --white: #FFFFFF;
   --base-black:#0C0E16;
@@ -140,6 +153,21 @@ body{
   --tertiary:#7E88C3;
   --error-color: #EC5757 ;
   --error-color-light: #9277FF;
+  --text-primary: #FFFFFF;
+  --bg-card: #1E2139;
+  --card-client-color: #FFFFFF;
+  --card-amount-color: #FFFFFF;
+  --text-filter:  #ffffff;
+  --text-invoice:#FFFFFF;
+
+  --shape-plus:  #ffffff;
+
+
+
+
+
+
+
 
 
 }

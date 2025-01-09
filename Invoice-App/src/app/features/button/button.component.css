@@ -35,7 +35,7 @@
       align-items: center;
       height: 32px;
       width: 32px;
-      background-color: var(--light-BG);
+      background-color: var(  --shape-plus);
       border-radius: 50%;
     }
 
@@ -182,7 +182,8 @@
       align-items: center;
       height: 32px;
       width: 32px;
-      background-color: var(--light-BG);
+      background-color: var(  --shape-plus
+    );
       border-radius: 50%;
     }
 
@@ -216,6 +217,12 @@
 
       &:hover {
         background-color: var(--primary-color-light);
+      }
+      &:disabled {
+        background-color: var(--primary-color-light);
+        color: white;
+        cursor: not-allowed; /* Change cursor to show it's not clickable */
+        opacity: 0.6; /* Slightly transparent */
       }
     }
     &.save-changes {

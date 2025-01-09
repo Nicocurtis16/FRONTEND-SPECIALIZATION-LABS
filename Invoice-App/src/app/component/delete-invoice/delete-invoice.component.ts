@@ -5,6 +5,7 @@ import { ButtonComponent } from "../../features/button/button.component";
 import {Store} from "@ngrx/store";
 import {selectedInvoiceSuccess} from "../../state/selectors/invoice.selector";
 import {invoiceAction} from "../../state/actions/invoice.action";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-delete-invoice',
@@ -23,12 +24,14 @@ export class DeleteInvoiceComponent {
   invoice = this.store.selectSignal(selectedInvoiceSuccess)
   constructor(
     private store: Store,
+    private router: Router,
   ) {
   }
 
   onConfirm() {
     this.store.dispatch(invoiceAction.deleteInvoice({id: this.invoice()?.id as string}));
     this.confirmDelete.emit(); // Emit event for confirm delete
+    this.router.navigate(['/']);
   }
 
   handleCancel() {

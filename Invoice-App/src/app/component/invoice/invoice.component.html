@@ -15,7 +15,7 @@
       <app-head-line
         [variant]="'h3'"
         [text]="invoice.id"
-        [color]="'--base-black'"
+        [color]="' --card-title-color'"
       ></app-head-line>
     </div>
 
@@ -31,7 +31,7 @@
       <app-text
         [variant]="'body1'"
         [text]="invoice.clientName"
-        [color]="'--tertiary'"
+        [color]="'--card-client-color'"
       ></app-text>
     </div>
 
@@ -39,7 +39,7 @@
       <app-head-line
         [variant]="'h3'"
         [text]="'£ ' + invoice.total"
-        [color]="'--secondary-color'"
+        [color]="'--card-amount-color'"
       ></app-head-line>
     </div>
 

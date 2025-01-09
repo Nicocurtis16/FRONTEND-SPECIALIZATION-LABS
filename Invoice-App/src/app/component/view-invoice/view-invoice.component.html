@@ -18,7 +18,7 @@
         <!-- Using the ButtonComponent with onClick event binding -->
         <app-button [variant]="'edit'" (onClick)="handleEdit()">Edit</app-button>
         <app-button [variant]="'delete'" (onClick)="handleDelete()">Delete</app-button>
-        <app-button [variant]="'marked-as-paid'" (onClick)="handleMarkedAsPaid()">Mark as Paid</app-button>
+        <app-button [variant]="'marked-as-paid'" (onClick)="handleMarkedAsPaid()" [disabled]="invoice().status === 'draft'">Mark as Paid</app-button>
       </div>
 
     </div>
@@ -31,7 +31,7 @@
       <div class="id">
         <div class="idTitle">
           <app-head-line [variant]="'h3'" [text]="'#'"[color]="'--tertiary'"></app-head-line>
-          <app-head-line [variant]="'h3'" [text]="invoice().id" [color]="'--base-black'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().id" [color]="'--base-bla'"></app-head-line>
 
         </div>
 
