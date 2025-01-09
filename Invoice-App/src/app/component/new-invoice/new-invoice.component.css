@@ -1,0 +1,13 @@
+@media (min-width: 960px)  {
+  .newInvoicePanel{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+  }
+  .newInvoiceLeft{
+    width: 719px;
+    height: 100%;
+    background-color: #EC5757;
+  }
+
+}

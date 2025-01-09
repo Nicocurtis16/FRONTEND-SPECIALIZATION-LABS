@@ -15,7 +15,10 @@ export class DataService {
 
   fetchData(): Observable<Invoice[]> {
     return this.http.get<Invoice[]>(this.apiUrl).pipe(
-      tap(data => this.saveDataToLocalStorage(data))
+      tap(data => {console.log(data); return this.saveDataToLocalStorage(data)
+
+      })
+
     );
   }
 

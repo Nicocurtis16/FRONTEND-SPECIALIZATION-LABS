@@ -1,4 +1,4 @@
-import { Component, computed, OnInit } from '@angular/core';
+import {Component, computed, effect, OnInit} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {CurrencyPipe, NgFor, NgIf} from '@angular/common';
 import { Router } from '@angular/router';
@@ -29,7 +29,7 @@ import {IconComponent} from "../../features/icon/icon.component";
     NgIf,
     NoInvoiceComponent,
     IconComponent,
-    CurrencyPipe
+
   ],
   standalone: true,
   templateUrl: './invoice.component.html',
@@ -59,7 +59,10 @@ export class InvoiceComponent implements OnInit {
     private store: Store,
     private dataService: DataService,
     private router: Router
-  ) {}
+
+  ) {
+
+  }
 
   ngOnInit() {
     if (!this.isLoading()) {

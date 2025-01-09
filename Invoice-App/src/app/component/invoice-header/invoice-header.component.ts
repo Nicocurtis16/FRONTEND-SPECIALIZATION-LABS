@@ -4,6 +4,7 @@ import {TextComponent} from "../../features/text/text.component";
 import {ButtonComponent} from "../../features/button/button.component";
 import {FilterComponent} from "../../features/filter/filter.component";
 import {DataLengthComponent} from "../../features/data-length/data-length.component";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-invoice-header',
@@ -22,8 +23,19 @@ export class InvoiceHeaderComponent {
 
   @Output() statusFilter = new EventEmitter<string[]>();
 
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) {}
   onFilterChange(statuses: string[]) {
     console.log('Header received statuses:', statuses);
     this.statusFilter.emit(statuses);
+  }
+  newInvoice() {
+    this.router.navigate(['/new-invoice'] ,{relativeTo: this.activatedRoute}).then(sucess =>{
+      if (!sucess) {
+        console.log('Navigate to new invoice failed');
+      }
+    });
   }
 }

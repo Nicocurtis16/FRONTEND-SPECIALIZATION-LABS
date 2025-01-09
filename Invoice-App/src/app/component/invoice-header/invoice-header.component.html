@@ -13,8 +13,8 @@
       <app-filter (filterChange)="onFilterChange($event)"></app-filter>
     </div>
     <div class="newInvoice">
-      <app-button variant="new-invoice" class="desk">New Invoice</app-button>
-      <app-button variant="new-invoice" class="mob">New </app-button>
+      <app-button variant="new-invoice" class="desk" (onClick)="newInvoice()" >New Invoice </app-button>
+      <app-button variant="new-invoice" class="mob" (onClick)="newInvoice()">New </app-button>
 
     </div>
   </div>

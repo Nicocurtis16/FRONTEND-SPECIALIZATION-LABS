@@ -20,6 +20,7 @@ export class InvoiceEffect {
       withLatestFrom(this.store.select(selectAllInvoices)),
       switchMap(([_, invoices]) => {
         if (invoices && !!invoices.length) {
+          console.log(invoices)
           return of(invoiceAction.loadInvoicesSuccess({ invoices }));
         }
         return this.dataService.fetchData().pipe(

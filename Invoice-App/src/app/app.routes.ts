@@ -4,6 +4,7 @@ import { InvoiceComponent } from "./component/invoice/invoice.component";
 import { ViewInvoiceComponent } from "./component/view-invoice/view-invoice.component";
 import { EditInvoiceComponent } from "./component/edit-invoice/edit-invoice.component";
 import { DeleteInvoiceComponent } from "./component/delete-invoice/delete-invoice.component";
+import {NewInvoiceComponent} from "./component/new-invoice/new-invoice.component";
 
 export const routes: Routes = [
   { path: '', component: InvoiceComponent },
@@ -15,5 +16,7 @@ export const routes: Routes = [
       { path: 'delete', component: DeleteInvoiceComponent },
       // { path: 'mark-paid', component: MarkAsPaidComponent }
     ]
-  }
+  },
+  { path: 'new-invoice', component: NewInvoiceComponent },
+
 ];
