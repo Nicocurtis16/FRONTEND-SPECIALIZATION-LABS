@@ -42,10 +42,13 @@
     <div class="invoicePrice">
       <app-head-line
         [variant]="'h3'"
-        [text]="'£ ' + invoice.total"
+        [text]="getFormattedTotal(invoice.total)"
         [color]="'--card-amount-color'"
       ></app-head-line>
     </div>
+
+
+
 
     <div class="invoiceStatus">
       <app-badge [status]="invoice.status"></app-badge>
