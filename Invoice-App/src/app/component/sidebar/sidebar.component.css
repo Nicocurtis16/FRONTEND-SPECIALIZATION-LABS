@@ -93,13 +93,15 @@
 @media (min-width: 960px)  {
   .sidebarPanel{
     height: 100%;
-    width: 100%;
+    width: 6.5rem;
     background-color: #373b53;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: fixed;
+    z-index: 100;
   }
   .sidebarTop{
     width: 100%;

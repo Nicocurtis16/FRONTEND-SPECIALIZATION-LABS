@@ -21,7 +21,6 @@ import {invoiceAction} from "../../state/actions/invoice.action";
     NgIf,
     TextComponent,
     BadgeComponent,
-    RouterOutlet
   ],
   templateUrl: './view-invoice.component.html',
   styleUrls: ['./view-invoice.component.css']
@@ -33,7 +32,8 @@ export class ViewInvoiceComponent implements OnInit {
   invoices = this.store.selectSignal(selectAllInvoices)
   idSignal = signal<string | null>(null)
   invoice = computed(()=> this.invoices().find(invoice=>invoice.id === this.idSignal()))  as Signal<Invoice>;
-
+  isDrawerOpen = false; // Controls drawer visibility
+  activeDrawer: 'edit' | 'new' | null = null;
   invoiceItems: any[] = [];
   constructor(
     private store: Store,
@@ -70,8 +70,18 @@ export class ViewInvoiceComponent implements OnInit {
         console.error("Navigation to edit failed.");
       }
     });
-  }
 
+  }
+  // handleEdit() {
+  //   this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
+  //   this.activeDrawer = 'edit';
+  //   this.isDrawerOpen = true;
+  // }
+
+  closeDrawer() {
+    this.activeDrawer = null;
+    this.isDrawerOpen = false;
+  }
   handleDelete() {
     this.router.navigate(['delete'], { relativeTo: this.activatedRoute });
 

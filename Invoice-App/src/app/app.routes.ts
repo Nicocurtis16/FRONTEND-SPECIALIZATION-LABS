@@ -14,9 +14,10 @@ export const routes: Routes = [
     children: [
       { path: 'edit', component: EditInvoiceComponent },
       { path: 'delete', component: DeleteInvoiceComponent },
+      { path: 'new-invoice', component: NewInvoiceComponent },
+
       // { path: 'mark-paid', component: MarkAsPaidComponent }
     ]
   },
-  { path: 'new-invoice', component: NewInvoiceComponent },
 
 ];
