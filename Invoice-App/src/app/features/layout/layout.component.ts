@@ -49,11 +49,7 @@ export class LayoutComponent {
     });
   }
 
-  // Open the New Invoice drawer
-  // newInvoice($event: string) {
-  //   this.activeDrawer = 'newInvoice';
-  //   this.isDrawerOpen = true;
-  // }
+
   newInvoice() {
     this.activeDrawer = 'newInvoice';
     this.isDrawerOpen = true;

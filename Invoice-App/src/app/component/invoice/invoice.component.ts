@@ -40,7 +40,7 @@ export class InvoiceComponent implements OnInit {
   selectedStatuses: string[] = []; // Filter criteria
   formattedTotal: string = '';
   isDrawerOpen: boolean = false;
-  activeDrawer: 'newInvoice' | 'editInvoice' | null = null; // Tracks the active drawer
+  activeDrawer ='editInvoice' ;
   @Output() openNewInvoice = new EventEmitter<void>();
 
   // Computed signals for filtered data and count

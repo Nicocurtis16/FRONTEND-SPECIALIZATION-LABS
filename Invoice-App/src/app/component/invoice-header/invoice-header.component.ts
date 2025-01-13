@@ -37,13 +37,5 @@ export class InvoiceHeaderComponent {
   }
 
 
-  // Open drawer for new invoice
-  // newInvoice() {
-  //   // Update active drawer and open it
-  //   this.router.navigate(['/new-invoice'], { relativeTo: this.activatedRoute }).then(success => {
-  //     if (!success) {
-  //       console.log('Navigate to new invoice failed');
-  //     }
-  //   });
-  // }
+
 }
