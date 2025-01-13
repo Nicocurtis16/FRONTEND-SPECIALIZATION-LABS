@@ -7,13 +7,6 @@ import { NewInvoiceComponent } from "./component/new-invoice/new-invoice.compone
 
 export const routes: Routes = [
   { path: '', component: InvoiceComponent },
-  { path: 'new-invoice', component: NewInvoiceComponent },  // This route is for direct navigation
   {
-    path: 'invoice/:id',
-    component: ViewInvoiceComponent,
-    children: [
-      { path: 'edit', component: EditInvoiceComponent },
-      { path: 'delete', component: DeleteInvoiceComponent },
-    ]
-  },
+    path: 'invoice/:id', component: ViewInvoiceComponent},
 ];

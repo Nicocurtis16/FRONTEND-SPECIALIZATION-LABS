@@ -4,11 +4,7 @@
   </div>
 
   <div class="layoutContent">
-    <!-- Header with New Invoice Button -->
-
-
-    <!-- Main Content for Routes -->
-    <router-outlet *ngIf="!isDrawerOpen"></router-outlet>
+    <router-outlet></router-outlet>
 
     <!-- Side Drawer -->
     <div class="sideDrawer" *ngIf="isDrawerOpen">
@@ -19,6 +15,6 @@
     </div>
   </div>
 
-  <!-- Overlay to close the Drawer -->
+  <!-- Overlay -->
   <div class="side-drawer-overlay" *ngIf="isDrawerOpen" (click)="closeDrawer()"></div>
 </div>
