@@ -42,13 +42,11 @@ export class LayoutComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Subscribe to drawer state changes from the DrawerService
     this.drawerService.drawerState$.subscribe((state) => {
       this.isDrawerOpen = state.isOpen;
-      this.activeDrawer = state.type;
+      this.activeDrawer = state.type || '';
     });
   }
-
   // Open the New Invoice drawer
   newInvoice() {
     this.drawerService.openDrawer('newInvoice'); // Use the service to open the drawer

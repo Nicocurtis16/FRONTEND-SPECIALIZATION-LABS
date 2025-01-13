@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DrawerService {
-  private drawerState = new BehaviorSubject<{ isOpen: boolean; type: string }>({
+  private drawerState = new BehaviorSubject<{ isOpen: boolean; type: string | null }>({
     isOpen: false,
-    type: ''
+    type: null,
   });
 
   drawerState$ = this.drawerState.asObservable();
@@ -17,6 +17,6 @@ export class DrawerService {
   }
 
   closeDrawer() {
-    this.drawerState.next({ isOpen: false, type: '' });
+    this.drawerState.next({ isOpen: false, type: null });
   }
 }
