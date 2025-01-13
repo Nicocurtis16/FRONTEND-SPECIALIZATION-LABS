@@ -4,14 +4,14 @@
     <div class="viewInvoiceBtn">
       <button (click)="goBack()">
         <img src="assets/images/icon-arrow-left.svg" alt="Back">
-        <app-head-line [variant]="'h4'" [text]="'Go back'" [color]="'--base-black'"></app-head-line>
+        <app-head-line [variant]="'h4'" [text]="'Go back'" [color]="'--text-back'"></app-head-line>
       </button>
     </div>
 
 
     <div class="ViewInvoiceControl">
       <div class="viewInvoiceControlLeft">
-        <app-text [variant]="'body1'" [color]="'--tertiary'" [text]="'Status'"></app-text>
+        <app-text [variant]="'body1'" [color]="'--status-tetx'" [text]="'Status'"></app-text>
         <app-badge [status]="invoice().status"></app-badge>
       </div>
       <div class="viewInvoiceControlRight">
@@ -34,17 +34,17 @@
       <div class="id">
         <div class="idTitle">
           <app-head-line [variant]="'h3'" [text]="'#'"[color]="'--tertiary'"></app-head-line>
-          <app-head-line [variant]="'h3'" [text]="invoice().id" [color]="'--base-bla'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().id" [color]="'  --text-id'"></app-head-line>
 
         </div>
 
-        <app-text [variant]="'body1'" [text]="invoice().description" [color]="'--tertiary'"></app-text>
+        <app-text [variant]="'body1'" [text]="invoice().description" [color]="' --text-title'"></app-text>
       </div>
       <div class="location">
         <app-text
           [variant]="'body2'"
           [alignment]="'right'"
-          [color]="'  --tertiary'"
+          [color]="' --text-title'"
           [lines]="[invoice().senderAddress.street, invoice().senderAddress.city, invoice().senderAddress.postCode,invoice().senderAddress.country]"
         ></app-text>      </div>
     </div>
@@ -52,31 +52,31 @@
     <div class="midInfo">
       <div class="firstInfo">
         <div class="invoiceDate">
-          <app-text [variant]="'body1'" [text]="'Invoice Date'" [color]="'--tertiary'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice().createdAt" [color]="'--base-black'"></app-head-line>
+          <app-text [variant]="'body1'" [text]="'Invoice Date'" [color]="' --text-title'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().createdAt" [color]="' --text-id'"></app-head-line>
         </div>
         <div class="paymentDue">
-          <app-text [variant]="'body1'" [text]="'Payment Due'" [color]="'--tertiary'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice().paymentDue" [color]="'--base-black'"></app-head-line>
+          <app-text [variant]="'body1'" [text]="'Payment Due'" [color]="' --text-title'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().paymentDue" [color]="' --text-id'"></app-head-line>
         </div>
       </div>
       <div class="secInfo">
         <div class="billTo">
-          <app-text [variant]="'body1'" [text]="'Bill To'" [color]="'--tertiary'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice().clientName" [color]="'--base-black'"></app-head-line>
+          <app-text [variant]="'body1'" [text]="'Bill To'" [color]="' --text-title'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().clientName" [color]="' --text-id'"></app-head-line>
         </div>
         <div class="Reciverlocation">
           <app-text
             [variant]="'body2'"
             [alignment]="'left'"
-            [color]="'  --tertiary'"
+            [color]="' --text-title'"
             [lines]="[invoice().clientAddress.street, invoice().clientAddress.city, invoice().clientAddress.postCode,invoice().senderAddress.country]"
           ></app-text>      </div>
       </div>
       <div class="thirdInfo">
         <div class="sentTo">
-          <app-text [variant]="'body1'" [text]="'Sent To'" [color]="'--tertiary'" [alignment]="'left'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice().clientEmail" [color]="'--base-black'"></app-head-line>
+          <app-text [variant]="'body1'" [text]="'Sent To'" [color]="' --text-title'" [alignment]="'left'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().clientEmail" [color]="' --text-id'"></app-head-line>
         </div>
       </div>
     </div>
@@ -85,13 +85,13 @@
       <div class="accountDetailsLeft">
         <div  class="accountInfo">
           <div class="itemsName"  >
-            <app-text [variant]="'body2'" [text]="'Item Name'" [color]="'--tertiary'"></app-text>
+            <app-text [variant]="'body2'" [text]="'Item Name'" [color]="' --text-title'"></app-text>
 
-            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.name" [color]="'--base-black'"></app-head-line>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.name" [color]="' --text-id'"></app-head-line>
           </div>
           <div class="itemsQuant">
-            <app-text [variant]="'body2'" [text]="'QTY.'" [color]="'--tertiary'"></app-text>
-            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.quantity.toString()" [color]="'--tertiary'"></app-head-line>
+            <app-text [variant]="'body2'" [text]="'QTY.'" [color]="' --text-title'"></app-text>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.quantity.toString()" [color]="' --text-title'"></app-head-line>
 
           </div>
         </div>
@@ -100,15 +100,15 @@
       <div class="accountDetailsRight">
         <div  class="accountDetailsTitle">
           <div>
-            <app-text [variant]="'body2'" [text]="'Price'"  [color]="'--tertiary'"           [alignment]="'right'"
+            <app-text [variant]="'body2'" [text]="'Price'"  [color]="' --text-title'"           [alignment]="'right'"
             ></app-text>
-            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.price" [color]="'--tertiary'"></app-head-line>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.price" [color]="' --text-title'"></app-head-line>
 
           </div>
           <div>
-            <app-text [variant]="'body2'" [text]="'Total'" [color]="'--tertiary'"           [alignment]="'right'"
+            <app-text [variant]="'body2'" [text]="'Total'" [color]="' --text-title'"           [alignment]="'right'"
             ></app-text>
-            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.total" [color]="'--base-black'" ></app-head-line>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.total" [color]="' --text-id'" ></app-head-line>
 
           </div>
         </div>

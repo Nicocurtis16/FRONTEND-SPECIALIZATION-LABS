@@ -4,16 +4,13 @@
   flex-direction: column;
   width: 730px;
   height: 710px;
-  background-color: #F8F8FB;
 }
   .viewInvoiceTop{
     width: 100%;
     height: 140px;
-    /*background-color: red;*/
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #F8F8FB;
 
 
 
@@ -23,7 +20,7 @@
     border-radius: 8px;
     width: 100%;
     height: auto;
-    background-color: white;
+    background-color: var(--card-down);
   }
   .viewInvoiceBtn{
     width: 81px;
@@ -42,7 +39,7 @@
   .ViewInvoiceControl{
     width: 100%;
     height: 88px;
-    background-color: white;
+    background-color: var(--button-primary);
     border-radius: 8px;
     box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
     cursor: pointer;
@@ -102,7 +99,7 @@
     width: 634px;
     padding-bottom: 10px;
     height: auto;
-    background-color: #F9FAFE;
+    background-color: var(--card-down-top);
     margin-left: 40px;
     margin-top: 30px;
     border-radius: 15px 15px 0 0;
@@ -142,7 +139,7 @@
     width: 634px;
     height: 80px;
     border-radius: 0 0 15px 15px;
-    background-color: #373B53;
+    background-color: var(--card-down-down);
     align-items: center;
     margin-bottom: 40px;
 

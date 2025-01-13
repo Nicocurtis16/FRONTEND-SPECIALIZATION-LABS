@@ -4,7 +4,7 @@ import { Router, NavigationEnd } from "@angular/router";
 import { NewInvoiceComponent } from "../../component/new-invoice/new-invoice.component";
 import { EditInvoiceComponent } from "../../component/edit-invoice/edit-invoice.component";
 import { Invoice } from "../../service/invoice";
-import { NgIf, NgSwitch, NgSwitchCase } from "@angular/common";
+import {NgClass, NgIf, NgSwitch, NgSwitchCase} from "@angular/common";
 import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import {InvoiceHeaderComponent} from "../../component/invoice-header/invoice-header.component";
 
@@ -19,7 +19,7 @@ import {InvoiceHeaderComponent} from "../../component/invoice-header/invoice-hea
     NgSwitch,
     NewInvoiceComponent,
     EditInvoiceComponent,
-    InvoiceHeaderComponent
+
   ],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
@@ -50,11 +50,14 @@ export class LayoutComponent {
   }
 
   // Open the New Invoice drawer
-  newInvoice($event: string) {
+  // newInvoice($event: string) {
+  //   this.activeDrawer = 'newInvoice';
+  //   this.isDrawerOpen = true;
+  // }
+  newInvoice() {
     this.activeDrawer = 'newInvoice';
     this.isDrawerOpen = true;
   }
-
   // Open the Edit Invoice drawer
   openEditDrawer() {
     this.activeDrawer = 'editInvoice';

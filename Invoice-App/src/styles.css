@@ -33,6 +33,7 @@ body{
   --primary: #7C5DFA;
   --primary-light: #9277FF;
   --secondary: #1E2139;
+  --status-tetx:#858BB2;
 
   /* Backgrounds */
   --bg-main: #F8F8FB;
@@ -50,22 +51,32 @@ body{
 
   --card-client-color: #858BB2;
   --card-amount-color: #0C0E16;
-
+  --card-down:#FFFFFF;
+  --card-down-top:#F9FAFE;
+  --card-down-down:#373B53;
 
   --card-title-color: #0C0E16;
   --text-primary: #0C0E16;
   --text-filter:  #0C0E16;
-
-  --text-secondary: #888EB0;
+  --text-back:#0C0E16;
+ --text-secondary: #888EB0;
   --text-tertiary: #7E88C3;
   --text-gray-light: #F9FAFE;
   --text-gray: #DFE3FA;
   --text-invoice:#0C0E16;
+  --text-id:#0c0E16;
+  --text-title: #7E88C3;
+  --editBtn-color: #F9FAFE;
+  --editBtn-text: #7E88C3;
+
+  --deleteBtn-color: #EC5757;
+  --deleteBtn-text: #FFFFFF;
 
   /* Status Colors */
   --paid: #33D69F;
   --pending: #FF8F00;
   --draft: #373B53;
+  --button-primary: #FFFFFF;
 
   /* Form Elements */
   --form-bg: #FFFFFF;
@@ -140,6 +151,26 @@ body{
 
 /* Define your dark theme styles */
 .dark-theme {
+  --text-back:#ffffff;
+  --button-primary: #1E2139;
+  --status-tetx:#DFE3FA;
+  --card-down:#1E2139;
+  --card-down-top:#252945;
+  --card-down-down:#0C0E16;
+  --text-id:#ffffff;
+  --text-title: #DFE3FA;
+  --editBtn-color: #252945;
+  --editBtn-text: #DFE3FA;
+
+  --deleteBtn-color: #EC5757;
+  --deleteBtn-text: #FFFFFF;
+
+
+
+
+
+
+
   --card-title-color: #FFFFFF;
   --light-BG:#141625;
   --white: #FFFFFF;

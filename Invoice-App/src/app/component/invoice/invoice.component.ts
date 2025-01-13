@@ -1,4 +1,4 @@
-import { Component, computed, OnInit } from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, computed} from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyPipe, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
@@ -32,13 +32,16 @@ import { IconComponent } from '../../features/icon/icon.component';
   standalone: true,
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css'],
-  providers: [CurrencyPipe], // Include CurrencyPipe in providers
+  providers: [CurrencyPipe],
 })
 export class InvoiceComponent implements OnInit {
   isLoading = this.store.selectSignal(selectIsLoadingState);
   invoices = this.store.selectSignal(selectFilteredInvoices); // All invoices from state
   selectedStatuses: string[] = []; // Filter criteria
   formattedTotal: string = '';
+  isDrawerOpen: boolean = false;
+  activeDrawer: 'newInvoice' | 'editInvoice' | null = null; // Tracks the active drawer
+  @Output() openNewInvoice = new EventEmitter<void>();
 
   // Computed signals for filtered data and count
   displayedInvoices = computed(() => {
@@ -57,7 +60,7 @@ export class InvoiceComponent implements OnInit {
     private store: Store,
     private dataService: DataService,
     private router: Router,
-    private currencyPipe: CurrencyPipe // Properly injected CurrencyPipe
+    private currencyPipe: CurrencyPipe
   ) {}
 
   ngOnInit() {
@@ -81,5 +84,12 @@ export class InvoiceComponent implements OnInit {
 
   onDeleteInvoice(id: string) {
     this.store.dispatch(invoiceAction.deleteInvoice({ id }));
+  }
+
+  openNewInvoiceHandler() {
+    console.log('Drawer opening');
+    this.isDrawerOpen = true;  // Open the drawer
+    this.activeDrawer = 'newInvoice';
+    this.openNewInvoice.emit();  // Emit event for new invoice
   }
 }

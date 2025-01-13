@@ -20,6 +20,7 @@ import { DataLengthComponent } from "../../features/data-length/data-length.comp
 export class InvoiceHeaderComponent {
   @Input() invoiceCount: number = 0; // Accept the count as input
   @Output() statusFilter = new EventEmitter<string[]>();
+  @Output() openNewInvoice = new EventEmitter<void>();
 
   constructor(
     private router: Router,
@@ -30,14 +31,19 @@ export class InvoiceHeaderComponent {
     console.log('Header received statuses:', statuses);
     this.statusFilter.emit(statuses);
   }
+  newInvoice(){
+    console.log('New Invoice button clicked in InvoiceHeader');
+    this.openNewInvoice.emit();
+  }
+
 
   // Open drawer for new invoice
-  newInvoice() {
-    // Update active drawer and open it
-    this.router.navigate(['/new-invoice'], { relativeTo: this.activatedRoute }).then(success => {
-      if (!success) {
-        console.log('Navigate to new invoice failed');
-      }
-    });
-  }
+  // newInvoice() {
+  //   // Update active drawer and open it
+  //   this.router.navigate(['/new-invoice'], { relativeTo: this.activatedRoute }).then(success => {
+  //     if (!success) {
+  //       console.log('Navigate to new invoice failed');
+  //     }
+  //   });
+  // }
 }

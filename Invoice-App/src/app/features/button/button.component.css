@@ -188,8 +188,8 @@
     }
 
     &.delete {
-      background-color: var(--error-color);
-      color: var(--light-BG);
+      background-color: var(--deleteBtn-color);
+      color: var(--deleteBtn-text);
       height: 48px;
       width: 89px;
 
@@ -201,8 +201,8 @@
     &.edit {
       height: 48px;
       width: 73px;
-      background-color: #F9FAFE;
-      color: var(--tertiary);
+      background-color: var(--editBtn-color);
+      color: var(--editBtn-text);
 
       &:hover {
         background-color: #DFE3FA;
