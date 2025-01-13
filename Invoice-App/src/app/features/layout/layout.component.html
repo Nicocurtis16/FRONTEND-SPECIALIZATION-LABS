@@ -1,10 +1,11 @@
-<link rel="stylesheet" href="../../component/sidebar/sidebar.component.css">
+<!-- layout.component.html -->
 <div class="layoutPanel">
   <div class="layoutLeftPanel">
     <app-sidebar></app-sidebar>
   </div>
 
   <div class="layoutContent">
+    <!-- Main content for routes like '/invoice/:id' -->
     <router-outlet *ngIf="!isDrawerOpen"></router-outlet>
 
     <!-- Side Drawer -->
@@ -19,3 +20,5 @@
   <!-- Overlay for the Side Drawer -->
   <div class="side-drawer-overlay" *ngIf="isDrawerOpen" (click)="closeDrawer()"></div>
 </div>
+
+

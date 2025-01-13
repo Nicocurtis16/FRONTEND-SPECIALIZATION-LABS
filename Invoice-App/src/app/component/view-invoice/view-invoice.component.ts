@@ -10,6 +10,7 @@ import {BadgeComponent} from "../../features/badge/badge.component";
 import {Store} from "@ngrx/store";
 import {selectAllInvoices, selectedInvoiceSuccess, selectIsLoadingState} from "../../state/selectors/invoice.selector";
 import {invoiceAction} from "../../state/actions/invoice.action";
+import {DeleteInvoiceComponent} from "../delete-invoice/delete-invoice.component";
 
 @Component({
   selector: 'app-view-invoice',
@@ -21,6 +22,7 @@ import {invoiceAction} from "../../state/actions/invoice.action";
     NgIf,
     TextComponent,
     BadgeComponent,
+    DeleteInvoiceComponent,
   ],
   templateUrl: './view-invoice.component.html',
   styleUrls: ['./view-invoice.component.css']
@@ -29,6 +31,7 @@ import {invoiceAction} from "../../state/actions/invoice.action";
 export class ViewInvoiceComponent implements OnInit {
   showEditInvoice = false;
   showDeleteConfirmation = false;
+  isDeleteVisible = false;
   invoices = this.store.selectSignal(selectAllInvoices)
   idSignal = signal<string | null>(null)
   invoice = computed(()=> this.invoices().find(invoice=>invoice.id === this.idSignal()))  as Signal<Invoice>;
@@ -72,20 +75,26 @@ export class ViewInvoiceComponent implements OnInit {
     });
 
   }
-  // handleEdit() {
-  //   this.router.navigate(['edit'], { relativeTo: this.activatedRoute });
-  //   this.activeDrawer = 'edit';
-  //   this.isDrawerOpen = true;
-  // }
+
 
   closeDrawer() {
     this.activeDrawer = null;
     this.isDrawerOpen = false;
   }
   handleDelete() {
-    this.router.navigate(['delete'], { relativeTo: this.activatedRoute });
-
+    const currentInvoice = this.invoice();
+    if (currentInvoice) {
+      this.store.dispatch(invoiceAction.setActiveInvoice({ id: currentInvoice.id })); // Set active invoice
+      this.isDeleteVisible = true; // Show delete modal
+    }
   }
+
+  closeDeleteModal() {
+    this.isDeleteVisible = false; // Hide delete modal
+  }
+
+
+
 
   handleMarkedAsPaid() {
     const currentInvoice = this.invoice();

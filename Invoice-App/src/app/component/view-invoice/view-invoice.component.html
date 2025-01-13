@@ -23,6 +23,11 @@
 
     </div>
   </div>
+  <app-delete-invoice
+    *ngIf="isDeleteVisible"
+    (confirmDelete)="closeDeleteModal()"
+    (cancelDelete)="closeDeleteModal()">
+  </app-delete-invoice>
 
   <div class="viewInvoiceDown">
     <div class="idLocation">

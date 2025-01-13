@@ -1,40 +1,41 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { HeadLineComponent } from "../../features/head-line/head-line.component";
-import { TextComponent } from "../../features/text/text.component";
-import { ButtonComponent } from "../../features/button/button.component";
-import {Store} from "@ngrx/store";
-import {selectedInvoiceSuccess} from "../../state/selectors/invoice.selector";
-import {invoiceAction} from "../../state/actions/invoice.action";
-import {Router} from "@angular/router";
+import { Store } from '@ngrx/store';
+import { Router } from '@angular/router';
+import { invoiceAction } from '../../state/actions/invoice.action';
+import { selectedInvoiceSuccess } from '../../state/selectors/invoice.selector';
+import {HeadLineComponent} from "../../features/head-line/head-line.component";
+import {TextComponent} from "../../features/text/text.component";
+import {ButtonComponent} from "../../features/button/button.component";
 
 @Component({
   selector: 'app-delete-invoice',
   standalone: true,
+  templateUrl: './delete-invoice.component.html',
+  styleUrls: ['./delete-invoice.component.css'],
   imports: [
     HeadLineComponent,
     TextComponent,
-    ButtonComponent
-  ],
-  templateUrl: './delete-invoice.component.html',
-  styleUrls: ['./delete-invoice.component.css']
+    ButtonComponent,
+    // Add your required imports
+  ]
 })
 export class DeleteInvoiceComponent {
   @Output() confirmDelete = new EventEmitter<void>();
   @Output() cancelDelete = new EventEmitter<void>();
-  invoice = this.store.selectSignal(selectedInvoiceSuccess)
-  constructor(
-    private store: Store,
-    private router: Router,
-  ) {
-  }
+
+  invoice = this.store.selectSignal(selectedInvoiceSuccess);
+
+  constructor(private store: Store, private router: Router) {}
 
   onConfirm() {
-    this.store.dispatch(invoiceAction.deleteInvoice({id: this.invoice()?.id as string}));
-    this.confirmDelete.emit(); // Emit event for confirm delete
-    this.router.navigate(['/']);
+    const currentInvoice = this.invoice();
+    if (currentInvoice) {
+      this.store.dispatch(invoiceAction.deleteInvoice({ id: currentInvoice.id }));
+      this.confirmDelete.emit(); // Notify parent of delete confirmation
+    }
   }
 
   handleCancel() {
-    this.cancelDelete.emit(); // Emit event for cancel delete
+    this.cancelDelete.emit(); // Notify parent of cancel action
   }
 }
