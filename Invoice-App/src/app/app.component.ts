@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {LayoutComponent} from "./features/layout/layout.component";
 import{HttpClientModule} from "@angular/common/http";
-import {FormComponent} from "./component/edit-invoice/./form.component";
+import {FormComponent} from "./component/form/form.component";
 
 @Component({
   selector: 'app-root',

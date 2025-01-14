@@ -1,0 +1,296 @@
+<div class="editPanel">
+  <div class="editPanelRight">
+    <div class="editId">
+      <app-head-line
+        [variant]="'h2'"
+        [text]="isEditMode ? 'Edit#' : 'New Invoice'"
+        [color]="'--base-black'"
+      >
+      </app-head-line>
+    </div>
+
+    <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()" class="editPanelContent">
+      <div class="editBillForm">
+        <app-head-line
+          [variant]="'h4'"
+          [text]="'Bill From'"
+          [color]="'--primary-color'"
+        ></app-head-line>
+        <div class="editAddress">
+          <div class="streetAddress">
+            <app-text
+              [variant]="'body1'"
+              [text]="'Street Address'"
+              [color]="'--tertiary'"
+            ></app-text>
+            <app-text-field
+              [controlName]="$any(invoiceForm.get('senderAddress.street'))"
+              inputId="senderAddressStreet"
+              />
+          </div>
+          <div class="row">
+            <div class="col">
+              <app-text
+                [variant]="'body1'"
+                [text]="'City'"
+                [color]="'--tertiary'">
+
+              </app-text>
+
+              <app-text-field
+                [controlName]="$any(invoiceForm.get('senderAddress.city'))"
+                inputId="senderAddressCity"
+              />
+            </div>
+            <div class="col">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Post Code'"
+                [color]="'--tertiary'">
+
+              </app-text>
+
+              <app-text-field
+                [controlName]="$any(invoiceForm.get('senderAddress.postCode'))"
+                inputId="senderAddressPostCode"
+              />
+            </div>
+            <div class="col">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Country'"
+                [color]="'--tertiary'">
+
+              </app-text>
+
+              <app-text-field
+                [controlName]="$any(invoiceForm.get('senderAddress.country'))"
+                inputId="senderAddressCountry"
+              />
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="editBillTo" >
+        <app-head-line
+          [variant]="'h4'"
+          [text]="'Bill To'"
+          [color]="'--primary-color'"
+        ></app-head-line>
+        <div class="editAddress">
+          <div class="clientName">
+            <app-text
+              [variant]="'body1'"
+              [text]="'Client’s Name'"
+              [color]="'--tertiary'"
+            ></app-text>
+            <app-text-field
+              [controlName]="$any(invoiceForm.get('clientDetails.name'))"
+              inputId="clientName"
+            />
+          </div>
+          <div class="clientEmail">
+            <app-text
+              [variant]="'body1'"
+              [text]="'Client’s Email'"
+              [color]="'--tertiary'"
+            ></app-text>
+            <app-text-field
+              [controlName]="$any(invoiceForm.get('clientDetails.email'))"
+              inputId="clientEmail"
+            />
+          </div>
+          <div class="clientStreetAddress">
+            <app-text
+              [variant]="'body1'"
+              [text]="'Street Address'"
+              [color]="'--tertiary'"
+            ></app-text>
+            <app-text-field
+              [controlName]="$any(invoiceForm.get('clientDetails.address.street'))"
+              inputId="clientAddressStreet"
+            />
+          </div>
+          <div class="locationAddress">
+            <div class="city">
+              <app-text
+                [variant]="'body1'"
+                [text]="'City'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <app-text-field
+                [controlName]="$any(invoiceForm.get('clientDetails.address.city'))"
+                inputId="clientAddressCity"
+              />
+            </div>
+            <div class="city">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Post Code'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <app-text-field
+                [controlName]="$any(invoiceForm.get('clientDetails.address.postCode'))"
+                inputId="clientAddressPostCode"
+              />
+            </div>
+            <div class="city">
+              <app-text
+                [variant]="'body1'"
+                [text]="'Country'"
+                [color]="'--tertiary'"
+              ></app-text>
+              <app-text-field
+                [controlName]="$any(invoiceForm.get('clientDetails.address.country'))"
+                inputId="clientAddressCountry"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dateTermsDescription">
+        <div class="dateTerms">
+          <div class="payment">
+            <app-text
+              [variant]="'body1'"
+              [text]="'Invoice Date'"
+              [color]="'--tertiary'"
+            ></app-text>
+            <app-date-picker >
+            </app-date-picker>
+          </div>
+          <div class="date">
+            <app-text
+              [variant]="'body1'"
+              [text]="'Payment Terms'"
+              [color]="'--tertiary'"
+            ></app-text>
+<!--            <app-payment-terms-->
+<!--              formControlName="paymentTerm"-->
+<!--              (paymentTermChange)="invoiceForm.get('paymentTerm')?.setValue($event)">-->
+<!--            </app-payment-terms>-->
+          </div>
+        </div>
+        <div class="description">
+          <app-text
+            [variant]="'body1'"
+            [text]="'Project Description'"
+            [color]="'--tertiary'"
+          ></app-text>
+          <app-text-field [controlName] ="$any(invoiceForm.get('description'))" inputId = "invoiceDetailsDescription" label = "Project Description" placeholder="e.g Graphic Design Service" />
+        </div>
+      </div>
+      <div class="itemList">
+        <app-head-line
+          [variant]="'h2'"
+          [text]="'Item List'"
+          [color]="'--grey-color-dark'"
+        ></app-head-line>
+
+        <div class="itemList">
+
+          <div formArrayName="items">
+            <table class="items-table">
+              <thead>
+              <tr>
+                <th>
+                  <app-text
+                    [variant]="'body1'"
+                    [text]="'Item Name'"
+                    [color]="'--tertiary'"
+                  ></app-text>
+                </th>
+                <th>
+                  <app-text
+                    [variant]="'body1'"
+                    [text]="'Qty.'"
+                    [color]="'--tertiary'"
+                  ></app-text>
+                </th>
+                <th>
+                  <app-text
+                    [variant]="'body1'"
+                    [text]="'Price'"
+                    [color]="'--tertiary'"
+                  ></app-text>
+                </th>
+                <th>
+                  <app-text
+                    [variant]="'body1'"
+                    [text]="'Total'"
+                    [color]="'--tertiary'"
+                  ></app-text>
+                </th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+                <td>
+                  <app-text-field
+                    [controlName]="$any(item.get('name'))"
+                    [inputId]="'item-name-' + i"
+                  />
+                </td>
+                <td>
+                  <app-text-field
+                    [controlName]="$any(item.get('quantity'))"
+                    [inputId]="'item-quantity-' + i"
+                  />
+                </td>
+                <td>
+                  <app-text-field
+                    [controlName]="$any(item.get('price'))"
+                    [inputId]="'item-price-' + i"
+                  />
+                </td>
+                <td>
+                  <app-head-line
+                    [text]="String(calculateItemTotal(item))"
+                    [variant]="'h4'"
+                    [color]="'--tertiary'"
+                  ></app-head-line>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    (click)="removeItem(i)"
+                    class="items__remove"
+                  >
+                    <img src="assets/images/icon-delete.svg" alt="Delete" />
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <app-button [variant]="'add-new-item'" (click)="addItem()" >+ Add New Item</app-button>
+
+        </div>
+      </div>
+
+
+
+    </form>
+    <div class="editButtons" *ngIf="isEditMode">
+      <app-button [variant]="'cancel'" (onClick)="handleEdit()">Cancel</app-button>
+      <app-button [variant]="'save-changes'" (onClick)="onSubmit()">Save Changes</app-button>
+    </div>
+
+    <div class="editButton" *ngIf="!isEditMode">
+      <div class="editLeft">
+        <app-button [variant]="'discard'" (onClick)="onDiscard()">discard </app-button>
+
+      </div>
+      <div class="editRight">
+        <app-button [variant]="'save-as-draft'" (onClick)="onSaveAsDraft()">Save as Draft </app-button>
+        <app-button [variant]="'save-send'" (onClick)="onSubmit()">Save & Send</app-button>
+
+      </div>
+
+       </div>
+
+  </div>
+</div>

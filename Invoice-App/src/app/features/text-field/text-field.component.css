@@ -1,11 +1,13 @@
 .form-control{
-    display: grid;
-    gap: .8rem;
+  /*background-color: #EC5757;*/
+    /*display: grid;*/
+    /*gap: 0.2rem;*/
     margin-bottom: 1rem;
 }
 .form-control input{
-    width: 100%;
-    padding: 1rem;
+    width: 98%;
+  height: 40px;
+    /*padding: 1rem;*/
     border-radius: .3rem;
     border: 1px solid var(--grey);
     color: var(--base-black);
@@ -16,7 +18,7 @@
 }
 
 .form-control input:hover{
-    border: 1px solid var(--primary-hover);
+    /*border: 1px solid var(--primary-hover);*/
     cursor: pointer;
 }
 .form-control input:focus{
@@ -29,11 +31,10 @@
 .form-control input.is-invalid {
     border-color: var(--error) !important;
 }
-  
+
 
 .error-message {
     color: red;
     font-size: 0.75rem;
     margin-top: 0.25rem;
  }
-

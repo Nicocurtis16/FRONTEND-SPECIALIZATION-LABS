@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { SidebarComponent } from "../../component/sidebar/sidebar.component";
 import { Router, NavigationEnd } from "@angular/router";
-import { NewInvoiceComponent } from "../../component/new-invoice/new-invoice.component";
-import { FormComponent } from "../../component/edit-invoice/./form.component";
 import { Invoice } from "../../service/invoice";
 import { NgClass, NgIf, NgSwitch, NgSwitchCase } from "@angular/common";
 import { ActivatedRoute, RouterOutlet } from "@angular/router";
 import { InvoiceHeaderComponent } from "../../component/invoice-header/invoice-header.component";
 import { DrawerService } from '../../service/drawer.service';
+import {FormComponent} from "../../component/form/form.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-layout',
@@ -18,8 +18,9 @@ import { DrawerService } from '../../service/drawer.service';
     NgIf,
     NgSwitchCase,
     NgSwitch,
-    NewInvoiceComponent,
     FormComponent,
+    FormComponent,
+    ReactiveFormsModule,
   ],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
@@ -58,6 +59,7 @@ export class LayoutComponent implements OnInit {
   }
 
   // Open any type of drawer (reusable method)
+  isEditMode: any;
   openDrawer(drawerType: string) {
     this.drawerService.openDrawer(drawerType); // Delegate to DrawerService
   }
@@ -77,5 +79,9 @@ export class LayoutComponent implements OnInit {
 
   onFilterChange($event: string[]) {
     // Handle filter changes if needed
+  }
+
+  onSubmit() {
+
   }
 }

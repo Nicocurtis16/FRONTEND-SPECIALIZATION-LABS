@@ -1,5 +1,5 @@
 <div class="form-control">
-    <label [for]="inputId"><p>{{label}}</p></label>
+    <label [for]="inputId"></label>
     <input [class.is-invalid]="isInvalid" [placeholder]="placeholder" [formControl] = "controlName" [type]="type" [id] = "inputId">
 
     @if (isInvalid && errorMessage) {

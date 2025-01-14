@@ -235,6 +235,16 @@
         background-color: var(--primary-color-light);
       }
     }
+    &.save-send{
+      width: 128px;
+      height: 48px;
+      background-color: var(--primary-color);
+      color: white;
+
+      &:hover {
+        background-color: var(--primary-color-light);
+      }
+    }
 
     &.save-as-draft {
       height: 48px ;
@@ -262,6 +272,17 @@
     }
     &.cancel {
       width: 91px;
+      height: 48px;
+      background-color: #F9FAFE;
+      color: #7E88C3;
+
+      &:hover {
+        background-color: #DFE3FA;
+        color: #7E88C3;
+      }
+    }
+    &.discard {
+      width: 96px;
       height: 48px;
       background-color: #F9FAFE;
       color: #7E88C3;

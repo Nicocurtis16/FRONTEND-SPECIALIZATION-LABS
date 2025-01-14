@@ -12,7 +12,6 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class TextFieldComponent {
   @Input() inputId: string = '';
   @Input() controlName!: FormControl;
-  @Input() label: string = '';
   @Input() type: 'text'|'number'|'email'|'password' = 'text';
   @Input() placeholder: string = '';
 
@@ -25,11 +24,11 @@ export class TextFieldComponent {
     if (!this.controlName?.errors || !this.controlName?.touched) {
       return '';
     }
-  
+
     const firstError = Object.keys(this.controlName.errors)[0];
     return this.getErrorMessage(firstError, this.controlName.errors[firstError]);
   }
-  
+
 
   private getErrorMessage(errorType: string, errorValue: any): string {
     const messages: Record<string, string> = {
