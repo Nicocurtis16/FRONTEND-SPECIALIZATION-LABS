@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { invoiceAction } from '../../state/actions/invoice.action';
 import { selectedInvoiceSuccess } from '../../state/selectors/invoice.selector';
 import {HeadLineComponent} from "../../features/head-line/head-line.component";
-import {TextComponent} from "../../features/text/text.component";
 import {ButtonComponent} from "../../features/button/button.component";
+import {TextComponent} from "../../features/text/text.component";
 
 @Component({
   selector: 'app-delete-invoice',
@@ -14,8 +14,8 @@ import {ButtonComponent} from "../../features/button/button.component";
   styleUrls: ['./delete-invoice.component.css'],
   imports: [
     HeadLineComponent,
-    TextComponent,
     ButtonComponent,
+    TextComponent,
     // Add your required imports
   ]
 })

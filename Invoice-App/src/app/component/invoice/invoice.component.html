@@ -4,7 +4,7 @@
 
     <app-invoice-header
     [invoiceCount]="invoiceCount()"
-    (openNewInvoice)="openNewInvoiceHandler()"
+    (openNewInvoice)="triggerNewInvoice()"
     (statusFilter)="onFilterChange($event)"
   ></app-invoice-header>
   </div>

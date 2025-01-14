@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output, computed} from '@angular/core';
+import { Component, OnInit, computed } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { CurrencyPipe, NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
@@ -15,6 +15,7 @@ import { TextComponent } from '../../features/text/text.component';
 import { InvoiceHeaderComponent } from '../invoice-header/invoice-header.component';
 import { NoInvoiceComponent } from '../../features/no-invoice/no-invoice.component';
 import { IconComponent } from '../../features/icon/icon.component';
+import { DrawerService } from '../../service/drawer.service';
 
 @Component({
   selector: 'app-invoice',
@@ -39,9 +40,6 @@ export class InvoiceComponent implements OnInit {
   invoices = this.store.selectSignal(selectFilteredInvoices); // All invoices from state
   selectedStatuses: string[] = []; // Filter criteria
   formattedTotal: string = '';
-  isDrawerOpen: boolean = false;
-  activeDrawer ='editInvoice' ;
-  @Output() openNewInvoice = new EventEmitter<void>();
 
   // Computed signals for filtered data and count
   displayedInvoices = computed(() => {
@@ -60,7 +58,8 @@ export class InvoiceComponent implements OnInit {
     private store: Store,
     private dataService: DataService,
     private router: Router,
-    private currencyPipe: CurrencyPipe
+    private currencyPipe: CurrencyPipe,
+    private drawerService: DrawerService // Inject the DrawerService here
   ) {}
 
   ngOnInit() {
@@ -87,9 +86,16 @@ export class InvoiceComponent implements OnInit {
   }
 
   openNewInvoiceHandler() {
-    console.log('Drawer opening');
-    this.isDrawerOpen = true;  // Open the drawer
-    this.activeDrawer = 'newInvoice';
-    this.openNewInvoice.emit();  // Emit event for new invoice
+    console.log('New Invoice button clicked - opening drawer');
+    this.drawerService.openDrawer('newInvoice'); // Use the DrawerService to open the drawer
+  }
+
+  closeDrawer() {
+    this.drawerService.closeDrawer(); // Close drawer via the service
+  }
+
+  // Alternative method using DrawerService to trigger the drawer from any component
+  triggerNewInvoice() {
+    this.drawerService.openDrawer('newInvoice'); // Notify the service to open the drawer
   }
 }

@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SidebarComponent } from "../../component/sidebar/sidebar.component";
 import { Router, NavigationEnd } from "@angular/router";
 import { NewInvoiceComponent } from "../../component/new-invoice/new-invoice.component";
-import { EditInvoiceComponent } from "../../component/edit-invoice/edit-invoice.component";
+import { FormComponent } from "../../component/edit-invoice/./form.component";
 import { Invoice } from "../../service/invoice";
-import {NgClass, NgIf, NgSwitch, NgSwitchCase} from "@angular/common";
+import { NgClass, NgIf, NgSwitch, NgSwitchCase } from "@angular/common";
 import { ActivatedRoute, RouterOutlet } from "@angular/router";
-import {InvoiceHeaderComponent} from "../../component/invoice-header/invoice-header.component";
+import { InvoiceHeaderComponent } from "../../component/invoice-header/invoice-header.component";
+import { DrawerService } from '../../service/drawer.service';
 
 @Component({
   selector: 'app-layout',
@@ -18,53 +19,51 @@ import {InvoiceHeaderComponent} from "../../component/invoice-header/invoice-hea
     NgSwitchCase,
     NgSwitch,
     NewInvoiceComponent,
-    EditInvoiceComponent,
-
+    FormComponent,
   ],
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css']
+  styleUrls: ['./layout.component.css'],
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnInit {
   showInvoiceList = true;
   selectedInvoice: Invoice | null = null;
-
-  invoiceCount: number =0 ;  // Example count, replace with actual logic to get invoice count
-
-  showSideDrawer = false;  // Controls drawer visibility
-  activeDrawer: 'newInvoice' | 'editInvoice' | null = null; // Tracks the active drawer
+  invoiceCount: number = 0; // Example count, replace with actual logic to get invoice count
   isDrawerOpen = false; // State to track if the drawer is open
+  activeDrawer = ''; // Determines which drawer is shown
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {}
+
+
+
+
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private drawerService: DrawerService // Inject the DrawerService here
+  ) {}
 
   ngOnInit() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const currentUrl = this.router.url;
-        if (currentUrl.includes('/invoice') && currentUrl.includes('edit')) {
-          this.openEditDrawer();
-        } else {
-          this.closeDrawer(); // Close the drawer on other routes
-        }
-      }
+    this.drawerService.drawerState$.subscribe((state) => {
+      this.isDrawerOpen = state.isOpen;
+      this.activeDrawer = state.type || '';
     });
   }
-
-
+  // Open the New Invoice drawer
   newInvoice() {
-    this.activeDrawer = 'newInvoice';
-    this.isDrawerOpen = true;
+    this.drawerService.openDrawer('newInvoice'); // Use the service to open the drawer
   }
+
   // Open the Edit Invoice drawer
   openEditDrawer() {
-    this.activeDrawer = 'editInvoice';
-    this.isDrawerOpen = true;
+    this.drawerService.openDrawer('editInvoice'); // Use the service to open the drawer
   }
 
+  // Open any type of drawer (reusable method)
+  openDrawer(drawerType: string) {
+    this.drawerService.openDrawer(drawerType); // Delegate to DrawerService
+  }
 
-  // Close the drawer
   closeDrawer() {
-    this.isDrawerOpen = false;
-    this.activeDrawer = null;
+    this.drawerService.closeDrawer(); // Close the drawer using the service
   }
 
   displayViewInvoice(invoice: Invoice) {
@@ -77,6 +76,6 @@ export class LayoutComponent {
   }
 
   onFilterChange($event: string[]) {
-
+    // Handle filter changes if needed
   }
 }
