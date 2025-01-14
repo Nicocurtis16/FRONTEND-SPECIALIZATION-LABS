@@ -6,6 +6,7 @@ import { selectedInvoiceSuccess } from '../../state/selectors/invoice.selector';
 import {HeadLineComponent} from "../../features/head-line/head-line.component";
 import {ButtonComponent} from "../../features/button/button.component";
 import {TextComponent} from "../../features/text/text.component";
+import {NotificationService} from "../../service/notification.service";
 
 @Component({
   selector: 'app-delete-invoice',
@@ -25,7 +26,9 @@ export class DeleteInvoiceComponent {
 
   invoice = this.store.selectSignal(selectedInvoiceSuccess);
 
-  constructor(private store: Store, private router: Router) {}
+  constructor(private store: Store, private router: Router,
+  private notificationService: NotificationService,
+  ) {}
 
   onConfirm() {
     const currentInvoice = this.invoice();
@@ -33,6 +36,9 @@ export class DeleteInvoiceComponent {
       this.store.dispatch(invoiceAction.deleteInvoice({ id: currentInvoice.id }));
       this.confirmDelete.emit(); // Notify parent of delete confirmation
     }
+    this.notificationService.showNotification('Failed to delete item.', 'success');
+    this.router.navigate(['/invoice']); // Ensure '/invoice' matches your routing setup
+
   }
 
   handleCancel() {

@@ -4,6 +4,7 @@ import { ViewInvoiceComponent } from "./component/view-invoice/view-invoice.comp
 
 export const routes: Routes = [
   { path: '', component: InvoiceComponent },
+  { path: 'invoice', component: InvoiceComponent },
   {
     path: 'invoice/:id', component: ViewInvoiceComponent},
 ];

@@ -8,6 +8,7 @@ import { InvoiceHeaderComponent } from "../../component/invoice-header/invoice-h
 import { DrawerService } from '../../service/drawer.service';
 import {FormComponent} from "../../component/form/form.component";
 import {ReactiveFormsModule} from "@angular/forms";
+import {NotificationComponent} from "../notification/notification.component";
 
 @Component({
   selector: 'app-layout',
@@ -21,6 +22,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     FormComponent,
     FormComponent,
     ReactiveFormsModule,
+    NotificationComponent,
   ],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],

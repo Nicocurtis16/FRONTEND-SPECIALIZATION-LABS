@@ -1,0 +1,56 @@
+.notification-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20px;
+  width: 250px;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slide-in 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.notification-container.success {
+  background: #4caf50;
+}
+
+.notification-container.error {
+  background: #f44336;
+}
+
+.notification-container.info {
+  background: #2196f3;
+}
+
+.notification-container.warning {
+  background: #ffc107;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  .notification-container {
+    top: 1rem;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
