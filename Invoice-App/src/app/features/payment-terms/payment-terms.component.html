@@ -1,0 +1,28 @@
+<div class="dropdown-container">
+  <button (click)="toggleDropdown()" class="dropdown-button">
+    <app-head-line
+      [variant]="'h4'"
+      [text]="selectedPaymentTerm"
+      [color]="'--secondary-color'">
+    </app-head-line>
+    <div>
+      <img
+        [src]="isDropdownOpen ? 'assets/images/icon-arrow-up.svg' : 'assets/images/icon-arrow-down.svg'"
+        alt="Dropdown Arrow Icon" />
+    </div>
+  </button>
+
+  <div *ngIf="isDropdownOpen" class="dropdown-content">
+    <div *ngFor="let term of paymentTerms" class="dropdown-option">
+      <button
+        class="cards"
+        (click)="selectPaymentTerm(term)">
+        <app-head-line
+          [variant]="'h4'"
+          [color]="'--base-black'"
+          [text]="term">
+        </app-head-line>
+      </button>
+    </div>
+  </div>
+</div>

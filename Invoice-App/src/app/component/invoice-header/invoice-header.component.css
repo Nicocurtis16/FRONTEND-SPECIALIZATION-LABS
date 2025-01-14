@@ -1,0 +1,103 @@
+@media (max-width: 600px) {
+  .desktop{
+    display: none;
+  }
+  .desk{
+    display: none;
+  }
+  .invoiceHeader{
+    width: 90%;
+    height: 59px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-left: 15px;
+  }
+  .invoiceHeaderLeft {
+    height: 41px;
+    width: 84px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .invoiceTitle{
+    width: 100%;
+    height: 22px;
+    display: flex;
+    align-items: center;
+  }
+  .invoiceCount{
+    width: 180px;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .invoiceHeaderRight{
+    height: 100%;
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .invoiceFilter{
+    align-items: center;
+    display: flex;
+    width: 118px;
+    height: 59px;
+  }
+}
+  @media (min-width: 960px) {
+  .invoiceHeader{
+    width: 100%;
+    height: 59px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .invoiceHeaderLeft {
+    height: 59px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .invoiceTitle{
+    width: 100%;
+    height: 36px;
+    display: flex;
+    align-items: center;
+  }
+  .invoiceCount{
+    width: 180px;
+    height: auto;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .invoiceHeaderRight{
+    height: 100%;
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .invoiceFilter{
+    align-items: center;
+    display: flex;
+    width: 118px;
+    height: 59px;
+  }
+  .mob{
+    display: none;
+  }
+  .mobile{
+    display: none;
+  }
+
+}

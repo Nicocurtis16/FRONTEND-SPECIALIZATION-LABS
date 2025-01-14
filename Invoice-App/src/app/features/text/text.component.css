@@ -1,0 +1,16 @@
+.body1 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: var(--base-black);
+}
+.body2 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: -0.23px;
+  color: var(--base-black);
+}

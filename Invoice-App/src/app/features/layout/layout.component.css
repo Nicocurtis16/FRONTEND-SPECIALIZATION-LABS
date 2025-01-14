@@ -1,0 +1,130 @@
+/* For small devices (max-width: 600px) */
+@media (max-width: 600px) {
+  /* Layout Panel */
+  .layoutPanel {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Left Panel (Sidebar) */
+  .layoutLeftPanel {
+    height: 72px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  /* Content Area */
+  .layoutContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* For medium devices (min-width: 600px and max-width: 960px) */
+@media (min-width: 600px) and (max-width: 960px) {
+  /* Layout Panel */
+  .layoutPanel {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-BG);
+  }
+
+  /* Left Panel (Sidebar) */
+  .layoutLeftPanel {
+    height: 80px;
+    width: 100%;
+    background-color: var(--grey);
+  }
+
+  /* Content Area */
+  .layoutContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    width: auto;
+  }
+}
+
+/* For large devices (min-width: 960px) */
+@media (min-width: 960px) {
+  /* Layout Panel */
+  .layoutPanel {
+    align-items: start;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background-color: var(--light-BG);
+    justify-content: space-between;
+  }
+
+  /* Left Panel (Sidebar) */
+  .layoutLeftPanel {
+    height: 100%;
+    width: 103px;
+  }
+
+  /* Content Area */
+  .layoutContent {
+    margin-top: 60px;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    position: relative;
+  }
+
+  .invoiceHeader {
+    width: 730px;
+    height: 59px;
+    margin-bottom: 30px;
+  }
+
+  .layoutContent {
+    flex: 1;
+    padding: 20px;
+    position: relative;
+  }
+
+  /* Side Drawer Overlay */
+  .side-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  /* Side Drawer */
+  .sideDrawer {
+    position: fixed;
+    top: 0;
+    left: 5.5rem;
+    width: 400px; /* Adjust as needed */
+    height: 100%;
+    background: #fff;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transition: transform 0.3s ease; /* Smooth transition for sliding */
+  }
+
+  /* Slide In for Drawer */
+  .sideDrawer.ng-enter {
+    transform: translateX(0); /* Slide in effect */
+  }
+
+  /* Slide Out for Drawer */
+  .sideDrawer.ng-leave {
+    transform: translateX(100%); /* Slide-out effect */
+  }
+}

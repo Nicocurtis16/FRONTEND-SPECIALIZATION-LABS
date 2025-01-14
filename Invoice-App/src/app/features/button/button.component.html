@@ -1,0 +1,14 @@
+<button
+  [ngClass]="variant"
+  class="button"
+  (click)="handleClick()"
+  [disabled]="disabled"> <!-- Bind the disabled property here -->
+
+  <ng-container *ngIf="variant === 'new-invoice'">
+    <div class="buttonIconPanel">
+      <img src="assets/images/icon-plus.svg" alt="New Invoice Icon" class="button-icon">
+    </div>
+  </ng-container>
+
+  <ng-content></ng-content>
+</button>

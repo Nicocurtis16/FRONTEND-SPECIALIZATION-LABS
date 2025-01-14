@@ -1,0 +1,118 @@
+.date-picker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.date-picker-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.date-picker-input {
+  width: 220px;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: 1px solid var(--grey);
+  padding: 0 10px 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+input{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+}
+.date-picker-input.active {
+  border-color: #7c5dfa;
+}
+
+.date-picker-popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  /*width: 100%;*/
+  background: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.date-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.date-picker-grid {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.date-picker-grid span {
+  font-weight: bold;
+  text-align: center;
+}
+
+.date-picker-grid button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}
+
+.date-picker-grid button:hover {
+  background: #7c5dfa;
+  color: #fff;
+}
+
+.date-picker-grid button.selected {
+  background: #7c5dfa;
+  color: #fff;
+}
+
+.date-picker-grid button.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+.date-picker-header button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.date-picker-header{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+}

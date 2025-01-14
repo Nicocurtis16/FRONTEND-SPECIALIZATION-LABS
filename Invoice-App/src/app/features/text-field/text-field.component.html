@@ -1,0 +1,8 @@
+<div class="form-control">
+    <label [for]="inputId"><p>{{label}}</p></label>
+    <input [class.is-invalid]="isInvalid" [placeholder]="placeholder" [formControl] = "controlName" [type]="type" [id] = "inputId">
+
+    @if (isInvalid && errorMessage) {
+        <span class="error-message">{{ errorMessage }}</span>
+      }
+</div>
