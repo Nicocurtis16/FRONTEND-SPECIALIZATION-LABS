@@ -10,7 +10,7 @@
     <div class="sideDrawer" *ngIf="isDrawerOpen">
       <ng-container [ngSwitch]="activeDrawer">
         <app-new-invoice *ngSwitchCase="'newInvoice'"></app-new-invoice>
-        <app-edit-invoice *ngSwitchCase="'editInvoice'"></app-edit-invoice>
+        <app-form *ngSwitchCase="'editInvoice'"></app-form>
       </ng-container>
     </div>
   </div>
