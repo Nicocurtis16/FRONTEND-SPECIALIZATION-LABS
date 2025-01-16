@@ -3,7 +3,7 @@ import { ButtonComponent } from '../../features/button/button.component';
 import { HeadLineComponent } from '../../features/head-line/head-line.component';
 import { Invoice } from '../../service/invoice';
 import { DataService } from "../../service/data.service";
-import { CommonModule, NgIf } from '@angular/common';
+import {CommonModule, CurrencyPipe, DatePipe, NgIf} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TextComponent } from "../../features/text/text.component";
 import { BadgeComponent } from "../../features/badge/badge.component";
@@ -26,6 +26,8 @@ import { DrawerService } from '../../service/drawer.service'; // Import the Draw
     DeleteInvoiceComponent,
   ],
   templateUrl: './view-invoice.component.html',
+  providers: [CurrencyPipe,DatePipe],
+
   styleUrls: ['./view-invoice.component.css']
 })
 export class ViewInvoiceComponent implements OnInit {
@@ -43,12 +45,16 @@ export class ViewInvoiceComponent implements OnInit {
     private store: Store,
     private dataService: DataService,
     private router: Router,
+    private datePipe: DatePipe,
+
     private activatedRoute: ActivatedRoute,
     private drawerService: DrawerService  // Inject DrawerService
   ) {}
 
   isLoading = this.store.select(selectIsLoadingState);
-
+  getFormattedDate(date: string): string {
+    return this.datePipe.transform(date, "d MMM, y") || '';
+  }
   ngOnInit() {
     const { id } = this.activatedRoute.snapshot.params;
     this.idSignal.set(id);

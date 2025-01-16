@@ -26,7 +26,7 @@
     <div class="invoicePaymentDue">
       <app-text
         [variant]="'body1'"
-        [text]="'Due ' + invoice.paymentDue"
+        [text]="'Due ' + getFormattedDate(invoice.paymentDue)"
         [color]="'--grey-color-dark'"
       ></app-text>
     </div>

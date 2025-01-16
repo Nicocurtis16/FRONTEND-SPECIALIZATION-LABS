@@ -1,6 +1,8 @@
 import { createReducer, on } from '@ngrx/store';
 import { invoiceAction } from '../actions/invoice.action';
 import { Invoice } from '../../service/invoice';
+import {state} from "@angular/animations";
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 export interface InvoiceState {
   invoices: Invoice[];
@@ -87,6 +89,10 @@ on(invoiceAction.updateStatus, (state, { id, status }) => ({
   on(invoiceAction.updateStatusFail, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(invoiceAction.addInvocice, ( state,{invoice}) => ({
+    ...state,
+    invoices: [...state.invoices, invoice],
   }))
 
 );

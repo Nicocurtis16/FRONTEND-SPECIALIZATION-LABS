@@ -18,13 +18,30 @@ import { NgForOf, NgIf } from "@angular/common";
   ]
 })
 export class PaymentTermsComponent implements ControlValueAccessor {
-  @Output() paymentTermChange = new EventEmitter<string>();
+  @Output() paymentTermChange = new EventEmitter<number>();
 
   isDropdownOpen: boolean = false;
-  paymentTerms = ['Net 1 Day', 'Net 7 Days', 'Net 14 Days', 'Net 30 Days'];
-  selectedPaymentTerm: string = 'Net 30 Days';
+  paymentTerms :Payment[] = [{
+    string: 'Next 1 day',
+    number: 1
+  },
+    {
+      string: 'Next 7 days',
+      number: 7
+    },
+    {
+      string: 'Next 14 days',
+      number: 14
+    },
+    {
+      string: 'Next 30 days',
+      number: 30
+    }
 
-  private onChange: (value: string) => void = () => {};
+  ]
+  selectedPaymentTerm: string = "Next 30 days";
+
+  private onChange: (value: number) => void = () => {};
   private onTouched: () => void = () => {};
 
   toggleDropdown() {
@@ -32,11 +49,11 @@ export class PaymentTermsComponent implements ControlValueAccessor {
     console.log('Dropdown is now:', this.isDropdownOpen);
   }
 
-  selectPaymentTerm(term: string) {
-    this.selectedPaymentTerm = term;
-    this.paymentTermChange.emit(term);
+  selectPaymentTerm(term: Payment) {
+    this.selectedPaymentTerm = term.string;
+    this.paymentTermChange.emit(term.number);
     this.isDropdownOpen = false; // Close dropdown after selection
-    this.onChange(term); // Notify the form about the change
+    this.onChange(term.number); // Notify the form about the change
     console.log('Selected payment term:', term);
   }
 
@@ -47,7 +64,7 @@ export class PaymentTermsComponent implements ControlValueAccessor {
     }
   }
 
-  registerOnChange(fn: (value: string) => void): void {
+  registerOnChange(fn: (value: number) => void): void {
     this.onChange = fn;
   }
 
@@ -58,4 +75,9 @@ export class PaymentTermsComponent implements ControlValueAccessor {
   setDisabledState(isDisabled: boolean): void {
     // Handle disabled state if necessary
   }
+
+}
+interface Payment {
+  string: string;
+  number: number;
 }

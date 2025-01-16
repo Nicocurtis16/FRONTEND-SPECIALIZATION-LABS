@@ -1,6 +1,6 @@
 import { Component, OnInit, computed } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { CurrencyPipe, NgFor, NgIf } from '@angular/common';
+import {CurrencyPipe, DatePipe, NgFor, NgIf} from '@angular/common';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -29,11 +29,12 @@ import { DrawerService } from '../../service/drawer.service';
     NgIf,
     NoInvoiceComponent,
     IconComponent,
+
   ],
   standalone: true,
   templateUrl: './invoice.component.html',
   styleUrls: ['./invoice.component.css'],
-  providers: [CurrencyPipe],
+  providers: [CurrencyPipe,DatePipe],
 })
 export class InvoiceComponent implements OnInit {
   isLoading = this.store.selectSignal(selectIsLoadingState);
@@ -59,6 +60,8 @@ export class InvoiceComponent implements OnInit {
     private dataService: DataService,
     private router: Router,
     private currencyPipe: CurrencyPipe,
+    private datePipe: DatePipe,
+
     private drawerService: DrawerService // Inject the DrawerService here
   ) {}
 
@@ -70,6 +73,9 @@ export class InvoiceComponent implements OnInit {
 
   getFormattedTotal(total: number): string {
     return this.currencyPipe.transform(total, 'GBP', 'symbol', '1.2-2') || '';
+  }
+  getFormattedDate(date: string): string {
+    return this.datePipe.transform(date, "d MMM, y") || '';
   }
 
   selectInvoice(invoice: Invoice) {

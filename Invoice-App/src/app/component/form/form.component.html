@@ -87,7 +87,7 @@
               [color]="'--tertiary'"
             ></app-text>
             <app-text-field
-              [controlName]="$any(invoiceForm.get('clientDetails.name'))"
+              [controlName]="$any(invoiceForm.get('clientName'))"
               inputId="clientName"
             />
           </div>
@@ -98,7 +98,7 @@
               [color]="'--tertiary'"
             ></app-text>
             <app-text-field
-              [controlName]="$any(invoiceForm.get('clientDetails.email'))"
+              [controlName]="$any(invoiceForm.get('clientEmail'))"
               inputId="clientEmail"
             />
           </div>
@@ -109,7 +109,7 @@
               [color]="'--tertiary'"
             ></app-text>
             <app-text-field
-              [controlName]="$any(invoiceForm.get('clientDetails.address.street'))"
+              [controlName]="$any(invoiceForm.get('clientAddress.street'))"
               inputId="clientAddressStreet"
             />
           </div>
@@ -121,7 +121,7 @@
                 [color]="'--tertiary'"
               ></app-text>
               <app-text-field
-                [controlName]="$any(invoiceForm.get('clientDetails.address.city'))"
+                [controlName]="$any(invoiceForm.get('clientAddress.city'))"
                 inputId="clientAddressCity"
               />
             </div>
@@ -132,7 +132,7 @@
                 [color]="'--tertiary'"
               ></app-text>
               <app-text-field
-                [controlName]="$any(invoiceForm.get('clientDetails.address.postCode'))"
+                [controlName]="$any(invoiceForm.get('clientAddress.postCode'))"
                 inputId="clientAddressPostCode"
               />
             </div>
@@ -143,7 +143,7 @@
                 [color]="'--tertiary'"
               ></app-text>
               <app-text-field
-                [controlName]="$any(invoiceForm.get('clientDetails.address.country'))"
+                [controlName]="$any(invoiceForm.get('clientAddress.country'))"
                 inputId="clientAddressCountry"
               />
             </div>
@@ -167,10 +167,10 @@
               [text]="'Payment Terms'"
               [color]="'--tertiary'"
             ></app-text>
-<!--            <app-payment-terms-->
-<!--              formControlName="paymentTerm"-->
-<!--              (paymentTermChange)="invoiceForm.get('paymentTerm')?.setValue($event)">-->
-<!--            </app-payment-terms>-->
+            <app-payment-terms
+              formControlName="paymentTerms"
+              (paymentTermChange)="invoiceForm.get('paymentTerms')?.setValue($event)">
+            </app-payment-terms>
           </div>
         </div>
         <div class="description">

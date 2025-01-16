@@ -53,11 +53,11 @@
       <div class="firstInfo">
         <div class="invoiceDate">
           <app-text [variant]="'body1'" [text]="'Invoice Date'" [color]="' --text-title'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice().createdAt" [color]="' --text-id'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="getFormattedDate(invoice().createdAt)" [color]="' --text-id'"></app-head-line>
         </div>
         <div class="paymentDue">
           <app-text [variant]="'body1'" [text]="'Payment Due'" [color]="' --text-title'"></app-text>
-          <app-head-line [variant]="'h3'" [text]="invoice().paymentDue" [color]="' --text-id'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="getFormattedDate(invoice().paymentDue)" [color]="' --text-id'"></app-head-line>
         </div>
       </div>
       <div class="secInfo">

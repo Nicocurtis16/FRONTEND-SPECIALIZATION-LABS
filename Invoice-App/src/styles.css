@@ -20,6 +20,7 @@ body{
   --light-BG:#F8F8FB;
   --dark-BG:#141625;
   --white: #FFFFFF;
+  --edit-panel: #FFFFFF;
 
 
 
@@ -47,6 +48,7 @@ body{
 
   /* Text Colors */
   --shape-plus:  #ffffff;
+  --input:#DFE3FA;
 
 
   --card-client-color: #858BB2;
@@ -164,7 +166,8 @@ body{
 
   --deleteBtn-color: #EC5757;
   --deleteBtn-text: #FFFFFF;
-
+--edit-panel:#141625;
+  --input:#252945;
 
 
 

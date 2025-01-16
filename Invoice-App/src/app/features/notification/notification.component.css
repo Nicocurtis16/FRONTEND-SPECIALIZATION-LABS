@@ -17,6 +17,10 @@
   animation: slide-in 0.3s ease-in-out;
   transition: opacity 0.3s ease-in-out;
 }
+.state{
+  height:20px ;
+  width: 10px;
+}
 
 .notification-container.success {
   background: #4caf50;
