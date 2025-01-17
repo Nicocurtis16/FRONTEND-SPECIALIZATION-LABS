@@ -77,10 +77,12 @@ export class ViewInvoiceComponent implements OnInit {
   handleEdit() {
     const currentInvoice = this.invoice();
     if (currentInvoice) {
+      console.log('Dispatching setActiveInvoice:', currentInvoice);
       this.store.dispatch(invoiceAction.setActiveInvoice({ id: currentInvoice.id }));
-      this.drawerService.openDrawer('editInvoice'); // Open the edit drawer via DrawerService
+      this.drawerService.openDrawer('editInvoice');
     }
   }
+
 
   closeDrawer() {
     this.activeDrawer = null;

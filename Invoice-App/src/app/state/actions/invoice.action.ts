@@ -16,5 +16,6 @@ export const invoiceAction = createActionGroup({
     updateStatusSuccess: props<{ id: string; status: 'paid' | 'pending' | 'draft' }>(),
     updateStatusFail: props<{ error: any }>(),
     addInvocice: props<{ invoice: Invoice }>(),
+    updateInvoice: props<{invoice : Invoice}>(),
   },
 });

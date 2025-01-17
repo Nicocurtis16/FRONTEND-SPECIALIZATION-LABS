@@ -11,7 +11,8 @@ import { FormService} from "../../service/form.service";
 import {Store} from "@ngrx/store";
 import {invoiceAction} from "../../state/actions/invoice.action";
 import {addDays} from "date-fns";
-import {Item} from "../../service/invoice";
+import {Invoice, Item} from "../../service/invoice";
+import {selectActiveInvoice} from "../../state/selectors/invoice.selector";
 
 
 @Component({
@@ -36,7 +37,7 @@ export class FormComponent implements OnInit {
   @Input() formType: 'newInvoice' | 'editInvoice' = 'newInvoice';
   invoiceForm!: FormGroup;
   isEditMode: boolean = false;
-
+ selectedInvoice = this.store.selectSignal(selectActiveInvoice)
   constructor(private fb: FormBuilder,
               private formService: FormService,
               private store :Store ,
@@ -45,7 +46,17 @@ export class FormComponent implements OnInit {
   ngOnInit(): void {
     this.isEditMode = this.formType === 'editInvoice';
     this.initializeForm();
+
+    if (this.isEditMode) {
+      this.store.select(selectActiveInvoice).subscribe((invoice) => {
+        if (invoice) {
+          this.populateForm(invoice);
+        }
+      });
+    }
   }
+
+
 
   private initializeForm() {
     this.invoiceForm = this.fb.group({
@@ -84,31 +95,15 @@ export class FormComponent implements OnInit {
     this.calculatePaymentDueDate();
     this. setupItemTotalCalculation();
 
+
+
     // Add initial item
     this.addItem();
 
-    if (this.isEditMode) {
-      this.loadInvoiceData();
-    }
+
   }
 
-  private loadInvoiceData() {
-    const invoiceData = {
-      id: 'INV-1234',
-      clientName: 'John Doe',
-      paymentDue: '2025-02-15',
-      total: 1000,
-      status: 'Pending',
-      paymentTerm: 'Net 30 Days',
-    };
 
-    this.invoiceForm.patchValue(invoiceData);
-
-    // Load items for the edit mode
-    const items = this.invoiceForm.get('items') as FormArray;
-    items.push(this.fb.group({ name: 'Item 1', quantity: 1, price: 100 }));
-    items.push(this.fb.group({ name: 'Item 2', quantity: 2, price: 150 }));
-  }
 
   get items(): FormArray {
     return this.invoiceForm.get('items') as FormArray;
@@ -130,15 +125,40 @@ export class FormComponent implements OnInit {
   removeItem(index: number) {
     this.items.removeAt(index);
   }
+  populateForm(invoice: Invoice): void {
+    console.log('Populating form with invoice:', invoice);
+    this.invoiceForm.patchValue(invoice);
+    const itemsControl = this.invoiceForm.get('items') as FormArray;
+    itemsControl.clear();
+
+    if (invoice.items) {
+      invoice.items.forEach((item) => {
+        itemsControl.push(
+          this.fb.group({
+            name: [item.name, Validators.required],
+            quantity: [item.quantity, [Validators.required, Validators.min(1)]],
+            price: [item.price, [Validators.required]],
+            total: [{ value: item.total, disabled: true }],
+          })
+        );
+      });
+    }
+  }
+
+
+
+
 
   onSubmit() {
     if (this.invoiceForm.invalid) return;
     const formData = this.invoiceForm.getRawValue();
     if (this.isEditMode) {
+      this.store.dispatch(invoiceAction.updateInvoice({invoice: formData}))
     } else {
       this.store.dispatch(invoiceAction.addInvocice({invoice : formData}))
     }
     this.invoiceForm.reset();
+    console.log(formData)
 
 
   }
@@ -197,7 +217,7 @@ export class FormComponent implements OnInit {
   }
 
   onDiscard() {
-    
+
   }
 
   onSaveAsDraft() {

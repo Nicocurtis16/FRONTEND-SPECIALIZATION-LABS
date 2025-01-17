@@ -17,7 +17,7 @@ const initialInvoiceState: InvoiceState = {
   invoices: [],
   isLoading: false,
   error: null,
-  filters: [], // Initialize with an empty array
+  filters: [], // Initialize with an empty array\
 };
 
 const {
@@ -93,6 +93,10 @@ on(invoiceAction.updateStatus, (state, { id, status }) => ({
   on(invoiceAction.addInvocice, ( state,{invoice}) => ({
     ...state,
     invoices: [...state.invoices, invoice],
+  })),
+  on(invoiceAction.updateInvoice, (state, {invoice}) => ({
+    ...state,
+    invoices: state.invoices.map(inv => inv.id === invoice.id ? {...inv,...invoice} : inv),
   }))
 
 );

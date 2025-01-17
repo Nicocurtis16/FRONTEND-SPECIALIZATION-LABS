@@ -31,3 +31,7 @@ export const selectInvoicesByStatus = (status: 'paid' | 'pending' | 'draft') =>
   createSelector(selectAllInvoices, (invoices) =>
     invoices.filter(invoice => invoice.status === status)
   );
+export const selectActiveInvoice = createSelector(
+  selectInvoiceState,
+  (state:InvoiceState) => state.activeInvoice
+)
