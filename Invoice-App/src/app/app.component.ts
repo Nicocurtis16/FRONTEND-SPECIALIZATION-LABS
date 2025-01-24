@@ -4,11 +4,12 @@ import {LayoutComponent} from "./features/layout/layout.component";
 import{HttpClientModule} from "@angular/common/http";
 import {FormComponent} from "./component/form/form.component";
 import {NotificationComponent} from "./features/notification/notification.component";
+import {LoginComponent} from "./component/login/login.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LayoutComponent, HttpClientModule, FormComponent, NotificationComponent],
+  imports: [RouterOutlet, LayoutComponent, HttpClientModule, FormComponent, NotificationComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -79,8 +79,14 @@ export class InvoiceComponent implements OnInit {
   }
 
   selectInvoice(invoice: Invoice) {
+    console.log('Selected Invoice:', invoice);
+    if (!invoice || !invoice.id) {
+      console.error('Invoice ID is null or undefined:', invoice);
+      return; // Prevent navigation if ID is invalid
+    }
     this.router.navigate(['/invoice', invoice.id]);
   }
+
 
   onFilterChange(selectedStatuses: string[]) {
     console.log('Selected Statuses:', selectedStatuses);

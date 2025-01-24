@@ -9,7 +9,7 @@
   ></app-invoice-header>
   </div>
 
-  <button *ngFor="let invoice of displayedInvoices()" class="invoiceCard" (click)="selectInvoice(invoice)">
+  <button (click)="selectInvoice(invoice)" *ngFor="let invoice of displayedInvoices()" class="invoiceCard">
     <div class="invoiceId">
       <app-head-line
         [variant]="'h3'"
@@ -45,6 +45,7 @@
         [text]="getFormattedTotal(invoice.total)"
         [color]="'--card-amount-color'"
       ></app-head-line>
+
     </div>
 
 

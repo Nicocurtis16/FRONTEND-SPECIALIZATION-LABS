@@ -251,7 +251,7 @@
                     [text]="String(calculateItemTotal(item))"
                     [variant]="'h4'"
                     [color]="'--tertiary'"
-                  ></app-head-line>
+                  ></app-head-line>z
                 </td>
                 <td>
                   <button
@@ -266,7 +266,7 @@
               </tbody>
             </table>
           </div>
-          <app-button [variant]="'add-new-item'" (click)="addItem()" >+ Add New Item</app-button>
+          <app-button [variant]="'add-new-item'" (click)="addItem($event)" >+ Add New Item</app-button>
 
         </div>
       </div>

@@ -98,7 +98,6 @@ export class FormComponent implements OnInit {
 
 
     // Add initial item
-    this.addItem();
 
 
   }
@@ -118,7 +117,8 @@ export class FormComponent implements OnInit {
     });
   }
 
-  addItem() {
+  addItem(event : Event) {
+   event.preventDefault();
     this.items.push(this.createItem());
   }
 
@@ -146,11 +146,8 @@ export class FormComponent implements OnInit {
   }
 
 
-
-
-
   onSubmit() {
-    if (this.invoiceForm.invalid) return;
+    // if (this.invoiceForm.invalid) return;
     const formData = this.invoiceForm.getRawValue();
     if (this.isEditMode) {
       this.store.dispatch(invoiceAction.updateInvoice({invoice: formData}))
@@ -159,9 +156,8 @@ export class FormComponent implements OnInit {
     }
     this.invoiceForm.reset();
     console.log(formData)
-
-
   }
+
   calculatePaymentDueDate() {
     this.invoiceForm
       .get('paymentTerms')
@@ -175,22 +171,30 @@ export class FormComponent implements OnInit {
       }
     });
   }
+  updateItemTotal(item: FormGroup): void {
+    const quantity = item.get('quantity')?.value || 0;
+    const price = item.get('price')?.value || 0;
+    const total = quantity * price;
+
+    item.get('total')?.setValue(total, { emitEvent: false });
+  }
   setupItemTotalCalculation(): void {
     const itemsArray = this.items;
 
-    // itemsArray.controls.forEach((control) => {
-    //   const quantityControl = control.get('quantity');
-    //   const priceControl = control.get('price');
-    //
-    //   if (quantityControl && priceControl) {
-    //     quantityControl.valueChanges.subscribe(() =>
-    //       this.updateItemTotal(control)
-    //     );
-    //     priceControl.valueChanges.subscribe(() =>
-    //       this.updateItemTotal(control)
-    //     );
-    //   }
-    // });
+    itemsArray.controls.forEach((control) => {
+      const quantityControl = control.get('quantity');
+      const priceControl = control.get('price');
+
+      if (quantityControl && priceControl) {
+        quantityControl.valueChanges.subscribe(() =>
+          this.updateItemTotal(control as FormGroup)
+        );
+        priceControl.valueChanges.subscribe(() =>
+          this.updateItemTotal(control as FormGroup)
+        );
+      }
+    });
+
 
     itemsArray.valueChanges.subscribe((items) => {
       const total = items.reduce(
@@ -223,4 +227,5 @@ export class FormComponent implements OnInit {
   onSaveAsDraft() {
 
   }
+
 }

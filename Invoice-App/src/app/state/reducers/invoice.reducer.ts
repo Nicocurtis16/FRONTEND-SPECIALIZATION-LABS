@@ -96,6 +96,7 @@ on(invoiceAction.updateStatus, (state, { id, status }) => ({
   })),
   on(invoiceAction.updateInvoice, (state, {invoice}) => ({
     ...state,
+    activeInvoice : invoice,
     invoices: state.invoices.map(inv => inv.id === invoice.id ? {...inv,...invoice} : inv),
   }))
 
