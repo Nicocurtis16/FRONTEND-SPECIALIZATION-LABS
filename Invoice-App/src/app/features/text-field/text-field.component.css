@@ -29,7 +29,7 @@
 .form-control input.is-invalid {
     border-color: var(--error) !important;
 }
-  
+
 
 .error-message {
     color: red;
