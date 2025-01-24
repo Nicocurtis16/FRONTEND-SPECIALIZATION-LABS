@@ -1,0 +1,41 @@
+<div class="loginPanel">
+
+<div class="loginPanelInner">
+  <div class="loginInputPanel">
+    <div class="loginLeft">
+      <app-icon
+        [name]="'invoiceLogo'">
+      </app-icon>
+    </div>
+    <div class="loginRight">
+      <app-icon [name]="'logo'"></app-icon>
+      <app-head-line
+        [text]="'Welcome Back!'"></app-head-line>
+
+      <app-text [text]="'Please log in to access your invoices, manage your records, and stay on top of your billing.'">
+
+      </app-text>
+      <div class="loginInput">
+        <form class="form" [formGroup]="form"  (ngSubmit)="onSubmit()">
+          <div class="email">
+            <app-text [text]="'Email'" ></app-text>
+            <input type="email" id="email" formControlName="email">
+
+          </div>
+          <div class="email">
+            <app-text [text]="'Password'" ></app-text>
+            <input type="password" id="password" formControlName="password">
+
+
+          </div>
+          <button type="submit" [disabled]="form.invalid" class="submit">Login</button>
+
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
