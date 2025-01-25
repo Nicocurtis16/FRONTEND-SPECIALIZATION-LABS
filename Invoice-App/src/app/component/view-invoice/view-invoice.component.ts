@@ -71,7 +71,7 @@ export class ViewInvoiceComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/']);
+    this.router.navigate(['layout/invoice']);
   }
 
   handleEdit() {

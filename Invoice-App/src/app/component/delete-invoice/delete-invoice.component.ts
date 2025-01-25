@@ -37,7 +37,7 @@ export class DeleteInvoiceComponent {
       this.confirmDelete.emit(); // Notify parent of delete confirmation
     }
     this.notificationService.showNotification('Failed to delete item.', 'success');
-    this.router.navigate(['/invoice']); // Ensure '/invoice' matches your routing setup
+    this.router.navigate(['layout/invoice']); // Ensure '/invoice' matches your routing setup
 
   }
 

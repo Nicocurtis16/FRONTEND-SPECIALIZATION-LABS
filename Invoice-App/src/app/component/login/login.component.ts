@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router'; // Import Router
 import { HeadLineComponent } from "../../features/head-line/head-line.component";
 import { IconComponent } from "../../features/icon/icon.component";
 import { TextComponent } from "../../features/text/text.component";
+import { AuthService } from '../../service/auth.service';
+import { Notification, NotificationService } from '../../service/notification.service';
 
 @Component({
   selector: 'app-login',
@@ -16,21 +19,40 @@ import { TextComponent } from "../../features/text/text.component";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'], // Fixed typo from `styleUrl` to `styleUrls`
 })
-export class LoginComponent {
-  form: FormGroup;
+export class LoginComponent implements OnInit {
+  form!: FormGroup;
 
-  constructor() {
+  constructor(
+    private authService: AuthService,
+    private notificationService: NotificationService, // Inject NotificationService for displaying notifications
+    private router: Router // Inject Router for navigation
+  ) {}
+
+  ngOnInit(): void {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      username: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit() {
     if (this.form.valid) {
-      console.log('Form Submitted', this.form.value);
-    } else {
-      console.error('Form is invalid');
+      console.log('data submitted')
+      const { username, password } = this.form.value;
+      this.authService.login(username, password).subscribe({
+        next: () => {
+          // Navigate to the dashboard or home page on successful login
+          this.notificationService.showNotification('login sucesfully.', 'success');
+
+          this.router.navigate(['layout/invoice']);
+          console.log('this.form.value')
+
+        },
+        error: (error) => {
+          // Display error toast or log error
+          console.error('Login failed:', error);
+        },
+      });
     }
   }
 }

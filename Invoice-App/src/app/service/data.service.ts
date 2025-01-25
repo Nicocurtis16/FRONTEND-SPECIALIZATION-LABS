@@ -4,17 +4,22 @@ import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { Invoice} from "./invoice";
 
+export const    apiUrl = 'https://invoice-app-bknd-strapi-cloud.onrender.com/';
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class DataService {
+
   private storageKey = 'invoices_data';
-  private apiUrl = 'assets/data.json';
+
+
 
   constructor(private http: HttpClient) {}
 
   fetchData(): Observable<Invoice[]> {
-    return this.http.get<Invoice[]>(this.apiUrl).pipe(
+    return this.http.get<Invoice[]>(apiUrl).pipe(
       tap(data => {console.log(data); return this.saveDataToLocalStorage(data)
 
       })

@@ -84,7 +84,7 @@ export class InvoiceComponent implements OnInit {
       console.error('Invoice ID is null or undefined:', invoice);
       return; // Prevent navigation if ID is invalid
     }
-    this.router.navigate(['/invoice', invoice.id]);
+    this.router.navigate(['layout/invoice', invoice.id]);
   }
 
 
