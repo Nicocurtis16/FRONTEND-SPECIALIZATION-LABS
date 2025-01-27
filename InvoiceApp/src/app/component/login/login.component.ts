@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit {
   form!: FormGroup;
 
   constructor(
-    private authService: AuthService,
-    private notificationService: NotificationService, // Inject NotificationService for displaying notifications
-    private router: Router // Inject Router for navigation
+      private authService: AuthService,
+      private notificationService: NotificationService, // Inject NotificationService for displaying notifications
+      private router: Router // Inject Router for navigation
   ) {}
 
   ngOnInit(): void {
