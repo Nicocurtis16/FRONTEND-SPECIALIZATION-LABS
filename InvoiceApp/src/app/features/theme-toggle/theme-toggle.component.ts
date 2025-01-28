@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, } from '@angular/core';
 import {ThemeService} from "../../service/theme.service";
 import {IconComponent} from "../icon/icon.component";
 
@@ -11,23 +11,14 @@ import {IconComponent} from "../icon/icon.component";
   templateUrl: './theme-toggle.component.html',
   styleUrl: './theme-toggle.component.css'
 })
-export class ThemeToggleComponent implements OnInit {
-
-  isDarkTheme!: boolean ;
+export class ThemeToggleComponent  {
   constructor(private themeService: ThemeService) {}
-ngOnInit() {
-    this.isDarkTheme = this.themeService.isDarkTheme;
-}
-  toggleTheme() {
-    if (this.isDarkTheme) {
-      document.body.classList.add('dark-theme')
-    }else {
-      document.body.classList.remove('dark-theme');
-    }
+
+  toggleTheme(): void {
     this.themeService.toggleTheme();
   }
 
-  get currentTheme() {
-    return this.themeService.getTheme();
+  isDarkTheme(): boolean {
+    return this.themeService.isDarkTheme();
   }
 }

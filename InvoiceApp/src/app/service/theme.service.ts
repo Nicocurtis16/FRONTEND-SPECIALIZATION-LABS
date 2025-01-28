@@ -4,35 +4,36 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ThemeService {
-  private _isDarkTheme: boolean = false;
-  get isDarkTheme(): boolean {
-    return this._isDarkTheme;
-  }
+  private isDarkMode = false;
 
   constructor() {
+    // Check local storage or system preference for initial theme
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-      this._isDarkTheme = savedTheme === 'dark';
-      this.applyTheme();
+      this.isDarkMode = savedTheme === 'dark';
+    } else {
+      this.isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
+    this.applyTheme();
   }
 
   toggleTheme(): void {
-    this._isDarkTheme = !this._isDarkTheme;
+    this.isDarkMode = !this.isDarkMode;
     this.applyTheme();
-    localStorage.setItem('theme', this._isDarkTheme ? 'dark' : 'light');
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
   }
 
-  applyTheme(): void {
-    const root = document.documentElement;
-    if (this._isDarkTheme) {
-      root.classList.add('dark-theme');
+  isDarkTheme(): boolean {
+    return this.isDarkMode;
+  }
+
+  private applyTheme(): void {
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-theme');
+      document.body.classList.remove('light-theme');
     } else {
-      root.classList.remove('dark-theme');
+      document.body.classList.add('light-theme');
+      document.body.classList.remove('dark-theme');
     }
-  }
-
-  getTheme(): 'light' | 'dark' {
-    return this._isDarkTheme ? 'dark' : 'light';
   }
 }

@@ -1,6 +1,6 @@
 <button (click)="toggleTheme()">
   <app-icon
-    [name]="currentTheme === 'light' ? 'dark-mode-icon' : 'light-mode-icon'"
+    [name]="isDarkTheme() ? 'light-mode-icon' : 'dark-mode-icon'"
     alt="Toggle Theme">
   </app-icon>
 </button>
