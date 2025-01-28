@@ -22,6 +22,7 @@ body{
   --dark-BG:#141625;
   --white: #FFFFFF;
   --edit-panel: #FFFFFF;
+  --sidebar-bg: #373B53;
 
 
 
@@ -151,9 +152,23 @@ body{
   --border-radius-lg: 20px;
   --border-radius-full: 9999px;
 }
+/* Light Theme */
+.light-theme {
+  --sidebar-bg: #373B53;
+  --background-bg:#141625;
+  --siderbar-divider: #494E6E;
+
+}
+
 
 /* Define your dark theme styles */
 .dark-theme {
+  --sidebar-bg: #1E2139;
+  --background-bg:#F8F8FB;
+  --siderbar-divider: #494E6E;
+
+
+
   --text-back:#ffffff;
   --button-primary: #1E2139;
   --status-tetx:#DFE3FA;

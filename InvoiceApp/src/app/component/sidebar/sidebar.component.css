@@ -1,0 +1,101 @@
+
+
+/* Mobile styles (default or max-width: 767px) */
+@media (max-width: 767px) {
+  .sidebarPanel{
+    height: 80px;
+    width: 100%;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    justify-content: space-between;
+  }
+  .sidebarDownTablet{
+    height:80px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sidebarDown{
+    display: none;
+  }
+  .logoDesktop{
+    display: none}
+  .logoMobile{
+    display: none
+  }
+  .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--siderbar-divider);
+    width: 100px;
+    height: 100%;
+    margin-left: 20px;
+  }
+}
+
+/* Tablet styles (min-width: 768px and max-width: 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sidebarPanel{
+    height: 80px;
+    width: 100%;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    justify-content: space-between;
+  }
+  .sidebarDownTablet{
+    height:80px;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .sidebarDown{
+    display: none;
+  }
+  .logoDesktop{
+    display: none}
+  .logoMobile{
+    display: none
+  }
+  .icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--siderbar-divider);
+    width: 100px;
+    height: 100%;
+    margin-left: 20px;
+  }
+}
+
+/* Desktop styles (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .sidebarPanel{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--sidebar-bg);
+    border-radius: 0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .sidebarDown{
+    height:113px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  .logoTablet{
+    display: none}
+  .logoMobile{
+    display: none
+  }
+  .sidebarDownTablet{
+    display: none;
+  }
+}
