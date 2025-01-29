@@ -49,6 +49,69 @@
         </div>
       </div>
     </button>
+    <button class="invoiceCardMobile">
+      <div class="cardTop">
+        <div class="invoiceId">
+          <app-head-line
+            [variant]="'h3'"
+            [text]="'#'"
+            [color]="'--tertiary'"
+          ></app-head-line>
+          <app-head-line
+            [variant]="'h3'"
+            [text]="card.id"
+            [color]="' --card-title-color'"
+          ></app-head-line>
+        </div>
+        <div class="invoiceClientName">
+          <app-text
+            [variant]="'body1'"
+            [text]="card.clientName"
+            [color]="'--card-client-color'"
+          ></app-text>
+        </div>
+      </div>
+      <div class="cardDown">
+        <div class="cardLeft">
+          <div class="invoicePaymentDue">
+            <app-text
+              [variant]="'body1'"
+              [text]="card.paymentDue"
+              [color]="'--grey-color-dark'"
+            ></app-text>
+          </div>
+          <div class="invoicePrice">
+            <app-head-line
+              [variant]="'h3'"
+              [text]="''+ card.total"
+              [color]="'--card-amount-color'"
+            ></app-head-line>
+
+          </div>
+
+        </div>
+        <div class="cardRight">
+          <div class="invoiceStatus">
+            <app-badge [status]="card.status"></app-badge>
+
+          </div>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </button>
   }
 
 </div>

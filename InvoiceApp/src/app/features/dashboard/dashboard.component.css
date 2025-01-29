@@ -39,8 +39,7 @@
     width: 100vw;
   }
   .dashboardContent{
-    height:730px;
-    width: 90%;
+    height:auto;
     background-color: #FFFFFF;
     margin-top: 10%;
   }

@@ -1,22 +1,152 @@
 
 
 /* Mobile styles (default or max-width: 767px) */
-@media (max-width: 767px) {
+@media (max-width: 480px) {
+.invoiceCard{
+  display: none;
+}
+  .invoiceCardMobile{
+    border-radius: 8px;
+    width:100%;
+  height: 134px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+    background-color: var(--bg-card);
+    opacity: 1;
+    box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+    cursor: pointer;
+    border: none;
+
+  }
+  .cardTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 47px;
+    width: 279px;
+  }
+  .cardDown{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 47px;
+    width: 279px;
+  }
+  .cardLeft{
+    height: 47px;
+    width: 106px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .invoicePaymentDue{
+    width: 100px;
+    height: 20px;
+
+  }
+  .cardRight{
+    height: 100%;
+    width: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .invoiceId{
+    display: flex;
+    width: 70px;
+  }
+  .invoicePrice{
+    width: 120px;
+    display: flex;
+    justify-content: start;
+
+  }
+  .invoiceStatus{
+    width: 104px;
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+  }
 
 }
 
 /* Tablet styles (min-width: 768px and max-width: 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 481px) and (max-width: 768px) {
+  .invoiceCardMobile{
+    display: none;
+  }
+  .invoicePanel{
+    margin-top: 50px;
+    width: 672px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .invoiceCard{
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: var(--bg-card);
+    opacity: 1;
+    border-radius: 8px;
+    box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
+    cursor: pointer;
+    border: none;
+
+  }
+  .invoiceCard:hover {
+    border: 1px solid var(--primary-color-light); /* Adds a border only on hover */
+  }
+  .invoiceId{
+    display: flex;
+    width: 70px;
+    margin-left: 20px;
+  }
+  .invoicePaymentDue{
+    width: 100px;
+
+  }
+  .invoiceClientName{
+    width: 100px;
+
+  }
+  .invoicePrice{
+    width: 120px;
+    display: flex;
+    justify-content: end;
+
+  }
+  .invoiceStatus{
+    width: 140px;
+    align-items: center;
+    display: flex;
+    margin-right: 10px;
+  }
+  .invoiceStatusIcon{
+    margin-left: 15px;
+  }
+
 
 }
 
 /* Desktop styles (min-width: 1025px) */
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
+  .invoiceCardMobile{
+    display: none;
+  }
 .invoicePanel{
   margin-top: 50px;
   width: 730px;
   height: auto;
   display: flex;
+  flex-direction: column;
 }
 
   .invoiceCard{
@@ -27,6 +157,7 @@
     justify-content: space-between;
     margin-bottom: 10px;
     background-color: var(--bg-card);
+    opacity: 1;
     border-radius: 8px;
     box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.1);
     cursor: pointer;
