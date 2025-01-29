@@ -29,9 +29,7 @@ body{
 
 
 
-}
 
-:root {
   /* Colors */
   --primary: #7C5DFA;
   --primary-light: #9277FF;
@@ -155,23 +153,29 @@ body{
 /* Light Theme */
 .light-theme {
   --sidebar-bg: #373B53;
-  --background-bg:#141625;
+
+  --background-bg:#F8F8FB;
+
   --siderbar-divider: #494E6E;
   --card-bg:#FFFFFF;
+  --no-invoice-text: #888EB0;
+
+
+
+
 
 }
 
 
 /* Define your dark theme styles */
 .dark-theme {
+  --background-bg:#141625;
   --sidebar-bg: #1E2139;
-  --background-bg:#F8F8FB;
-  --siderbar-divider: #494E6E;
   --card-bg:#1E2139;
+  --no-invoice-text: #FFFFFF;
 
 
-
-
+  --siderbar-divider: #494E6E;
   --text-back:#ffffff;
   --button-primary: #1E2139;
   --status-tetx:#DFE3FA;
@@ -187,11 +191,6 @@ body{
   --deleteBtn-text: #FFFFFF;
   --edit-panel:#141625;
   --input:#252945;
-
-
-
-
-
 
   --card-title-color: #FFFFFF;
   --light-BG:#141625;
@@ -214,11 +213,6 @@ body{
   --text-invoice:#FFFFFF;
 
   --shape-plus:  #ffffff;
-
-
-
-
-
 
 
 

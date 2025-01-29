@@ -18,7 +18,7 @@
   .dashboardContent{
     height:530px;
     width: 90%;
-    background-color: #FFFFFF;
+    background-color: var(--background-bg);
     margin-top: 10%;
   }
 }
@@ -40,7 +40,6 @@
   }
   .dashboardContent{
     height:auto;
-    background-color: #FFFFFF;
     margin-top: 10%;
   }
 }
