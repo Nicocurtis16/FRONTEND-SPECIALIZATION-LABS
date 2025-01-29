@@ -1,6 +1,6 @@
 <div class="invoicePanel">
   @for (card of invoice(); track card.id){
-    <button class="invoiceCard">
+    <button class="invoiceCard" (click)="viewInvoice(card)">
       <div class="invoiceId">
         <app-head-line
           [variant]="'h3'"
@@ -49,7 +49,7 @@
         </div>
       </div>
     </button>
-    <button class="invoiceCardMobile">
+    <button class="invoiceCardMobile" (click)="viewInvoice(card)">
       <div class="cardTop">
         <div class="invoiceId">
           <app-head-line
