@@ -1,12 +1,12 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { provideHttpClient } from '@angular/common/http'; // ✅ Use provideHttpClient
 
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    HttpClientModule,  // Add HttpClientModule here in the providers
+    provideHttpClient() // ✅ Correct way to provide HttpClient in standalone mode
   ]
 };
