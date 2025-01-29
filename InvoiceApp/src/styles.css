@@ -157,6 +157,7 @@ body{
   --sidebar-bg: #373B53;
   --background-bg:#141625;
   --siderbar-divider: #494E6E;
+  --card-bg:#FFFFFF;
 
 }
 
@@ -166,6 +167,8 @@ body{
   --sidebar-bg: #1E2139;
   --background-bg:#F8F8FB;
   --siderbar-divider: #494E6E;
+  --card-bg:#1E2139;
+
 
 
 
