@@ -6,6 +6,9 @@ import { TextComponent } from "../../../shared/component/text/text.component";
 import { BadgeComponent } from "../../../shared/component/badge/badge.component";
 import { IconComponent } from "../../../shared/component/icon/icon.component";
 import { DataService } from "../../../shared/service/data.service";
+import {Store} from "@ngrx/store";
+import {invoiceAction} from "../../../shared/state/actions/invoice.action";
+import {selectAllInvoices} from "../../../shared/state/selectors/invoice.selector";
 
 @Component({
   selector: 'app-invoice',
@@ -20,17 +23,20 @@ import { DataService } from "../../../shared/service/data.service";
   styleUrl: './invoice.component.css'
 })
 export class InvoiceComponent implements OnInit {
-  invoice = signal<Invoice[]>([]);
+  invoice = this.store.selectSignal(selectAllInvoices);
 
   constructor(
     private dataService: DataService,
-    private router: Router
+    private router: Router,
+    private store: Store,
   ) {}
 
   ngOnInit() {
-    this.dataService.getData().subscribe(data => {
-      this.invoice.set(data);
-    });
+    this.store.dispatch(invoiceAction.loadInvoices())
+
+    // this.dataService.getData().subscribe(data => {
+    //   this.invoice.set(data);
+    // });
   }
 
   viewInvoice(invoice: Invoice) {

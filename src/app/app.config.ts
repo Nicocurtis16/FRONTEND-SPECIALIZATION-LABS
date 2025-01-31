@@ -1,12 +1,25 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
-import { provideHttpClient } from '@angular/common/http'; // ✅ Use provideHttpClient
+import { ApplicationConfig, isDevMode } from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideState, provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { invoiceReducer } from './shared/state/reducers/invoice.reducer';
 
 import { routes } from './app.routes';
+import { provideRouter } from '@angular/router';
+import { InvoiceEffect } from './shared/state/effects/invoice.effects';
+import {metaReducers, reducers} from "./shared/state/reducers/localStorage.reducer";
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient() // ✅ Correct way to provide HttpClient in standalone mode
+    provideHttpClient(),
+    provideEffects([InvoiceEffect]),
+    provideState({
+      name: 'invoices',
+      reducer: invoiceReducer,
+    }),
+    provideStore(reducers,{metaReducers}), // Add this line
+    provideStoreDevtools({ maxAge: 25, logOnly: !isDevMode() }),
   ]
 };
