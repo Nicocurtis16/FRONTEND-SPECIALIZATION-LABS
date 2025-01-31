@@ -10,15 +10,15 @@
       [value]="selectedDate | date: 'dd MMM yyyy'"
       readonly
     />
-    <img src="assets/images/icon-calendar.svg">
+    <img src="../../../assets/images/icon-calendar.svg">
   </div>
 
   <div class="date-picker-popup" *ngIf="isDatePickerOpen">
     <div class="date-picker-header">
-      <button (click)="previousMonth()"><img src="assets/images/icon-arrow-left.svg"></button>
+      <button (click)="previousMonth()"><img src="../../../assets/images/icon-arrow-left.svg"></button>
 
       <span>{{ currentMonth | date: 'MMM yyyy' }}</span>
-      <button (click)="nextMonth()"><img src="assets/images/icon-arrow-right.svg"></button>
+      <button (click)="nextMonth()"><img src="../../../assets/images/icon-arrow-right.svg"></button>
     </div>
     <div class="date-picker-grid">
       <button
