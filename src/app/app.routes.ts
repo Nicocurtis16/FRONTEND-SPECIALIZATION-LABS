@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { DashboardComponent } from "./features/dashboard/dashboard.component";
-import { InvoiceComponent } from "./component/invoice/invoice.component";
-import { ViewInvoiceComponent } from "./component/view-invoice/view-invoice.component";
+import { DashboardComponent } from "./core/component/dashboard/dashboard.component";
+import { InvoiceComponent } from "./core/pages/invoice/invoice.component";
+import { ViewInvoiceComponent } from "./core/pages/view-invoice/view-invoice.component";
 
 export const routes: Routes = [
   {
