@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {TextComponent} from "../../../shared/component/text/text.component";
-import {selectAllInvoices, selectFilteredInvoices} from "../../state/selectors/invoice.selector";
 import {Store} from "@ngrx/store";
+import {selectFilteredInvoices} from "../../../shared/state/selectors/invoice.selector";
 
 @Component({
   selector: 'app-data-length',

@@ -1,4 +1,6 @@
 <div class="invoicePanel">
+<app-invoice-header></app-invoice-header>
+
   @for (card of invoice(); track card.id){
     <button class="invoiceCard" (click)="viewInvoice(card)">
       <div class="invoiceId">

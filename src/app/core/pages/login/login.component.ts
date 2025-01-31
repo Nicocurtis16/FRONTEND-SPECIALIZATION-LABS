@@ -6,6 +6,7 @@ import { IconComponent } from "../../../shared/component/icon/icon.component";
 import { TextComponent } from "../../../shared/component/text/text.component";
 import { AuthService } from '../../service/auth.service';
 import { Notification, NotificationService } from '../../../shared/service/notification.service';
+import {InvoiceHeaderComponent} from "../../feature/invoice-header/invoice-header.component";
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ import { Notification, NotificationService } from '../../../shared/service/notif
     IconComponent,
     TextComponent,
     ReactiveFormsModule,
+    InvoiceHeaderComponent,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'], // Fixed typo from `styleUrl` to `styleUrls`

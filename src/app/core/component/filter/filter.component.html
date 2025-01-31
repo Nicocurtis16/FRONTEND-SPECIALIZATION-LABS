@@ -10,20 +10,25 @@
     </div>
   </button>
 
-  <div *ngIf="isDropdownOpen" class="dropdown-content absolute mt-1 border rounded bg-white p-2 w-full">
-    <div *ngFor="let status of statuses" class="py-1">
-      <label>
-        <input
-          type="checkbox"
-          [checked]="status.checked"
-          (change)="onStatusChange(status)"
-          class="h-4 w-4">
-        <app-head-line
-          [variant]="'h3'"
-          [color]="'--base-black'"
-          [text]="status.label">
-        </app-head-line>
-      </label>
+  <!-- The dropdown content -->
+  @if (isDropdownOpen) {
+    <div class="dropdown-content absolute mt-1 border rounded bg-white p-2 w-full">
+      @for (status of statuses; track status.label; let i = $index) {
+        <div class="py-1">
+          <label class="checkbox-label">
+            <input
+              type="checkbox"
+              [checked]="status.checked"
+              (change)="onStatusChange(status)"
+              class="h-4 w-4 checkbox-input">
+            <app-head-line
+              [variant]="'h3'"
+              [color]="'--base-black'"
+              [text]="status.label">
+            </app-head-line>
+          </label>
+        </div>
+      }
     </div>
-  </div>
+  }
 </div>

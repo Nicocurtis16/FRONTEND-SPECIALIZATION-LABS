@@ -144,11 +144,11 @@
 
 
 
-  /* When checkbox is unchecked */
-  .dropdown-content input[type="checkbox"]:not(:checked) {
-    background-color: var(--grey); /* White background when unchecked */
-    border-color: var(--grey); /* Default border */
-  }
+  /*!* When checkbox is unchecked *!*/
+  /*.dropdown-content input[type="checkbox"]:not(:checked) {*/
+  /*  background-color: var(--grey); !* White background when unchecked *!*/
+  /*  border-color: var(--grey); !* Default border *!*/
+  /*}*/
 
   /* When checkbox is hovered */
   .dropdown-content input[type="checkbox"]:hover {
@@ -161,7 +161,28 @@
     background-color: var(--grey); /* Darker green when checked and hovered */
     border-color: var(--primary-color); /* Darker green border when checked and hovered */
   }
+  /* Style for the label container */
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Adjust the gap between the checkbox and text */
+    cursor: pointer;
+  }
 
+  /* Style for the checkbox when the label is hovered */
+  .checkbox-label:hover .checkbox-input {
+    border-color: #7C5DFA; /* Change border color on hover */
+    color: #DFE3FA; /* Change color on hover */
+  }
+
+  /* Optional: Add a transition for smooth effect */
+  .checkbox-input {
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  .checkbox-label:has(app-head-line:hover) .checkbox-input {
+    border-color: #7C5DFA;
+    color: #DFE3FA;
+  }
 
 }
 
