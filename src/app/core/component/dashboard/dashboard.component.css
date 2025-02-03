@@ -16,8 +16,9 @@
     width: 100vw;
   }
   .dashboardContent{
+
     height:530px;
-    width: 90%;
+    width: 100%;
     background-color: var(--background-bg);
     margin-top: 10%;
   }

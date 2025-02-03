@@ -1,4 +1,203 @@
-@media (min-width: 960px) {
+@media (max-width: 600px) {
+  .viewInvoicePanel{
+    display: none;
+  }
+  .viewInvoiceTop{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .buttonContainer{
+    width: 90%;
+  }
+  .viewInvoicePanelMobile{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .viewInvoiceBtn{
+    display: flex;
+    width: 81px;
+    height: 15px;
+  }
+  button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 81px;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+  .viewInvoiceControlLeft{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 40px;
+    height: 40px;
+    width: 100%;
+    background-color: #EC5757;
+  }
+  .ViewInvoiceControl{
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: space-between;
+    height: 91px;
+    width: 90%;
+    align-items: center;
+    margin-top: 20px ;
+    background-color: var(--button-primary);
+  }
+  .statusText{
+    margin-left: 15px;
+  }
+  .buttonControlDown{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 91px;
+    background-color: var(--card-down);
+  }
+  .statusBadge{
+    margin-right: 15px;
+  }
+  .viewInvoiceDown{
+    margin-top: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    background-color: var(--card-down);
+  }
+  .idTitle{
+    display: flex;
+
+  }
+  .idLocation{
+    width: 90%;
+    margin-top: 15px;
+
+  }
+  .midInfo{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    height: 209px;
+    justify-content: space-between;
+  }
+  .midInnerInfo{
+    display: flex;
+    width: 232px;
+    height: 130px;
+    justify-content: space-between;
+  }
+  .firstInfo{
+    height: 126px;
+    width: 98px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .accountDetails{
+    width: 90%;
+    padding-bottom: 10px;
+    height: auto;
+    background-color: var(--card-down-top);
+    margin-top: 30px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+  }
+
+  .secInfo{
+    display: flex;
+    flex-direction: column;
+    height: 130px;
+  }
+  .accountDetailsLeft{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+
+    margin-top: 15px;
+  }
+
+  .accountDetailsDown{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 80px;
+    border-radius: 0 0 15px 15px;
+    background-color: var(--card-down-down);
+    align-items: center;
+    margin-bottom: 20px;
+
+  }
+  .viewInvoiceControlRight{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    height: 91px;
+    width: 90%;
+    background-color: var(--card-down);
+
+  }
+
+
+  .accountPaymentDue{
+    margin-left: 40px;
+  }
+  .accountTotal{
+    margin-right: 40px;
+  }
+  .accountInfo{
+    width: 98px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .accountDetailsTitle{
+    height: 20px;
+    width: 80px;
+    display: flex;
+    justify-content: end;
+
+  }
+  .title{
+    margin-left: 20px;
+  }
+  .amount{
+    margin-right: 30px;
+  }
+  .amountTitle{
+    margin-left: 30px;
+  }
+  .itemsQuant{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+}
+
+  @media (min-width: 960px) {
+  .viewInvoicePanelMobile{
+    display: none;
+  }
 .viewInvoicePanel{
   display: flex;
   flex-direction: column;
