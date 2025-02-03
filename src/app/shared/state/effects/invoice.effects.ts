@@ -33,30 +33,30 @@ export class InvoiceEffect {
     )
   );
 
-  // deleteInvoice$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(invoiceAction.deleteInvoice),
-  //     switchMap(({ id }) => {
-  //       return this.dataService.deleteInvoice(id).pipe( // Assuming deleteInvoice() in DataService
-  //         map(() => invoiceAction.deleteInvoiceSuccess({ id })),
-  //         catchError((error) =>
-  //           of(invoiceAction.deleteInvoiceFail({ error }))
-  //         )
-  //       );
-  //     })
-  //   )
-  // );
-  // updateStatus$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(invoiceAction.updateStatus),
-  //     switchMap(({ id, status }) =>
-  //       this.dataService.updateInvoiceStatus(id, status).pipe( // Assuming updateInvoiceStatus is defined in DataService
-  //         map(() => invoiceAction.updateStatusSuccess({ id, status })),
-  //         catchError((error) =>
-  //           of(invoiceAction.updateStatusFail({ error }))
-  //         )
-  //       )
-  //     )
-  //   )
-  // );
+  deleteInvoice$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(invoiceAction.deleteInvoice),
+      switchMap(({ id }) => {
+        return this.dataService.deleteInvoice(id).pipe( // Assuming deleteInvoice() in DataService
+          map(() => invoiceAction.deleteInvoiceSuccess({ id })),
+          catchError((error) =>
+            of(invoiceAction.deleteInvoiceFail({ error }))
+          )
+        );
+      })
+    )
+  );
+  updateStatus$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(invoiceAction.updateStatus),
+      switchMap(({ id, status }) =>
+        this.dataService.updateInvoiceStatus(id, status).pipe( // Assuming updateInvoiceStatus is defined in DataService
+          map(() => invoiceAction.updateStatusSuccess({ id, status })),
+          catchError((error) =>
+            of(invoiceAction.updateStatusFail({ error }))
+          )
+        )
+      )
+    )
+  );
 }

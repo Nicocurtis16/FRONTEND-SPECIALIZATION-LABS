@@ -245,3 +245,9 @@
   </div>
 
 }
+@if (isDeletePromptVisible){
+<app-delete-prompt
+  (confirmDelete)="onConfirmDelete()"
+  (cancelDelete)="onCancelDelete()"
+></app-delete-prompt>
+}
