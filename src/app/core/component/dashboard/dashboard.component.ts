@@ -3,6 +3,7 @@ import {ThemeToggleComponent} from "../theme-toggle/theme-toggle.component";
 import {SidebarComponent} from "../sidebar/sidebar.component";
 import {InvoiceComponent} from "../../pages/invoice/invoice.component";
 import {RouterOutlet} from "@angular/router";
+import {SliderComponent} from "../../feature/slider/slider.component";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,7 +12,8 @@ import {RouterOutlet} from "@angular/router";
     ThemeToggleComponent,
     SidebarComponent,
     InvoiceComponent,
-    RouterOutlet
+    RouterOutlet,
+    SliderComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'

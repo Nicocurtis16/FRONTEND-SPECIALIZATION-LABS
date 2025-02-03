@@ -113,6 +113,7 @@
     margin-top: 30px;
     border-radius: 15px 15px 0 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
@@ -127,10 +128,17 @@
   .accountDetailsLeft{
     align-items: center;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 90%;
 
     margin-top: 15px;
+  }
+  .itemsCard{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .accountDetailsDown{
@@ -203,6 +211,7 @@
   flex-direction: column;
   width: 730px;
   height: 710px;
+  margin-top:50px;
 }
   .viewInvoiceTop{
     width: 100%;

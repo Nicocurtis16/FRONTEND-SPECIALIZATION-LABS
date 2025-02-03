@@ -16,7 +16,7 @@
         </div>
         <div class="viewInvoiceControlRight">
           <!-- Using the ButtonComponent with onClick event binding -->
-          <app-button [variant]="'edit'" (onClick)="handleEdit()">Edit</app-button>
+          <app-button [variant]="'edit'" (onClick)="openEditSlider(invoice)">Edit</app-button>
           <app-button [variant]="'delete'" (onClick)="handleDelete()">Delete</app-button>
           <app-button [variant]="'marked-as-paid'" (onClick)="handleMarkedAsPaid()" [disabled]="invoice.status === 'draft'">Mark as Paid</app-button>
         </div>
@@ -201,34 +201,37 @@
         </div>
       </div>
 
-      <div class="accountDetails" >
+      <div class="accountDetails">
         <div class="accountDetailsLeft">
-          <div  class="accountInfo">
-            <div class="itemsName"  >
+          @for (item of invoice.items; track item) {
+            <div class="itemsCard">
+              <div class="accountInfo">
+                <!-- Item Name -->
+                <div class="itemsName">
+                  <app-head-line [variant]="'h4'" [text]="item.name" [color]="'--text-id'"></app-head-line>
+                </div>
 
-              <app-head-line  *ngFor="let item of invoice.items" [variant]="'h4'" [text]="item.name" [color]="' --text-id'"></app-head-line>
+                <!-- Item Quantity and Price -->
+                <div class="itemsQuant">
+                  <app-head-line
+                    [variant]="'h4'"
+                    [text]="item.quantity + ' × £' + item.price"
+                    [color]="'--text-title'"
+                  ></app-head-line>
+                </div>
+              </div>
+
+              <!-- Item Total -->
+              <div class="accountDetailsTitle">
+                <div>
+                  <app-head-line [variant]="'h4'" [text]="'£' + item.total" [color]="'--text-id'"></app-head-line>
+                </div>
+              </div>
             </div>
-            <div class="itemsQuant">
-              <app-head-line
-                *ngFor="let item of invoice.items"
-                [variant]="'h4'"
-                [text]="item.quantity + ' × £' + item.price"
-                [color]="'--text-title'"
-              ></app-head-line>
-            </div>
-          </div>
-          <div  class="accountDetailsTitle">
 
-            <div>
-              <app-head-line  *ngFor="let item of invoice.items" [variant]="'h4'" [text]="'£' + item.total" [color]="' --text-id'" ></app-head-line>
-
-            </div>
-          </div>
-
+          }
         </div>
-
       </div>
-
       <div class="accountDetailsDown">
         <app-text [variant]="'body1'" [color]="'--white'" [text]="'Grand Total'" [alignment]="'left'" class="amountTitle"></app-text>
         <app-head-line [variant]="'h2'" [text]="'£' + invoice.total" [color]="'--white'" class="amount"></app-head-line>
@@ -251,3 +254,7 @@
   (cancelDelete)="onCancelDelete()"
 ></app-delete-prompt>
 }
+<app-slider [isVisible]="isSliderVisible" (closed)="closeSlider()">
+  <app-form
+  ></app-form>
+</app-slider>

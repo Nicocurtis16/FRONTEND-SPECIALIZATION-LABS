@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, FormArray, Validators, ReactiveFormsModule, AbstractControl} from '@angular/forms';
 import { NgForOf, NgIf} from "@angular/common";
 import {Store} from "@ngrx/store";
@@ -34,7 +34,11 @@ import {ButtonComponent} from "../../../shared/component/button/button.component
   providers: [FormService],
 })
 export class FormComponent implements OnInit {
-  @Input() formType: 'newInvoice' | 'editInvoice' = 'newInvoice';
+  @Input() formType: 'newInvoice' | 'editInvoice' = 'newInvoice'; // Input for form type
+  @Input() invoice: Invoice | null = null; // Input for editing an existing invoice
+  @Output() formSubmit = new EventEmitter<Invoice>(); // Emits the form data
+  @Output() formCancel = new EventEmitter<void>(); // Emits when the form is canceled
+
   invoiceForm!: FormGroup;
   isEditMode: boolean = false;
  selectedInvoice = this.store.selectSignal(selectActiveInvoice)
@@ -97,13 +101,15 @@ export class FormComponent implements OnInit {
 
 
 
-    // Add initial item
-
-
   }
 
 
 
+
+
+  onCancel() {
+    this.formCancel.emit();
+  }
   get items(): FormArray {
     return this.invoiceForm.get('items') as FormArray;
   }
@@ -205,9 +211,7 @@ export class FormComponent implements OnInit {
     });
   }
 
-  onCancel() {
-    console.log('Form cancelled');
-  }
+
   calculateItemTotal(item: AbstractControl): number {
     const quantity = item.get('quantity')?.value || 0;
     const price = item.get('price')?.value || 0;

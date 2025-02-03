@@ -6,9 +6,10 @@
   display: none;
 }
   .invoiceCardMobile{
+    margin-top: 20px;
     border-radius: 8px;
     width:100%;
-  height: 134px;
+    height: 134px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,14 +27,14 @@
     justify-content: space-between;
     align-items: center;
     height: 47px;
-    width: 279px;
+    width: 90%;
   }
   .cardDown{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 47px;
-    width: 279px;
+    width: 90%;
   }
   .cardLeft{
     height: 47px;

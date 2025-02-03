@@ -12,6 +12,9 @@ import { DrawerService } from "../../service/drawer.service";
 import { invoiceAction } from "../../../shared/state/actions/invoice.action";
 import {DeletePromptComponent} from "../../feature/delete-prompt/delete-prompt.component";
 import {NotificationService} from "../../../shared/service/notification.service";
+import {IconComponent} from "../../../shared/component/icon/icon.component";
+import {SliderComponent} from "../../feature/slider/slider.component";
+import {FormComponent} from "../form/form.component";
 
 @Component({
   selector: 'app-view-invoice',
@@ -23,6 +26,8 @@ import {NotificationService} from "../../../shared/service/notification.service"
     BadgeComponent,
     ButtonComponent,
     DeletePromptComponent,
+    SliderComponent,
+    FormComponent,
   ],
   templateUrl: './view-invoice.component.html',
   providers: [CurrencyPipe, DatePipe],
@@ -31,6 +36,11 @@ import {NotificationService} from "../../../shared/service/notification.service"
 export class ViewInvoiceComponent implements OnInit {
   invoice: Invoice | undefined;
   isDeletePromptVisible: boolean = false;
+  isDrawerOpen = true;
+  showEditInvoice = false;
+  activeDrawer: 'edit' | 'new' | null = null;
+
+
 
   constructor(
     private store: Store,
@@ -88,10 +98,23 @@ ngOnInit() {
 
     }
   }
+  isSliderVisible = false; // Controls slider visibility
+  isEditMode = false; // Tracks whether the form is in edit mode
+  selectedInvoice: Invoice | null = null; // Stores the invoice to edit
+
   onCancelDelete() {
     this.isDeletePromptVisible = false;
   }
+  openEditSlider(invoice: Invoice) {
+    this.isEditMode = true; // Set to edit mode
+    this.selectedInvoice = invoice; // Set the invoice to edit
+    this.isSliderVisible = true; // Show the slider
+  }
 
+  closeSlider() {
+    this.isSliderVisible = false; // Hide the slider
+    this.selectedInvoice = null; // Reset the selected invoice
+  }
   // closeDeleteModal() {
   //   this.isDeleteVisible = false;
   // }

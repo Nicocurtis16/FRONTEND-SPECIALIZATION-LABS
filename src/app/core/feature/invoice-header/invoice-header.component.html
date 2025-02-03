@@ -13,10 +13,18 @@
       <app-filter (filterChange)="onFilterChange($event)"></app-filter>
     </div>
     <div class="newInvoice">
-      <app-button variant="new-invoice" class="desk" (onClick)="openNewInvoice.emit()">New Invoice</app-button>
+      <app-button variant="new-invoice" class="desk" (onClick)="openCreateSlider()">New Invoice</app-button>
       <app-button variant="new-invoice" class="mob" (onClick)="openNewInvoice.emit()">New</app-button>
     </div>
 
   </div>
 
 </div>
+<app-slider [isVisible]="isSliderVisible" (closed)="closeSlider()">
+  <app-form
+    [formType]="isEditMode ? 'editInvoice' : 'newInvoice'"
+    [invoice]="selectedInvoice"
+    (formSubmit)="onFormSubmit($event)"
+    (formCancel)="closeSlider()"
+  ></app-form>
+</app-slider>
