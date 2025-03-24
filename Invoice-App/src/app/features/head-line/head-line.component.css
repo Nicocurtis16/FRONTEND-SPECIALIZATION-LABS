@@ -1,0 +1,33 @@
+.h1 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: -1px;
+  color: var(--base-black);
+}
+.h2 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 22px;
+  letter-spacing: -0.63px;
+  color: var(--base-black);
+}
+.h3 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 15px;
+  letter-spacing: -0.8px;
+}
+
+.h4 {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  letter-spacing: -0.25px;
+  color: var(--base-black);
+}
+

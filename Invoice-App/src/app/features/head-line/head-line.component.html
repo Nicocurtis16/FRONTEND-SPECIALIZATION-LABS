@@ -1,0 +1,15 @@
+
+@if(text){
+  <h1 [class]="variant" [style.color]="'var(' + color + ')'"     [style.text-align]="alignment"
+  >
+    {{ text }}
+  </h1>
+} @else {
+
+  <h1 [class]="variant" [style.color]="'var(' + color + ')'"     [style.text-align]="alignment"
+  >
+    <ng-content></ng-content>
+  </h1>
+
+
+}

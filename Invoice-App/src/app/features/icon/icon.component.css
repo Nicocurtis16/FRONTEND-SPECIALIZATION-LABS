@@ -1,0 +1,8 @@
+.icon {
+  /* Basic styling for the icon */
+  width: auto;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  /* You can add any global styles like hover effects if needed */
+}
