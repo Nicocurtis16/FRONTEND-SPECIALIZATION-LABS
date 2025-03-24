@@ -1,0 +1,40 @@
+<div class="quiz-container ">
+  <div *ngIf="!quizCompleted && currentQuestion" class="questionPanel">
+    <div class="questionPanelLeft">
+      <div class="questionsDisplay">
+        <div class="question">
+          <div class="questionLeft">Question {{ currentQuestionIndex + 1 }} of {{ totalQuestions }}</div>
+          <div class="questionDetail">
+            {{ currentQuestion.question }}
+          </div>
+        </div>
+        <div class="signal">
+          <div class="progress-bar">
+            <div
+              class="progress"
+              [style.width.%]="quizProgress"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="questionPanelRight">
+      <app-options-component
+        [options]="currentQuestion.options"
+        [correctAnswer]="currentQuestion.answer"
+        (answerSubmitted)="handleAnswerSubmitted($event)"
+        (nextQuestionEvent)="moveToNextQuestion()">
+      </app-options-component>
+    </div>
+  </div>
+
+  <div *ngIf="quizCompleted" class="quiz-completed">
+    <app-quiz-complete
+  [correctAnswersCount]="correctAnswersCount"
+  [totalQuestions]="totalQuestions"
+  [quizTitle]="quizTitle"
+  [quizIcon]="quizIcon">
+</app-quiz-complete>
+  </div>
+</div>
