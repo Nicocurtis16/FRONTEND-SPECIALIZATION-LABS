@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+body{
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-BG);
+
+}
+:root {
+
+  --primary-color: #7C5DFA;
+  --primary-color-light: #9277FF;
+  --secondary-color: #1E2139 ;
+  --secondary-color-light: #252945 ;
+  --grey: #DFE3FA;
+  --grey-color-dark: #888EB0;
+  --tertiary:#7E88C3;
+  --base-black:#0C0E16;
+  --error-color: #EC5757 ;
+  --error-color-light: #9277FF;
+  --light-BG:#F8F8FB;
+  --dark-BG:#141625;
+  --white: #FFFFFF;
+
+
+
+
+
+
+}
+
+:root {
+  /* Colors */
+  --primary: #7C5DFA;
+  --primary-light: #9277FF;
+  --secondary: #1E2139;
+  --status-tetx:#858BB2;
+
+  /* Backgrounds */
+  --bg-main: #F8F8FB;
+  --bg-dark: #141625;
+  --bg-card: #FFFFFF;
+  --bg-card-dark: #1E2139;
+  --base-black: #0C0E16;
+  --base-white: #ffff;
+  --bg-sidebar: #373B53;
+  --bg-sidebar-dark: #1E2139;
+
+  /* Text Colors */
+  --shape-plus:  #ffffff;
+
+
+  --card-client-color: #858BB2;
+  --card-amount-color: #0C0E16;
+  --card-down:#FFFFFF;
+  --card-down-top:#F9FAFE;
+  --card-down-down:#373B53;
+
+  --card-title-color: #0C0E16;
+  --text-primary: #0C0E16;
+  --text-filter:  #0C0E16;
+  --text-back:#0C0E16;
+ --text-secondary: #888EB0;
+  --text-tertiary: #7E88C3;
+  --text-gray-light: #F9FAFE;
+  --text-gray: #DFE3FA;
+  --text-invoice:#0C0E16;
+  --text-id:#0c0E16;
+  --text-title: #7E88C3;
+  --editBtn-color: #F9FAFE;
+  --editBtn-text: #7E88C3;
+
+  --deleteBtn-color: #EC5757;
+  --deleteBtn-text: #FFFFFF;
+
+  /* Status Colors */
+  --paid: #33D69F;
+  --pending: #FF8F00;
+  --draft: #373B53;
+  --button-primary: #FFFFFF;
+
+  /* Form Elements */
+  --form-bg: #FFFFFF;
+  --form-bg-dark: #141625;
+  --item-bg: #252945;
+
+  /* Error Colors */
+  --error: #EC5757;
+  --error-light: #FF9797;
+
+  /* Typography */
+  --font-family-primary: "League Spartan", sans-serif;
+  --h1-size: 2rem; /* 32px */
+  --h1-line-height: 2.25rem; /* 36px */
+  --h1-letter-spacing: -1px;
+  --h1-weight: 700;
+
+  --h2-size: 1.25rem; /* 20px */
+  --h2-line-height: 1.375rem; /* 22px */
+  --h2-letter-spacing: -0.63px;
+  --h2-weight: 700;
+
+  --h3-size: 1rem; /* 16px */
+  --h3-line-height: 1.5rem; /* 24px */
+  --h3-letter-spacing: -0.8px;
+  --h3-weight: 700;
+
+  --h3-sm-size: 0.75rem; /* 12px */
+  --h3-sm-line-height: 0.9375rem; /* 15px */
+  --h3-sm-letter-spacing: -0.25px;
+  --h3-sm-weight: 700;
+
+  --body1-size: 0.75rem; /* 12px */
+  --body1-line-height: 0.9375rem; /* 15px */
+  --body1-letter-spacing: -0.25px;
+  --body1-weight: 500;
+
+  --body2-size: 0.6875rem; /* 11px */
+  --body2-line-height: 1.125rem; /* 18px */
+  --body2-letter-spacing: -0.23px;
+  --body2-weight: 500;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 375px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-large: 1440px;
+
+  /* Spacings */
+  --spacing-0: 0rem; /* 0px */
+  --spacing-1: 0.25rem; /* 4px */
+  --spacing-2: 0.5rem; /* 8px */
+  --spacing-3: 0.75rem; /* 12px */
+  --spacing-4: 1rem; /* 16px */
+  --spacing-5: 1.5rem; /* 24px */
+  --spacing-6: 2rem; /* 32px */
+  --spacing-7: 2.5rem; /* 40px */
+  --spacing-8: 3rem; /* 48px */
+
+  /* Shadows */
+  --shadow-sm: 0px 10px 20px rgba(72, 84, 159, 0.1);
+  --shadow-md: 0px 15px 25px rgba(72, 84, 159, 0.15);
+  --shadow-lg: 0px 20px 30px rgba(72, 84, 159, 0.2);
+  --shadow-xl: 0px 25px 35px rgba(72, 84, 159, 0.25);
+
+  /* Border Radius */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 20px;
+  --border-radius-full: 9999px;
+}
+
+/* Define your dark theme styles */
+.dark-theme {
+  --text-back:#ffffff;
+  --button-primary: #1E2139;
+  --status-tetx:#DFE3FA;
+  --card-down:#1E2139;
+  --card-down-top:#252945;
+  --card-down-down:#0C0E16;
+  --text-id:#ffffff;
+  --text-title: #DFE3FA;
+  --editBtn-color: #252945;
+  --editBtn-text: #DFE3FA;
+
+  --deleteBtn-color: #EC5757;
+  --deleteBtn-text: #FFFFFF;
+
+
+
+
+
+
+
+  --card-title-color: #FFFFFF;
+  --light-BG:#141625;
+  --white: #FFFFFF;
+  --base-black:#0C0E16;
+  --primary-color: #7C5DFA;
+  --primary-color-light: #9277FF;
+  --secondary-color: #1E2139 ;
+  --secondary-color-light: #252945 ;
+  --grey: #DFE3FA;
+  --grey-color-dark: #888EB0;
+  --tertiary:#7E88C3;
+  --error-color: #EC5757 ;
+  --error-color-light: #9277FF;
+  --text-primary: #FFFFFF;
+  --bg-card: #1E2139;
+  --card-client-color: #FFFFFF;
+  --card-amount-color: #FFFFFF;
+  --text-filter:  #ffffff;
+  --text-invoice:#FFFFFF;
+
+  --shape-plus:  #ffffff;
+
+
+
+
+
+
+
+
+
+}
+
+/* Apply the variables to your components */
+/*.layoutPanel {*/
+/*  background-color: var(--background-color);*/
+/*  color: var(--text-color);*/
+/*}*/
+@font-face {
+  font-family: 'League Spartan', sans-serif;
+  src: url('/assets/fonts/LeagueSpartan-Bold.ttf');
+}
+@font-face {
+  font-family: 'League Spartan', sans-serif;
+  src: url('/assets/fonts/LeagueSpartan-Medium.ttf');
+}

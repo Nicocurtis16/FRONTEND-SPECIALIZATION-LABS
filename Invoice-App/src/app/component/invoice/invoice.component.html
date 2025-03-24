@@ -1,0 +1,108 @@
+<!-- invoice.component.html -->
+<div class="invoicePanel">
+  <div class="invoiceHeader">
+
+    <app-invoice-header
+    [invoiceCount]="invoiceCount()"
+    (openNewInvoice)="triggerNewInvoice()"
+    (statusFilter)="onFilterChange($event)"
+  ></app-invoice-header>
+  </div>
+
+  <button *ngFor="let invoice of displayedInvoices()" class="invoiceCard" (click)="selectInvoice(invoice)">
+    <div class="invoiceId">
+      <app-head-line
+        [variant]="'h3'"
+        [text]="'#'"
+        [color]="'--tertiary'"
+      ></app-head-line>
+      <app-head-line
+        [variant]="'h3'"
+        [text]="invoice.id"
+        [color]="' --card-title-color'"
+      ></app-head-line>
+    </div>
+
+    <div class="invoicePaymentDue">
+      <app-text
+        [variant]="'body1'"
+        [text]="'Due ' + invoice.paymentDue"
+        [color]="'--grey-color-dark'"
+      ></app-text>
+    </div>
+
+    <div class="invoiceClientName">
+      <app-text
+        [variant]="'body1'"
+        [text]="invoice.clientName"
+        [color]="'--card-client-color'"
+      ></app-text>
+    </div>
+
+    <div class="invoicePrice">
+      <app-head-line
+        [variant]="'h3'"
+        [text]="getFormattedTotal(invoice.total)"
+        [color]="'--card-amount-color'"
+      ></app-head-line>
+    </div>
+
+
+
+
+    <div class="invoiceStatus">
+      <app-badge [status]="invoice.status"></app-badge>
+      <div class="invoiceStatusIcon">
+        <app-icon name="icon-arrow-right" alt="Arrow pointing right"></app-icon>
+      </div>
+    </div>
+  </button>
+  <button *ngFor="let invoice of invoices()" class="invoiceCardMobile" (click)="selectInvoice(invoice)">
+    <div class="cardTop">
+      <div class="invoiceId">
+        <app-head-line
+          [variant]="'h3'"
+          [text]="'#' + invoice.id"
+          [color]="'--base-black'"
+        ></app-head-line>
+      </div>
+      <div class="invoiceClientName">
+        <app-text
+          [variant]="'body1'"
+          [text]="invoice.clientName"
+          [color]="'--tertiary'"
+        ></app-text>
+      </div>
+    </div>
+    <div class="cardDown">
+      <div class="cardLeft">
+        <div class="invoicePaymentDue">
+          <app-text
+            [variant]="'body1'"
+            [text]="'Due ' + invoice.paymentDue"
+            [color]="'--grey-color-dark'"
+          ></app-text>
+
+        </div>
+        <div class="invoicePrice">
+          <app-head-line
+            [variant]="'h3'"
+            [color]="'--secondary-color'"
+          >
+<!--            {{invoice.total | currency : 'USD'}}-->
+          </app-head-line>
+
+        </div>
+      </div>
+      <div class="invoiceStatus">
+        <app-badge [status]="invoice.status"></app-badge>
+      </div>
+    </div>
+
+  </button>
+
+  <!-- Show message if no invoices match filter -->
+  <div *ngIf="displayedInvoices().length === 0" class="no-invoices">
+    <app-no-invoice></app-no-invoice>
+  </div>
+</div>

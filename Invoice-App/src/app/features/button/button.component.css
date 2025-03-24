@@ -1,0 +1,276 @@
+@media (max-width: 600px) {
+
+
+  .button {
+    font-family: 'League Spartan', sans-serif;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+
+    &.new-invoice {
+      width: 90px;
+      height: 44px;
+      background-color: var(--primary-color);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:hover {
+        background-color:var(--primary-color-light);
+      }
+    }
+
+    .button-icon {
+      width: 10px;
+      height: 10px;
+    }
+
+    .buttonIconPanel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 32px;
+      width: 32px;
+      background-color: var(  --shape-plus);
+      border-radius: 50%;
+    }
+
+    &.delete {
+      background-color: var(--error-color);
+      color: var(--light-BG);
+      height: 48px;
+      width: 89px;
+
+      &:hover {
+        background-color:#FF9797;
+      }
+    }
+
+    &.edit {
+      height: 48px;
+      width: 73px;
+      background-color: #F9FAFE;
+      color: var(--tertiary);
+
+      &:hover {
+        background-color: #DFE3FA;
+      }
+    }
+
+    &.marked-as-paid {
+      width: 131px;
+      height: 48px;
+      background-color: var(--primary-color);
+      color: white;
+
+      &:hover {
+        background-color: var(--primary-color-light);
+      }
+    }
+
+    &.save-as-draft {
+      height: 48px ;
+      width: 133px;
+      background-color: #373B53;
+      color: #888EB0;
+
+      &:hover {
+        background-color: #0C0E16;
+        color: #888EB0;
+      }
+    }
+
+    &.add-new-item {
+      width: 504px;
+      height: 48px;
+      background-color: #F9FAFE;
+      color: #7E88C3;
+
+      &:hover {
+        background-color: #DFE3FA;
+        color: #7E88C3;
+      }
+    }
+    &.cancel {
+      width: 91px;
+      height: 48px;
+      background-color: #F9FAFE;
+      color: #7E88C3;
+
+      &:hover {
+        background-color: #DFE3FA;
+        color: #7E88C3;
+      }
+    }
+  }
+}
+@media (min-width: 600px) and (max-width: 960px) {
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &.new-invoice {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    &.delete {
+      background-color: #f44336;
+      color: white;
+    }
+
+    &.edit {
+      background-color: #2196F3;
+      color: white;
+    }
+
+    &.marked-as-paid {
+      background-color: #FFC107;
+      color: white;
+    }
+
+    &.save-as-draft {
+      background-color: #9E9E9E;
+      color: white;
+    }
+
+    &.add-new-item {
+      background-color: #3F51B5;
+      color: white;
+    }
+    }
+}
+
+@media (min-width: 960px) {
+  .button {
+    font-family: 'League Spartan', sans-serif;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 700;
+
+    &.new-invoice {
+      width: 150px;
+      height: 48px;
+      background-color: var(--primary-color);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:hover {
+        background-color:var(--primary-color-light);
+      }
+    }
+
+    .button-icon {
+      width: 10px;
+      height: 10px;
+    }
+
+    .buttonIconPanel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 32px;
+      width: 32px;
+      background-color: var(  --shape-plus
+    );
+      border-radius: 50%;
+    }
+
+    &.delete {
+      background-color: var(--deleteBtn-color);
+      color: var(--deleteBtn-text);
+      height: 48px;
+      width: 89px;
+
+      &:hover {
+        background-color:#FF9797;
+      }
+    }
+
+    &.edit {
+      height: 48px;
+      width: 73px;
+      background-color: var(--editBtn-color);
+      color: var(--editBtn-text);
+
+      &:hover {
+        background-color: #DFE3FA;
+      }
+    }
+
+    &.marked-as-paid {
+      width: 131px;
+      height: 48px;
+      background-color: var(--primary-color);
+      color: white;
+
+      &:hover {
+        background-color: var(--primary-color-light);
+      }
+      &:disabled {
+        background-color: var(--primary-color-light);
+        color: white;
+        cursor: not-allowed; /* Change cursor to show it's not clickable */
+        opacity: 0.6; /* Slightly transparent */
+      }
+    }
+    &.save-changes {
+      width: 138px;
+      height: 48px;
+      background-color: var(--primary-color);
+      color: white;
+
+      &:hover {
+        background-color: var(--primary-color-light);
+      }
+    }
+
+    &.save-as-draft {
+      height: 48px ;
+      width: 133px;
+      background-color: #373B53;
+      color: #888EB0;
+
+      &:hover {
+        background-color: #0C0E16;
+        color: #888EB0;
+      }
+    }
+
+    &.add-new-item {
+      width: 504px;
+      height: 48px;
+      border-radius: 24px;
+      background-color: #F9FAFE;
+      color: #7E88C3;
+
+      &:hover {
+        background-color: #DFE3FA;
+        color: #7E88C3;
+      }
+    }
+    &.cancel {
+      width: 91px;
+      height: 48px;
+      background-color: #F9FAFE;
+      color: #7E88C3;
+
+      &:hover {
+        background-color: #DFE3FA;
+        color: #7E88C3;
+      }
+    }
+
+  }
+}

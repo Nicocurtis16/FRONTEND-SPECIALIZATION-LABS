@@ -1,0 +1,22 @@
+<div class="invoiceHeader">
+  <div class="invoiceHeaderLeft">
+    <div class="invoiceTitle">
+      <app-head-line [variant]="'h1'" [text]="'Invoices'" [color]="'--text-primary'" class="desktop"></app-head-line>
+      <app-head-line [variant]="'h3'" [text]="'Invoices'" [color]="'--text-primary'" class="mobile"></app-head-line>
+    </div>
+    <div class="invoiceCount">
+      <app-data-length></app-data-length>
+    </div>
+  </div>
+  <div class="invoiceHeaderRight">
+    <div class="invoiceFilter">
+      <app-filter (filterChange)="onFilterChange($event)"></app-filter>
+    </div>
+    <div class="newInvoice">
+      <app-button variant="new-invoice" class="desk" (onClick)="newInvoice()" >New Invoice </app-button>
+      <app-button variant="new-invoice" class="mob" (onClick)="newInvoice()">New </app-button>
+
+    </div>
+  </div>
+
+</div>

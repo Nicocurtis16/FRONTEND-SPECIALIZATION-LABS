@@ -1,0 +1,35 @@
+<div class="date-picker">
+  <div
+    class="date-picker-input"
+    [class.active]="isDatePickerOpen"
+    (click)="toggleDatePicker()"
+  >
+    <input
+      id="issueDate"
+      type="text"
+      [value]="selectedDate | date: 'dd MMM yyyy'"
+      readonly
+    />
+    <img src="assets/images/icon-calendar.svg">
+  </div>
+
+  <div class="date-picker-popup" *ngIf="isDatePickerOpen">
+    <div class="date-picker-header">
+      <button (click)="previousMonth()"><img src="assets/images/icon-arrow-left.svg"></button>
+
+      <span>{{ currentMonth | date: 'MMM yyyy' }}</span>
+      <button (click)="nextMonth()"><img src="assets/images/icon-arrow-right.svg"></button>
+    </div>
+    <div class="date-picker-grid">
+      <button
+        *ngFor="let date of calendarDates"
+        [class.selected]="isSelectedDate(date)"
+        [class.disabled]="isDisabled(date)"
+        (click)="selectDate(date)"
+      >
+        {{ date | date: 'd' }}
+      </button>
+    </div>
+  </div>
+</div>
+

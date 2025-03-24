@@ -1,0 +1,20 @@
+<div class="layoutPanel">
+  <div class="layoutLeftPanel">
+    <app-sidebar></app-sidebar>
+  </div>
+
+  <div class="layoutContent">
+    <router-outlet></router-outlet>
+
+    <!-- Side Drawer -->
+    <div class="sideDrawer" *ngIf="isDrawerOpen">
+      <ng-container [ngSwitch]="activeDrawer">
+        <app-new-invoice *ngSwitchCase="'newInvoice'"></app-new-invoice>
+        <app-form *ngSwitchCase="'editInvoice'"></app-form>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="side-drawer-overlay" *ngIf="isDrawerOpen" (click)="closeDrawer()"></div>
+</div>

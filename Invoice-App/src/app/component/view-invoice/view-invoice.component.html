@@ -1,0 +1,123 @@
+<!-- view-invoice.component.html -->
+<div class="viewInvoicePanel" *ngIf="invoice()">
+  <div class="viewInvoiceTop">
+    <div class="viewInvoiceBtn">
+      <button (click)="goBack()">
+        <img src="assets/images/icon-arrow-left.svg" alt="Back">
+        <app-head-line [variant]="'h4'" [text]="'Go back'" [color]="'--text-back'"></app-head-line>
+      </button>
+    </div>
+
+
+    <div class="ViewInvoiceControl">
+      <div class="viewInvoiceControlLeft">
+        <app-text [variant]="'body1'" [color]="'--status-tetx'" [text]="'Status'"></app-text>
+        <app-badge [status]="invoice().status"></app-badge>
+      </div>
+      <div class="viewInvoiceControlRight">
+        <!-- Using the ButtonComponent with onClick event binding -->
+        <app-button [variant]="'edit'" (onClick)="handleEdit()">Edit</app-button>
+        <app-button [variant]="'delete'" (onClick)="handleDelete()">Delete</app-button>
+        <app-button [variant]="'marked-as-paid'" (onClick)="handleMarkedAsPaid()" [disabled]="invoice().status === 'draft'">Mark as Paid</app-button>
+      </div>
+
+    </div>
+  </div>
+  <app-delete-invoice
+    *ngIf="isDeleteVisible"
+    (confirmDelete)="closeDeleteModal()"
+    (cancelDelete)="closeDeleteModal()">
+  </app-delete-invoice>
+
+  <div class="viewInvoiceDown">
+    <div class="idLocation">
+      <div class="id">
+        <div class="idTitle">
+          <app-head-line [variant]="'h3'" [text]="'#'"[color]="'--tertiary'"></app-head-line>
+          <app-head-line [variant]="'h3'" [text]="invoice().id" [color]="'  --text-id'"></app-head-line>
+
+        </div>
+
+        <app-text [variant]="'body1'" [text]="invoice().description" [color]="' --text-title'"></app-text>
+      </div>
+      <div class="location">
+        <app-text
+          [variant]="'body2'"
+          [alignment]="'right'"
+          [color]="' --text-title'"
+          [lines]="[invoice().senderAddress.street, invoice().senderAddress.city, invoice().senderAddress.postCode,invoice().senderAddress.country]"
+        ></app-text>      </div>
+    </div>
+
+    <div class="midInfo">
+      <div class="firstInfo">
+        <div class="invoiceDate">
+          <app-text [variant]="'body1'" [text]="'Invoice Date'" [color]="' --text-title'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().createdAt" [color]="' --text-id'"></app-head-line>
+        </div>
+        <div class="paymentDue">
+          <app-text [variant]="'body1'" [text]="'Payment Due'" [color]="' --text-title'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().paymentDue" [color]="' --text-id'"></app-head-line>
+        </div>
+      </div>
+      <div class="secInfo">
+        <div class="billTo">
+          <app-text [variant]="'body1'" [text]="'Bill To'" [color]="' --text-title'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().clientName" [color]="' --text-id'"></app-head-line>
+        </div>
+        <div class="Reciverlocation">
+          <app-text
+            [variant]="'body2'"
+            [alignment]="'left'"
+            [color]="' --text-title'"
+            [lines]="[invoice().clientAddress.street, invoice().clientAddress.city, invoice().clientAddress.postCode,invoice().senderAddress.country]"
+          ></app-text>      </div>
+      </div>
+      <div class="thirdInfo">
+        <div class="sentTo">
+          <app-text [variant]="'body1'" [text]="'Sent To'" [color]="' --text-title'" [alignment]="'left'"></app-text>
+          <app-head-line [variant]="'h3'" [text]="invoice().clientEmail" [color]="' --text-id'"></app-head-line>
+        </div>
+      </div>
+    </div>
+
+    <div class="accountDetails" >
+      <div class="accountDetailsLeft">
+        <div  class="accountInfo">
+          <div class="itemsName"  >
+            <app-text [variant]="'body2'" [text]="'Item Name'" [color]="' --text-title'"></app-text>
+
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.name" [color]="' --text-id'"></app-head-line>
+          </div>
+          <div class="itemsQuant">
+            <app-text [variant]="'body2'" [text]="'QTY.'" [color]="' --text-title'"></app-text>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="item.quantity.toString()" [color]="' --text-title'"></app-head-line>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="accountDetailsRight">
+        <div  class="accountDetailsTitle">
+          <div>
+            <app-text [variant]="'body2'" [text]="'Price'"  [color]="' --text-title'"           [alignment]="'right'"
+            ></app-text>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.price" [color]="' --text-title'"></app-head-line>
+
+          </div>
+          <div>
+            <app-text [variant]="'body2'" [text]="'Total'" [color]="' --text-title'"           [alignment]="'right'"
+            ></app-text>
+            <app-head-line  *ngFor="let item of invoice().items" [variant]="'h4'" [text]="'£' + item.total" [color]="' --text-id'" ></app-head-line>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accountDetailsDown">
+      <app-text [variant]="'body1'" [color]="'--white'" [text]="'Amount Due'" [alignment]="'left'" class="amountTitle"></app-text>
+      <app-head-line [variant]="'h1'" [text]="'£' + invoice().total" [color]="'--white'" class="amount"></app-head-line>
+    </div>
+  </div>
+</div>
